@@ -47,9 +47,9 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	}
 	```
 
-3. What will main print in lines 10, 12, and 14?
+3. What will be printed when this code is executed?
 
-	``` c lineNumber
+	``` c
 	void add_num(int x, int y)
 	{
 		x = x + y;
@@ -78,8 +78,8 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	{
 		int max;
 	
-		printf("Enter maximum number to go to: ");
-		scanf(____, _____);
+		printf("Enter the maximum number to go to: ");
+		scanf(_____, _____);
 
 		int size = (max + 1) / 2;
 		int odd = 1;
@@ -87,13 +87,13 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 
 		for (int i = 0; i < _____; i++)
 		{
-			odd_numbers[___] = odd;
-			odd = odd + ____;
+			odd_numbers[_____] = odd;
+			odd = odd + _____;
 		}
 
 		for (int i = 0; _____; _____)
 		{
-			printf("%d\n", odd_numbers[___]);
+			printf("%d\n", odd_numbers[_____]);
 		}
 
 		return 0;
@@ -110,18 +110,18 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 
 	void init_square_array(double *initial, double *final, int count)
 	{
-		for (int i = 0; i < ______; _____)
+		for (int i = 0; i < _____; _____)
 		{
-			final[__] = square(____________);
+			final[_____] = square(_____);
 		}
 	}
 
 	void print_array(double *array, int count)
 	{
 		printf("These are the values of the array!\n");
-		for (int i = ___; i < ______; i++)
+		for (int i = _____; i < _____; i++)
 		{
-			printf(_____, array[___]);
+			printf(_____, array[_____]);
 		}
 	}
 

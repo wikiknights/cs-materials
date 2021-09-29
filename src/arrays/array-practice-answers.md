@@ -4,6 +4,8 @@ geometry: margin=1in
 
 # Loops and Arrays (Solutions)
 
+*Originally created by Jerrett Longworth and Idel Martinez in Spring 2021.*
+
 ## General Practice
 
 Before getting into the fun with arrays, here are some basic problems to keep you brushed up on previous concepts.
@@ -51,9 +53,9 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 
 \newpage
 
-3. What will main print in lines 10, 12, and 14?
+3. What will be printed when this code is executed?
 
-	``` c lineNumber
+	``` c
 	void add_num(int x, int y)
 	{
 		x = x + y;
@@ -73,7 +75,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	}
 	```
 
-	**Answer**: The out of the program will be as follows:
+	**Answer**: The output of the program will be as follows:
 
 	```
 	At first x was 10
@@ -81,7 +83,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	While x is now 10
 	```
 
-	Notice that we never change the value of `x` in main! We change a variable called `x` in `add_num`; it is a *completely different* variable that `main` knows nothing about.
+	Notice that we never change the value of `x` in `main()`! We change a variable called `x` in `add_num`; it is a *completely different* variable that `main()` knows nothing about.
 
 \newpage
 
@@ -96,7 +98,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	{
 		int max;
 	
-		printf("Enter maximum number to go to: ");
+		printf("Enter the maximum number to go to: ");
 		scanf("%d", &max);
 
 		int size = (max + 1) / 2;
@@ -215,7 +217,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 	}
 	```
 
-	**Answer**: `print_float_array` accepts a float array and a count, but line 18 is passing a float value, not an array. Also, since we iterate the for loop 4 times in `main`, in which we call a function that goes throes *another* loop 4 times, we would be doing twice the amount of work. To fix it, we would simplify the code in main to:
+	**Answer**: `print_float_array()` accepts a float array and a count, but line 18 is passing a float value, not an array. Also, since we iterate the for loop 4 times in `main()`, in which we call a function that goes throes *another* loop 4 times, we would be doing twice the amount of work. To fix it, we would simplify the code in `main()` to:
 
 	``` c
 	int main(void)
