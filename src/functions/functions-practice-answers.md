@@ -4,6 +4,8 @@ geometry: margin=1in
 
 # Functions (Solutions)
 
+*Originally created by Jerrett Longworth and Idel Martinez in Spring 2021.*
+
 ## Function Scope
 This is important to get right. Functions are the base of every program, and knowing what your variables are doing in them is crucial.
 

@@ -12,7 +12,7 @@ This is important to get right. Functions are the base of every program, and kno
 1. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
 
 	``` c lineNumber
-	_______ add_everything(____ num1, int num2)
+	_____ add_everything(_____ num1, int num2)
 	{
 		return num1 + num2;
 	}
@@ -21,7 +21,7 @@ This is important to get right. Functions are the base of every program, and kno
 	{
 		int x, y;
 
-		printf("%___\n", add_everything(10, 5));
+		printf("%_____\n", add_everything(10, 5));
 
 		x = 20;
 		y = 15;
