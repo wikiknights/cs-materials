@@ -1,3 +1,7 @@
+---
+geometry: margin=1in
+---
+
 *Originally created by Idel Martinez and Jerrett Longworth in Fall 2020.*
 
 Here is some additional practice using structs and binary I/O. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
@@ -80,25 +84,25 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 
 	typedef struct gradebook gradebook;
 
-	void calculate_student_avg(gradebook *class, __________)
+	void calculate_student_avg(gradebook *class, _____)
 	{
 		double sum = _____;
 	
-		for (int i = 0; i < ____; i++)
+		for (int i = 0; i < _____; i++)
 		{
-			for (int j = 0; j __ 10; j++)
+			for (int j = 0; j _____ 10; j++)
 			{
-				sum += class[i].grades[__];
+				sum += class[i].grades[_____];
 			}
-			class[i].avg = sum / ____;
+			class[i].avg = sum / _____;
 		}
 	}
 
-	void print_averages(_________________, _________________)
+	void print_averages(_____, _____)
 	{
-		for (int i = 0; ______; i++)
+		for (int i = 0; _____; i++)
 		{
-			printf("Average for ____ is %lf\n", _____________, ______[i].avg);
+			printf("Average for _____ is %lf\n", _____, _____[i].avg);
 		}
 	}
 
@@ -117,15 +121,15 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 		}
 
 		// Add student names
-		_________(cop3223[0].student, "Frances E. Allen");
-		_________(__________________, "Barbara Liskov");
-		_________________________________________________
+		_____(cop3223[0].student, "Frances E. Allen");
+		_____(__________________, "Barbara Liskov");
+		_____________________________________________
 		
 		// Find average
-		calculate_student_avg(_________, n);
+		calculate_student_avg(_____, n);
 
 		// Print average
-		print_averages(_________, ____);
+		print_averages(_____, _____);
 		
 		return 0;
 	}
