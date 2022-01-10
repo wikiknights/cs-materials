@@ -10,7 +10,9 @@
 
 [Assorted Practice](src/assorted)
 
-[Structs and Binary I/O Practice](src/structs-binary-io)
+[Structs Practice](src/structs)
+
+[Binary I/O Practice](src/binary-io)
 
 [Endianness](src/endianness)
 

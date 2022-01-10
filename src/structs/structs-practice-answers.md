@@ -1,9 +1,8 @@
+# Structs (Answers)
+
 *Originally created by Idel Martinez and Jerrett Longworth in Fall 2020.*
 
-Here is some additional practice using structs and binary I/O. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
-
-
-## Structs & Misc. Topics:
+Here is some additional practice using structs. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
 
 1. Given the following code, what would be printed in `main()`? Would it compile at all? Assume all necessary libraries are included.
 
@@ -52,7 +51,7 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 
 \newpage
 
-3. My hands are aching from writing code 24/7. I alone have been keeping the electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
+3. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
 
   **Answer:** After the `struct` declaration, add the following line:
 
@@ -131,7 +130,7 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 
 \newpage
 
-5. Fill in the blank to give students names, calculate their grade average, and print it out.
+5. Fill in the blanks to give students names, calculate their grade average, and print it out.
 
   **Answer:**
 
@@ -147,7 +146,7 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 
   void calculate_student_avg(gradebook *class, int n)
   {
-    int sum;
+    double sum;
 
     for (int i = 0; i < n; i++)
     {
@@ -156,7 +155,7 @@ Here is some additional practice using structs and binary I/O. Some of these mig
       {
         sum += class[i].grades[j];
       }
-      class[i].avg = sum / 10.0;
+      class[i].avg = sum / 10;
     }
   }
 
@@ -199,7 +198,7 @@ Here is some additional practice using structs and binary I/O. Some of these mig
 
 \newpage
 
-6. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this? (*Hint:* This could be another tricky one. Again, check out Tuesday's review video for some details.)
+6. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
 
   **Answer:**
 
@@ -283,45 +282,3 @@ Here is some additional practice using structs and binary I/O. Some of these mig
     return 0;
   }
   ```
-
-\newpage
-
-## Binary, Binary, Binary:
-Assume big-endian notation.
-
-7. Let's start this off simple. Suppose that an `int` created in C is 4 bytes (32 bits) in size. How would the integer `2` be stored in binary in memory?
-
-  **Answer:** `00000000 00000000 00000000 00000010`
-
-\newpage
-
-8. Given the previous answer, if a hypothetical program was written to write the integer `2` *in binary* to a file, what data would be in the file? Write your answer *in binary*.
-
-  **Answer:** `00000000 00000000 00000000 00000010`
-
-\newpage
-
-9. Given the following program, what would `output.bin` contain after execution? Again, write your answer *in binary*. Assume all necessary libraries are included and all files are opened/closed properly.
-
-  ``` c
-  struct cool_struct
-  {
-    int x;
-  };
-
-  int main(void)
-  {
-    struct cool_struct basically_just_an_int;
-    FILE *ofp = fopen("output.bin", "wb");
-
-    basically_just_an_int.x = 2;
-
-    fwrite(&basically_just_an_int, sizeof(struct cool_struct), 1, ofp);
-
-    fclose(ofp);
-
-    return 0;
-  }
-  ```
-
-  **Answer:** `00000000 00000000 00000000 00000010`
