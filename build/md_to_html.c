@@ -18,7 +18,7 @@ void converter(char *filename)
   system(buffer);
 
   // Convert markdown to pdf
-  sprintf(buffer, "pandoc tmp.md -o %s.pdf --highlight-style tango", filename);
+  sprintf(buffer, "pandoc tmp.md -o %s.pdf --highlight-style tango --metadata=geometry:margin=1in", filename);
   system(buffer);
 
   // Fix CSS
