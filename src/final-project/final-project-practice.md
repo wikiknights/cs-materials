@@ -15,13 +15,13 @@ Create a program that asks to input their grocery list, record all of the user's
 
 1. Prompt for, and accept, an operation number described below and return to step 1 (unless otherwise stated):
 
-	| operation   | description                                                                  |
-	|:------------|:-----------------------------------------------------------------------------|
-	| new         | enter new item, go to step 2                                                 |
-	| c           | clear                                                                        |
-	| total       | print list of items                                                          |
-	| last        | print the previous entered item and amount, and prompt to enter 'last' again |
-	| q           | quit program                                                                 |
+  | operation   | description                                                                  |
+  |:------------|:-----------------------------------------------------------------------------|
+  | new         | enter new item, go to step 2                                                 |
+  | c           | clear                                                                        |
+  | total       | print list of items                                                          |
+  | last        | print the previous entered item and amount, and prompt to enter 'last' again |
+  | q           | quit program                                                                 |
 
 2. Prompt for, and accept the item to be added to the list. Can **c**lear to go to step 1 or **q**uit to exit the program.
 
