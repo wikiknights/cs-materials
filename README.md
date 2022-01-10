@@ -2,9 +2,11 @@
 
 ## Table of Contents
 
+[Introduction to Variables](src/variables/variables-intro.md)
+
 [Loops and Arrays Practice](src/arrays)
 
-[Creating and Using Functions - An Overview](src/variables-functions-intro)
+[Creating and Using Functions - An Overview](src/functions/functions-intro.md)
 
 [Functions Practice](src/functions)
 
