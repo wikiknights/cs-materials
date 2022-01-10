@@ -7,7 +7,7 @@ if ! command -v pandoc &> /dev/null; then
 	exit -2
 fi
 
-# Check if pandoc exists
+# Check if python exists
 if ! command -v python &> /dev/null; then
 	echo "Python is not installed. Please install it and try again."
 	exit -3
