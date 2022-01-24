@@ -2,25 +2,31 @@
 
 ## Table of Contents
 
-[Introduction to Variables](src/variables/variables-intro.md)
+### Intro to C Programming
 
-[Loops and Arrays Practice](src/arrays)
+[Introduction to Variables](src/intro-to-c/variables/variables-intro.md)
 
-[Creating and Using Functions - An Overview](src/functions/functions-intro.md)
+[Loops and Arrays Practice](src/intro-to-c/arrays)
 
-[Functions Practice](src/functions)
+[Creating and Using Functions - An Overview](src/intro-to-c/functions/functions-intro.md)
 
-[Assorted Practice](src/assorted)
+[Functions Practice](src/intro-to-c/functions)
 
-[Structs Practice](src/structs)
+[Assorted Practice](src/intro-to-c/assorted)
 
-[Binary I/O Practice](src/binary-io)
+[Structs Practice](src/intro-to-c/structs)
 
-[Endianness](src/endianness)
+[Binary I/O Practice](src/intro-to-c/binary-io)
 
-[Dynamic Memory Allocation Practice](src/dma)
+[Endianness](src/intro-to-c/endianness)
 
-[Final Project Practice](src/final-project)
+[Dynamic Memory Allocation Practice](src/intro-to-c/dma)
+
+[Final Project Practice](src/intro-to-c/final-project)
+
+### Computer Science 1
+
+[Bubble Sort and Selection Sort Exercices](src/cs1/sorting/SortingQuiz.md)
 
 ## Documentation
 
