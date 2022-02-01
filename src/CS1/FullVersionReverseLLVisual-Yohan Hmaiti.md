@@ -1,10 +1,6 @@
 ﻿![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.001.jpeg)
 
-**general purpose of reversing a LL![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.002.png)**
-
-Text
-
-Assign left=root (A) and right=root.next (B)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.003.jpeg)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.004.png)
+**Assign left=root (A) and right=root.next (B)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.003.jpeg)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.004.png)
 
 **Assign temp=right->next; (C)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.005.jpeg)**
 
