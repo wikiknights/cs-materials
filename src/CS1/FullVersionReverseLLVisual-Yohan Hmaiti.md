@@ -1,6 +1,6 @@
 ﻿![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.001.jpeg)
 
-![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.003.jpeg)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.004.png)
+![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.003.jpeg)![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.004.png)**
 
 ![](Aspose.Words.6261d37f-92c5-4d14-9cba-7e62a7f2b870.005.jpeg)**
 
