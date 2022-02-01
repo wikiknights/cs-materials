@@ -4,6 +4,8 @@
 
 ### Intro to C Programming
 
+[Writing Your First C Program](src/intro-to-c/hello-world/hello-world.md)
+
 [Introduction to Variables](src/intro-to-c/variables/variables-intro.md)
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
