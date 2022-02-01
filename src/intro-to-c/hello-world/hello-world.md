@@ -37,11 +37,11 @@ This line indicates that we would like to gain access to a *library* called "std
 
 There's a lot to unpack on this line! This is called a *function declaration*, which will be explained much more thoroughly later.
 
-I will start with the word `main`, which indicates that this is a piece of code (a function) that begins the C program. (There are always going to be exceptions to this, but pretend that every program will always start with `main()`).
+I will start with the word `main`, which indicates that this is a piece of code (a function) that begins the C program. (There are always going to be exceptions to this, but pretend that every program will always start with `main()`.)
 
-The words written in the parentheses indicates the input to this function, but in this case `main()` will not have any input, so `void` is written there. That isn't to say that this *entire program* won't have any input, but from a technical sense `main()` does not need to take in input.
+The text between the parentheses indicates the input to this function, but in this case `main()` will not have any input, so `void` is written there instead. That isn't to say that this *entire program* won't have any input (i.e. typing with your keyboard), but from a technical sense `main()` does not need to take in input.
 
-Finally, the `int` at the beginning of this line states that `main()` will, once finished, return an **int**eger to whoever ran the program. (Spoiler: You can see what exactly is returned at the end of the program! 0!)
+Finally, the `int` at the beginning of this line states that `main()` will, once finished, return an **int**eger to whoever ran your program. (Spoiler: You can see what exactly is returned at the end of the program in the code! 0!)
 
 ## `{`
 
@@ -49,7 +49,7 @@ Curly braces group lines of code together into sections that can be managed as a
 
 ## `printf("Hello, world!\n");`
 
-This line calls the `printf()` function, which will **print f**ormatted text to the screen. There's no formatting (yet), but there is some text provided. The exact structure of `printf()` is for another time, but anything within the quotation marks will be shown on screen.
+This line calls the `printf()` function, which will **print f**ormatted text to the screen. There's no formatting (yet), but there is some text. The exact structure of `printf()` is for another time, but anything within the quotation marks will be shown on screen.
 
 But wait! What's that `\n` at the end? This is called a *newline character*, and states to print... a new line! Just like you would press "enter" at the end of a paragraph, new lines simulate that key press in programming.
 
@@ -68,9 +68,9 @@ Notice as well, there is a semicolon (`;`) at the end of every executable statem
 
 ## `return 0;`
 
-At the end of every program, your computer (or more specifically your operating system) needs to know how your program went. Did it run successfully? Did it fail part of the way through? `main()` can **return** an **int**eger value to indicate how the program ended. Returning the integer 0 indicates that everything was successful. (You will see later how other functions can return other values and datatypes.)
+At the end of every program, your computer (or more specifically your operating system) needs to know how your program went. Did it run successfully? Did it fail part of the way through? `main()` can **return** an integer value to indicate how the program ended. Returning the integer 0 indicates that everything was successful. (You will see later how other functions can return other values and datatypes.)
 
-While the exact effect of these "return codes" are not seen too often by you in modern programs, deep down somewhere, if they finish, they too will return something, in whatever programming language and framework they were written in.
+While the exact effect of these "return codes" are not seen too often by you in modern programs, deep down somewhere, if they finish, they too will return something, no matter what programming language or framework they were written in.
 
 ## `}`
 
@@ -78,4 +78,4 @@ At the very end, you need to make sure to have a matching closing curly brace fo
 
 ---
 
-Now your program is done! Congratulations!
+You have finished creating your first C program! Congratulations!
