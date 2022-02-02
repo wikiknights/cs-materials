@@ -59,6 +59,7 @@ If you wish to get user input and hold it to a variable or display the variable 
 - **string:** %s
 
 
-## Useful links (to check the value range or another specifier):
+## Useful links
+To check the value range or another specifier:
 - [Tutorials Point - C Data Types](https://www.tutorialspoint.com/cprogramming/c_data_types.htm)
 - [Tutorials Point - Format Specifiers in C](https://www.tutorialspoint.com/format-specifiers-in-c)
