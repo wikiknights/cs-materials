@@ -1,10 +1,10 @@
 # Data types
 
-We store information in RAM through variables and there are certain datatypes that are used for this.
+We store information in RAM through variables and there are certain data types that are used for this.
 
-## Datatypes you should know
+## Data types you should know
 
-You do need to know off the top of your head how many bytes each datatype holds, this is just for informational purposes. Focus on knowing when to use each datatype and what each of them stores.
+You do need to know off the top of your head how many bytes each data type holds, this is just for informational purposes. Focus on knowing when to use each data type and what each of them stores.
 
 - **int:** stores integers (2 or 4 byte)
     ```c
@@ -43,7 +43,7 @@ You do need to know off the top of your head how many bytes each datatype holds,
     ```
 
 ## Format Specifiers
-If you wish to get user input and hold it to a variable or display the variable to the string, you will need to use a format specifier. Each datatype has its own format specifier except for void.
+If you wish to get user input and hold it to a variable or display the variable to the string, you will need to use a format specifier. Each data type has its own format specifier except for void.
 
 - **int:** %d
 - **float:** %f

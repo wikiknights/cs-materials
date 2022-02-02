@@ -6,7 +6,7 @@
 
 [Introduction to Variables](src/intro-to-c/variables/variables-intro.md)
 
-[Datatypes](src/intro-to-c/datatypes/datatypes-intro.md)
+[Data types](src/intro-to-c/datatypes/datatypes-intro.md)
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
