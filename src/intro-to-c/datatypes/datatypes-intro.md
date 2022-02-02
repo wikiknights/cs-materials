@@ -1,7 +1,3 @@
----
-geometry: margin=1in
----
-
 # Data types
 
 We store information in RAM through variables and there are certain datatypes that are used for this.
@@ -36,7 +32,7 @@ You do need to know off the top of your head how many bytes each datatype holds,
     ```
 - **string:** an array of char's that allows you to form words
     ```c
-    char[] g = 'hello'
+    char[] g = "hello"
     ```
 - **void:** stores no value (useful for functions)
     ```c
