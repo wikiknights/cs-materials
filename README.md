@@ -31,6 +31,7 @@
 ### Computer Science 1
 
 [Bubble Sort and Selection Sort Exercices](src/cs1/sorting/SortingQuiz.md)
+
 [Linked Lists](CS-Materials/src/cs1/linked-lists)
 
 ## Documentation
