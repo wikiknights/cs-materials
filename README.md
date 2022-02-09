@@ -8,6 +8,8 @@
 
 [Introduction to Variables](src/intro-to-c/variables/variables-intro.md)
 
+[Variables Practice](src/intro-to-c/variables/variables-practice.md) ([Answers](src/intro-to-c/variables/variables-practice-answers.md))
+
 [Data types](src/intro-to-c/datatypes/datatypes-intro.md)
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
