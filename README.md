@@ -32,6 +32,8 @@
 
 [Bubble Sort and Selection Sort Exercices](src/cs1/sorting/SortingQuiz.md)
 
+[How to Reverse a Linked List Process](src/cs1/linked-lists/reverse-linked-list.md)
+
 ## Documentation
 
 All documentation is found in this repository's [wiki page](https://github.com/Wiki-Knights/CS-Materials/wiki/Table-of-Contents).
