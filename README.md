@@ -14,6 +14,8 @@
 
 [Preprocessor Directives](src/intro-to-c/preprocessor-directives/preprocessor-directives.md)
 
+[Printing](src/intro-to-c/printing/printing.md)
+
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
 [Creating and Using Functions - An Overview](src/intro-to-c/functions/functions-intro.md)
