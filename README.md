@@ -12,6 +12,8 @@
 
 [Data types](src/intro-to-c/datatypes/datatypes-intro.md)
 
+[Preprocessor Directives](src/intro-to-c/preprocessor-directives/preprocessor-directives.md)
+
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
 [Creating and Using Functions - An Overview](src/intro-to-c/functions/functions-intro.md)
