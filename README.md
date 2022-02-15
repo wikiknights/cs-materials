@@ -12,6 +12,8 @@
 
 [Data types](src/intro-to-c/datatypes/datatypes-intro.md)
 
+[Preprocessor Directives](src/intro-to-c/preprocessor-directives/preprocessor-directives.md)
+
 [Printing](src/intro-to-c/printing/printing.md)
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
