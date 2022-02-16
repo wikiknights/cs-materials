@@ -16,6 +16,8 @@
 
 [Printing](src/intro-to-c/printing/printing.md)
 
+[Conditionals Practice](src/intro-to-c/conditionals/conditionals-practice.md)
+
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
 [Pre written Functions](src/intro-to-c/pre-written-functions/pre-written-functions.md)
