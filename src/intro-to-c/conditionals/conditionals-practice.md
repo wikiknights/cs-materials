@@ -29,10 +29,40 @@ int main(void)
 }
 ```
 
-<!-- Solution: statement 2 -->
-
 
 2. Given the following program, what will be the output?
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+  int x = 13;
+  int y = 6;
+  int z = 15;
+
+  if (x < z)
+  {
+    printf("This is statement #1!\n");
+  }
+  else if (x > y)
+  {
+    printf("This is statement #2!\n");
+  }
+  else
+  {
+    printf("This is statement #3!\n");
+  }
+
+  return 0;
+}
+```
+
+
+3. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
+
+
+4. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -55,10 +85,33 @@ int main(void)
 }
 ```
 
-<!-- Solution: statement 1 -->
+
+5. Given the following program, what will be the output?
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+  int x = 19;
+  int y = 100;
+  int z = 2;
+
+  if (y > z || y < x)
+  {
+    printf("This is statement #1!\n");
+  }
+  else
+  {
+    printf("This is statement #2!\n");
+  }
+
+  return 0;
+}
+```
 
 
-3. Given the following program, what will be the output?
+6. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -86,10 +139,14 @@ int main(void)
 }
 ```
 
-<!-- Solution: statement 2 -->
+---
+
+## Challenge problems
+
+In some curricula, conditions are covered before functions, so these following questions are considered "challenge problems." If you have already studied functions, these additional problems are excellent exercises to get more familiar with both conditionals and functions.
 
 
-4. Given the following program, what will be the output?
+7. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -125,10 +182,8 @@ int main(void)
 }
 ```
 
-<!-- Solution: statement 1 -->
 
-
-5. Given the following program, what will be the output?
+8. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -168,10 +223,8 @@ int main(void)
 }
 ```
 
-<!-- Solution: statement 3 -->
 
-
-6. Given the following program, what will be the output?
+9. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -198,7 +251,7 @@ int main(void)
   int y = 111;
   int z = 1520;
 
-  if (z > y && funny_function(z) > 65)
+  if (z > y && funny_function(z) < 65)
   {
     printf("This is statement #3!\n");
   }
@@ -210,5 +263,3 @@ int main(void)
   return 0;
 }
 ```
-
-<!-- Solution: statement 1, 3 -->
