@@ -42,24 +42,24 @@ A library with general functions such as:
 
 int main(void)
 {
-    int x = abs(-10);
-    printf("The absolute value of -10 = %d\n", x);
+   int x = abs(-10);
+   printf("The absolute value of -10 = %d\n", x);
     
-    // seeds the random number generator with the current time
-    srand(time(NULL));
+   // seeds the random number generator with the current time
+   srand(time(NULL));
 
-    // generates a number between 1 and 100
-    int y = 1+rand()%100;
+   // generates a number between 1 and 100
+   int y = 1+rand()%100;
 
-    printf("The random number is %d\n", y);
+   printf("The random number is %d\n", y);
 
-    printf("Bye now!\n")
+   printf("Bye now!\n")
 
-    exit(0);
+   exit(0);
 
-    printf("End of the program\n");
+   printf("End of the program\n");
 
-    return 0;
+   return 0;
 }
 ```
 
@@ -84,18 +84,19 @@ Let's see it how it works in code:
 
 int main(void)
 {
-    int a = -3;
-    int b = fabs(a);
+   int a = -3;
+   int b = fabs(a);
 
-    printf("The absolute value of %d is %lf\n", a, b);
+   printf("The absolute value of %d is %lf\n", a, b);
 
-    // you can also use it inside printf with the appropriate formatter
-    printf("The value of 2.0 ^ 3 = %lf\n", pow(2, 3));
+   // you can also use it inside printf with the appropriate formatter
+   printf("The value of 2.0 ^ 3 = %lf\n", pow(2, 3));
 
-    int c = 25;
+   int c = 25;
 
-    printf("The square root of %d is %lf\n", c, sqrt(c));
+   printf("The square root of %d is %lf\n", c, sqrt(c));
 
+   return 0;
 }
 ```
 This code will display:
@@ -164,12 +165,12 @@ int main(void)
    }
 
     
-    char c = 'D';
-    printf("%c\n", tolower(c));
-    c = 'e';
-    printf("%c\n", toupper(c));
+   char c = 'D';
+   printf("%c\n", tolower(c));
+   c = 'e';
+   printf("%c\n", toupper(c));
 
-    return 0;
+   return 0;
 }
 ```
 This code will display:
