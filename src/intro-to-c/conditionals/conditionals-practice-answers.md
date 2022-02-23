@@ -195,7 +195,7 @@ int main(void)
 This is statement #2!
 ```
 
-The first condition (`x == y || z < x`) is checked first. Within this, the first out of the two parts is checked (`x == y`). x (213) is not equal to y (912), so this statement is false. The the second part after the `||` is now checked (`z < x`). z (1021) is not less than x (213), so this statement is also false, and consequently `FALSE || FALSE` can be considered a false statement. The program moves to check the second if statement.
+The first condition (`x == y || z < x`) is checked first. Within this, the first out of the two parts is checked (`x == y`). x (213) is not equal to y (912), so this statement is false. Then the second part after the `||` is now checked (`z < x`). z (1021) is not less than x (213), so this statement is also false, and consequently `FALSE || FALSE` can be considered a false statement. The program moves to check the second if statement.
 
 Out of the entire condition, `(x - 213 == 1 || y != 213)` is checked first, since it is within parentheses. Within this condition, `x - 213 == 1` is checked first. x (213) - 213 is 0, which is not equal to 1, so this statement is false. `y != 213` is checked next. y (912) is not equal to 213, so this statement is true. `FALSE || TRUE` is true, so this entire condition in parentheses is true. Now `y <= z` is checked.
 
