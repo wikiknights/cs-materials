@@ -14,7 +14,7 @@ Here is an example:
 ``` c
 #include <stdio.h>
 
-int main(void)
+int main()
 {
     int a;
     printf("Please enter the number 1: ");
@@ -35,7 +35,7 @@ A library with general functions such as:
 - **int abs(int x)**: returns the absolute value of int x;
 - **void exit(int s)**: exists the program.
 
-```
+``` c
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -58,7 +58,7 @@ int main () {
 
     printf("End of the program\n");
 
-    return(0);
+    return 0;
 }
 
 ```
@@ -78,11 +78,11 @@ An assort of mathematical functions. To use them, you must include `<math.h>`. S
 
 Let's see it how it works in code:
 
-```
+``` c
 #include <stdio.h>
 #include <math.h>
 
-int main(void)
+int main()
 {
     int a = -3;
     int b = fabs(a);
@@ -94,7 +94,7 @@ int main(void)
 
     int c = 25;
 
-    printf("The square root of %d is %lf\n", c, sqrt(c) );
+    printf("The square root of %d is %lf\n", c, sqrt(c));
 
 }
 ```
@@ -112,17 +112,18 @@ A library with functions regarding dates and time.
 
 The one we use the most is the `time(NULL)`, which returns the time since the January 1, 1970 (the Epoch), measured in seconds.
 
-```
+``` c
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int main () {
+int main ()
+{
    time_t seconds;
 
    seconds = time(NULL);
    printf("Hours since January 1, 1970 = %ld\n", seconds/3600);
   
-   return(0);
+   return 0;
 }
 ```
 This code will display:
@@ -136,24 +137,29 @@ This library has functions for mapping characters.
 - **int tolower(int c);**: converts a letter to lowercase;
 - **int toupper(int c);**: converts a letter to uppercase.
 
-```
+``` c
 #include <stdio.h>
 #include <ctype.h>
 
-int main () {
+int main ()
+{
    int a = 'd';
    int b = '2';
     
-   if( isalpha(a) ) {
-      printf("|%c| is an alphabetic character\n", a );
-   } else {
-      printf("|%c| is not an alphabetic character\n", a );
+   if(isalpha(a)) 
+   {
+      printf("|%c| is an alphabetic character\n", a);
+   } else 
+   {
+      printf("|%c| is not an alphabetic character\n", a);
    }
    
-   if( isalpha(b) ) {
-      printf("|%c| is an alphabetic character\n", b );
-   } else {
-      printf("|%c| is not an alphabetic character\n", b );
+   if(isalpha(b))
+   {
+      printf("|%c| is an alphabetic character\n", b);
+   } else
+   {
+      printf("|%c| is not an alphabetic character\n", b);
    }
 
     
@@ -162,7 +168,7 @@ int main () {
     c = 'e';
     printf("%c\n", toupper(c));
 
-    return(0);
+    return 0;
 }
 ```
 This code will display:
