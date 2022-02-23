@@ -42,24 +42,24 @@ A library with general functions such as:
 
 int main(void)
 {
-   int x = abs(-10);
-   printf("The absolute value of -10 = %d\n", x);
+    int x = abs(-10);
+    printf("The absolute value of -10 = %d\n", x);
     
-   // seeds the random number generator with the current time
-   srand(time(NULL));
+    // seeds the random number generator with the current time
+    srand(time(NULL));
 
-   // generates a number between 1 and 100
-   int y = 1+rand()%100;
+    // generates a number between 1 and 100
+    int y = 1+rand()%100;
 
-   printf("The random number is %d\n", y);
+    printf("The random number is %d\n", y);
 
-   printf("Bye now!\n")
+    printf("Bye now!\n")
 
-   exit(0);
+    exit(0);
 
-   printf("End of the program\n");
+    printf("End of the program\n");
 
-   return 0;
+    return 0;
 }
 ```
 
@@ -84,19 +84,19 @@ Let's see it how it works in code:
 
 int main(void)
 {
-   int a = -3;
-   int b = fabs(a);
+    int a = -3;
+    int b = fabs(a);
 
-   printf("The absolute value of %d is %lf\n", a, b);
+    printf("The absolute value of %d is %lf\n", a, b);
 
-   // you can also use it inside printf with the appropriate formatter
-   printf("The value of 2.0 ^ 3 = %lf\n", pow(2, 3));
+    // you can also use it inside printf with the appropriate formatter
+    printf("The value of 2.0 ^ 3 = %lf\n", pow(2, 3));
 
-   int c = 25;
+    int c = 25;
 
-   printf("The square root of %d is %lf\n", c, sqrt(c));
+    printf("The square root of %d is %lf\n", c, sqrt(c));
 
-   return 0;
+    return 0;
 }
 ```
 This code will display:
@@ -120,12 +120,12 @@ The one we use the most is the `time(NULL)`, which returns the time since the Ja
 
 int main(void)
 {
-   time_t seconds;
+    time_t seconds;
 
-   seconds = time(NULL);
-   printf("Hours since January 1, 1970 = %ld\n", seconds/3600);
+    seconds = time(NULL);
+    printf("Hours since January 1, 1970 = %ld\n", seconds/3600);
   
-   return 0;
+    return 0;
 }
 ```
 This code will display:
@@ -145,32 +145,32 @@ This library has functions for mapping characters.
 
 int main(void)
 {
-   int a = 'd';
-   int b = '2';
+    int a = 'd';
+    int b = '2';
     
-   if(isalpha(a)) 
-   {
-      printf("|%c| is an alphabetic character\n", a);
-   } else 
-   {
-      printf("|%c| is not an alphabetic character\n", a);
-   }
+    if(isalpha(a)) 
+    {
+       printf("|%c| is an alphabetic character\n", a);
+    } else 
+    {
+       printf("|%c| is not an alphabetic character\n", a);
+    }
    
-   if(isalpha(b))
-   {
-      printf("|%c| is an alphabetic character\n", b);
-   } else
-   {
-      printf("|%c| is not an alphabetic character\n", b);
-   }
+    if(isalpha(b))
+    {
+       printf("|%c| is an alphabetic character\n", b);
+    } else
+    {
+       printf("|%c| is not an alphabetic character\n", b);
+    }
 
     
-   char c = 'D';
-   printf("%c\n", tolower(c));
-   c = 'e';
-   printf("%c\n", toupper(c));
+    char c = 'D';
+    printf("%c\n", tolower(c));
+    c = 'e';
+    printf("%c\n", toupper(c));
 
-   return 0;
+    return 0;
 }
 ```
 This code will display:
