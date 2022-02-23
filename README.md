@@ -16,7 +16,7 @@
 
 [Printing](src/intro-to-c/printing/printing.md)
 
-[Conditionals Practice](src/intro-to-c/conditionals/conditionals-practice.md)
+[Conditionals Practice](src/intro-to-c/conditionals/conditionals-practice.md) ([Answers](src/intro-to-c/conditionals/conditionals-practice-answers.md))
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
