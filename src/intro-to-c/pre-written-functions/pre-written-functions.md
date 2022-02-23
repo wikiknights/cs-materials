@@ -14,7 +14,7 @@ Here is an example:
 ``` c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     int a;
     printf("Please enter the number 1: ");
@@ -40,7 +40,8 @@ A library with general functions such as:
 #include <stdlib.h>
 #include <time.h>
 
-int main () {
+int main(void)
+{
     int x = abs(-10);
     printf("The absolute value of -10 = %d\n", x);
     
@@ -60,7 +61,6 @@ int main () {
 
     return 0;
 }
-
 ```
 
 This code will display:
@@ -82,7 +82,7 @@ Let's see it how it works in code:
 #include <stdio.h>
 #include <math.h>
 
-int main()
+int main(void)
 {
     int a = -3;
     int b = fabs(a);
@@ -116,7 +116,8 @@ The one we use the most is the `time(NULL)`, which returns the time since the Ja
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int main ()
+
+int main(void)
 {
    time_t seconds;
 
@@ -141,7 +142,7 @@ This library has functions for mapping characters.
 #include <stdio.h>
 #include <ctype.h>
 
-int main ()
+int main(void)
 {
    int a = 'd';
    int b = '2';
