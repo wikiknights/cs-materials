@@ -15,7 +15,7 @@ prompt> gcc myprogram.c
 prompt> ./a.out
 ```
 
-`gcc` is simply a program that compiles (converts) C code to the language of zeroes and ones that computers can understand. But here's the interesting part. How exactly does the program `gcc` know that it should compile `myprogram.c` once it was specified in the command line? The answer is different depending on each programming language, but for the case of C, that's the magic of `argc` and `argv`!
+`gcc` is simply a program that compiles (converts) C code to the language of zeroes and ones that computers can understand. But how exactly does the program `gcc` know that it should compile `myprogram.c` once it was specified in the command line? The answer is different depending on each programming language, but for the case of C, it's the magic of `argc` and `argv`!
 
 ---
 
@@ -34,7 +34,7 @@ int main(void)
 }
 ```
 
-But why does `main()` have `void` as its function parameters? Surely `main()` could take in some type of input, maybe even command line input...?
+But why does `main()` have `void` as its function parameters? Surely `main()` could take in some type of input, maybe even command line input?
 
 *Side note:* Some courses use `int main()` (without the `void`), and while this does achieve the same goal, it is always good practice to exactly specify the parameters of a function. Using empty parentheses leaves the function with *undefined parameters*, meaning you could actually call it with any arrangement of arguments, regardless of whether or not the function would actually be able to use them. Generally, specifying a function's parameters is better practice since it strictly enforces how that function is called.
 
@@ -42,7 +42,7 @@ But why does `main()` have `void` as its function parameters? Surely `main()` co
 
 ## What you actually came here for: `argc` and `argv`
 
-There are multiple valid function definitions for `main()` in the C language standard. Other than `int main(void)`, the next most popular one is `int main(int argc, char *argv[])`. This allows you to receive input from the command line arguments!
+There are multiple valid function definitions for `main()` in the C standard. Other than `int main(void)`, the next one is `int main(int argc, char *argv[])`. This allows you to receive input from the command line arguments!
 
 There are two parts to this, `argc` and `argv`.
 
