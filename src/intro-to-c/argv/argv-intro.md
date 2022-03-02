@@ -36,6 +36,8 @@ int main(void)
 
 But why does `main()` have `void` as its function parameters? Surely `main()` could take in some type of input, maybe even command line input...?
 
+*Side note:* Some courses use `int main()` (without the `void`), and while this does achieve the same goal, it is always good practice to exactly specify the parameters of a function. Using empty parentheses leaves the function with *undefined parameters*, meaning you could actually call it with any arrangement of arguments, regardless of whether or not the function would actually be able to use them. Generally, specifying a function's parameters is better practice since it strictly enforces how that function is called.
+
 ---
 
 ## What you actually came here for: `argc` and `argv`
@@ -78,4 +80,4 @@ These are the contents of argv: ["./a.out", "hello!"]
 prompt>
 ```
 
-Notice that `"./a.out"` is included in the output! The program name itself is also an argument.
+Notice that `"./a.out"` is included in the output! The program name itself is always the first argument.
