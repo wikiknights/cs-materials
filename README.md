@@ -38,6 +38,8 @@
 
 [Endianness](src/intro-to-c/endianness)
 
+[Introduction to Pointers](src/intro-to-c/pointers/intro-to-pointers.md)
+
 [Dynamic Memory Allocation Practice](src/intro-to-c/dma)
 
 [Final Project Practice](src/intro-to-c/final-project)
