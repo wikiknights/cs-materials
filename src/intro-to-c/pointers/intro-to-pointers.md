@@ -98,3 +98,5 @@ This is cool and all, but what does any of this have to do with pointers?
 ## What is a pointer?
 
 A pointer is **the location of a piece of data in memory**.
+
+Imagine if you have a variable, and you literally "point" to its location. This is the reason why they are called "pointers"!
