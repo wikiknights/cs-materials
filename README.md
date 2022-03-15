@@ -20,6 +20,8 @@
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
+[Strings](src/intro-to-c/strings/strings.md)
+
 [Pre written Functions](src/intro-to-c/pre-written-functions/pre-written-functions.md)
 
 [Creating and Using Functions - An Overview](src/intro-to-c/functions/functions-intro.md)
