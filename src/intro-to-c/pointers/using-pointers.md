@@ -104,3 +104,44 @@ pointer_to_number = 0xad40
 number = 5
 *pointer_to_number = 5
 ```
+
+---
+
+## A Note on Notation
+
+There is an intense and heated debate on how where the `*` should go in a pointer declaration, and there are good reasons for each choice. For these examples here, they will be written as "`int*`", but you may see any of the following variations, which are all valid:
+
+``` c
+int* pointer;
+
+int *pointer;
+
+int * pointer;
+```
+
+For introducing pointers, this explanation has decided to group the asterisk with the data type since it highlights the fact that the asterisk is a contributing factor to the variable's data type.
+
+In other situations, this can be confusing because of the following line where multiple pointers are declared at once:
+
+``` c
+int* pointer1, pointer2, pointer3;
+
+// Or alternatively...
+int *pointer1, pointer2, pointer3;
+```
+
+At first glance, you may think that `pointer1`, `pointer2`, and `pointer3` are all declared as integer pointers, however this is false. Only `pointer1` is a pointer since it has an asterisk next to it, and `pointer2` and `pointer3` are actually plain integers since they don't have an asterisk. I know, I wish it wasn't this way either.
+
+To make it more clear for those occasions where you want to declare multiple pointers at once, it makes sense to group the asterisk and the variable name together:
+
+``` c
+int *pointer1, *pointer2, *pointer3;
+```
+
+Some people have also considered a hybrid approach, where the first instance of `*` is grouped with the data type, and the rest are grouped with the variable name:
+
+``` c
+int* pointer1, *pointer2, *pointer3;
+```
+
+These are all valid, but is important as different coders prefer different styles. Any of these styles are purely for visual understanding and are treated identically once compiled and executed.
