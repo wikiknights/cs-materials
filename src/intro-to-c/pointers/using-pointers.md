@@ -59,3 +59,48 @@ number_address = 0x7fff51831fa4
 ## Declaring Pointers
 
 Using the reference and dereference operators is cool, but there is one more piece of the puzzle missing. How can you *store* an address and use it later?
+
+For all of the data types seen before, like `int`, `double`, `char`, and so on, placing an asterisk (`*`) after them indicates a pointer to that respective data type. For example, `int*` represents a pointer to an `int`, and `double*` represents a pointer to a `double`.
+
+*Note: Yes, this can be confusing at first. The same symbol is used for both declaring pointers and the operation for dereferencing pointers.*
+
+With that aside, let's see a trivial example of how a pointer is created:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+  // Recall declaring an integer, then assigning it a value.
+  // (This could be done in one line but is done this way for the sake of demonstration.)
+  // Assume the address of number is 0xAD40.
+  int number;
+  number = 5;
+
+  // Just like creating an integer, we can create an integer pointer with int*.
+  int* pointer_to_number;
+
+  // We can take the address of number with &number,
+  // then simply assign it to pointer_to_number!
+  pointer_to_number = &number;
+
+  printf("&number = %p\n", &number);
+  printf("pointer_to_number = %p\n\n", pointer_to_number);
+
+  // We can dereference the pointer too!
+  printf("number = %d\n", number);
+  printf("*pointer_to_number = %d\n", *pointer_to_number);
+
+  return 0;
+}
+```
+
+Sample output:
+
+```
+&number = 0xad40
+pointer_to_number = 0xad40
+
+number = 5
+*pointer_to_number = 5
+```
