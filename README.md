@@ -20,7 +20,7 @@
 
 [Loops and Arrays Practice](src/intro-to-c/arrays)
 
-[Strings](src/intro-to-c/strings/strings.md)
+[Strings](src/intro-to-c/strings)
 
 [Pre written Functions](src/intro-to-c/pre-written-functions/pre-written-functions.md)
 

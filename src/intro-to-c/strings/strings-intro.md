@@ -58,7 +58,7 @@ This function compares the two strings s1 and s2. If s1 comes first alphabetical
 
 `int strcpy(char *s1, const char *s2);`
 
-This contents of s2 are copied into s1. This works DIFFERENTLY than s1 = s2, which would just copy a pointer.
+The contents of s2 are copied into s1. This works DIFFERENTLY than s1 = s2, which would just copy a pointer.
 
 `int strlen(const char *s);`
 
