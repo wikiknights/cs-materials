@@ -39,8 +39,6 @@ int length(char *word) {
 **Answer:**
 ```c
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 
 void to_upper(char *word);
 
@@ -77,8 +75,6 @@ void to_upper(char *word) {
 **Answer:**
 ```c
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 
 int equal(char *w1, char *w2);
 
@@ -123,7 +119,6 @@ int equal(char *w1, char *w2) {
 **Answer:**
 ```c
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
 
 int palindrome(char *word);
@@ -163,8 +158,6 @@ int palindrome(char *word) {
 **Answer:**
 ```c
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 
 int palindrome(char *word);
 
