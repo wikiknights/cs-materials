@@ -159,7 +159,7 @@ int palindrome(char *word) {
 ```c
 #include <stdio.h>
 
-int palindrome(char *word);
+void reverse(char *word);
 
 int main(void) {
     char word[30];
