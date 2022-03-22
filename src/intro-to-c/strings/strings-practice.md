@@ -1,13 +1,15 @@
 # Strings Practice
 
-1. Write a function that receives a word and return its length without using any libraries.
+A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
 
-2. Write a function that receives a word and turns it into uppercase.
+1. Write a function that receives a string and return its length without using any libraries.
 
-3. Write a function that receives two words and checks if they are equal.
+2. Write a function that receives a string and turns it into uppercase.
 
-4. Write a function that receives a word and check if it is a palindrome.
+3. Write a function that receives two strings and checks if they are equal.
 
-5. Write a function that receives a word and reverses it.
+4. Write a function that receives a string and check if it is a palindrome.
 
-6. **CHALLENGE** How would you read a first and last name and display it to the screen?
+5. Write a function that receives a string and reverses it.
+
+6. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?

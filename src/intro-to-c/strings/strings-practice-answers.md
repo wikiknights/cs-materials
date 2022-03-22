@@ -2,7 +2,9 @@
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
 
-1. Write a function that receives a word and return its length without using any libraries.
+1. Write a function that receives a string and return its length without using any libraries.
+
+**Answer:**
 ```c
 #include <stdio.h>
 
@@ -32,7 +34,9 @@ int length(char *word) {
 }
 ```
 
-2. Write a function that receives a word and turns it into uppercase.
+2. Write a function that receives a string and turns it into uppercase.
+
+**Answer:**
 ```c
 #include <stdio.h>
 #include <ctype.h>
@@ -58,13 +62,19 @@ void to_upper(char *word) {
 
   // go through each character one by one, changing it to upper case
   while (word[i] != '\0') {
-    word[i] = toupper(word[i]);
+    if (word[i] >= 'a' && word[i] <= 'z') {
+      // subtract the number of ASCII characters necessary to give the uppercase letter
+      word[i] = word[i] - ('a' - 'A');
+    }
+
     i++;
   }
 }
 ```
 
-3. Write a function that receives two words and checks if they are equal.
+3. Write a function that receives two strings and checks if they are equal.
+
+**Answer:**
 ```c
 #include <stdio.h>
 #include <ctype.h>
@@ -108,7 +118,9 @@ int equal(char *w1, char *w2) {
 }
 ```
 
-4. Write a function that receives a word and check if it is a palindrome.
+4. Write a function that receives a string and check if it is a palindrome.
+
+**Answer:**
 ```c
 #include <stdio.h>
 #include <ctype.h>
@@ -121,7 +133,7 @@ int main(void) {
     printf("Enter your word.\n");
     scanf("%s", word);
 
-    if(palindrome(word) == 1)
+    if (palindrome(word) == 1)
         printf("%s is a palindrome.\n", word);
     else
         printf("%s is not a palindrome.\n", word);
@@ -146,7 +158,9 @@ int palindrome(char *word) {
 }
 ```
 
-5. Write a function that receives a word and reverses it.
+5. Write a function that receives a string and reverses it.
+
+**Answer:**
 ```c
 #include <stdio.h>
 #include <ctype.h>
@@ -176,7 +190,6 @@ void reverse(char *word) {
 
   // go half-way through
   for (i=0; i<len/2; i++) {
-
     // swap "opposite" side letters!
     temp = word[i];
     word[i] = word[len-1-i];
@@ -185,8 +198,9 @@ void reverse(char *word) {
 }
 ```
 
-6. **CHALLENGE** How would you read a first and last name and display it to the screen?
-You can use `fgets()` to read the string and `puts()` to print it.
+6. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?
+
+**Answer:**
 ```c
 #include <stdio.h>
 
