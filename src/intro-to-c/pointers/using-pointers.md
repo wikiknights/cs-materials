@@ -145,3 +145,107 @@ int* pointer1, *pointer2, *pointer3;
 ```
 
 These are all valid, but is important as different coders prefer different styles. Any of these styles are purely for visual understanding and are treated identically once compiled and executed.
+
+---
+
+## Pass-by-Value vs. Pass-by-Reference
+
+This is where the power of pointers starts to come into play! By passing pointers into functions, they can directly use and modify the values pointed to, no longer requiring you to return something!
+
+When passing variables into functions, there are two categories of passing: passing by value and passing by reference. The main difference is simply whether or not you are passing a pointer into a function.
+
+### Pass-by-Value:
+
+What we have seen up to this point is pass-by-value, where a copy of a value is passed into a function:
+
+``` c
+#include <stdio.h>
+
+void change_value(int value)
+{
+  value = 5;
+}
+
+int main(void)
+{
+  int my_value = 18;
+
+  printf("Initial value of my_value: %d\n", my_value);
+  change_value(my_value);
+  printf("Final value of my_value: %d\n", my_value);
+
+  return 0;
+}
+```
+
+Sample output:
+```
+Initial value of my_value: 18
+Final value of my_value: 18
+```
+
+Nothing new here so far. Notice that since only a copy of `my_value` is passed into `change_value()`, the version in `main()` is not affected.
+
+### Pass-by-Reference:
+
+Pass-by-reference, on the other hand, is where a copy of an address is passed into a function. Let's create a similar function to the one before, but pass a reference to a variable instead:
+
+```c
+#include <stdio.h>
+
+void change_value(int* value)
+{
+  *value = 5;
+}
+
+int main(void)
+{
+  int my_value = 18;
+
+  printf("Initial value of my_value: %d\n", my_value);
+  change_value(&my_value);
+  printf("Final value of my_value: %d\n", my_value);
+
+  return 0;
+}
+```
+
+Sample output:
+```
+Initial value of my_value: 18
+Final value of my_value: 5
+```
+
+By passing the *address* of `my_value`, `change_value()` now has direct access to the integer and can do anything it wants with the value!
+
+However, this *is* still a copy, just the copy of an address. See this example attempting to change the address a pointer points to:
+
+```c
+#include <stdio.h>
+
+void change_pointer(int* pointer)
+{
+  int new_value;
+  pointer = &new_value;
+}
+
+int main(void)
+{
+  int my_value = 18;
+  int* my_pointer = &my_value;
+
+  printf("Initial value of my_pointer: %p\n", my_pointer);
+  change_pointer(my_pointer);
+  printf("Final value of my_pointer: %p\n", my_pointer);
+
+  return 0;
+}
+```
+
+Sample output:
+```
+Initial value of my_pointer: 0x7ffe390613ac
+Final value of my_pointer: 0x7ffe390613ac
+```
+
+In this case, `my_pointer` will continue to point to the same location (`&my_value`) within the context of `main()`.
