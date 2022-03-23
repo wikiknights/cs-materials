@@ -190,7 +190,7 @@ Nothing new here so far. Notice that since only a copy of `my_value` is passed i
 
 Pass-by-reference, on the other hand, is where a copy of an address is passed into a function. Let's create a similar function to the one before, but pass a reference to a variable instead:
 
-```c
+``` c
 #include <stdio.h>
 
 void change_value(int* value)
@@ -220,7 +220,7 @@ By passing the *address* of `my_value`, `change_value()` now has direct access t
 
 However, this *is* still a copy, just the copy of an address. See this example attempting to change the address a pointer points to:
 
-```c
+``` c
 #include <stdio.h>
 
 void change_pointer(int* pointer)
