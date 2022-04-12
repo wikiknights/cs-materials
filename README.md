@@ -14,6 +14,8 @@
 
 [Preprocessor Directives](src/intro-to-c/preprocessor-directives/preprocessor-directives.md)
 
+[Operators](src/intro-to-c/operators)
+
 [Printing](src/intro-to-c/printing/printing.md)
 
 [Conditionals Practice](src/intro-to-c/conditionals/conditionals-practice.md) ([Answers](src/intro-to-c/conditionals/conditionals-practice-answers.md))
