@@ -3,3 +3,4 @@
 *.docx
 *.html
 .vscode
+out/
