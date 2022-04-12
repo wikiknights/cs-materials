@@ -21,34 +21,55 @@ fi
 
 show_usage() {
 	cat << EOF
-Usage: ${0##*/} [-dhp] <file>
+Usage: ${0##*/} [-dhp] [-o output_file] <file>
 Converts a Pandoc markdown file into a variety of formats. If no format is specified,
 it will be converted to all formats supported by this script.
 
 Options:
-  -d       Convert to DOCX.
-  -h       Convert to HTML.
-  -p       Convert to PDF.
+  -d          Convert to DOCX.
+  -h          Convert to HTML.
+  -p          Convert to PDF.
+  -o <file>   Outputs to the specified file.
 EOF
 }
 
+customout=""
 
 convert_html() {
+	if [ -n "$customout" ]; then
+		outputfile="$customout"
+	else
+		outputfile="$1.html"
+	fi
+
 	echo "Converting to HTML..."
 	pandoc tmp.md -o tmp.html --highlight-style tango --self-contained -V title:' ' --metadata title=' '
 
 	echo "Fixing CSS..."
-	python3 -m premailer -f tmp.html -o "$1".html
+	python3 -m premailer -f tmp.html -o tmp2.html
+	mv tmp2.html "$outputfile"
 }
 
 convert_docx() {
+	if [ -n "$customout" ]; then
+		outputfile="$customout"
+	else
+		outputfile="$1.docx"
+	fi
+
 	echo "Converting to DOCX..."
-	pandoc tmp.md -o "$1".docx --highlight-style tango
+	pandoc tmp.md -o "$outputfile" --highlight-style tango
 }
 
 convert_pdf() {
+	if [ -n "$customout" ]; then
+		outputfile="$customout"
+	else
+		outputfile="$1.pdf"
+	fi
+
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$1".pdf --highlight-style tango --metadata=geometry:margin=1in
+	pandoc tmp.md -o "$outputfile" --highlight-style tango --metadata=geometry:margin=1in
 }
 
 converter() {
@@ -81,7 +102,7 @@ pdf=0
 
 # Test for command line options
 OPTIND=1
-while getopts dhp option; do
+while getopts dho:p option; do
 	case $option in
 		d)
 			docx=1
@@ -91,10 +112,21 @@ while getopts dhp option; do
 			html=1
 			all=0
 			;;
+		o)
+			customout="${OPTARG}"
+			;;
 		p)
 			pdf=1
 			all=0
 			;;
+		:)
+			echo "Error: -${OPTARG} requires an argument."
+			exit -1
+			;;
+		*)
+			echo "Error: Unknown argument."
+			show_usage
+			exit -1
 	esac
 done
 shift "$((OPTIND-1))"
@@ -127,6 +159,6 @@ fi
 echo "Finished all converting."
 
 echo "Cleaning up..."
-rm tmp.*
+rm -f tmp.md tmp.html
 
 echo "All done!"
