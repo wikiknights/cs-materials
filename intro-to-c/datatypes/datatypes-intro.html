@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="data-types" style="margin-top:1.4em">Data types</h1>
+<p style="margin:1em 0">We store information in RAM through variables and there are certain
+data types that are used for this.</p>
+<h2 id="data-types-you-should-know" style="margin-top:1.4em">Data types you should know</h2>
+<p style="margin:1em 0">You do need to know off the top of your head how many bytes each data
+type holds, this is just for informational purposes. Focus on knowing
+when to use each data type and what each of them stores.</p>
+<ul style="padding-left:1.7em; margin-top:1em">
+<li><strong>int:</strong> stores integers (2 or 4 byte)
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     int a = 1</code></li>
+<li><strong>float:</strong> stores decimal numbers to about 6 digits of
+precision (4 byte) <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     float b = 1.555555</code></li>
+<li><strong>double:</strong> stores decimal numbers to about 15 digits
+of precision (8 byte)
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     double c = 0.999999999999999</code></li>
+<li><strong>long (int):</strong> stores big integers, the ‘int’ is
+optional (8 byte) <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     long d = 123456790</code></li>
+<li><strong>long double:</strong> stores big decimal numbers to about 19
+digits of precision (10 byte)
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     long double e = 1.0000000000000000001</code></li>
+<li><strong>char:</strong> stores a single character (1 byte)
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     char f = '@'</code></li>
+<li><strong>string:</strong> an array of char’s that allows you to form
+words <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     char[] g = "hello"</code></li>
+<li><strong>void:</strong> stores no value (useful for functions)
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>c     void h(int i) {         // some code in your function         // there will be no return here     }</code></li>
+</ul>
+<h2 id="format-specifiers" style="margin-top:1.4em">Format Specifiers</h2>
+<p style="margin:1em 0">If you wish to get user input and hold it to a variable or display
+the variable to the string, you will need to use a format specifier.
+Each data type has its own format specifier except for void.</p>
+<ul style="padding-left:1.7em; margin-top:1em">
+<li><strong>int:</strong> %d</li>
+<li><strong>float:</strong> %f
+<ul style="padding-left:1.7em; margin-top:0">
+<li>to control the decimal precision use %0.nf where n is a number</li>
+</ul>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">float</span> j <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="fl" style="color:#0000cf">4.5678</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%0.2f"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> j<span class="op" style="color:#ce5c00; font-weight:bold">)</span> <span class="co" style="color:#8f5902; font-style:italic">// it would display 4.57</span></span></code></pre></div></li>
+<li><strong>double:</strong> %lf</li>
+<li><strong>long (int):</strong> %l</li>
+<li><strong>long double:</strong> %Lf</li>
+<li><strong>char:</strong> %c</li>
+<li><strong>string:</strong> %s</li>
+</ul>
+<h2 id="useful-links" style="margin-top:1.4em">Useful links</h2>
+<p style="margin:1em 0">To check the value range or another specifier: - <a href="https://www.tutorialspoint.com/cprogramming/c_data_types.htm" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Tutorials
+Point - C Data Types</a> - <a href="https://www.tutorialspoint.com/format-specifiers-in-c" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Tutorials
+Point - Format Specifiers in C</a></p>
+</body>
+</html>

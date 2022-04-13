@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="writing-your-first-c-program" style="margin-top:1.4em">Writing Your First C Program</h1>
+<p style="margin:1em 0"><em>Created by Jerrett Longworth in January 2022.</em></p>
+<p style="margin:1em 0">This guide will show you how to write your first C program from
+scratch with only a few lines of code.</p>
+<h2 id="the-code" style="margin-top:1.4em">The Code:</h2>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb1-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb1-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"Hello, world!</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb1-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">Let’s run the program (in a command line) and find out what happens!
+(<em>Note:</em> since command lines vary wildly between systems, this
+will only simulate one with generic prompts and fake commands.)</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>prompt&gt; (I type the command to run the program...)
+Hello, world!
+prompt&gt;</code></pre>
+<p style="margin:1em 0">It really works! But what does it all mean? Let’s break each line
+down and find out! (This will also introduce you to many of the concepts
+you will learn when learning C!)</p>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<h2 id="include-stdio.h" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>#include &lt;stdio.h&gt;</code></h2>
+<p style="margin:1em 0">This line indicates that we would like to gain access to a
+<em>library</em> called “stdio.h”, short for “standard I/O”. A library
+is a collection of functions and variables (which you will learn more
+about later!) that you can use to your advantage while programming. A
+function is simply a chunk of code that you can run as many times as you
+want. For this example, the standard I/O library gives access to a
+function called <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf()</code>, which allows you to
+<strong>print</strong> to the screen with some
+<strong>f</strong>ormatted text.</p>
+<h2 id="int-mainvoid" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main(void)</code></h2>
+<p style="margin:1em 0">There’s a lot to unpack on this line! This is called a <em>function
+declaration</em>, which will be explained much more thoroughly
+later.</p>
+<p style="margin:1em 0">I will start with the word <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main</code>, which indicates that
+this is a piece of code (a function) that begins the C program. (There
+are always going to be exceptions to this, but pretend that every
+program will always start with <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code>.)</p>
+<p style="margin:1em 0">The text between the parentheses indicates the input to this
+function, but in this case <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> will not have any input,
+so <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>void</code> is written there instead. That isn’t to say that
+this <em>entire program</em> won’t have any input (i.e. typing with your
+keyboard), but from a technical sense <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> does not need
+to take in input.</p>
+<p style="margin:1em 0">Finally, the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int</code> at the beginning of this line states
+that <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> will, once finished, return an
+<strong>int</strong>eger to whoever ran your program. (Spoiler: You can
+see what exactly is returned at the end of the program in the code!
+0!)</p>
+<h2 id="section" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>{</code></h2>
+<p style="margin:1em 0">Curly braces group lines of code together into sections that can be
+managed as a whole. In this case, the opening curly brace is stating
+“everything between this curly brace and the corresponding closing curly
+brace are the contents of the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> function.”</p>
+<h2 id="printfhello-worldn" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf("Hello, world!\n");</code></h2>
+<p style="margin:1em 0">This line calls the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf()</code> function, which will
+<strong>print f</strong>ormatted text to the screen. There’s no
+formatting (yet), but there is some text. The exact structure of
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf()</code> is for another time, but anything within the
+quotation marks will be shown on screen.</p>
+<p style="margin:1em 0">But wait! What’s that <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>\n</code> at the end? This is called a
+<em>newline character</em>, and states to print… a new line! Just like
+you would press “enter” at the end of a paragraph, new lines simulate
+that key press in programming.</p>
+<p style="margin:1em 0">Without the newline character, you may see that text runs into each
+other without any breaks in-between! This is much harder to read.
+Additionally, if you are running your program in the command line, a
+missing newline character at the very end will cause your command line’s
+prompt to be on the same line as the last line of your program!</p>
+<p style="margin:1em 0">For example:</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>prompt&gt; (I type the command to run my program...)
+Hello, world!prompt&gt;</code></pre>
+<p style="margin:1em 0">This is no good! Adding the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>\n</code> prevents this
+mis-formatting from happening.</p>
+<p style="margin:1em 0">Notice as well, there is a semicolon (<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>;</code>) at the end of
+every executable statement in C.</p>
+<h2 id="return-0" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>return 0;</code></h2>
+<p style="margin:1em 0">At the end of every program, your computer (or more specifically your
+operating system) needs to know how your program went. Did it run
+successfully? Did it fail part of the way through? <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code>
+can <strong>return</strong> an integer value to indicate how the program
+ended. Returning the integer 0 indicates that everything was successful.
+(You will see later how other functions can return other values and
+datatypes.)</p>
+<p style="margin:1em 0">While the exact effect of these “return codes” are not seen too often
+by you in modern programs, deep down somewhere, if they finish, they too
+will return something, no matter what programming language or framework
+they were written in.</p>
+<h2 id="section-1" style="margin-top:1.4em"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>}</code></h2>
+<p style="margin:1em 0">At the very end, you need to make sure to have a matching closing
+curly brace for every opening curly brace.</p>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<p style="margin:1em 0">You have finished creating your first C program! Congratulations!</p>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="introduction-to-argc-and-argv" style="margin-top:1.4em">Introduction to <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code>
+and <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code></h1>
+<p style="margin:1em 0"><em>Created by Jerrett Longworth in February 2022.</em></p>
+<p style="margin:1em 0">You may be familiar with the good ’ol <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main(void)</code>,
+but surely, you think, there’s more to it than that… and you’d be right!
+This lesson will introduce you to <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code> and
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code>, and how exactly they are used.</p>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<h2 id="preface-the-command-line" style="margin-top:1.4em">Preface: The Command Line</h2>
+<p style="margin:1em 0">When running programs in the command line, you may run programs like
+this:</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>prompt&gt; gcc myprogram.c
+prompt&gt; ./a.out</code></pre>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>gcc</code> is simply a program that compiles (converts) C code
+to the language of zeroes and ones that computers can understand. But
+how exactly does the program <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>gcc</code> know that it should
+compile <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>myprogram.c</code> once it was specified in the command
+line? The answer is different depending on each programming language,
+but for the case of C, it’s the magic of <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code> and
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code>!</p>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<h2 id="how-main-normally-looks" style="margin-top:1.4em">How <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> normally
+looks</h2>
+<p style="margin:1em 0">You are probably familiar with the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main(void)</code>
+function:</p>
+<div class="sourceCode" id="cb2" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb2-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb2-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb2-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb2-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"Hello, world!</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb2-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb2-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">But why does <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> have <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>void</code> as its
+function parameters? Surely <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code> could take in some type
+of input, maybe even command line input?</p>
+<p style="margin:1em 0"><em>Side note:</em> Some courses use <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main()</code> (without
+the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>void</code>), and while this does achieve the same goal, it is
+always good practice to exactly specify the parameters of a function.
+Using empty parentheses leaves the function with <em>undefined
+parameters</em>, meaning you could actually call it with any arrangement
+of arguments, regardless of whether or not the function would actually
+be able to use them. Generally, specifying a function’s parameters is
+better practice since it strictly enforces how that function is
+called.</p>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<h2 id="what-you-actually-came-here-for-argc-and-argv" style="margin-top:1.4em">What you actually
+came here for: <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code> and <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code></h2>
+<p style="margin:1em 0">There are multiple valid function definitions for <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>main()</code>
+in the C standard. Other than <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main(void)</code>, the next one
+is <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int main(int argc, char *argv[])</code>. This allows you to
+receive input from the command line arguments!</p>
+<p style="margin:1em 0">There are two parts to this, <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code> and
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code>.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argc</code> is short for “argument count,” and tells how many
+elements are in the following <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code> array.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>argv</code> is short for “argument vector,” and is a list of
+arguments (in the form of strings) retrieved by the command line!</p>
+<p style="margin:1em 0">Here is some example code of this in action:</p>
+<div class="sourceCode" id="cb3" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb3-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">int</span> argc<span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="dt" style="color:#204a87">char</span> <span class="op" style="color:#ce5c00; font-weight:bold">*</span>argv<span class="op" style="color:#ce5c00; font-weight:bold">[])</span></span>
+<span id="cb3-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb3-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"The number of arguments passed in from the command line is %d.</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> argc<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb3-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"These are the contents of argv: ["</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb3-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">for</span> <span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">int</span> i <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span> i <span class="op" style="color:#ce5c00; font-weight:bold">&lt;</span> argc<span class="op" style="color:#ce5c00; font-weight:bold">;</span> i<span class="op" style="color:#ce5c00; font-weight:bold">++)</span></span>
+<span id="cb3-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb3-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"</span><span class="sc" style="color:#000">\"</span><span class="st" style="color:#4e9a06">%s</span><span class="sc" style="color:#000">\"</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> argv<span class="op" style="color:#ce5c00; font-weight:bold">[</span>i<span class="op" style="color:#ce5c00; font-weight:bold">]);</span></span>
+<span id="cb3-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="op" style="color:#ce5c00; font-weight:bold">}</span></span>
+<span id="cb3-12" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-12" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"]</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb3-13" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-13" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-14" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-14" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-15" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-15" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">Here’s an example of running the program with some arguments, then
+getting some output:</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>prompt&gt; gcc myprogram.c
+prompt&gt; ./a.out hello!
+The number of arguments passed in from the command line is 2.
+These are the contents of argv: ["./a.out", "hello!"]
+prompt&gt;</code></pre>
+<p style="margin:1em 0">Notice that <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>"./a.out"</code> is included in the output! The
+program name itself is always the first argument.</p>
+</body>
+</html>

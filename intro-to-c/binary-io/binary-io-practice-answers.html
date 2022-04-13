@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="binary-io-answers" style="margin-top:1.4em">Binary I/O (Answers)</h1>
+<p style="margin:1em 0"><em>Originally created by Idel Martinez and Jerrett Longworth in Fall
+2020.</em></p>
+<p style="margin:1em 0">Here is some additional practice using binary I/O. Some of these
+might take a little bit of thinking, but this practice is here to help
+you get more comfortable with the material.</p>
+<p style="margin:1em 0">Assume big-endian notation.</p>
+<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<li>Let’s start this off simple. Suppose that an <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int</code>
+created in C is 4 bytes (32 bits) in size. How would the integer
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>2</code> be stored in binary in memory?</li>
+</ol>
+<p style="margin:1em 0"><strong>Answer:</strong>
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>00000000 00000000 00000000 00000010</code></p>
+<ol start="2" type="1" style="padding-left:1.7em; margin-top:1em">
+<li>Given the previous answer, if a hypothetical program was written to
+write the integer <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>2</code> <em>in binary</em> to a file, what data
+would be in the file? Write your answer <em>in binary</em>.</li>
+</ol>
+<p style="margin:1em 0"><strong>Answer:</strong>
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>00000000 00000000 00000000 00000010</code></p>
+<ol start="3" type="1" style="padding-left:1.7em; margin-top:1em">
+<li>Given the following program, what would <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>output.bin</code>
+contain after execution? Again, write your answer <em>in binary</em>.
+Assume all necessary libraries are included and all files are
+opened/closed properly.</li>
+</ol>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="kw" style="color:#204a87; font-weight:bold">struct</span> cool_struct</span>
+<span id="cb1-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb1-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">int</span> x<span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">};</span></span>
+<span id="cb1-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb1-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb1-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="kw" style="color:#204a87; font-weight:bold">struct</span> cool_struct basically_just_an_int<span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">FILE</span> <span class="op" style="color:#ce5c00; font-weight:bold">*</span>ofp <span class="op" style="color:#ce5c00; font-weight:bold">=</span> fopen<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"output.bin"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="st" style="color:#4e9a06">"wb"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb1-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  basically_just_an_int<span class="op" style="color:#ce5c00; font-weight:bold">.</span>x <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="dv" style="color:#0000cf">2</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-12" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-12" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-13" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-13" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  fwrite<span class="op" style="color:#ce5c00; font-weight:bold">(&amp;</span>basically_just_an_int<span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="kw" style="color:#204a87; font-weight:bold">sizeof</span><span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="kw" style="color:#204a87; font-weight:bold">struct</span> cool_struct<span class="op" style="color:#ce5c00; font-weight:bold">),</span> <span class="dv" style="color:#0000cf">1</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> ofp<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb1-14" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-14" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-15" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-15" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  fclose<span class="op" style="color:#ce5c00; font-weight:bold">(</span>ofp<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb1-16" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-16" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-17" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-17" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-18" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-18" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0"><strong>Answer:</strong>
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>00000000 00000000 00000000 00000010</code></p>
+</body>
+</html>

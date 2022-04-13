@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<p style="margin:1em 0"><em>Originally created by Idel Martinez in Fall 2020.</em></p>
+<h1 id="the-final-project" style="margin-top:1.4em">The Final Project…</h1>
+<p style="margin:1em 0">Let’s revisit dynamic memory allocation with <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>realloc()</code>,
+a peek into program organization, and steps on starting the project -
+along with a sample grocery list program.</p>
+<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<li><p style="margin:1em 0">Create a program that asks for user input and stores it in an
+array. At the end of the program, print all of the numbers entered by
+the user.</p></li>
+<li><p style="margin:1em 0">Create a struct for school supplies that contains the number of
+pencils, pens, papers, computers, and books. Use constructor and
+destructor functions to allocate the structure. Prompt the user for the
+number of supplies previously listed.</p></li>
+</ol>
+<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
+<p style="margin:1em 0"><strong>Challenge</strong> Create a program that asks to input their
+grocery list, record all of the user’s inputs and operations in a tape
+file. The program will function in the steps below:</p>
+<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<li>Prompt for, and accept, an operation number described below and
+return to step 1 (unless otherwise stated):</li>
+</ol>
+<table style="margin:1em 0; border-collapse:collapse; width:100%; overflow-x:auto; display:block; font-variant-numeric:lining-nums tabular-nums" width="100%">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 85%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="border-top:1px solid #1a1a1a; padding:0.25em 0.5em 0.25em 0.5em; text-align:left" align="left">operation</th>
+<th style="border-top:1px solid #1a1a1a; padding:0.25em 0.5em 0.25em 0.5em; text-align:left" align="left">description</th>
+</tr>
+</thead>
+<tbody style="margin-top:0.5em; border-top:1px solid #1a1a1a; border-bottom:1px solid #1a1a1a">
+<tr class="odd">
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">new</td>
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">enter new item, go to step 2</td>
+</tr>
+<tr class="even">
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">c</td>
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">clear</td>
+</tr>
+<tr class="odd">
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">total</td>
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">print list of items</td>
+</tr>
+<tr class="even">
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">last</td>
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">print the previous entered item and
+amount, and prompt to enter ‘last’ again</td>
+</tr>
+<tr class="odd">
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">q</td>
+<td style="padding:0.125em 0.5em 0.25em 0.5em; text-align:left" align="left">quit program</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1" style="padding-left:1.7em; margin-top:1em">
+<li><p style="margin:1em 0">Prompt for, and accept the item to be added to the list. Can
+<strong>c</strong>lear to go to step 1 or <strong>q</strong>uit to exit
+the program.</p></li>
+<li><p style="margin:1em 0">Prompt for, and accept, an integer number of the amount you will
+be buying for the previous item entered. Can <strong>c</strong>lear to
+go to step 1 or <strong>q</strong>uit to exit the program.</p></li>
+<li><p style="margin:1em 0">Prompt for, and accept, a floating-point number of the previous
+item’s price entered. Can <strong>c</strong>lear to go to step 1 or
+<strong>q</strong>uit to exit the program.</p></li>
+<li><p style="margin:1em 0">Return to step 1.</p></li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="a-quick-review-on-variables" style="margin-top:1.4em">A Quick Review on Variables</h1>
+<p style="margin:1em 0"><em>Originally created by Idel Martinez in Spring 2021.</em></p>
+<h2 id="declare-ing-a-variable." style="margin-top:1.4em"><strong>Declare</strong>-ing a
+variable.</h2>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb1-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb1-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="co" style="color:#8f5902; font-style:italic">/* This program doesn't do much, but it does declare three variables</span></span>
+<span id="cb1-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="co" style="color:#8f5902; font-style:italic">   * of different types!</span></span>
+<span id="cb1-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="co" style="color:#8f5902; font-style:italic">   *</span></span>
+<span id="cb1-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="co" style="color:#8f5902; font-style:italic">   * Notice that we declare variables like this:</span></span>
+<span id="cb1-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="co" style="color:#8f5902; font-style:italic">   * &lt;return_type&gt; &lt;variable_name&gt;;</span></span>
+<span id="cb1-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="co" style="color:#8f5902; font-style:italic">   */</span></span>
+<span id="cb1-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">int</span> num0<span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">float</span> num1<span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-12" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-12" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">double</span> num2<span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-13" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-13" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-14" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-14" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-15" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-15" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<h2 id="assigning-a-value-to-a-variable-with-the-assignment-operator" style="margin-top:1.4em"><strong>Assign</strong>ing
+a value to a variable with the assignment operator: <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>=</code></h2>
+<p style="margin:1em 0">Using the previous example, let’s assign values to the variables! We
+can do this in different ways:</p>
+<div class="sourceCode" id="cb2" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb2-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb2-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb2-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">int</span> num0<span class="op" style="color:#ce5c00; font-weight:bold">;</span>  <span class="co" style="color:#8f5902; font-style:italic">// Declare a variable</span></span>
+<span id="cb2-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  num0 <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="dv" style="color:#0000cf">10</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span> <span class="co" style="color:#8f5902; font-style:italic">// Assign a value to it</span></span>
+<span id="cb2-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">float</span> num1 <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="fl" style="color:#0000cf">0.5</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span> <span class="co" style="color:#8f5902; font-style:italic">// Declare a variable and assign a value to it in the same line</span></span>
+<span id="cb2-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">double</span> num2 <span class="op" style="color:#ce5c00; font-weight:bold">=</span> sqrt<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dv" style="color:#0000cf">4</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span> <span class="co" style="color:#8f5902; font-style:italic">// Declare a variable and assign the value of whatever the function returns (in this case 2.0)</span></span>
+<span id="cb2-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb2-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+</body>
+</html>

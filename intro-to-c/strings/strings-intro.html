@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="strings" style="margin-top:1.4em">Strings</h1>
+<p style="margin:1em 0">Strings are used to form words or sentences. In C, they are an array
+of characters.</p>
+<h2 id="declaring-strings" style="margin-top:1.4em">Declaring Strings</h2>
+<p style="margin:1em 0">To declare a string, you use the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>char</code> datatype, along
+with the name of the variable and the size between brackets, like an
+array:</p>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> name<span class="op" style="color:#ce5c00; font-weight:bold">[</span>size<span class="op" style="color:#ce5c00; font-weight:bold">];</span></span></code></pre></div>
+<p style="margin:1em 0">For example, the variable word is a string of size 20:</p>
+<div class="sourceCode" id="cb2" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb2-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">20</span><span class="op" style="color:#ce5c00; font-weight:bold">];</span></span></code></pre></div>
+<h2 id="initializing-strings" style="margin-top:1.4em">Initializing Strings</h2>
+<p style="margin:1em 0">You can initialize a string in many different ways:</p>
+<div class="sourceCode" id="cb3" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb3-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="st" style="color:#4e9a06">"hello"</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">50</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="st" style="color:#4e9a06">"hello"</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="op" style="color:#ce5c00; font-weight:bold">{</span><span class="ch" style="color:#4e9a06">'h'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'e'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'o'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'\0'</span><span class="op" style="color:#ce5c00; font-weight:bold">};</span></span>
+<span id="cb3-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">6</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="op" style="color:#ce5c00; font-weight:bold">{</span><span class="ch" style="color:#4e9a06">'h'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'e'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'o'</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> <span class="ch" style="color:#4e9a06">'\0'</span><span class="op" style="color:#ce5c00; font-weight:bold">};</span></span>
+<span id="cb3-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb3-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">char</span> word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">20</span><span class="op" style="color:#ce5c00; font-weight:bold">];</span></span>
+<span id="cb3-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'h'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">1</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'e'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span>  </span>
+<span id="cb3-12" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-12" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">2</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-13" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-13" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">3</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'l'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-14" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-14" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">4</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'o'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb3-15" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-15" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word<span class="op" style="color:#ce5c00; font-weight:bold">[</span><span class="dv" style="color:#0000cf">5</span><span class="op" style="color:#ce5c00; font-weight:bold">]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'\0'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span></code></pre></div>
+<p style="margin:1em 0">The last element has to be a null character (<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>'\0'</code>) to
+terminate the array and string.</p>
+<p style="margin:1em 0">Therefore, be aware when scanning a string with <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>scanf()</code>
+because it will read all characters until a whitespace is read.</p>
+<h2 id="important-note-on-the-quotes" style="margin-top:1.4em">Important note on the quotes</h2>
+<p style="margin:1em 0">When initializing, using ‘a’ or “a” will lead to different datatypes:
+- ‘a’ is a single character</p>
+<ul style="padding-left:1.7em; margin-top:1em">
+<li>“a” is stored in the character array of at least size two</li>
+</ul>
+<h2 id="string-library" style="margin-top:1.4em">String Library</h2>
+<p style="margin:1em 0">Inside the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>&lt;string.h&gt;</code>, there are some very useful
+functions for manipulating strings.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>char* strcat(char *s1, const char *s2);</code></p>
+<p style="margin:1em 0">This function concatenates the string s2 to the string s1 and stores
+the result in s1. The const in front of s2 indicates that the function
+will not change the contents of the string s2.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int strcmp(const char *s1, const char *s2);</code></p>
+<p style="margin:1em 0">This function compares the two strings s1 and s2. If s1 comes first
+alphabetically, an integer less than 0 is returned. If the two strings
+are equal 0 is returned. If s2 comes before s1 instead, an integer
+greater than 0 is returned.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int strcpy(char *s1, const char *s2);</code></p>
+<p style="margin:1em 0">The contents of s2 are copied into s1. This works DIFFERENTLY than
+<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>s1 = s2;</code>, which would just copy a pointer.</p>
+<p style="margin:1em 0"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>int strlen(const char *s);</code></p>
+<p style="margin:1em 0">Returns the number of characters in s before a ‘\0’ is
+encountered.</p>
+<p style="margin:1em 0">For more information, check out <a href="https://www.tutorialspoint.com/c_standard_library/string_h.htm" style="{color:#1a1a1a} :visited{color:#1a1a1a}">this
+website</a>.</p>
+</body>
+</html>

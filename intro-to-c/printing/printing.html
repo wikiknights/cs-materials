@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fdfdfd" bgcolor="#fdfdfd">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title> </title>
+  <style>@media (max-width: 600px) {
+    body {
+        font-size: 0.9em !important;
+        padding: 1em !important
+        }
+    h1 {
+        font-size: 1.8em !important
+        }
+    }
+@media print {
+    body {
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 12pt !important
+        }
+    p, h2, h3 {
+        orphans: 3 !important;
+        widows: 3 !important
+        }
+    h2, h3, h4 {
+        page-break-after: avoid !important
+        }
+    }
+@media screen {
+    div.sourceCode {
+        overflow: auto !important
+        }
+    }
+@media print {
+    pre > code.sourceCode {
+        white-space: pre-wrap !important
+        }
+    pre > code.sourceCode > span {
+        text-indent: -5em !important;
+        padding-left: 5em !important
+        }
+    }
+@media screen {
+    pre > code.sourceCode > span > a:first-child::before {
+        text-decoration: underline !important
+        }
+    }</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
+<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
+<h1 class="title" style="margin-top:1.4em"> </h1>
+</header>
+<h1 id="printing" style="margin-top:1.4em">Printing</h1>
+<h2 id="the-printf-function" style="margin-top:1.4em">The <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf();</code> function</h2>
+<p style="margin:1em 0">Printing a text to the screen is a big part of coding and debugging.
+To do that in C, we use the function <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf();</code>, which
+stands for print formatted.</p>
+<p style="margin:1em 0">For example:</p>
+<div class="sourceCode" id="cb1" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb1-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb1-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb1-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"Hello, world!"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb1-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb1-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb1-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb1-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">This code will display <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>Hello, world!</code> to the screen.</p>
+<h2 id="special-characters" style="margin-top:1.4em">Special Characters</h2>
+<p style="margin:1em 0">If you wish to display your text a certain way, such as adding a new
+line or a tab, you can use some special characters:</p>
+<ul style="padding-left:1.7em; margin-top:1em">
+<li><strong>:</strong> will add a new line</li>
+<li><strong></strong> will add a tab</li>
+<li><strong></strong> will do a backspace (move one character
+backward)</li>
+</ul>
+<p style="margin:1em 0">Here is an example of a code that uses all these special
+characters:</p>
+<div class="sourceCode" id="cb2" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb2-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb2-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb2-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb2-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"Hello,</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">worl</span><span class="sc" style="color:#000">\b</span><span class="st" style="color:#4e9a06">d</span><span class="sc" style="color:#000">\t</span><span class="st" style="color:#4e9a06">!"</span><span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb2-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb2-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb2-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb2-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">This code will print:</p>
+<div class="sourceCode" id="cb3" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb3-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>Hello<span class="op" style="color:#ce5c00; font-weight:bold">,</span></span>
+<span id="cb3-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb3-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>word    <span class="op" style="color:#ce5c00; font-weight:bold">!</span></span></code></pre></div>
+<h2 id="format-specifiers" style="margin-top:1.4em">Format specifiers</h2>
+<p style="margin:1em 0">What if you created a variable and wish to print it to the screen?
+Well, for that we have the format specifiers! Every datatype has its own
+format specifier and they are listed here.</p>
+<ul style="padding-left:1.7em; margin-top:1em">
+<li><strong>int:</strong> %d</li>
+<li><strong>float:</strong> %f</li>
+<li><strong>double:</strong> %lf</li>
+<li><strong>long (int):</strong> %l</li>
+<li><strong>long double:</strong> %Lf</li>
+<li><strong>char:</strong> %c</li>
+<li><strong>string:</strong> %s</li>
+</ul>
+<p style="margin:1em 0">Let’s check a code example to see how to incorporate the format
+specifier to the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>printf();</code> function:</p>
+<div class="sourceCode" id="cb4" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb4-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb4-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb4-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb4-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb4-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="dt" style="color:#204a87">int</span> a <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="dv" style="color:#0000cf">1</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb4-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="dt" style="color:#204a87">float</span> b <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="fl" style="color:#0000cf">2.356</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb4-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="dt" style="color:#204a87">char</span> c <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="ch" style="color:#4e9a06">'$'</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb4-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="dt" style="color:#204a87">char</span> d<span class="op" style="color:#ce5c00; font-weight:bold">[]</span> <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="st" style="color:#4e9a06">"Hello"</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb4-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb4-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="co" style="color:#8f5902; font-style:italic">/* To print it, we add the format specifier inside the quotation marks, followed by a comma and the variable itself. */</span></span>
+<span id="cb4-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%d</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> a<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb4-12" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-12" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>   <span class="co" style="color:#8f5902; font-style:italic">/*  We can print multiple variables at once too! */</span></span>
+<span id="cb4-13" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-13" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%f </span><span class="sc" style="color:#000">\t</span><span class="st" style="color:#4e9a06"> %c </span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> b<span class="op" style="color:#ce5c00; font-weight:bold">,</span> c<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb4-14" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-14" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%c</span><span class="sc" style="color:#000">\n</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> c<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb4-15" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-15" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%s"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> d<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb4-16" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-16" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb4-17" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-17" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb4-18" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-18" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">This code will print:</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>1
+2.356000    $
+Hello</code></pre>
+<p style="margin:1em 0">Notice how our <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>float</code> variable displayed with 3 more
+zeros at the end. If we want to control this decimal precision, all we
+have to do is add <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>.n</code> (n being a number between 1 and 6)
+after the <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>%</code>.</p>
+<p style="margin:1em 0">For example:</p>
+<div class="sourceCode" id="cb6" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb6-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="pp" style="color:#8f5902; font-style:italic">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb6-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
+<span id="cb6-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
+<span id="cb6-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="dt" style="color:#204a87">float</span> a <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="fl" style="color:#0000cf">2.356789</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb6-6" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-6" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%f</span><span class="sc" style="color:#000">\t</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> a<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb6-7" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-7" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%.1f</span><span class="sc" style="color:#000">\t\t</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> a<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb6-8" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-8" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    printf<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="st" style="color:#4e9a06">"%.3f</span><span class="sc" style="color:#000">\t</span><span class="st" style="color:#4e9a06">"</span><span class="op" style="color:#ce5c00; font-weight:bold">,</span> a<span class="op" style="color:#ce5c00; font-weight:bold">);</span></span>
+<span id="cb6-9" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-9" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a></span>
+<span id="cb6-10" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-10" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>    <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
+<span id="cb6-11" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb6-11" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
+<p style="margin:1em 0">This code will display:</p>
+<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>2.356789    2.4     2.357</code></pre>
+</body>
+</html>
