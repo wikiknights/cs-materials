@@ -53,7 +53,12 @@ total=$(echo "$files" | wc -l)
 i=1
 for file in $files; do
   # Split the file into its path and filename components
-  filepath="${file%/*}"
+  if [[ "$file" == *"/"* ]]; then
+    filepath="${file%/*}"
+  else
+    # Handle the special case where a file is on the root directory
+    filepath=""
+  fi
   filename="${file##*/}"
 
   # Set the output file
