@@ -1,76 +1,202 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fff6d9" bgcolor="#fff6d9">
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title> </title>
-  <style>@media (max-width: 600px) {
-    body {
-        font-size: 0.9em !important;
-        padding: 1em !important
-        }
-    h1 {
-        font-size: 1.8em !important
-        }
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fff6d9;
     }
-@media print {
     body {
-        background-color: transparent !important;
-        color: black !important;
-        font-size: 12pt !important
-        }
-    p, h2, h3 {
-        orphans: 3 !important;
-        widows: 3 !important
-        }
-    h2, h3, h4 {
-        page-break-after: avoid !important
-        }
-    }</style>
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
-<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
-<h1 class="title" style="margin-top:1.4em"> </h1>
+<body>
+<header id="title-block-header">
+<h1 class="title"> </h1>
 </header>
-<h1 id="intro-to-c-programming" style="margin-top:1.4em">Intro to C Programming</h1>
-<p style="margin:1em 0"><a href="hello-world/hello-world.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Writing Your First C
+<h1 id="intro-to-c-programming">Intro to C Programming</h1>
+<p><a href="hello-world/hello-world.html">Writing Your First C
 Program</a></p>
-<p style="margin:1em 0"><a href="variables/variables-intro.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Introduction to
+<p><a href="variables/variables-intro.html">Introduction to
 Variables</a></p>
-<p style="margin:1em 0"><a href="variables/variables-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Variables Practice</a>
-(<a href="variables/variables-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="datatypes/datatypes-intro.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Data types</a></p>
-<p style="margin:1em 0"><a href="preprocessor-directives/preprocessor-directives.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Preprocessor
+<p><a href="variables/variables-practice.html">Variables Practice</a>
+(<a href="variables/variables-practice-answers.html">Answers</a>)</p>
+<p><a href="datatypes/datatypes-intro.html">Data types</a></p>
+<p><a href="preprocessor-directives/preprocessor-directives.html">Preprocessor
 Directives</a></p>
-<p style="margin:1em 0"><a href="printing/printing.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Printing</a></p>
-<p style="margin:1em 0"><a href="conditionals/conditionals-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Conditionals
-Practice</a> (<a href="conditionals/conditionals-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="arrays/array-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Loops and Arrays Practice</a>
-(<a href="arrays/array-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="strings/strings-intro.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Strings Introduction</a></p>
-<p style="margin:1em 0"><a href="strings/strings-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Strings Practice</a> (<a href="strings/strings-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="pre-written-functions/pre-written-functions.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Pre
+<p><a href="printing/printing.html">Printing</a></p>
+<p><a href="conditionals/conditionals-practice.html">Conditionals
+Practice</a> (<a href="conditionals/conditionals-practice-answers.html">Answers</a>)</p>
+<p><a href="arrays/array-practice.html">Loops and Arrays Practice</a>
+(<a href="arrays/array-practice-answers.html">Answers</a>)</p>
+<p><a href="strings/strings-intro.html">Strings Introduction</a></p>
+<p><a href="strings/strings-practice.html">Strings Practice</a> (<a href="strings/strings-practice-answers.html">Answers</a>)</p>
+<p><a href="pre-written-functions/pre-written-functions.html">Pre
 written Functions</a></p>
-<p style="margin:1em 0"><a href="functions/functions-intro.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Creating and Using Functions
+<p><a href="functions/functions-intro.html">Creating and Using Functions
 - An Overview</a></p>
-<p style="margin:1em 0"><a href="functions/functions-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Functions Practice</a>
-(<a href="functions/functions-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="assorted/assorted-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Assorted Practice</a></p>
-<p style="margin:1em 0"><a href="argv/argv-intro.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Introduction to argc and argv</a></p>
-<p style="margin:1em 0"><a href="structs/structs-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Structs Practice</a> (<a href="structs/structs-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="binary-io/binary-io-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Binary I/O Practice</a>
-(<a href="binary-io/binary-io-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="endianness/endianness.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Endianness</a></p>
-<p style="margin:1em 0"><a href="pointers/intro-to-pointers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Introduction to
+<p><a href="functions/functions-practice.html">Functions Practice</a>
+(<a href="functions/functions-practice-answers.html">Answers</a>)</p>
+<p><a href="assorted/assorted-practice.html">Assorted Practice</a></p>
+<p><a href="argv/argv-intro.html">Introduction to argc and argv</a></p>
+<p><a href="structs/structs-practice.html">Structs Practice</a> (<a href="structs/structs-practice-answers.html">Answers</a>)</p>
+<p><a href="binary-io/binary-io-practice.html">Binary I/O Practice</a>
+(<a href="binary-io/binary-io-practice-answers.html">Answers</a>)</p>
+<p><a href="endianness/endianness.html">Endianness</a></p>
+<p><a href="pointers/intro-to-pointers.html">Introduction to
 Pointers</a></p>
-<p style="margin:1em 0"><a href="pointers/using-pointers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">How to use Pointers</a></p>
-<p style="margin:1em 0"><a href="dma/dma-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Dynamic Memory Allocation
-Practice</a> (<a href="dma/dma-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
-<p style="margin:1em 0"><a href="final-project/final-project-practice.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Final Project
-Practice</a> (<a href="final-project/final-project-practice-answers.html" style="{color:#1a1a1a} :visited{color:#1a1a1a}">Answers</a>)</p>
+<p><a href="pointers/using-pointers.html">How to use Pointers</a></p>
+<p><a href="dma/dma-practice.html">Dynamic Memory Allocation
+Practice</a> (<a href="dma/dma-practice-answers.html">Answers</a>)</p>
+<p><a href="final-project/final-project-practice.html">Final Project
+Practice</a> (<a href="final-project/final-project-practice-answers.html">Answers</a>)</p>
 </body>
 </html>

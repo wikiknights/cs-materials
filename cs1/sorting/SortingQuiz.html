@@ -1,113 +1,239 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fff6d9" bgcolor="#fff6d9">
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title> </title>
-  <style>@media (max-width: 600px) {
-    body {
-        font-size: 0.9em !important;
-        padding: 1em !important
-        }
-    h1 {
-        font-size: 1.8em !important
-        }
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fff6d9;
     }
-@media print {
     body {
-        background-color: transparent !important;
-        color: black !important;
-        font-size: 12pt !important
-        }
-    p, h2, h3 {
-        orphans: 3 !important;
-        widows: 3 !important
-        }
-    h2, h3, h4 {
-        page-break-after: avoid !important
-        }
-    }</style>
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
-<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
-<h1 class="title" style="margin-top:1.4em"> </h1>
+<body>
+<header id="title-block-header">
+<h1 class="title"> </h1>
 </header>
-<h1 id="bubble-sort-and-selection-sort-exercices" style="margin-top:1.4em">Bubble Sort and
+<h1 id="bubble-sort-and-selection-sort-exercices">Bubble Sort and
 Selection Sort Exercices</h1>
-<p style="margin:1em 0"><em>Created by Yohan Hmaiti.</em></p>
-<p style="margin:1em 0"><strong>Bubble sort algorithm and Selection Sort Algorithm Knowledge
+<p><em>Created by Yohan Hmaiti.</em></p>
+<p><strong>Bubble sort algorithm and Selection Sort Algorithm Knowledge
 Check:</strong></p>
-<h2 id="bubble-sort" style="margin-top:1.4em">Bubble Sort</h2>
-<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<h2 id="bubble-sort">Bubble Sort</h2>
+<ol type="1">
 <li>What are the correct intermediate steps of the following data set
 when it is being sorted with the bubble sort? 15,20,10,18</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. 15,10,20,18 – 15,10,18,20 – 10,15,18,20</li>
 <li>B. 10,20,15,18 – 10,15,20,18 – 10,15,18,20</li>
 <li>C. 15,20,10,18 – 15,10,20,18 – 10,15,20,18 – 10,15,18,20</li>
 <li>D. 15,18,10,20 – 10,18,15,20 – 10,15,18,20 – 10,15,18,20</li>
 </ul>
-<ol start="2" type="1" style="padding-left:1.7em; margin-top:1em">
+<ol start="2" type="1">
 <li>In a bubble sort structure, there is/are?</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. A single for loop</li>
 <li>B. Three for loops, all separate</li>
 <li>C. A while loop</li>
 <li>D. Two for loops, one nested in the other</li>
 </ul>
-<ol start="3" type="1" style="padding-left:1.7em; margin-top:1em">
+<ol start="3" type="1">
 <li>What is the maximum number of comparisons if there are 5 elements in
 array x?</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. 10</li>
 <li>B. 2</li>
 <li>C. 5</li>
 <li>D. 25</li>
 </ul>
-<p style="margin:1em 0"><em>Answers for the Bubble sort:</em></p>
-<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<p><em>Answers for the Bubble sort:</em></p>
+<ol type="1">
 <li>A</li>
 <li>D</li>
 <li>A</li>
 </ol>
-<h2 id="selection-sort-portion" style="margin-top:1.4em">Selection Sort Portion</h2>
-<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<h2 id="selection-sort-portion">Selection Sort Portion</h2>
+<ol type="1">
 <li>What are the correct intermediate steps of the following data set
 when it is being sorted with the Selection sort? 15,20,10,18</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. 10,20,15,18 – 10,15,20,18 – 10,15,18,20</li>
 <li>B. 15,20,10,18 – 15,10,20,18 – 10,15,20,18 – 10,15,18,20</li>
 <li>C. 15,18,10,20 – 10,18,15,20 – 10,15,18,20 – 10,15,18,20</li>
 <li>D. 15,10,20,18 – 15,10,18,20 – 10,15,18,20</li>
 </ul>
-<ol start="2" type="1" style="padding-left:1.7em; margin-top:1em">
+<ol start="2" type="1">
 <li>In a selection sort structure, there is/are?</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. Two separate for loops</li>
 <li>B. Three for loops, all separate</li>
 <li>C. Two for loops, one nested in the other</li>
 <li>D. A for loop nested inside a while loop</li>
 </ul>
-<ol start="3" type="1" style="padding-left:1.7em; margin-top:1em">
+<ol start="3" type="1">
 <li>Which one of the following is the first step in a selection sort
 algorithm?</li>
 </ol>
-<ul style="padding-left:1.7em; margin-top:1em">
+<ul>
 <li>A. The minimum value in the list is found</li>
 <li>B. The maximum value in the list is found</li>
 <li>C. Adjacent elements are swapped</li>
 </ul>
-<p style="margin:1em 0"><em>Answers for the selection Sort:</em></p>
-<ol type="1" style="padding-left:1.7em; margin-top:1em">
+<p><em>Answers for the selection Sort:</em></p>
+<ol type="1">
 <li>A</li>
 <li>C</li>
 <li>A</li>

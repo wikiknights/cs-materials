@@ -1,77 +1,246 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang style="line-height:1.5; font-family:Georgia, serif; font-size:20px; color:#1a1a1a; background-color:#fff6d9" bgcolor="#fff6d9">
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title> </title>
-  <style>@media (max-width: 600px) {
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fff6d9;
+    }
     body {
-        font-size: 0.9em !important;
-        padding: 1em !important
-        }
-    h1 {
-        font-size: 1.8em !important
-        }
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
     }
-@media print {
-    body {
-        background-color: transparent !important;
-        color: black !important;
-        font-size: 12pt !important
-        }
-    p, h2, h3 {
-        orphans: 3 !important;
-        widows: 3 !important
-        }
-    h2, h3, h4 {
-        page-break-after: avoid !important
-        }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
     }
-@media screen {
-    div.sourceCode {
-        overflow: auto !important
-        }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
     }
-@media print {
-    pre > code.sourceCode {
-        white-space: pre-wrap !important
-        }
-    pre > code.sourceCode > span {
-        text-indent: -5em !important;
-        padding-left: 5em !important
-        }
+    p {
+      margin: 1em 0;
     }
-@media screen {
-    pre > code.sourceCode > span > a:first-child::before {
-        text-decoration: underline !important
-        }
-    }</style>
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #c4a000; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #000000; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #000000; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #000000; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body style="margin:0 auto; max-width:36em; padding-left:50px; padding-right:50px; padding-top:50px; padding-bottom:50px; hyphens:auto; overflow-wrap:break-word; text-rendering:optimizeLegibility; font-kerning:normal">
-<header id="title-block-header" style="margin-bottom:4em; text-align:center" align="center">
-<h1 class="title" style="margin-top:1.4em"> </h1>
+<body>
+<header id="title-block-header">
+<h1 class="title"> </h1>
 </header>
-<h1 id="introduction-to-pointers" style="margin-top:1.4em">Introduction to Pointers</h1>
-<p style="margin:1em 0"><em>Created by Jerrett Longworth in March 2022.</em></p>
-<p style="margin:1em 0">This is where things start to get really crazy. With the concept of
+<h1 id="introduction-to-pointers">Introduction to Pointers</h1>
+<p><em>Created by Jerrett Longworth in March 2022.</em></p>
+<p>This is where things start to get really crazy. With the concept of
 pointers, you are given more power, but it requires great
 responsibility.</p>
-<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
-<h2 id="a-look-into-a-computers-memory" style="margin-top:1.4em">A Look Into a Computer’s
+<hr />
+<h2 id="a-look-into-a-computers-memory">A Look Into a Computer’s
 Memory</h2>
-<p style="margin:1em 0">To understand what a pointer is, we first need to take a look inside
+<p>To understand what a pointer is, we first need to take a look inside
 a computer’s memory and see how the variables we have been using up to
 this point are being stored. (<em>Note:</em> When discussing memory,
 consider this to be a simplified version that only uses the fast,
 volatile RAM on a computer. Additionally, this will use big-endian
 notation.)</p>
-<p style="margin:1em 0">Consider this following soup of data a cross-section of the raw ones
+<p>Consider this following soup of data a cross-section of the raw ones
 and zeroes that your computer has, making up its memory:</p>
-<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>00100000 00010010 00101100 11101011
+<pre><code>00100000 00010010 00101100 11101011
 11110100 00100001 00111100 01111000
 11011011 10110100 11000011 10010100
 11101011 10010101 00010101 10011000
@@ -79,12 +248,12 @@ and zeroes that your computer has, making up its memory:</p>
 11110010 01101010 10010100 00101100
 01101001 01111011 11010111 10100111
 10101000 11100011 00001110 11110000</code></pre>
-<p style="margin:1em 0">Each group of 8 bits is a <em>byte</em>, and represents, among other
+<p>Each group of 8 bits is a <em>byte</em>, and represents, among other
 things, the basic measurement of location within a computer’s
 memory.</p>
-<p style="margin:1em 0">Let’s say that the data from before is at the very beginning of
+<p>Let’s say that the data from before is at the very beginning of
 memory: address 0.</p>
-<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>Address  |  Data
+<pre><code>Address  |  Data
 ===============================================
       0     00100000 00010010 00101100 11101011
       4     11110100 00100001 00111100 01111000
@@ -95,15 +264,15 @@ memory: address 0.</p>
      24     01101001 01111011 11010111 10100111
      28     10101000 11100011 00001110 11110000
     ...     ...</code></pre>
-<p style="margin:1em 0">Notice how for each line, the address increases by 4, and this is
+<p>Notice how for each line, the address increases by 4, and this is
 because 4 bytes are on each line.</p>
-<p style="margin:1em 0">Computers notate where data exists by these addresses, similar to how
+<p>Computers notate where data exists by these addresses, similar to how
 every house has an address. Let’s look at a completely different part of
-memory, starting at address <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>0xA570</code> and have a look
+memory, starting at address <code>0xA570</code> and have a look
 around.</p>
-<p style="margin:1em 0">(From here on, I’ll start writing addresses in hexadecimal (base-16),
+<p>(From here on, I’ll start writing addresses in hexadecimal (base-16),
 like how programmers often do.)</p>
-<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>Address  |  Data
+<pre><code>Address  |  Data
 ===============================================
     ...     ...
  0xA570     11000110 00101001 11111111 10111010
@@ -115,19 +284,19 @@ like how programmers often do.)</p>
  0xA588     11111110 00101001 11011001 01010001
  0xA58C     11100001 11100111 11000010 11011011
      ...     ...</code></pre>
-<p style="margin:1em 0">This is all completely useless information right now, but what if I
+<p>This is all completely useless information right now, but what if I
 told you that this happened to be where the program I made is running
 right now? Here’s that program:</p>
-<div class="sourceCode" id="cb4" style="background-color:#f8f8f8; overflow:visible; margin:1em 0" bgcolor="#f8f8f8"><pre class="sourceCode c" style="margin:0; overflow:visible; background-color:transparent"><code class="sourceCode c" style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre; padding:0; overflow:visible; overflow-wrap:normal; background-color:transparent; position:relative'><span id="cb4-1" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-1" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="dt" style="color:#204a87">int</span> main<span class="op" style="color:#ce5c00; font-weight:bold">(</span><span class="dt" style="color:#204a87">void</span><span class="op" style="color:#ce5c00; font-weight:bold">)</span></span>
-<span id="cb4-2" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-2" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">{</span></span>
-<span id="cb4-3" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-3" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="dt" style="color:#204a87">int</span> x <span class="op" style="color:#ce5c00; font-weight:bold">=</span> <span class="dv" style="color:#0000cf">3</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
-<span id="cb4-4" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-4" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a>  <span class="cf" style="color:#204a87; font-weight:bold">return</span> <span class="dv" style="color:#0000cf">0</span><span class="op" style="color:#ce5c00; font-weight:bold">;</span></span>
-<span id="cb4-5" style="{color:inherit; text-decoration:inherit; display:inline-block; line-height:1.25} :empty{height:1.2em}"><a href="#cb4-5" aria-hidden="true" tabindex="-1" style="{color:#1a1a1a} :visited{color:#1a1a1a}"></a><span class="op" style="color:#ce5c00; font-weight:bold">}</span></span></code></pre></div>
-<p style="margin:1em 0">Sure, it doesn’t do a whole lot, but it does declare the variable
-<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>x</code> with an initial value of 3. Additionally, this variable
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Sure, it doesn’t do a whole lot, but it does declare the variable
+<code>x</code> with an initial value of 3. Additionally, this variable
 has to be stored somewhere in the computer’s memory. Take a look at that
 slice of memory from before one more time:</p>
-<pre style="margin:1em 0; overflow:auto"><code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap; padding:0; overflow:visible; overflow-wrap:normal'>Address  |  Data
+<pre><code>Address  |  Data
 ===============================================
     ...     ...
  0xA570     11000110 00101001 11111111 10111010
@@ -139,18 +308,18 @@ slice of memory from before one more time:</p>
  0xA588     11111110 00101001 11011001 01010001
  0xA58C     11100001 11100111 11000010 11011011
      ...     ...</code></pre>
-<p style="margin:1em 0">It seems that the bits at address <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>0xA57C</code> have changed!
+<p>It seems that the bits at address <code>0xA57C</code> have changed!
 For the sake of this example, say that the address of the variable
-<code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>x</code> is <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>0xA57C</code>. This means that any time we
-change the value of <code style='font-family:Menlo, Monaco, "Lucida Console", Consolas, monospace; font-size:85%; margin:0; white-space:pre-wrap'>x</code>, the bits at this specific location
+<code>x</code> is <code>0xA57C</code>. This means that any time we
+change the value of <code>x</code>, the bits at this specific location
 are changed.</p>
-<p style="margin:1em 0">This is cool and all, but what does any of this have to do with
+<p>This is cool and all, but what does any of this have to do with
 pointers?</p>
-<hr style="background-color:#1a1a1a; border:none; height:1px; margin:1em 0" bgcolor="#1a1a1a" height="1">
-<h2 id="what-is-a-pointer" style="margin-top:1.4em">What is a pointer?</h2>
-<p style="margin:1em 0">A pointer is <strong>the location of a piece of data in
+<hr />
+<h2 id="what-is-a-pointer">What is a pointer?</h2>
+<p>A pointer is <strong>the location of a piece of data in
 memory</strong>.</p>
-<p style="margin:1em 0">Imagine if you have a variable, and you literally “point” to its
+<p>Imagine if you have a variable, and you literally “point” to its
 location. This is the reason why they are called “pointers”!</p>
 </body>
 </html>
