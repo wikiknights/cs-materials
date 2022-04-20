@@ -1,6 +1,11 @@
 #!/bin/bash
 # Created by Idel Martinez and Jerrett Longworth
 
+# Setup variables
+SCRIPT_LOCATION=$(readlink -e "$0")
+SCRIPT_LOCATION=${SCRIPT_LOCATION%/*}
+ROOT_DIR="$SCRIPT_LOCATION/../"
+
 # Check if pandoc exists
 if ! command -v pandoc &> /dev/null; then
 	echo "Pandoc is not installed. Please install it and try again."
@@ -43,7 +48,7 @@ convert_html() {
 	fi
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style tango --self-contained -V title:' ' --metadata title=' '
+	pandoc tmp.md -o tmp.html --highlight-style tango --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
 
 	echo "Fixing CSS..."
 	python3 -m premailer -f tmp.html -o tmp2.html

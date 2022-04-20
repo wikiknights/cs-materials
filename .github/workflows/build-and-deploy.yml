@@ -18,6 +18,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
 
       # Installing pandoc is done this way instead of with the package manager because the version
       # on apt is just too old
@@ -58,6 +60,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - name: Download a build artifact
         uses: actions/download-artifact@v3.0.0
