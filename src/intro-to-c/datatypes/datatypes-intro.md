@@ -9,37 +9,37 @@ You do need to know off the top of your head how many bytes each data type holds
 - **int:** stores integers (2 or 4 byte)
 
     ```c
-    int a = 1
+    int a = 1;
     ```
 - **float:** stores decimal numbers to about 6 digits of precision (4 byte)
 
     ```c
-    float b = 1.555555
+    float b = 1.555555;
     ```
 - **double:** stores decimal numbers to about 15 digits of precision (8 byte)
 
     ```c
-    double c = 0.999999999999999
+    double c = 0.999999999999999;
     ```
 - **long (int):** stores big integers, the 'int' is optional (8 byte)
 
     ```c
-    long d = 123456790
+    long d = 123456790;
     ```
 - **long double:** stores big decimal numbers to about 19 digits of precision (10 byte)
 
     ```c
-    long double e = 1.0000000000000000001
+    long double e = 1.0000000000000000001;
     ```
 - **char:** stores a single character (1 byte)
 
     ```c
-    char f = '@'
+    char f = '@';
     ```
 - **string:** an array of char's that allows you to form words
 
     ```c
-    char[] g = "hello"
+    char[] g = "hello";
     ```
 - **void:** stores no value (useful for functions)
 
@@ -59,7 +59,7 @@ If you wish to get user input and hold it to a variable or display the variable 
 
     ```c
     float j = 4.5678;
-    printf("%0.2f", j) // it would display 4.57
+    printf("%0.2f", j); // it would display 4.57
     ```
 - **double:** %lf
 - **long (int):** %l
