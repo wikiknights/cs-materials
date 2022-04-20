@@ -19,7 +19,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
       # Installing pandoc is done this way instead of with the package manager because the version
       # on apt is just too old
