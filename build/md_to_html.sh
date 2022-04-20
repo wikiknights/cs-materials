@@ -18,27 +18,24 @@ if ! command -v python &> /dev/null; then
 	exit -3
 fi
 
-# Check if premailer exists
-if ! python -c "import premailer" &> /dev/null; then
-	echo "Premailer is not installed. Please install it and try again."
-	exit -4
-fi
-
 show_usage() {
 	cat << EOF
-Usage: ${0##*/} [-dhp] [-o output_file] <file>
+Usage: ${0##*/} [-dhmp] [-o output_file] <file>
 Converts a Pandoc markdown file into a variety of formats. If no format is specified,
 it will be converted to all formats supported by this script.
 
 Options:
   -d          Convert to DOCX.
   -h          Convert to HTML.
-  -p          Convert to PDF.
+  -m          Use premailer in HTML output (disabled by default).
   -o <file>   Outputs to the specified file.
+  -p          Convert to PDF.
 EOF
 }
 
+# Set default flags
 customout=""
+enable_premailer=0
 
 convert_html() {
 	if [ -n "$customout" ]; then
@@ -50,9 +47,13 @@ convert_html() {
 	echo "Converting to HTML..."
 	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
 
-	echo "Fixing CSS..."
-	python3 -m premailer -f tmp.html -o tmp2.html
-	mv tmp2.html "$outputfile"
+	if [ $enable_premailer -eq 1 ]; then
+		echo "Fixing CSS..."
+		python3 -m premailer -f tmp.html -o tmp2.html
+		mv tmp2.html tmp.html
+	fi
+	
+	mv tmp.html "$outputfile"
 }
 
 convert_docx() {
@@ -98,8 +99,7 @@ add_line_numbers() {
 			 {LINE++}' "$1" > tmp.md
 }
 
-
-# Set flags for conversion modes
+# Set default flags for conversion modes
 all=1
 docx=0
 html=0
@@ -107,7 +107,7 @@ pdf=0
 
 # Test for command line options
 OPTIND=1
-while getopts dho:p option; do
+while getopts dhmo:p option; do
 	case $option in
 		d)
 			docx=1
@@ -116,6 +116,9 @@ while getopts dho:p option; do
 		h)
 			html=1
 			all=0
+			;;
+		m)
+			enable_premailer=1
 			;;
 		o)
 			customout="${OPTARG}"
@@ -135,6 +138,12 @@ while getopts dho:p option; do
 	esac
 done
 shift "$((OPTIND-1))"
+
+# Check if premailer exists, if it is needed
+if [ $enable_premailer -eq 1 ] && ! python -c "import premailer" &> /dev/null; then
+	echo "Premailer is not installed. Please install it and try again."
+	exit -4
+fi
 
 # If no file was given
 if [ -z "$1" ]; then
