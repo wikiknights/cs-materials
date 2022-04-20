@@ -6,7 +6,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 1. In how many lines will the print statement in line 6 output?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   int main(void)
   {
     char buffer[128];
@@ -20,7 +20,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 2. In how many lines will the print statement in line 9 output?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   int main(void)
   {
     char buffer[128];
@@ -87,7 +87,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 6. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   void print_sums(void)
   {
     int sum;
@@ -168,7 +168,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 9. In how many lines will the print statement in line 5 output?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   void boring_print(void)
   {
     char buffer[128] = "I am a string\nth\nat\n\t\tis\nsplit weirdly...\n :S\n";
@@ -258,7 +258,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 14. What will `main` print in lines 10, 12, and 14?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   void add_num(int x, int y)
   {
     x = x + y;
@@ -280,7 +280,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 15. What will `main` print in lines 12, 14, and 16?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   int x;
 
   void add_num(int y)

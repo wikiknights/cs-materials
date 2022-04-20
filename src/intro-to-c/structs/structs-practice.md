@@ -25,7 +25,7 @@ Here is some additional practice using structs. Some of these might take a littl
 
 2. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   struct my_structure
   {
     int x;

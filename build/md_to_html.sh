@@ -84,21 +84,6 @@ converter() {
 	convert_pdf "$1"
 }
 
-
-add_line_numbers() {
-	# First line: When a code block starts with "lineNumber" in it, start adding line numbers.
-	# If the line begins with a space, assume it is indented and account for indentation when adding line numbers.
-	# Additionally, remove "lineNumber" from the first line, as this additional word causes pandoc to misformat the code block.
-	# Second line: When a code block ends, stop adding line numbers.
-	# Third line: Printing. Print based on if line numbers should be added, then if indentation should be added.
-	# Fourth line: Increment the line number.
-
-	awk '/^\s*```.*lineNumber.*$/{NUMS=1; LINE=1; if (substr($0, 0, 1) ~ /\s/) {tabbed=1} else {tabbed=0}; $NF=""; print $0; next}
-			 /^\s*```\s*$/{NUMS=0}
-			 {if (NUMS == 1) {if (tabbed == 1) {print "\t"LINE" "$0} else {print LINE"\t"$0}} else {print $0}}
-			 {LINE++}' "$1" > tmp.md
-}
-
 # Set default flags for conversion modes
 all=1
 docx=0
@@ -157,9 +142,7 @@ if [ ! -f "$1" ]; then
 	exit -1
 fi
 
-echo "Adding line numbers..."
-add_line_numbers "$1"
-echo "Line numbers added."
+cp "$1" tmp.md
 
 echo "Converting files..."
 file_no_extension="${1%.*}"

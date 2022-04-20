@@ -26,7 +26,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 
 2. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   void print_sums(void)
   {
     int sum;
@@ -191,7 +191,7 @@ Before getting into the fun with arrays, here are some basic problems to keep yo
 
 7. What is wrong with the following code snippet? (Challenge yourself to avoid using your code editor.)
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   #include <stdio.h>
 
   void print_float_array(float *array, int count)

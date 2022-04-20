@@ -6,7 +6,7 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 1. What should the blank lines be in line 9 to print out `100.00 - 89.00 = 11.00`?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   int main(void)
   {
     typedef double more_precise_number;
@@ -43,7 +43,7 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 3. What do lines 13 and 14 print out?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   typedef struct Computer
   {
     int memory;
