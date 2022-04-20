@@ -48,7 +48,7 @@ convert_html() {
 	fi
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style tango --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
+	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
 
 	echo "Fixing CSS..."
 	python3 -m premailer -f tmp.html -o tmp2.html
@@ -63,7 +63,7 @@ convert_docx() {
 	fi
 
 	echo "Converting to DOCX..."
-	pandoc tmp.md -o "$outputfile" --highlight-style tango
+	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme"
 }
 
 convert_pdf() {
@@ -74,7 +74,7 @@ convert_pdf() {
 	fi
 
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$outputfile" --highlight-style tango --metadata=geometry:margin=1in
+	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --metadata=geometry:margin=1in
 }
 
 converter() {
