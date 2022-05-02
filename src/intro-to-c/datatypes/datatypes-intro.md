@@ -4,7 +4,7 @@ We store information in RAM through variables and there are certain data types t
 
 ## Data types you should know
 
-You do need to know off the top of your head how many bytes each data type holds, this is just for informational purposes. Focus on knowing when to use each data type and what each of them stores.
+You do not need to know off the top of your head how many bytes each data type holds, this is just for informational purposes. Focus on knowing when to use each data type and what each of them stores.
 
 - **int:** stores integers (2 or 4 byte)
     ```c
