@@ -54,4 +54,4 @@
 
 ## Documentation
 
-All documentation is found in this repository's [wiki page](https://github.com/Wiki-Knights/CS-Materials/wiki/Table-of-Contents).
+All documentation is found in this repository's [wiki page](https://github.com/Wiki-Knights/CS-Materials/wiki).
