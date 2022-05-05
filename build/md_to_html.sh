@@ -12,12 +12,6 @@ if ! command -v pandoc &> /dev/null; then
 	exit -2
 fi
 
-# Check if python exists
-if ! command -v python &> /dev/null; then
-	echo "Python is not installed. Please install it and try again."
-	exit -3
-fi
-
 show_usage() {
 	cat << EOF
 Usage: ${0##*/} [-dhmp] [-o output_file] <file>
@@ -124,10 +118,18 @@ while getopts dhmo:p option; do
 done
 shift "$((OPTIND-1))"
 
-# Check if premailer exists, if it is needed
-if [ $enable_premailer -eq 1 ] && ! python -c "import premailer" &> /dev/null; then
-	echo "Premailer is not installed. Please install it and try again."
-	exit -4
+# Check if python and premailer exist, if they are needed
+if [ $enable_premailer -eq 1 ]; then
+	# Check if python exists
+	if ! command -v python &> /dev/null; then
+		echo "Python is not installed. Please install it and try again."
+		exit -3
+	fi
+
+	if ! python -c "import premailer" &> /dev/null; then
+		echo "Premailer is not installed. Please install it and try again."
+		exit -4
+	fi
 fi
 
 # If no file was given
