@@ -4,7 +4,34 @@
 
 Here is some additional practice using structs. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
 
-1. Given the following code, what would be printed in `main()`? Would it compile at all? Assume all necessary libraries are included.
+But first, some `typedef` fun.
+
+---
+
+## `typedef` Practice
+
+1. What should the blank lines be in line 9 to print out `100.00 - 89.00 = 11.00`?
+
+  ``` {.c .numberLines}
+  int main(void)
+  {
+    typedef double more_precise_number;
+    typedef float less_precise_number;
+
+    more_precise_number x = 100;
+    less_precise_number y = 89;
+
+    printf("%___ - %___ = %___\n", x, y, x - y);
+
+    return 0;
+  }
+  ```
+
+---
+
+## Onto Structs!
+
+2. Given the following code, what would be printed in `main()`? Would it compile at all? Assume all necessary libraries are included.
 
   ``` c
   struct my_structure
@@ -23,7 +50,7 @@ Here is some additional practice using structs. Some of these might take a littl
   }
   ```
 
-2. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
+3. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
 
   ``` {.c .numberLines}
   struct my_structure
@@ -43,9 +70,9 @@ Here is some additional practice using structs. Some of these might take a littl
   }
   ```
 
-3. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
+4. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
 
-4. Good. The world is still going to be safe, but now I have a new (completely unrelated) problem. Suppose I am teaching an introduction to C programming class at a university, but for some reason this university didn't pick a system to store course material and grades. (Something called "Webcourses" was suggested, but it didn't seem to catch on.) That said, now I want to create my own system of storing student grades. I have some basic code to get started, but it needs some work. How can I set the names of my 3 students in class to "Alice", "Bob", and "Charlie"?
+5. Good. The world is still going to be safe, but now I have a new (completely unrelated) problem. Suppose I am teaching an introduction to C programming class at a university, but for some reason this university didn't pick a system to store course material and grades. (Something called "Webcourses" was suggested, but it didn't seem to catch on.) That said, now I want to create my own system of storing student grades. I have some basic code to get started, but it needs some work. How can I set the names of my 3 students in class to "Alice", "Bob", and "Charlie"?
 
   ``` c
   struct gradebook
@@ -66,7 +93,7 @@ Here is some additional practice using structs. Some of these might take a littl
   }
   ```
 
-5. Fill in the blanks to give students names, calculate their grade average, and print it out.
+6. Fill in the blanks to give students names, calculate their grade average, and print it out.
 
   ``` c
   struct gradebook
@@ -128,7 +155,7 @@ Here is some additional practice using structs. Some of these might take a littl
   }
   ```
 
-6. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
+7. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
 
   ``` c
   struct balance
