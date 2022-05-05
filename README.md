@@ -28,8 +28,6 @@
 
 [Functions Practice](src/intro-to-c/functions)
 
-[Assorted Practice](src/intro-to-c/assorted)
-
 [Introduction to argc and argv](src/intro-to-c/argv/argv-intro.md)
 
 [Structs Practice](src/intro-to-c/structs)

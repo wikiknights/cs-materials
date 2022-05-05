@@ -81,7 +81,73 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-4. Define a function that calculates the slope between two points using this fancy function header:
+4. What will `main` print in lines 10, 12, and 14?
+
+  ``` {.c .numberLines}
+  void add_num(int x, int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    int x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20, 10);
+    printf("Now x is %d\n", x);
+    add_num(x, 10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  ```
+  At first x was 10
+  Now x is 10
+  While x is now 10
+  ```
+
+\newpage
+
+5. What will `main` print in lines 12, 14, and 16?
+
+  ``` {.c .numberLines}
+  int x; // A wild global variable has appeared!
+
+  void add_num(int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20);
+    printf("Now x is %d\n", x);
+    add_num(10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  ```
+  At first x was 10
+  Now x is 30
+  While x is now 40
+  ```
+
+\newpage
+
+6. Define a function that calculates the slope between two points using this fancy function header:
 
   **Answer:**
 
@@ -122,7 +188,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-5. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
+7. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
 
   **Answer:**
 
@@ -167,7 +233,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 ## Loops
 
-6. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
+8. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 
   **Answer:**
 

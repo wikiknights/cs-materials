@@ -26,8 +26,6 @@
 
 [Functions Practice](functions/functions-practice.html) ([Answers](functions/functions-practice-answers.html))
 
-[Assorted Practice](assorted/assorted-practice.html)
-
 [Introduction to argc and argv](argv/argv-intro.html)
 
 [Structs Practice](structs/structs-practice.html) ([Answers](structs/structs-practice-answers.html))

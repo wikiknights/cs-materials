@@ -69,7 +69,53 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-4. Define a function that calculates the slope between the two points using the fancy function header:
+4. What will `main` print in lines 10, 12, and 14?
+
+  ``` {.c .numberLines}
+  void add_num(int x, int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    int x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20, 10);
+    printf("Now x is %d\n", x);
+    add_num(x, 10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+5. What will `main` print in lines 12, 14, and 16?
+
+  ``` {.c .numberLines}
+  int x;
+
+  void add_num(int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20);
+    printf("Now x is %d\n", x);
+    add_num(10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+6. Define a function that calculates the slope between the two points using the fancy function header:
 
   ``` c
   // Return the slope of two points.
@@ -93,7 +139,7 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-5. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**: (Hint: You may use the `sqrt()` function provided by the `math.h` library.)
+7. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**: (Hint: You may use the `sqrt()` function provided by the `math.h` library.)
 
   ``` c
   // Return the distance between two points.
@@ -126,7 +172,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 ## Loops
 
-6. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
+8. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 
   ``` c
   // Example output:
