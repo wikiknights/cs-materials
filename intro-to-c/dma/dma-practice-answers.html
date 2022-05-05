@@ -247,30 +247,37 @@
 </header>
 <h1 id="dynamic-memory-allocation-solutions">Dynamic Memory Allocation
 (Solutions)</h1>
+<p><em>Originally created by Jerrett Longworth and Idel Martinez in Fall
+2020.</em></p>
 <p>Let’s take a look at one of the <em>craziest</em> concepts we have in
-our toolkit to date: dynamically-allocated memory. But first, some
-<code>typedef</code> fun.</p>
+our toolkit to date: dynamically-allocated memory.</p>
+<hr />
+<h2 id="dynamically-allocated-structs">Dynamically Allocated
+Structs</h2>
 <ol type="1">
-<li>What should the blank lines be in line 9 to print out
-<code>100.00 - 89.00 = 11.00</code>?</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">typedef</span> <span class="dt">double</span> more_precise_number<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="kw">typedef</span> <span class="dt">float</span> less_precise_number<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  more_precise_number x <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  less_precise_number y <span class="op">=</span> <span class="dv">89</span><span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>  printf<span class="op">(</span><span class="st">&quot;%___ - %___ = %___</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">,</span> y<span class="op">,</span> x <span class="op">-</span> y<span class="op">);</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: <code>%lf</code>, <code>%f</code>, and
-<code>%lf</code> since <code>x</code> is a double, <code>y</code> is a
-float, and their subtraction is also <code>double</code>.</p>
-<ol start="2" type="1">
 <li>Is this program managing memory correctly?</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Computer<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, world!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer</strong>: Nope, we’re missing <code>free(my_PC)</code>
+so memory is getting leaked!</p>
+<ol start="2" type="1">
+<li>Are these two structs equal? In other words, is the condition inside
+the if statement <code>true</code>? What will print out in this
+program?</li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -279,46 +286,84 @@ float, and their subtraction is also <code>double</code>.</p>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Computer<span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, world!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: Nope, we’re missing <code>free(my_PC)</code>
-so memory is getting leaked!</p>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>memory <span class="op">=</span> pc<span class="op">-&gt;</span>memory<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>processes <span class="op">=</span> pc<span class="op">-&gt;</span>processes<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>power <span class="op">=</span> pc<span class="op">-&gt;</span>power<span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC<span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>memory <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>processes <span class="op">=</span> <span class="dv">29</span><span class="op">;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>power <span class="op">=</span> <span class="fl">79.81</span><span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>my_PC <span class="op">==</span> my_other_PC<span class="op">)</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Now my PC and my other PC are equal!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;MEM: %d vs %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>memory<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>memory<span class="op">);</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;PRO: %d vs %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>processes<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>processes<span class="op">);</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;POW: %.2f vs %.2f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>power<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer</strong>: The structs are equal, but the conditional
+is false since they are NOT pointing to the same address. You will see
+that the values that print out will be the same for <code>my_PC</code>
+and <code>my_other_PC</code>, since they are equal but independent -
+this is why we <code>free</code> twice.</p>
 <ol start="3" type="1">
-<li>What do lines 13 and 14 print out?</li>
+<li>Are these two structs equal? In other words, is the condition inside
+the if statement <code>true</code>? Also, what is missing from this
+program regarding memory management?</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="op">}</span> Computer<span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="op">{</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a></span>
-<span id="cb3-13"><a href="#cb3-13"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>memory <span class="op">+</span> my_PC<span class="op">-&gt;</span>processes <span class="op">+</span> my_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_other_PC<span class="op">-&gt;</span>memory <span class="op">+</span> my_other_PC<span class="op">-&gt;</span>processes <span class="op">+</span> my_other_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a></span>
-<span id="cb3-16"><a href="#cb3-16"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a></span>
-<span id="cb3-19"><a href="#cb3-19"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: Because <code>calloc</code> sets initial
-values to the struct, my_PC members are all 0. <code>malloc</code>
-doesn’t do anything to do values and can can be garbage values. So, line
-13 prints 0 and line 14 prints gargabe values.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Computer<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> pc<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>my_PC <span class="op">==</span> my_other_PC<span class="op">)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Now my PC and my other PC are equal!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer</strong>: Notice how the <code>copy_struct</code>
+function, different from the previous exercise, is setting one pointer
+to be <code>my_PC</code>. Therefore, both pointers will be pointing to
+the same address and the conditional is true. Notice also that we are
+missing the <code>free</code>… oh no!</p>
 <ol start="4" type="1">
-<li>Are these two structs equal? Is the condition inside the if
-statement <code>true</code>? What will print out in this program?</li>
+<li>Is this the correct way to handle memory for these
+pointer<strong>s</strong> to a struct?</li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -329,49 +374,30 @@ statement <code>true</code>? What will print out in this program?</li>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>memory <span class="op">=</span> pc<span class="op">-&gt;</span>memory<span class="op">;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>processes <span class="op">=</span> pc<span class="op">-&gt;</span>processes<span class="op">;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>power <span class="op">=</span> pc<span class="op">-&gt;</span>power<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> pc<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC<span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>memory <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>processes <span class="op">=</span> <span class="dv">29</span><span class="op">;</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>power <span class="op">=</span> <span class="fl">79.81</span><span class="op">;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>my_PC <span class="op">==</span> my_other_PC<span class="op">)</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Now my PC and my other PC are equal!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;MEM: %d vs %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>memory<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>memory<span class="op">);</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;PRO: %d vs %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>processes<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>processes<span class="op">);</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;POW: %.2f vs %.2f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>power<span class="op">,</span> my_other_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: The structs are equal, but the conditional
-is false since they are NOT pointing to the same address. You will see
-that the values that print out will be the same for <code>my_PC</code>
-and <code>my_other_PC</code>, since they are equal but independent -
-this is why we <code>free</code> twice.</p>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer</strong>: Similar to the previous exercise,
+<code>my_PC</code> and <code>my_other_PC</code> are pointing to the same
+address (they are equal to each other). This means that when we free one
+of the pointers, we freed the memory they were pointing to and it would
+be incorrect to try to <code>free</code> again, since it had been
+<code>free</code>d before.</p>
 <ol start="5" type="1">
-<li>Are these two structs equal? Is the condition inside the if
-statement <code>true</code>? Also, what is missing from this program
-regarding memory management?</li>
+<li>What is the value of <code>power</code> for both <code>my_PC</code>
+and <code>my_other_PC</code>?</li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -383,133 +409,68 @@ regarding memory management?</li>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> pc<span class="op">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>my_PC <span class="op">==</span> my_other_PC<span class="op">)</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Now my PC and my other PC are equal!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: Notice how the <code>copy_struct</code>
-function, different from the previous exercise, is setting one pointer
-to be <code>my_PC</code>. Therefore, both pointers will be pointing to
-the same address and the conditional is true. Notice also that we are
-missing the <code>free</code>… oh no!</p>
-<ol start="6" type="1">
-<li>Is this the correct way to handle memory for these
-pointer<strong>s</strong> to a struct?</li>
-</ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Computer<span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> pc<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><strong>Answer</strong>: Similar to the previous exercise,
-<code>my_PC</code> and <code>my_other_PC</code> are pointing to the same
-address (they are equal to each other). This means that when we free one
-of the pointers, we freed the memory they were pointing to and it would
-be incorrect to try to <code>free</code> again, since it had been
-<code>free</code>d before.</p>
-<ol start="7" type="1">
-<li>What is the value of <code>power</code> for both <code>my_PC</code>
-and <code>my_other_PC</code>?</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Computer<span class="op">;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Computer <span class="op">*</span>copy_struct<span class="op">(</span>Computer <span class="op">*</span>pc<span class="op">)</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>temp <span class="op">=</span> pc<span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>power <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>power <span class="op">=</span> <span class="fl">79.81</span><span class="op">;</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">-&gt;</span>power <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp<span class="op">;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  my_PC<span class="op">-&gt;</span>power <span class="op">=</span> <span class="fl">79.81</span><span class="op">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> copy_struct<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><strong>Answer</strong>: Once again, <code>copy_struct</code> is
 setting the pointers equal to each other so that they are pointing to
 the same address. This means that any changes to one pointer will also
 be reflected on the other pointer, so the value of <code>power</code> is
 100 for both. Notice also that we should not be using
 <code>free()</code> twice. Can you see why?</p>
-<ol start="8" type="1">
+<hr />
+<h2 id="challenge-problems">CHALLENGE PROBLEMS:</h2>
+<ol start="6" type="1">
 <li>Below we have a <code>Pixel</code> struct with the red, green, and
 blue components. (1) Create an array of <code>1024</code> pixels
 <strong>dynamically</strong>, (2) assign values to each pixel, and (3)
 free the memory associated with the array.</li>
 </ol>
 <p><strong>Answer:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Pixel</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> r<span class="op">;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> g<span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> b<span class="op">;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Pixel<span class="op">;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  Pixel <span class="op">*</span>scan_line<span class="op">;</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> <span class="dv">1024</span><span class="op">;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  srand<span class="op">(</span>time<span class="op">(</span>NULL<span class="op">));</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create an array of pixels. Your code goes here</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  scan_line <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Pixel<span class="op">)</span> <span class="op">*</span> n<span class="op">);</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Your code goes here</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>r <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>g <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>b <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Time to free. Your code goes here</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>scan_line<span class="op">);</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="9" type="1">
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Pixel</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> r<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> g<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> b<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Pixel<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  Pixel <span class="op">*</span>scan_line<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> <span class="dv">1024</span><span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  srand<span class="op">(</span>time<span class="op">(</span>NULL<span class="op">));</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create an array of pixels. Your code goes here</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  scan_line <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Pixel<span class="op">)</span> <span class="op">*</span> n<span class="op">);</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Your code goes here</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>r <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>g <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    scan_line<span class="op">[</span>i<span class="op">].</span>b <span class="op">=</span> rand<span class="op">()</span> <span class="op">%</span> <span class="dv">256</span><span class="op">;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Time to free. Your code goes here</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>scan_line<span class="op">);</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="7" type="1">
 <li>I keep forgetting my name, age, and birthday, so I want to create
 this program that stores it for me. But I’m surely not the only one with
 this problem, so you should use it as well. Can you help me create this
@@ -517,103 +478,132 @@ program? Remember to allocate memory to a person (you), and assign a
 name, age, and birthday - plus free all the memory!</li>
 </ol>
 <p><strong>Answer:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Birthday</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> day<span class="op">;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> year<span class="op">;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> month<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Birthday<span class="op">;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Person</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>name<span class="op">;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> age<span class="op">;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  Birthday birthday<span class="op">;</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Person<span class="op">;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>human <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Person<span class="op">));</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> name_length <span class="op">=</span> <span class="dv">14</span><span class="op">;</span> <span class="co">// or better yet: strlen(&quot;Adele Goldberg&quot;)</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>name <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="dt">char</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span>name_length <span class="op">+</span> <span class="dv">1</span><span class="op">));</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code goes here</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>human<span class="op">-&gt;</span>name<span class="op">,</span> <span class="st">&quot;Adele Goldberg&quot;</span><span class="op">);</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>age <span class="op">=</span> <span class="dv">75</span><span class="op">;</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>birthday<span class="op">.</span>day <span class="op">=</span> <span class="dv">22</span><span class="op">;</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>birthday<span class="op">.</span>year <span class="op">=</span> <span class="dv">1945</span><span class="op">;</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>human<span class="op">-&gt;</span>birthday<span class="op">.</span>month<span class="op">,</span> <span class="st">&quot;July&quot;</span><span class="op">);</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, I am %s, a %d-year-old.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>name<span class="op">,</span> human<span class="op">-&gt;</span>age<span class="op">);</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I was born in %s, %d, %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>month<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>day<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>year<span class="op">);</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>human<span class="op">);</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Birthday</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> day<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> year<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> month<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Birthday<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Person</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>name<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> age<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  Birthday birthday<span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Person<span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>human <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Person<span class="op">));</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> name_length <span class="op">=</span> <span class="dv">14</span><span class="op">;</span> <span class="co">// or better yet: strlen(&quot;Adele Goldberg&quot;)</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>name <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="dt">char</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span>name_length <span class="op">+</span> <span class="dv">1</span><span class="op">));</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code goes here</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>human<span class="op">-&gt;</span>name<span class="op">,</span> <span class="st">&quot;Adele Goldberg&quot;</span><span class="op">);</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>age <span class="op">=</span> <span class="dv">75</span><span class="op">;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>birthday<span class="op">.</span>day <span class="op">=</span> <span class="dv">22</span><span class="op">;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  human<span class="op">-&gt;</span>birthday<span class="op">.</span>year <span class="op">=</span> <span class="dv">1945</span><span class="op">;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>human<span class="op">-&gt;</span>birthday<span class="op">.</span>month<span class="op">,</span> <span class="st">&quot;July&quot;</span><span class="op">);</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, I am %s, a %d-year-old.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>name<span class="op">,</span> human<span class="op">-&gt;</span>age<span class="op">);</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I was born in %s, %d, %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>month<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>day<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">.</span>year<span class="op">);</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>human<span class="op">);</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><strong>Crazy advanced answer using user input and more
 pointers:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Birthday</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> day<span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> year<span class="op">;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> month<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Birthday<span class="op">;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Person</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>name<span class="op">;</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> age<span class="op">;</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  Birthday <span class="op">*</span>birthday<span class="op">;</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Person<span class="op">;</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>Person <span class="op">*</span>create_person<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>name<span class="op">,</span> <span class="dt">int</span> name_length<span class="op">)</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>person <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Person<span class="op">));</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>name <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="dt">char</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span>name_length <span class="op">+</span> <span class="dv">1</span><span class="op">));</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>person<span class="op">-&gt;</span>name<span class="op">,</span> name<span class="op">);</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>age <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Birthday<span class="op">));</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>day <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>year <span class="op">=</span> <span class="dv">1900</span><span class="op">;</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>month<span class="op">,</span> <span class="st">&quot;January&quot;</span><span class="op">);</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> person<span class="op">;</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> free_person<span class="op">(</span>Person <span class="op">*</span>person<span class="op">)</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>person <span class="op">==</span> NULL<span class="op">)</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">-&gt;</span>name<span class="op">);</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">-&gt;</span>birthday<span class="op">);</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">);</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>human <span class="op">=</span> NULL<span class="op">;</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> name_length<span class="op">;</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">1024</span><span class="op">];</span></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;What is your name? &quot;</span><span class="op">);</span></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%s&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  name_length <span class="op">=</span> strlen<span class="op">(</span>buffer<span class="op">);</span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>  human <span class="op">=</span> create_person<span class="op">(</span>buffer<span class="op">,</span> name_length<span class="op">);</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, I am %s, a %d-year-old.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>name<span class="op">,</span> human<span class="op">-&gt;</span>age<span class="op">);</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I was born in %s, %d, %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>month<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>day<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>year<span class="op">);</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  free_person<span class="op">(</span>human<span class="op">);</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Birthday</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> day<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> year<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> month<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Birthday<span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Person</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>name<span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> age<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  Birthday <span class="op">*</span>birthday<span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Person<span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>Person <span class="op">*</span>create_person<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>name<span class="op">,</span> <span class="dt">int</span> name_length<span class="op">)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>person <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Person<span class="op">));</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>name <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span><span class="dt">char</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span>name_length <span class="op">+</span> <span class="dv">1</span><span class="op">));</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>person<span class="op">-&gt;</span>name<span class="op">,</span> name<span class="op">);</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>age <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Birthday<span class="op">));</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>day <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>year <span class="op">=</span> <span class="dv">1900</span><span class="op">;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>person<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>month<span class="op">,</span> <span class="st">&quot;January&quot;</span><span class="op">);</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> person<span class="op">;</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> free_person<span class="op">(</span>Person <span class="op">*</span>person<span class="op">)</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>person <span class="op">==</span> NULL<span class="op">)</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">-&gt;</span>name<span class="op">);</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">-&gt;</span>birthday<span class="op">);</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  free<span class="op">(</span>person<span class="op">);</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  Person <span class="op">*</span>human <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> name_length<span class="op">;</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">1024</span><span class="op">];</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;What is your name? &quot;</span><span class="op">);</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%s&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  name_length <span class="op">=</span> strlen<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  human <span class="op">=</span> create_person<span class="op">(</span>buffer<span class="op">,</span> name_length<span class="op">);</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello, I am %s, a %d-year-old.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>name<span class="op">,</span> human<span class="op">-&gt;</span>age<span class="op">);</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I was born in %s, %d, %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>month<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>day<span class="op">,</span> human<span class="op">-&gt;</span>birthday<span class="op">-&gt;</span>year<span class="op">);</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  free_person<span class="op">(</span>human<span class="op">);</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h2 id="using-calloc">Using <code>calloc()</code></h2>
+<ol start="8" type="1">
+<li>What do lines 13 and 14 print out?</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> Computer</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="dt">int</span> memory<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="dt">int</span> processes<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="dt">float</span> power<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="op">}</span> Computer<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="op">{</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>  Computer <span class="op">*</span>my_PC <span class="op">=</span> calloc<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>  Computer <span class="op">*</span>my_other_PC <span class="op">=</span> malloc<span class="op">(</span><span class="kw">sizeof</span><span class="op">(</span>Computer<span class="op">));</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_PC<span class="op">-&gt;</span>memory <span class="op">+</span> my_PC<span class="op">-&gt;</span>processes <span class="op">+</span> my_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_other_PC<span class="op">-&gt;</span>memory <span class="op">+</span> my_other_PC<span class="op">-&gt;</span>processes <span class="op">+</span> my_other_PC<span class="op">-&gt;</span>power<span class="op">);</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a></span>
+<span id="cb9-16"><a href="#cb9-16"></a>  free<span class="op">(</span>my_PC<span class="op">);</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>  free<span class="op">(</span>my_other_PC<span class="op">);</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer</strong>: Because <code>calloc</code> sets initial
+values to the struct, my_PC members are all 0. <code>malloc</code>
+doesn’t do anything to do values and can can be garbage values. So, line
+13 prints 0 and line 14 prints garbage values.</p>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/Wiki-Knights/CS-Materials">GitHub</a>
 </footer>

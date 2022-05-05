@@ -447,6 +447,340 @@ screen?</li>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    puts<span class="op">(</span>name<span class="op">);</span>    <span class="co">// display string</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<h2 id="more-practice-using-strings">More Practice Using Strings</h2>
+<p><em>Originally created by Idel Martinez and Jerrett Longworth in Fall
+2020.</em></p>
+<p>For all questions, assume all necessary libraries are included, and
+all function calls are properly defined. Assume that
+<code>remove_clrf(string);</code> will remove any newline characters
+(‘<code>\n</code>’ or ‘<code>\r</code>’) at the end of
+<code>string</code> passed in.</p>
+<details>
+<summary>
+(Advanced: View the contents of <code>remove_clrf()</code>.)
+</summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="dt">void</span> remove_crlf<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>s<span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> <span class="op">*</span>t <span class="op">=</span> s <span class="op">+</span> strlen<span class="op">(</span>s<span class="op">)</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">((</span>t <span class="op">&gt;=</span> s<span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(*</span>t <span class="op">==</span> <span class="ch">&#39;\n&#39;</span> <span class="op">||</span> <span class="op">*</span>t <span class="op">==</span> <span class="ch">&#39;\r&#39;</span><span class="op">))</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">*</span>t <span class="op">=</span> <span class="ch">&#39;\0&#39;</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      t<span class="op">--;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+</details>
+<hr />
+<ol start="7" type="1">
+<li>In how many lines will the print statement in line 5 output?</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">void</span> boring_print<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;I am a string</span><span class="sc">\n</span><span class="st">th</span><span class="sc">\n</span><span class="st">at</span><span class="sc">\n\t\t</span><span class="st">is</span><span class="sc">\n</span><span class="st">split weirdly...</span><span class="sc">\n</span><span class="st"> :S</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  printf<span class="op">(</span><span class="st">&quot;%s&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> 6 lines.</p>
+<p>The output of this program will be the following:</p>
+<pre><code>I am a string
+th
+at
+    is
+split weirdly...
+ :S</code></pre>
+<ol start="8" type="1">
+<li>What will the following function output?</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_bob_name<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;My name is Bob</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  buffer<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;\0&#39;</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The string is %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> <code>The string is My</code></p>
+<p>A string will only be printed until the first <code>\0</code> is
+reached, so by placing a <code>\0</code> in <code>buffer[2]</code>, the
+string will be effectively shortened.</p>
+<ol start="9" type="1">
+<li>What does this function print?</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> funky_print<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;How are you?&quot;</span><span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> buffer<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> <span class="ch">&#39;\0&#39;</span><span class="op">;</span> i<span class="op">++)</span> <span class="co">// What is this doing?</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%c&quot;</span><span class="op">,</span> buffer<span class="op">[</span>i<span class="op">]);</span> <span class="co">// omg a %c !!</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> <code>How are you?</code></p>
+<p>The loop will print every character in the string one-at-a-time until
+it encounters a null terminator.</p>
+<ol start="10" type="1">
+<li>Similar to the previous question, what does function print?</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cool_print<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;How are you?&quot;</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> length <span class="op">=</span> strlen<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> length<span class="op">;</span> i<span class="op">++)</span> <span class="co">// What is this doing?</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%c&quot;</span><span class="op">,</span> buffer<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> <code>How are you?</code></p>
+<p>The loop will print every character in the string one-at-a-time until
+<code>i</code> becomes equal to the string length. In this case,
+<code>length</code> will be 12.</p>
+<ol start="11" type="1">
+<li>In how many lines will the print statement in line 6 output?</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  printf<span class="op">(</span><span class="st">&quot;How is life like in Jupiter? &quot;</span><span class="op">);</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  printf<span class="op">(</span><span class="st">&quot;The user wrote life is %s in Jupiter.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> Since <code>fgets()</code> adds the newline
+character at the end of user input and we don’t remove it, line 6 will
+be split into two lines. A sample run of the program may look like
+this:</p>
+<pre><code>How is life like in Jupiter? (pretend the user types &quot;great&quot;)
+The user wrote life is great
+ in Jupiter.</code></pre>
+<ol start="12" type="1">
+<li>In how many lines will the print statement in line 9 output?</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  printf<span class="op">(</span><span class="st">&quot;How is life like in Jupiter? &quot;</span><span class="op">);</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a>  printf<span class="op">(</span><span class="st">&quot;The user wrote life is %s in Jupiter.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> Different from the last question, we now use
+<code>remove_clrf()</code>, which removes the newline character from
+<code>buffer</code>, so line 9 will be printed out in a single line.</p>
+<ol start="13" type="1">
+<li>What is the output if the user entered “not good”?</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;How is life like in Jupiter? &quot;</span><span class="op">);</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The user wrote life is %s in Jupiter.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> We will get user input, remove the newline
+character from the end of <code>buffer</code>, and print it out. The
+output is
+“<code>The user wrote life is not good in Jupiter.</code>”.</p>
+<p>If the user entered “not good”, the buffer will first look like
+this:</p>
+<pre><code>+----+----+----+----+----+----+----+----+----+----+---------+
+| n  | o  | t  |    | g  | o  | o  | d  | \n | \0 |   ...   |
++----+----+----+----+----+----+----+----+----+----+---------+
+ 0    1    2    3    4    5    6    7    8    9</code></pre>
+<p>After the first call to <code>remove_clrf()</code>, the buffer will
+then look like this:</p>
+<pre><code>+----+----+----+----+----+----+----+----+----+----+---------+
+| n  | o  | t  |    | g  | o  | o  | d  | \0 | \0 |   ...   |
++----+----+----+----+----+----+----+----+----+----+---------+
+ 0    1    2    3    4    5    6    7    8    9</code></pre>
+<p>The following two calls to <code>remove_clrf()</code> do nothing
+since the newline character is already removed.</p>
+<ol start="14" type="1">
+<li>What is the output if the user entered “3.14”?</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_fav_num<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> fav_num<span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;What is your favorite number? &quot;</span><span class="op">);</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  fav_num <span class="op">=</span> atoi<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Your number is %d!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> fav_num<span class="op">);</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> <code>Your number is 3!</code></p>
+<p>Notice that <code>fav_num</code> is an integer, and we use
+<code>atoi()</code>. 3.14 will get truncated to 3.</p>
+<ol start="15" type="1">
+<li>How many lines total will the following program print out?</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> ignore_user_input<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello.</span><span class="sc">\n</span><span class="st">How</span><span class="sc">\n</span><span class="st">Are</span><span class="sc">\n</span><span class="st">You? &quot;</span><span class="op">);</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;How</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Are</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You? &quot;</span><span class="op">);</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I don&#39;t really care, so goodbye!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> 9 lines.</p>
+<p>The output of this program will be the following:</p>
+<pre><code>Hello.
+How
+Are
+You? (the user types something here)
+Hello.
+How
+Are
+You? (the user types something here)
+I don&#39;t really care, so goodbye!</code></pre>
+<hr />
+<p><strong>Challenge:</strong> Let’s look at some more complex
+functions!</p>
+<ol start="16" type="1">
+<li>What will be the function output if the user runs the program two
+times? The first time, the user enters “yes” and “179.67”. The second
+time, the user enters “no”.</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> multiply<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;100.23134&quot;</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> num<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The number is %s! But sadly, it is a string.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Converting the string number to a double...</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  num <span class="op">=</span> atof<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;It should now be a number, let&#39;s do some math!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%lf * 71 = %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> num<span class="op">,</span> num <span class="op">*</span> <span class="dv">71</span><span class="op">);</span> <span class="co">// 100.23134 * 71 = 7116.42514</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Would you like to multiply %lf by some number? &quot;</span><span class="op">,</span> num<span class="op">);</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Here I go overwriting the buffer, oh no! What is going to happen?!</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You entered %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>buffer<span class="op">,</span> <span class="st">&quot;yes&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="co">// User wants to multiply our number by something.</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Amazing! What do you want to multiply the number by? &quot;</span><span class="op">);</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Cool beans, you want to multiply it by %s. Let&#39;s do it.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%lf * %s = %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> num<span class="op">,</span> buffer<span class="op">,</span> num <span class="op">*</span> atof<span class="op">(</span>buffer<span class="op">));</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;:( Fine.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I am exiting now...</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong></p>
+<p>If the user enters “yes” and “179.67”:</p>
+<pre><code>100.23134 * 179.67 = 18008.56486</code></pre>
+<p>If the user enters “no” (or anything else):</p>
+<pre><code>:( Fine.</code></pre>
+<ol start="17" type="1">
+<li>What will the following functions print out if the user enters
+“2.718” for both <code>print_num</code> and
+<code>print_another_num</code>?</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_num<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> a<span class="op">;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;What is a? &quot;</span><span class="op">);</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You said that a is %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I am going to set a equal to that</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Error! Trying to directly assign a variable from another type would not</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// even allow the program to run.</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> buffer<span class="op">;</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;a is %f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_another_num<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> a<span class="op">;</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;What is a? &quot;</span><span class="op">);</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  fgets<span class="op">(</span>buffer<span class="op">,</span> <span class="dv">127</span><span class="op">,</span> stdin<span class="op">);</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  remove_crlf<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You said that a is %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> buffer<span class="op">);</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;I am going to set a equal to that</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This is correct.</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> atof<span class="op">(</span>buffer<span class="op">);</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;a is %f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> <code>print_num()</code> would not even be
+able to run due to the assignment operation.</p>
+<p><code>print_another_num()</code> would print
+“<code>a is 2.718</code>”.</p>
+<hr />
+<ol start="18" type="1">
+<li><strong>Challenge Program:</strong> Create a program that asks the
+user for grades, prompting them to keep entering grades and saving them
+into an array. Once the user is done or the program reaches the maximum
+amount of grades that can be entered, print out the list of grades in
+the format below, along with the average.</li>
+</ol>
+<p>As a requirement, make sure to include the following three function
+signatures:</p>
+<ul>
+<li><p><code>int get_grades(float *grades, int n);</code><br />
+Prompt the user for a grade, save it to the <code>grades</code> array,
+then ask the user if they want to enter another grade. Repeat until a
+maximum amount of grades have been entered (however long you declare
+your array to be) or the user enters anything that is not “y” or “yes”.
+<strong>Return</strong> the number of grades entered.</p></li>
+<li><p><code>void print_grades(float *grades, int n);</code><br />
+Print all of the grades entered in a line, followed by a comma and space
+or a newline character, as necessary.</p></li>
+<li><p><code>void average_grades(float *grades, int n);</code><br />
+Add all of the grades entered and divide it by the total amount of
+grades. Print the result.</p></li>
+</ul>
+<p>You can create additional helper functions if you need them.</p>
+<p>Example. If the user enters 7.3, 8.4, and 9.0. Your program will
+print the following:</p>
+<pre><code>You entered 3 grades. Here is a list of them:
+
+7.30, 8.40, 9.00
+
+Based on the previous grades, the average is: 8.23</code></pre>
+<p>As an extra challenge, find the maximum and minimum grades the user
+entered and print them.</p>
+<p><strong>Answer:</strong> See <strong><a href="https://github.com/Wiki-Knights/CS-Materials/raw/main/src/intro-to-c/strings/strings-practice-challenge-answer.c">this
+attached C file</a></strong> for this solution.</p>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/Wiki-Knights/CS-Materials">GitHub</a>
 </footer>
