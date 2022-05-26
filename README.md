@@ -18,7 +18,9 @@
 
 [Conditionals Practice](src/intro-to-c/conditionals/conditionals-practice.md) ([Answers](src/intro-to-c/conditionals/conditionals-practice-answers.md))
 
-[Loops and Arrays Practice](src/intro-to-c/arrays)
+[Loop Practice](src/intro-to-c/loops/loop-practice.md) ([Answers](src/intro-to-c/loops/loop-practice-answers.md))
+
+[Array Practice](src/intro-to-c/arrays/array-practice.md) ([Answers](src/intro-to-c/arrays/array-practice-answers.md))
 
 [Strings](src/intro-to-c/strings)
 

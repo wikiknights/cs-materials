@@ -14,7 +14,9 @@
 
 [Conditionals Practice](conditionals/conditionals-practice.html) ([Answers](conditionals/conditionals-practice-answers.html))
 
-[Loops and Arrays Practice](arrays/array-practice.html) ([Answers](arrays/array-practice-answers.html))
+[Loop Practice](loops/loop-practice.html) ([Answers](loops/loop-practice-answers.html))
+
+[Array Practice](arrays/array-practice.html) ([Answers](arrays/array-practice-answers.html))
 
 [Strings Introduction](strings/strings-intro.html)
 
