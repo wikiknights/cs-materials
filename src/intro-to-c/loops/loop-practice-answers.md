@@ -143,7 +143,48 @@
 
 \newpage
 
-6. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
+6. Is there a difference between the output of these two loops? If so, what is it?
+
+  ``` c
+  int x;
+
+  // Loop 1
+  x = 0;
+  while (x < 10)
+  {
+    printf("%d\n", x);
+    x++;
+  }
+
+  // Loop 2
+  x = 0;
+  do
+  {
+    printf("%d\n", x);
+    x++;
+  } while (x < 10);
+  ```
+
+**Answer:** This is a trick question! There is no difference in output between these two loops. Both of them will print the following:
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+(For another challenge, in what cases would a while loop differ from a do-while loop? Are they interchangeable, or is one sometimes more appropriate than the other?)
+
+\newpage
+
+7. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
 
   ```
   0   1   2   3   4
@@ -182,7 +223,7 @@
 
 \newpage
 
-7. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
+8. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
   
   ```
     #
