@@ -39,7 +39,33 @@
 
 \newpage
 
-2. How many times will the following loop run? (Hint: Don't try to run it)
+2. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
+
+  **Sample Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    for (int i = 1; i <= 100; i++)
+    {
+      // Skip over all numbers evenly divisible by 5
+      if (i % 5 == 0)
+      {
+        continue;
+      }
+
+      printf("%d\n", i);
+    }
+
+    return 0;
+  }
+  ```
+
+\newpage
+
+3. How many times will the following loop run? (Hint: Don't try to run it)
 
   ``` c
   void the_coolest_loop(void)
@@ -57,7 +83,7 @@
 
 \newpage
 
-3. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
+4. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
 
   ``` {.c .numberLines}
   void print_sums(void)
@@ -84,7 +110,7 @@
 
 \newpage
 
-4. Rewrite the following code to make an equivalent program that uses a for loop, rather than this while loop.
+5. Rewrite the following code to make an equivalent program that uses a for loop, rather than this while loop.
 
   ``` c
   int number = 5;
@@ -106,7 +132,7 @@
 
 \newpage
 
-5. Rewrite the following code to make an equivalent program that uses a while loop, rather than this for loop.
+6. Rewrite the following code to make an equivalent program that uses a while loop, rather than this for loop.
 
   ``` c
   int items;
@@ -143,7 +169,7 @@
 
 \newpage
 
-6. Is there a difference between the output of these two loops? If so, what is it?
+7. Is there a difference between the output of these two loops? If so, what is it?
 
   ``` c
   int x;
@@ -184,7 +210,62 @@
 
 \newpage
 
-7. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
+8. Fill in the blanks to end the loop if `sum > 200`.
+
+  **Answer:**
+
+  ``` c
+  int sum = 0;
+
+  for (int i = 0; i < n; i++)
+  {
+    if (sum > 200)
+    {
+      break;
+    }
+
+    sum += i;
+  }
+  ```
+
+\newpage
+
+9. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
+
+  ```
+  5
+  10
+  4
+  -9
+  0
+  The sum is: 10
+  ```
+
+  **Sample Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int sum = 0;
+    int n;
+
+    do
+    {
+      scanf("%d", &n);
+      sum += n;
+    } while (n != 0);
+
+    printf("The sum is: %d\n", sum);
+
+    return 0;
+  }
+  ```
+
+\newpage
+
+10. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
 
   ```
   0   1   2   3   4
@@ -223,7 +304,7 @@
 
 \newpage
 
-8. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
+11. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
   
   ```
     #
