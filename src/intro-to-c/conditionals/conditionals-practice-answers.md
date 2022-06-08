@@ -6,7 +6,14 @@ How can you check if something is true or not, and can you get your code to act 
 
 ---
 
-1. Given the following program, what will be the output?
+1. Whenever Bob is in class, the variable `class` is set to 1, and 0 otherwise. If Bob is doing homework, the variable `homework` is set to 1, and 0 otherwise. Create an expression using boolean operators and the provided variables that would evaluate to true if Bob is doing their homework in class.
+
+**Answer:** `class && homework`
+
+\newpage
+
+
+2. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -39,8 +46,7 @@ Since x (5) is not greater than y (17), the condition in the if statement is fal
 \newpage
 
 
-
-2. Given the following program, what will be the output?
+3. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -78,7 +84,7 @@ x (13) is less than z (15), so the first statement is printed. Since the followi
 \newpage
 
 
-3. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
+4. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
 
 **Answer:**
 ```
@@ -93,7 +99,7 @@ Since the second condition is now using an if statement rather than an else-if s
 \newpage
 
 
-4. Given the following program, what will be the output?
+5. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -126,7 +132,7 @@ Since x (5) is not greater than y (17), the condition in the if statement is fal
 \newpage
 
 
-5. Given the following program, what will be the output?
+6. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -162,7 +168,7 @@ The program then proceeds to print statement #1.
 \newpage
 
 
-6. Given the following program, what will be the output?
+7. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -209,7 +215,7 @@ y (912) is less than or equal to z (1021), so this statement is true. `TRUE && T
 
 In some curricula, conditions are covered before functions, so these following questions are considered "challenge problems." If you have already studied functions, these additional problems are excellent exercises to get more familiar with both conditionals and functions.
 
-7. Given the following program, what will be the output?
+8. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -259,7 +265,7 @@ Returning to `main()`, `fun_function(z)` (5123) is greater than or equal to 65, 
 \newpage
 
 
-8. Given the following program, what will be the output?
+9. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -309,7 +315,7 @@ First, the condition `z > y` is checked first. z (1520) is greater than y (111),
 \newpage
 
 
-9. Given the following program, what will be the output?
+10. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
