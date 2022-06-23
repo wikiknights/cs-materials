@@ -230,7 +230,74 @@
 
 \newpage
 
-9. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
+9. What would be printed if the following program runs?
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    printf("We are starting the loop!\n");
+
+    for (int i = 0; i < 5; i++)
+    {
+      if (i == 3)
+      {
+        return 0;
+      }
+
+      printf("i = %d\n", i);
+    }
+
+    printf("We are ending the loop!\n");
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  ```
+  We are starting the loop!
+  i = 0
+  i = 1
+  i = 2
+  ```
+
+  In this program, the first `printf()` statement is executed. Then the for loop begins, printing the statements `i = 0`, `i = 1`, and `i = 2`. Once `i` becomes 3, the condition in the if statement becomes true. Because of this, `return 0;` is executed, which ends the `main()` function. Consequently, the program finishes without any additional `printf()` statements.
+
+\newpage
+
+10. What would be the **return value** of `loopy_loop()` if executed?
+
+  ``` c
+  int loopy_loop(void)
+  {
+    int x = 0;
+
+    while (x < 10)
+    {
+      printf("x = %d\n", x);
+
+      if (x == 5)
+      {
+        return 2;
+      }
+
+      x += 2;
+    }
+
+    return 5;
+  }
+  ```
+
+  **Answer:** 5
+
+  Notice that as this while loop is running, `x` will be set to every even number between 0 and 9. Because of this, the conditional statement `x == 5` will never be true in the loop, and the `return 2;` statement will never be executed. Once the loop finishes, `loopy_loop()` will return 5.
+
+\newpage
+
+11. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
 
   ```
   5
@@ -265,7 +332,7 @@
 
 \newpage
 
-10. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
+12. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
 
   ```
   0   1   2   3   4
@@ -304,7 +371,7 @@
 
 \newpage
 
-11. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
+13. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
   
   ```
     #

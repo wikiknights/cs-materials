@@ -109,7 +109,55 @@
   }
   ```
 
-9. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
+9. What would be printed if the following program runs?
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    printf("We are starting the loop!\n");
+
+    for (int i = 0; i < 5; i++)
+    {
+      if (i == 3)
+      {
+        return 0;
+      }
+
+      printf("i = %d\n", i);
+    }
+
+    printf("We are ending the loop!\n");
+
+    return 0;
+  }
+  ```
+
+10. What would be the **return value** of `loopy_loop()` if executed?
+
+  ``` c
+  int loopy_loop(void)
+  {
+    int x = 0;
+
+    while (x < 10)
+    {
+      printf("x = %d\n", x);
+
+      if (x == 5)
+      {
+        return 2;
+      }
+
+      x += 2;
+    }
+
+    return 5;
+  }
+  ```
+
+11.  Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
 
   ```
   5
@@ -120,7 +168,7 @@
   The sum is: 10
   ```
 
-10. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
+12. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
 
   ```
   0   1   2   3   4
@@ -130,7 +178,7 @@
   4   5   6   7   8
   ```
 
-11. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
+13. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
   
   ```
     #
