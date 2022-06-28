@@ -220,7 +220,7 @@ Let's try some example problems using pointers!
 
 ## Pointers and Arrays
 
-9. What does `array` contain after line 13? What will this program print if executed?
+9. What does `array` contain after line 13? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>
@@ -249,7 +249,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-10. What will `array` contain after line 34? What will this program print if executed?
+10. What will `array` contain after line 34? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>

@@ -245,7 +245,7 @@ Let's try some example problems using pointers!
 
 7. What will this program print if executed?
 
-  ``` c
+  ``` {.c .numberLines}
   #include <stdio.h>
 
   int functiomatic(int *n)
@@ -271,11 +271,27 @@ Let's try some example problems using pointers!
 
   **Answer:** `*c = 19`
 
+  For this problem, we will step through each line to see the values of `b` (and consequently `*c`) as the program progresses.
+
+  On line 14, `b` stores the value 17. Then on line 15, the `functiomatic()` function is called, and the program moves to line 5.
+
+  At the start of the function, `n` is storing the address of `b` from `main()`, and `*n` currently stores the value 17.
+
+  On line 5, "`*n + 1`" resolves to "`17 + 1`", which is 18. `*n` is then assigned to this value 18, making the `b` in `main()` also equal to 18.
+
+  The function then completes on line 6, by returning "`*n + 1`" which based on the new value of `*n`, resolves to `18 + 1`, which is 19. `functiomatic()` returns 19.
+
+  The program returns to line 15 in `main()`. With `functiomatic()` now finished, this line boils down to "`b = 19`", using the return value of 19.
+
+  On line 16, `c` (an integer pointer) is assigned to the address of `b`. This means that the value contained in `*c` is the same as that in `b`.
+
+  At the end of the program, `*c = 19`.
+
 \newpage
 
 8. What will this program print if executed?
 
-  ``` c
+  ``` {.c .numberLines}
   #include <stdio.h>
 
   int functiomatic(int n)
@@ -301,13 +317,31 @@ Let's try some example problems using pointers!
 
   **Answer:** `*c = 17`
 
+  This is a small variation of the previous problem that changes a pass-by-reference to a pass-by-value. Effectively, this means that unlike before, the value of `b` is not changed during `functiomatic()`.
+
+  We will again step through each line to see the values of `b` as the program progresses.
+
+  On line 14, `b` stores the value 17. Then on line 15, the `functiomatic()` function is called, and the program moves to line 5.
+
+  At the start of the function, `n` is storing the *integer* from `b`, which is 17.
+
+  On line 5, "`n + 1`" resolves to "`17 + 1`", which is 18. `m` is then assigned to this value 18, which does nothing to the value of `b` in `main()`.
+
+  The function then completes on line 6, by returning "`n`", which is unchanged from the beginning of the function, remaining as 17. `functiomatic()` returns 17.
+
+  The program returns to line 15 in `main()`. With `functiomatic()` now finished, this line boils down to "`b = 17`", using the return value of 17.
+
+  On line 16, `c` (an integer pointer) is assigned to the address of `b`. This means that the value contained in `*c` is the same as that in `b`.
+
+  At the end of the program, `*c = 17`.
+
 ---
 
 \newpage
 
 ## Pointers and Arrays
 
-9. What does `array` contain after line 13? What will this program print if executed?
+9. What does `array` contain after line 13? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>
@@ -355,9 +389,11 @@ Let's try some example problems using pointers!
   90
   ```
 
+  Notice that line 20 is printing "`*(array + i)`". Behind the scenes, this is equivalent to "`array[i]`". This program prints the array as any other loop would.
+
 \newpage
 
-10. What will `array` contain after line 34? What will this program print if executed?
+10. What will `array` contain after line 34? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>
@@ -407,7 +443,9 @@ Let's try some example problems using pointers!
 
   `array` contains the following values: `[50, 51, 52, 53, 54, 55, 56, 57, (garbage value), (garbage value)]`
 
-  The program may print:
+  Notice that `initialize_array()` is called with a provided length of "`LENGTH - 2`", meaning that this function "believes" that the array only has 8 elements (instead of 10) to fill with values. This function operates by starting with the first value of 50, and increments by 1 until the 8th element of the array is reached.
+
+  Since the last two indices of the array are never touched until the `print_array()` function, they remain as uninitialized, garbage values. As a result, there is no way of knowing exactly what will be in `array[8]` and `array[9]`, but as an example, the following may be printed:
 
   ```
   [50, 51, 52, 53, 54, 55, 56, 57, -381609296, 32694]
