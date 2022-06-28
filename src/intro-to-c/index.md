@@ -40,6 +40,8 @@
 
 [How to use Pointers](pointers/using-pointers.html)
 
+[Pointers Practice](pointers/pointers-practice.html) ([Answers](pointers/pointers-practice-answers.html))
+
 [Dynamic Memory Allocation Practice](dma/dma-practice.html) ([Answers](dma/dma-practice-answers.html))
 
 [Final Project Practice](final-project/final-project-practice.html) ([Answers](final-project/final-project-practice-answers.html))

@@ -42,6 +42,8 @@
 
 [How to use Pointers](src/intro-to-c/pointers/using-pointers.md)
 
+[Pointers Practice](src/intro-to-c/pointers/pointers-practice.md) ([Answers](src/intro-to-c/pointers/pointers-practice-answers.md))
+
 [Dynamic Memory Allocation Practice](src/intro-to-c/dma)
 
 [Final Project Practice](src/intro-to-c/final-project)
