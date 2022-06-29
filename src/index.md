@@ -4,6 +4,6 @@ These materials were developed by [Wiki Knights](https://wikiknights.com), a stu
 
 ## Courses
 
-[Intro to C Programming](intro-to-c/index.html)
+[Intro to C Programming](intro-to-c/index.md)
 
-[Computer Science I](cs1/index.html)
+[Computer Science I](cs1/index.md)

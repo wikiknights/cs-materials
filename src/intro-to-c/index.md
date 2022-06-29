@@ -1,47 +1,47 @@
 # Intro to C Programming
 
-[Writing Your First C Program](hello-world/hello-world.html)
+[Writing Your First C Program](hello-world/hello-world.md)
 
-[Introduction to Variables](variables/variables-intro.html)
+[Introduction to Variables](variables/variables-intro.md)
 
-[Variables Practice](variables/variables-practice.html) ([Answers](variables/variables-practice-answers.html))
+[Variables Practice](variables/variables-practice.md) ([Answers](variables/variables-practice-answers.md))
 
-[Data types](datatypes/datatypes-intro.html)
+[Data types](datatypes/datatypes-intro.md)
 
-[Preprocessor Directives](preprocessor-directives/preprocessor-directives.html)
+[Preprocessor Directives](preprocessor-directives/preprocessor-directives.md)
 
-[Printing](printing/printing.html)
+[Printing](printing/printing.md)
 
-[Conditionals Practice](conditionals/conditionals-practice.html) ([Answers](conditionals/conditionals-practice-answers.html))
+[Conditionals Practice](conditionals/conditionals-practice.md) ([Answers](conditionals/conditionals-practice-answers.md))
 
-[Loop Practice](loops/loop-practice.html) ([Answers](loops/loop-practice-answers.html))
+[Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
 
-[Array Practice](arrays/array-practice.html) ([Answers](arrays/array-practice-answers.html))
+[Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
 
-[Strings Introduction](strings/strings-intro.html)
+[Strings Introduction](strings/strings-intro.md)
 
-[Strings Practice](strings/strings-practice.html) ([Answers](strings/strings-practice-answers.html))
+[Strings Practice](strings/strings-practice.md) ([Answers](strings/strings-practice-answers.md))
 
-[Pre written Functions](pre-written-functions/pre-written-functions.html)
+[Pre written Functions](pre-written-functions/pre-written-functions.md)
 
-[Creating and Using Functions - An Overview](functions/functions-intro.html)
+[Creating and Using Functions - An Overview](functions/functions-intro.md)
 
-[Functions Practice](functions/functions-practice.html) ([Answers](functions/functions-practice-answers.html))
+[Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
 
-[Introduction to argc and argv](argv/argv-intro.html)
+[Introduction to argc and argv](argv/argv-intro.md)
 
-[Structs Practice](structs/structs-practice.html) ([Answers](structs/structs-practice-answers.html))
+[Structs Practice](structs/structs-practice.md) ([Answers](structs/structs-practice-answers.md))
 
-[Binary I/O Practice](binary-io/binary-io-practice.html) ([Answers](binary-io/binary-io-practice-answers.html))
+[Binary I/O Practice](binary-io/binary-io-practice.md) ([Answers](binary-io/binary-io-practice-answers.md))
 
-[Endianness](endianness/endianness.html)
+[Endianness](endianness/endianness.md)
 
-[Introduction to Pointers](pointers/intro-to-pointers.html)
+[Introduction to Pointers](pointers/intro-to-pointers.md)
 
-[How to use Pointers](pointers/using-pointers.html)
+[How to use Pointers](pointers/using-pointers.md)
 
-[Pointers Practice](pointers/pointers-practice.html) ([Answers](pointers/pointers-practice-answers.html))
+[Pointers Practice](pointers/pointers-practice.md) ([Answers](pointers/pointers-practice-answers.md))
 
-[Dynamic Memory Allocation Practice](dma/dma-practice.html) ([Answers](dma/dma-practice-answers.html))
+[Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
-[Final Project Practice](final-project/final-project-practice.html) ([Answers](final-project/final-project-practice-answers.html))
+[Final Project Practice](final-project/final-project-practice.md) ([Answers](final-project/final-project-practice-answers.md))
