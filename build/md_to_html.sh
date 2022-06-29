@@ -38,6 +38,9 @@ convert_html() {
 		outputfile="$1.html"
 	fi
 
+	echo "Adjusting *.md links to *.html links..."
+	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
+
 	echo "Converting to HTML..."
 	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
 
@@ -46,7 +49,7 @@ convert_html() {
 		python3 -m premailer -f tmp.html -o tmp2.html
 		mv tmp2.html tmp.html
 	fi
-	
+
 	mv tmp.html "$outputfile"
 }
 
