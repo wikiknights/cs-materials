@@ -71,7 +71,7 @@
   printf("You bought a total of %d items with your money!\n", items);
   ```
 
-@. Is there a difference between these two loops? If so, what is it?
+@. Is there a difference between the output of these two loops? If so, what is it?
 
   ``` c
   int x;
