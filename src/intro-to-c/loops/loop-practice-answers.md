@@ -2,7 +2,7 @@
 
 *Originally created by Jerrett Longworth and Idel Martinez in Spring 2021. Appended by Jerrett Longworth in Summer 2022.*
 
-1. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)
+@. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)
 
   **Possible Answer:**
 
@@ -39,7 +39,7 @@
 
 \newpage
 
-2. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
+@. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
 
   **Sample Answer:**
 
@@ -65,7 +65,7 @@
 
 \newpage
 
-3. How many times will the following loop run? (Hint: Don't try to run it)
+@. How many times will the following loop run? (Hint: Don't try to run it)
 
   ``` c
   void the_coolest_loop(void)
@@ -83,7 +83,7 @@
 
 \newpage
 
-4. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
+@. What will the print statements in lines 9 and 17 output? Will it be the same? (You may use a calculator if you want to be exact.) Assume that uninitialized variables in C get assigned garbage values.
 
   ``` {.c .numberLines}
   void print_sums(void)
@@ -110,7 +110,7 @@
 
 \newpage
 
-5. Rewrite the following code to make an equivalent program that uses a for loop, rather than this while loop.
+@. Rewrite the following code to make an equivalent program that uses a for loop, rather than this while loop.
 
   ``` c
   int number = 5;
@@ -132,7 +132,7 @@
 
 \newpage
 
-6. Rewrite the following code to make an equivalent program that uses a while loop, rather than this for loop.
+@. Rewrite the following code to make an equivalent program that uses a while loop, rather than this for loop.
 
   ``` c
   int items;
@@ -169,7 +169,7 @@
 
 \newpage
 
-7. Is there a difference between the output of these two loops? If so, what is it?
+@. Is there a difference between the output of these two loops? If so, what is it?
 
   ``` c
   int x;
@@ -210,7 +210,7 @@
 
 \newpage
 
-8. Fill in the blanks to end the loop if `sum > 200`.
+@. Fill in the blanks to end the loop if `sum > 200`.
 
   **Answer:**
 
@@ -230,7 +230,7 @@
 
 \newpage
 
-9. What would be printed if the following program runs?
+@. What would be printed if the following program runs?
 
   ``` c
   #include <stdio.h>
@@ -268,7 +268,7 @@
 
 \newpage
 
-10. What would be the **return value** of `loopy_loop()` if executed?
+@. What would be the **return value** of `loopy_loop()` if executed?
 
   ``` c
   int loopy_loop(void)
@@ -297,7 +297,7 @@
 
 \newpage
 
-11. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
+@. Write a program that finds the sum of all integers that a user types in, then when the user types 0, the final sum will be displayed and the program ends. The following is an example of running the program:
 
   ```
   5
@@ -332,7 +332,7 @@
 
 \newpage
 
-12. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
+@. Write a program that prints an `n` by `n` "addition table." An addition table is like a multiplication table, except the row and column numbers are added instead of being multiplied. For example, the following is a 5x5 addition table.
 
   ```
   0   1   2   3   4
@@ -371,7 +371,7 @@
 
 \newpage
 
-13. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
+@. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
   
   ```
     #

@@ -2,7 +2,7 @@
 
 *Originally created by Jerrett Longworth and Idel Martinez in Spring 2021.*
 
-1. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
+@. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 
   ``` c
   int main(void)
@@ -30,7 +30,7 @@
   }
   ```
 
-2. Fill in the blanks for the program to initialize the `final` array with the squares of the numbers of the `initial` array. That is, if `initial` is array of with elements [1, 2, 3, 4, 5], our program will initialize the corresponding `final` array with the values squared as [1, 4, 9, 16, 25]. Make sure you accept arrays of any size!
+@. Fill in the blanks for the program to initialize the `final` array with the squares of the numbers of the `initial` array. That is, if `initial` is array of with elements [1, 2, 3, 4, 5], our program will initialize the corresponding `final` array with the values squared as [1, 4, 9, 16, 25]. Make sure you accept arrays of any size!
 
   ``` c
   double square(double num)
@@ -80,7 +80,7 @@
   }
   ```
 
-3. Create a function that takes two integer arrays, `array1` and `array2`, and the length of `array1`, that copies the contents of `array1` into `array2`. Assume that `array2` has at least as many elements as `array1`.
+@. Create a function that takes two integer arrays, `array1` and `array2`, and the length of `array1`, that copies the contents of `array1` into `array2`. Assume that `array2` has at least as many elements as `array1`.
 
   **Hint:** The function signature will look something like this:
 
@@ -88,7 +88,7 @@
   void copy_array(int *array1, int *array2, int length);
   ```
 
-4. What is wrong with the following code snippet? (Challenge yourself to avoid using your code editor.)
+@. What is wrong with the following code snippet? (Challenge yourself to avoid using your code editor.)
 
   ``` c
   #include <stdio.h>

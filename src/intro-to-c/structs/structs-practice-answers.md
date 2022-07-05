@@ -10,7 +10,7 @@ But first, some `typedef` fun.
 
 ## `typedef` Practice
 
-1. What should the blank lines be in line 9 to print out `100.00 - 89.00 = 11.00`?
+@. What should the blank lines be in line 9 to print out `100.00 - 89.00 = 11.00`?
 
   ``` {.c .numberLines}
   int main(void)
@@ -35,7 +35,7 @@ But first, some `typedef` fun.
 
 ## Onto Structs!
 
-2. Given the following code, what would be printed in `main()`? Would it compile at all? Assume all necessary libraries are included.
+@. Given the following code, what would be printed in `main()`? Would it compile at all? Assume all necessary libraries are included.
 
   ``` c
   struct my_structure
@@ -58,7 +58,7 @@ But first, some `typedef` fun.
 
 \newpage
 
-3. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
+@. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
 
   ``` {.c .numberLines}
   struct my_structure
@@ -82,7 +82,7 @@ But first, some `typedef` fun.
 
 \newpage
 
-4. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
+@. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
 
   **Answer:** After the `struct` declaration, add the following line:
 
@@ -114,7 +114,7 @@ But first, some `typedef` fun.
 
 \newpage
 
-5. Good. The world is still going to be safe, but now I have a new (completely unrelated) problem. Suppose I am teaching an introduction to C programming class at a university, but for some reason this university didn't pick a system to store course material and grades. (Something called "Webcourses" was suggested, but it didn't seem to catch on.) That said, now I want to create my own system of storing student grades. I have some basic code to get started, but it needs some work. How can I set the names of my 3 students in class to "Alice", "Bob", and "Charlie"?
+@. Good. The world is still going to be safe, but now I have a new (completely unrelated) problem. Suppose I am teaching an introduction to C programming class at a university, but for some reason this university didn't pick a system to store course material and grades. (Something called "Webcourses" was suggested, but it didn't seem to catch on.) That said, now I want to create my own system of storing student grades. I have some basic code to get started, but it needs some work. How can I set the names of my 3 students in class to "Alice", "Bob", and "Charlie"?
 
   ``` c
   struct gradebook
@@ -161,7 +161,7 @@ But first, some `typedef` fun.
 
 \newpage
 
-6. Fill in the blanks to give students names, calculate their grade average, and print it out.
+@. Fill in the blanks to give students names, calculate their grade average, and print it out.
 
   **Answer:**
 
@@ -229,7 +229,7 @@ But first, some `typedef` fun.
 
 \newpage
 
-7. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
+@. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
 
   **Answer:**
 

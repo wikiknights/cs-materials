@@ -2,17 +2,17 @@
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
 
-1. Write a function that receives a string and return its length without using any libraries.
+@. Write a function that receives a string and return its length without using any libraries.
 
-2. Write a function that receives a string and turns it into uppercase.
+@. Write a function that receives a string and turns it into uppercase.
 
-3. Write a function that receives two strings and checks if they are equal.
+@. Write a function that receives two strings and checks if they are equal.
 
-4. Write a function that receives a string and check if it is a palindrome.
+@. Write a function that receives a string and check if it is a palindrome.
 
-5. Write a function that receives a string and reverses it.
+@. Write a function that receives a string and reverses it.
 
-6. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?
+@. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?
 
 ---
 
@@ -42,7 +42,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 ---
 
-7. In how many lines will the print statement in line 5 output?
+@. In how many lines will the print statement in line 5 output?
 
   ``` {.c .numberLines}
   void boring_print(void)
@@ -53,7 +53,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-8. What will the following function output?
+@. What will the following function output?
 
   ``` c
   void print_bob_name(void)
@@ -65,7 +65,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-9. What does this function print?
+@. What does this function print?
 
   ``` c
   void funky_print(void)
@@ -79,7 +79,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-10. Similar to the previous question, what does function print?
+@. Similar to the previous question, what does function print?
 
   ``` c
   void cool_print(void)
@@ -94,7 +94,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-11. In how many lines will the print statement in line 6 output?
+@. In how many lines will the print statement in line 6 output?
 
   ``` {.c .numberLines}
   int main(void)
@@ -108,7 +108,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-12. In how many lines will the print statement in line 9 output?
+@. In how many lines will the print statement in line 9 output?
 
   ``` {.c .numberLines}
   int main(void)
@@ -125,7 +125,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-13. What is the output if the user entered "not good"?
+@. What is the output if the user entered "not good"?
 
   ``` c
   int main(void)
@@ -144,7 +144,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-14. What is the output if the user entered "3.14"?
+@. What is the output if the user entered "3.14"?
 
   ``` c
   void print_fav_num(void)
@@ -161,7 +161,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-15. How many lines total will the following program print out?
+@. How many lines total will the following program print out?
 
   ``` c
   void ignore_user_input(void)
@@ -184,7 +184,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 **Challenge:** Let's look at some more complex functions!
 
-16. What will be the function output if the user runs the program two times? The first time, the user enters "yes" and "179.67". The second time, the user enters "no".
+@. What will be the function output if the user runs the program two times? The first time, the user enters "yes" and "179.67". The second time, the user enters "no".
 
   ``` c
   void multiply(void)
@@ -223,7 +223,7 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-17. What will the following functions print out if the user enters "2.718" for both `print_num` and `print_another_num`?
+@. What will the following functions print out if the user enters "2.718" for both `print_num` and `print_another_num`?
 
   ``` c
   void print_num(void)
@@ -263,7 +263,7 @@ For all questions, assume all necessary libraries are included, and all function
 
 ---
 
-18. **Challenge Program:**
+@. **Challenge Program:**
 
 Create a program that asks the user for grades, prompting them to keep entering grades and saving them into an array. Once the user is done or the program reaches the maximum amount of grades that can be entered, print out the list of grades in the format below, along with the average.
 

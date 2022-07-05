@@ -6,9 +6,9 @@ Here are some exercises that will help you get a better grasp of using variables
 
 ---
 
-1. Write one line of code that declares an integer called `cups_of_tea` and assigns to it a value of 5.
+@. Write one line of code that declares an integer called `cups_of_tea` and assigns to it a value of 5.
 
-2. What is wrong with the following code? How can you fix it?
+@. What is wrong with the following code? How can you fix it?
 
 ``` c
 #include <stdio.h>
@@ -23,7 +23,7 @@ int main(void)
 }
 ```
 
-3. What is wrong with the following code? How can you fix it?
+@. What is wrong with the following code? How can you fix it?
 
 ``` c
 #include <stdio.h>
@@ -37,7 +37,7 @@ int main(void)
 }
 ```
 
-4. What is the final output of this program?
+@. What is the final output of this program?
 
 ``` c
 #include <stdio.h>

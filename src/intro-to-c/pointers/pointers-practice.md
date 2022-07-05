@@ -8,7 +8,7 @@ Let's try some example problems using pointers!
 
 ## Basic Pointer Operations
 
-1. What will this program print if executed?
+@. What will this program print if executed?
 
   ``` c
   #include <stdio.h>
@@ -26,7 +26,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-2. What will this program print if executed?
+@. What will this program print if executed?
   
   ``` c
   #include <stdio.h>
@@ -45,7 +45,7 @@ Let's try some example problems using pointers!
 
 ## Function Scope
 
-3. What will this program print if executed?
+@. What will this program print if executed?
 
   ``` c
   #include <stdio.h>
@@ -75,7 +75,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-4. What will this program print if executed? What is the difference between this and the previous problem?
+@. What will this program print if executed? What is the difference between this and the previous problem?
 
   ``` c
   #include <stdio.h>
@@ -105,7 +105,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-5. What will this program print if executed? What is the difference between this and the previous two problems?
+@. What will this program print if executed? What is the difference between this and the previous two problems?
 
   ``` c
   #include <stdio.h>
@@ -139,7 +139,7 @@ Let's try some example problems using pointers!
 
 ## More Advanced Function Scope
 
-6. Fill in this `swap()` function to swap the values referenced by two pointers.
+@. Fill in this `swap()` function to swap the values referenced by two pointers.
 
   ``` c
   #include <stdio.h>
@@ -164,7 +164,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-7. What will this program print if executed?
+@. What will this program print if executed?
 
   ``` c
   #include <stdio.h>
@@ -190,7 +190,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-8. What will this program print if executed?
+@. What will this program print if executed?
 
   ``` c
   #include <stdio.h>
@@ -220,7 +220,7 @@ Let's try some example problems using pointers!
 
 ## Pointers and Arrays
 
-9. What does `array` contain after line 13? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
+@. What does `array` contain after line 13? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>
@@ -249,7 +249,7 @@ Let's try some example problems using pointers!
   }
   ```
 
-10. What will `array` contain after line 34? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
+@. What will `array` contain after line 34? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
   ``` {.c .numberLines}
   #include <stdio.h>

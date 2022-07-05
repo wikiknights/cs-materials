@@ -5,7 +5,7 @@
 ## Function Scope
 This is important to get right. Functions are the base of every program, and knowing what your variables are doing in them is crucial.
 
-1. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
+@. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
 
   ``` {.c .numberLines}
   int add_everything(int num1, int num2)
@@ -32,7 +32,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-2. What happens when you return a value from a function? Things can get tricky if you're snoozing... What's the value of `floaty_float` after the execution of this program, assuming the user enters `5`?
+@. What happens when you return a value from a function? Things can get tricky if you're snoozing... What's the value of `floaty_float` after the execution of this program, assuming the user enters `5`?
 
   ``` c
   void get_value(float f)
@@ -56,7 +56,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-3. What if the previous example is altered a little? What happens to `floaty_float`? Assume, again, that the user enters `5`.
+@. What if the previous example is altered a little? What happens to `floaty_float`? Assume, again, that the user enters `5`.
 
   ``` c
   float get_value(void)
@@ -81,7 +81,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-4. What will `main` print in lines 10, 12, and 14?
+@. What will `main` print in lines 10, 12, and 14?
 
   ``` {.c .numberLines}
   void add_num(int x, int y)
@@ -113,7 +113,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-5. What will `main` print in lines 12, 14, and 16?
+@. What will `main` print in lines 12, 14, and 16?
 
   ``` {.c .numberLines}
   int x; // A wild global variable has appeared!
@@ -147,7 +147,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-6. Define a function that calculates the slope between two points using this fancy function header:
+@. Define a function that calculates the slope between two points using this fancy function header:
 
   **Answer:**
 
@@ -188,7 +188,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-7. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
+@. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
 
   **Answer:**
 
@@ -233,7 +233,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 ## Loops
 
-8. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
+@. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 
   **Answer:**
 
