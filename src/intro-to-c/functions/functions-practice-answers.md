@@ -188,7 +188,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-@. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
+@. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**: (Hint: You may use the `sqrt()` function provided by the `math.h` library.)
 
   **Answer:**
 
@@ -283,3 +283,5 @@ This is important to get right. Functions are the base of every program, and kno
     return 0;
   }
   ```
+
+  Fun fact: This problem is based on the one seen in [CS50](https://cs50.harvard.edu/x/2021/psets/1/mario/less/).
