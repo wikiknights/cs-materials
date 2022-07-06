@@ -250,7 +250,7 @@
 <p>Let’s try some example problems using pointers!</p>
 <hr />
 <h2 id="basic-pointer-operations">Basic Pointer Operations</h2>
-<ol type="1">
+<ol class="example" type="1">
 <li>What will this program print if executed?</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -277,7 +277,7 @@ that <code>*pointer</code> is also 10 at this time.) On line 9,
 the value of <code>x</code> is changed to 75 directly using the
 dereference operation.</p>
 <p>The program thus prints <code>x = 75</code> at the end.</p>
-<ol start="2" type="1">
+<ol start="2" class="example" type="1">
 <li>What will this program print if executed?</li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -296,7 +296,7 @@ cancel each other out, so with the same number of each operator, you are
 simply left with <code>n</code> to print.</p>
 <hr />
 <h2 id="function-scope">Function Scope</h2>
-<ol start="3" type="1">
+<ol start="3" class="example" type="1">
 <li>What will this program print if executed?</li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -336,7 +336,7 @@ pass-by-value method, meaning any changes that occur in it cannot be
 reflected back in <code>main()</code>, unless a return value was used.
 This is not the case, so both <code>x</code> and <code>y</code> remain
 with their initial values.</p>
-<ol start="4" type="1">
+<ol start="4" class="example" type="1">
 <li>What will this program print if executed? What is the difference
 between this and the previous problem?</li>
 </ol>
@@ -390,7 +390,7 @@ dereferences this new address. No actual changes are made to the
 <em>value</em> pointed to by <code>n</code>.</p>
 <p>This can also lead to memory violations if a piece of memory is
 dereferenced that you were not expecting or were not in control of!</p>
-<ol start="5" type="1">
+<ol start="5" class="example" type="1">
 <li>What will this program print if executed? What is the difference
 between this and the previous two problems?</li>
 </ol>
@@ -438,7 +438,7 @@ as:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>n <span class="op">=</span> <span class="op">*</span>n <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <hr />
 <h2 id="more-advanced-function-scope">More Advanced Function Scope</h2>
-<ol start="6" type="1">
+<ol start="6" class="example" type="1">
 <li>Fill in this <code>swap()</code> function to swap the values
 referenced by two pointers.</li>
 </ol>
@@ -465,7 +465,7 @@ referenced by two pointers.</li>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="7" type="1">
+<ol start="7" class="example" type="1">
 <li>What will this program print if executed?</li>
 </ol>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -513,7 +513,7 @@ resolves to <code>18 + 1</code>, which is 19.
 address of <code>b</code>. This means that the value contained in
 <code>*c</code> is the same as that in <code>b</code>.</p>
 <p>At the end of the program, <code>*c = 19</code>.</p>
-<ol start="8" type="1">
+<ol start="8" class="example" type="1">
 <li>What will this program print if executed?</li>
 </ol>
 <div class="sourceCode" id="cb12"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -564,7 +564,7 @@ address of <code>b</code>. This means that the value contained in
 <p>At the end of the program, <code>*c = 17</code>.</p>
 <hr />
 <h2 id="pointers-and-arrays">Pointers and Arrays</h2>
-<ol start="9" type="1">
+<ol start="9" class="example" type="1">
 <li>What does <code>array</code> contain after line 13? What will this
 program print if executed? Assume that any uninitialized variables
 contain garbage values.</li>
@@ -610,7 +610,7 @@ contain garbage values.</li>
 <p>Notice that line 20 is printing “<code>*(array + i)</code>”. Behind
 the scenes, this is equivalent to “<code>array[i]</code>”. This program
 prints the array as any other loop would.</p>
-<ol start="10" type="1">
+<ol start="10" class="example" type="1">
 <li>What will <code>array</code> contain after line 34? What will this
 program print if executed? Assume that any uninitialized variables
 contain garbage values.</li>
@@ -671,6 +671,356 @@ garbage values. As a result, there is no way of knowing exactly what
 will be in <code>array[8]</code> and <code>array[9]</code>, but as an
 example, the following may be printed:</p>
 <pre><code>[50, 51, 52, 53, 54, 55, 56, 57, -381609296, 32694]</code></pre>
+<hr />
+<h2 id="pointers-and-structs">Pointers and Structs</h2>
+<ol start="11" class="example" type="1">
+<li>Create a declaration of a struct called <code>car</code> that
+contains some information about a car: a string (<code>char</code>
+pointer) called <code>make</code> that indicates its manufacturer, a
+string called <code>model</code> that indicates its model, an integer
+called <code>year</code> that indicates its year of production, and a
+double called <code>mpg</code> that indicates its fuel efficiency in
+miles per gallon.</li>
+</ol>
+<p><strong>Answer:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> car</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>make<span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> <span class="op">*</span>model<span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> year<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> mpg<span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<ol start="12" class="example" type="1">
+<li>Rewrite the following line of code using the dereference
+(<code>*</code>) and the direct member access (<code>.</code>)
+operator.</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my_struct<span class="op">-&gt;</span>number <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Answer:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">(*</span>my_struct<span class="op">).</span>number <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<ol start="13" class="example" type="1">
+<li>What is wrong with the following <code>print_planet()</code>
+function? How can you fix it?</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> planet</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> name<span class="op">[</span><span class="dv">30</span><span class="op">];</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> radius_km<span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> color<span class="op">[</span><span class="dv">30</span><span class="op">];</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_planet<span class="op">(</span><span class="kw">struct</span> planet p<span class="op">)</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Name: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>name<span class="op">);</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Radius: %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>radius_km<span class="op">);</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Color: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>color<span class="op">);</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong> The <code>print_planet()</code> function is
+using the indirect reference operator (<code>-&gt;</code>) on a struct,
+instead of on a <em>pointer</em> to a struct.</p>
+<p>This can be fixed in two ways. In one way, you can change the
+function declaration to accept a pointer of a struct, so that it is
+consistent with the <code>-&gt;</code> operator:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_planet<span class="op">(</span><span class="kw">struct</span> planet <span class="op">*</span>p<span class="op">)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Name: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>name<span class="op">);</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Radius: %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>radius_km<span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Color: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">-&gt;</span>color<span class="op">);</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In another way, you can change the print statements to use the
+<code>.</code> operator, to be consistent with the function
+declaration:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_planet<span class="op">(</span><span class="kw">struct</span> planet p<span class="op">)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Name: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>name<span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Radius: %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>radius_km<span class="op">);</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Color: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>color<span class="op">);</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="14" class="example" type="1">
+<li>What will the following program print if executed?</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> pizza</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> radius_inches<span class="op">;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> price<span class="op">;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> toppings<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> initialize_pizza<span class="op">(</span><span class="kw">struct</span> pizza <span class="op">*</span>p<span class="op">)</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>radius_inches <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>price <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>toppings<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;\0&#39;</span><span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_pizza<span class="op">(</span><span class="kw">struct</span> pizza p<span class="op">)</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Radius: %d inches</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>radius_inches<span class="op">);</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Price: $%0.2lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>price<span class="op">);</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Toppings: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>toppings<span class="op">);</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> pizza four_meat_pizza<span class="op">;</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  initialize_pizza<span class="op">(&amp;</span>four_meat_pizza<span class="op">);</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  print_pizza<span class="op">(</span>four_meat_pizza<span class="op">);</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong></p>
+<pre><code>Radius: 0 inches
+Price: $0.00
+Toppings:</code></pre>
+<ol start="15" class="example" type="1">
+<li>What will the following program print if executed?</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> pizza</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> radius_inches<span class="op">;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> price<span class="op">;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> toppings<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> initialize_pizza<span class="op">(</span><span class="kw">struct</span> pizza <span class="op">*</span>p<span class="op">)</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>radius_inches <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>price <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  p<span class="op">-&gt;</span>toppings<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;\0&#39;</span><span class="op">;</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_pizza<span class="op">(</span><span class="kw">struct</span> pizza p<span class="op">)</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Radius: %d inches</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>radius_inches<span class="op">);</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Price: $%0.2lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>price<span class="op">);</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Toppings: %s</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> p<span class="op">.</span>toppings<span class="op">);</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> pizza four_meat_pizza<span class="op">;</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  initialize_pizza<span class="op">(&amp;</span>four_meat_pizza<span class="op">);</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>  four_meat_pizza<span class="op">.</span>radius_inches <span class="op">=</span> <span class="dv">13</span><span class="op">;</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>  four_meat_pizza<span class="op">.</span>price <span class="op">=</span> <span class="fl">9.99</span><span class="op">;</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>four_meat_pizza<span class="op">.</span>toppings<span class="op">,</span> <span class="st">&quot;Pepperoni, beef, sausage, and bacon&quot;</span><span class="op">);</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>  print_pizza<span class="op">(</span>four_meat_pizza<span class="op">);</span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong></p>
+<pre><code>Radius: 13 inches
+Price: $9.99
+Toppings: Pepperoni, beef, sausage, and bacon</code></pre>
+<hr />
+<h2 id="pointers-and-structs-advanced">Pointers and Structs
+(Advanced)</h2>
+<ol start="16" class="example" type="1">
+<li>Suppose I am teaching an introduction to C programming class at a
+university, but for some reason this university didn’t pick a system to
+store course material and grades. (Something called “Webcourses” was
+suggested, but it didn’t seem to catch on.) That said, now I want to
+create my own system of storing student grades. I have some basic code
+to get started, but it needs some work. How can I set the names of my 3
+students in class to “Alice”, “Bob”, and “Charlie”?</li>
+</ol>
+<p><strong>Sample Answer:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> gradebook</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> student<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> grades<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> avg<span class="op">;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> gradebook gradebook<span class="op">;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  gradebook cop3223<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code goes here</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>Answer:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> gradebook</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> student<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> grades<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> avg<span class="op">;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> gradebook gradebook<span class="op">;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  gradebook cop3223<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code goes here</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">0</span><span class="op">].</span>name<span class="op">,</span> <span class="st">&quot;Alice&quot;</span><span class="op">);</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">1</span><span class="op">].</span>name<span class="op">,</span> <span class="st">&quot;Bob&quot;</span><span class="op">);</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">2</span><span class="op">].</span>name<span class="op">,</span> <span class="st">&quot;Charlie&quot;</span><span class="op">);</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="17" class="example" type="1">
+<li>Fill in the blanks to give students names, calculate their grade
+average, and print it out.</li>
+</ol>
+<p><strong>Sample Answer:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> gradebook</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> student<span class="op">[</span><span class="dv">128</span><span class="op">];</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> grades<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> avg<span class="op">;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> gradebook gradebook<span class="op">;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> calculate_student_avg<span class="op">(</span>gradebook <span class="op">*</span>class<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> sum<span class="op">;</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>      sum <span class="op">+=</span> class<span class="op">[</span>i<span class="op">].</span>grades<span class="op">[</span>j<span class="op">];</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    class<span class="op">[</span>i<span class="op">].</span>avg <span class="op">=</span> sum <span class="op">/</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_averages<span class="op">(</span>gradebook <span class="op">*</span>class<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Average for %s is %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> class<span class="op">[</span>i<span class="op">].</span>student<span class="op">,</span> class<span class="op">[</span>i<span class="op">].</span>avg<span class="op">);</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>  gradebook cop3223<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Filling in student grades with data</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>      cop3223<span class="op">[</span>i<span class="op">].</span>grades<span class="op">[</span>j<span class="op">]</span> <span class="op">=</span> <span class="op">(</span>i <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span>j <span class="op">+</span> i<span class="op">);</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Add student names</span></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">0</span><span class="op">].</span>student<span class="op">,</span> <span class="st">&quot;Frances E. Allen&quot;</span><span class="op">);</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">1</span><span class="op">].</span>student<span class="op">,</span> <span class="st">&quot;Barbara Liskov&quot;</span><span class="op">);</span></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>  strcpy<span class="op">(</span>cop3223<span class="op">[</span><span class="dv">2</span><span class="op">].</span>student<span class="op">,</span> <span class="st">&quot;Valerie Taylor&quot;</span><span class="op">);</span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Find average</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>  calculate_student_avg<span class="op">(</span>cop3223<span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Print average</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>  print_averages<span class="op">(</span>cop3223<span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="18" class="example" type="1">
+<li>I want to create a bank that handles a single person’s money, no one
+elses. This person’s balance is divided into how many dollars and cents
+they have. However, when I run this program (1) the person can withdraw
+more money than it has, (2) they can deposit a negative amount, (3) they
+lose all of their cents, (4) their balance is sometimes completely
+weird, and (5) the <code>deposit</code> and <code>withdraw</code>
+functions don’t work. How can I solve this?</li>
+</ol>
+<p><strong>Sample Answer:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> balance</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> dollars<span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> cents<span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> total<span class="op">;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> balance get_currency<span class="op">(</span><span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> balance money<span class="op">;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  money<span class="op">.</span>dollars <span class="op">=</span> amount<span class="op">;</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  money<span class="op">.</span>cents <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="op">(</span>amount <span class="op">*</span> <span class="dv">100</span><span class="op">)</span> <span class="op">%</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  money<span class="op">.</span>total <span class="op">=</span> money<span class="op">.</span>dollars <span class="op">+</span> money<span class="op">.</span>cents <span class="op">/</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> money<span class="op">;</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> compare_currency<span class="op">(</span><span class="kw">struct</span> balance temp1<span class="op">,</span> <span class="kw">struct</span> balance temp2<span class="op">)</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>temp1<span class="op">.</span>dollars <span class="op">==</span> temp2<span class="op">.</span>dollars<span class="op">)</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> temp1<span class="op">.</span>cents <span class="op">&gt;=</span> temp2<span class="op">.</span>cents<span class="op">;</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp1<span class="op">.</span>dollars <span class="op">&gt;</span> temp2<span class="op">.</span>dollars<span class="op">;</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> deposit<span class="op">(</span><span class="kw">struct</span> balance <span class="op">*</span>checking<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> balance temp <span class="op">=</span> get_currency<span class="op">(</span>amount<span class="op">);</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>amount <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>    checking<span class="op">-&gt;</span>dollars <span class="op">+=</span> temp<span class="op">.</span>dollars<span class="op">;</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>    checking<span class="op">-&gt;</span>cents <span class="op">+=</span> temp<span class="op">.</span>cents<span class="op">;</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>checking<span class="op">-&gt;</span>cents <span class="op">&gt;=</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>      checking<span class="op">-&gt;</span>dollars<span class="op">++;</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>      checking<span class="op">-&gt;</span>cents <span class="op">-=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> withdraw<span class="op">(</span><span class="kw">struct</span> balance <span class="op">*</span>checking<span class="op">,</span> <span class="dt">double</span> amount<span class="op">)</span></span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> balance temp <span class="op">=</span> get_currency<span class="op">(</span>amount<span class="op">);</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>compare_currency<span class="op">(*</span>checking<span class="op">,</span> temp<span class="op">))</span></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>    checking<span class="op">-&gt;</span>dollars <span class="op">-=</span> temp<span class="op">.</span>dollars<span class="op">;</span></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>    checking<span class="op">-&gt;</span>cents <span class="op">-=</span> temp<span class="op">.</span>cents<span class="op">;</span></span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>checking<span class="op">-&gt;</span>cents <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>        checking<span class="op">-&gt;</span>dollars<span class="op">--;</span></span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>        checking<span class="op">-&gt;</span>cents <span class="op">+=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Cannot withdraw.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> balance my_checking <span class="op">=</span> <span class="op">{</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">};</span></span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a>  deposit<span class="op">(&amp;</span>my_checking<span class="op">,</span> <span class="op">-</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a>  withdraw<span class="op">(&amp;</span>my_checking<span class="op">,</span> <span class="fl">1E6</span><span class="op">);</span></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>  deposit<span class="op">(&amp;</span>my_checking<span class="op">,</span> <span class="fl">145.54</span><span class="op">);</span></span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a>  withdraw<span class="op">(&amp;</span>my_checking<span class="op">,</span> <span class="fl">0.01</span><span class="op">);</span></span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/Wiki-Knights/CS-Materials">GitHub</a>
 </footer>

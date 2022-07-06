@@ -248,7 +248,7 @@
 <h1 id="loop-practice-solutions">Loop Practice (Solutions)</h1>
 <p><em>Originally created by Jerrett Longworth and Idel Martinez in
 Spring 2021. Appended by Jerrett Longworth in Summer 2022.</em></p>
-<ol type="1">
+<ol class="example" type="1">
 <li>Create a program that prints all even numbers from 1 to 50
 inclusive. (You must use a loop.)</li>
 </ol>
@@ -277,7 +277,7 @@ inclusive. (You must use a loop.)</li>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="2" type="1">
+<ol start="2" class="example" type="1">
 <li>Create a program that prints all numbers between 1 and 100
 inclusive, except for numbers evenly divisible by 5.</li>
 </ol>
@@ -299,7 +299,7 @@ inclusive, except for numbers evenly divisible by 5.</li>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="3" type="1">
+<ol start="3" class="example" type="1">
 <li>How many times will the following loop run? (Hint: Don’t try to run
 it)</li>
 </ol>
@@ -315,7 +315,7 @@ it)</li>
 <p><strong>Answer</strong>: This is an infinite loop! <code>i</code>
 never goes past 10 (since we’re always decreasing) so the array goes on
 forever.</p>
-<ol start="4" type="1">
+<ol start="4" class="example" type="1">
 <li>What will the print statements in lines 9 and 17 output? Will it be
 the same? (You may use a calculator if you want to be exact.) Assume
 that uninitialized variables in C get assigned garbage values.</li>
@@ -342,7 +342,7 @@ that uninitialized variables in C get assigned garbage values.</li>
 <code>sum</code> is not initialized (only declared) in line 3, so it has
 <em>bleh</em> inside of it. Because of this only the second print is
 going to be correct saying that “Sum is now 55”.</p>
-<ol start="5" type="1">
+<ol start="5" class="example" type="1">
 <li>Rewrite the following code to make an equivalent program that uses a
 for loop, rather than this while loop.</li>
 </ol>
@@ -357,7 +357,7 @@ for loop, rather than this while loop.</li>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;number = %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> number<span class="op">);</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="6" type="1">
+<ol start="6" class="example" type="1">
 <li>Rewrite the following code to make an equivalent program that uses a
 while loop, rather than this for loop.</li>
 </ol>
@@ -387,7 +387,7 @@ while loop, rather than this for loop.</li>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;You bought a total of %d items with your money!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> items<span class="op">);</span></span></code></pre></div>
-<ol start="7" type="1">
+<ol start="7" class="example" type="1">
 <li>Is there a difference between the output of these two loops? If so,
 what is it?</li>
 </ol>
@@ -424,7 +424,7 @@ the following:</p>
 <p>(For another challenge, in what cases would a while loop differ from
 a do-while loop? Are they interchangeable, or is one sometimes more
 appropriate than the other?)</p>
-<ol start="8" type="1">
+<ol start="8" class="example" type="1">
 <li>Fill in the blanks to end the loop if
 <code>sum &gt; 200</code>.</li>
 </ol>
@@ -440,7 +440,7 @@ appropriate than the other?)</p>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  sum <span class="op">+=</span> i<span class="op">;</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="9" type="1">
+<ol start="9" class="example" type="1">
 <li>What would be printed if the following program runs?</li>
 </ol>
 <div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -475,7 +475,7 @@ executed. Then the for loop begins, printing the statements
 true. Because of this, <code>return 0;</code> is executed, which ends
 the <code>main()</code> function. Consequently, the program finishes
 without any additional <code>printf()</code> statements.</p>
-<ol start="10" type="1">
+<ol start="10" class="example" type="1">
 <li>What would be the <strong>return value</strong> of
 <code>loopy_loop()</code> if executed?</li>
 </ol>
@@ -503,7 +503,7 @@ to every even number between 0 and 9. Because of this, the conditional
 statement <code>x == 5</code> will never be true in the loop, and the
 <code>return 2;</code> statement will never be executed. Once the loop
 finishes, <code>loopy_loop()</code> will return 5.</p>
-<ol start="11" type="1">
+<ol start="11" class="example" type="1">
 <li>Write a program that finds the sum of all integers that a user types
 in, then when the user types 0, the final sum will be displayed and the
 program ends. The following is an example of running the program:</li>
@@ -532,7 +532,7 @@ The sum is: 10</code></pre>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="12" type="1">
+<ol start="12" class="example" type="1">
 <li>Write a program that prints an <code>n</code> by <code>n</code>
 “addition table.” An addition table is like a multiplication table,
 except the row and column numbers are added instead of being multiplied.
@@ -566,7 +566,7 @@ For example, the following is a 5x5 addition table.</li>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="13" type="1">
+<ol start="13" class="example" type="1">
 <li><strong>Challenge:</strong> Write a program that prints a diamond
 shape with a height of <code>n</code>. Assume that <code>n</code> is
 greater than 2 and is odd. As an example, the following is a diamond
