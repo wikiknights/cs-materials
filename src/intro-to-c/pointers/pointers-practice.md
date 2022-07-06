@@ -297,6 +297,116 @@ Let's try some example problems using pointers!
 
 ---
 
+## Pointers and Structs
+
+@. Create a declaration of a struct called `car` that contains some information about a car: a string (char pointer) called `make` that indicates its manufacturer, a string called `model` that indicates its model, an integer called `year` that indicates its year of production, and a double called `mpg` that indicates its fuel efficiency in miles per gallon.
+
+@. Rewrite the following line of code using the dereference (`*`) and the direct member access (`.`) operator.
+
+  ``` c
+  my_struct->number = 5;
+  ```
+
+@. What is wrong with the following `print_planet()` function? How can you fix it?
+
+  ``` c
+  struct planet
+  {
+    char name[30];
+    double radius_km;
+    char color[30];
+  };
+
+  void print_planet(struct planet p)
+  {
+    printf("Name: %s\n", p->name);
+    printf("Radius: %lf\n", p->radius_km);
+    printf("Color: %s\n", p->color);
+  }
+  ```
+
+@. What will the following program print if executed?
+
+  ``` c
+  #include <stdio.h>
+
+  struct pizza
+  {
+    int radius_inches;
+    double price;
+    char toppings[100];
+  };
+
+  void initialize_pizza(struct pizza *p)
+  {
+    p->radius_inches = 0;
+    p->price = 0;
+    p->toppings[0] = '\0';
+  }
+
+  void print_pizza(struct pizza p)
+  {
+    printf("Radius: %d inches\n", p.radius_inches);
+    printf("Price: $%0.2lf\n", p.price);
+    printf("Toppings: %s\n", p.toppings);
+  }
+
+  int main(void)
+  {
+    struct pizza four_meat_pizza;
+
+    initialize_pizza(&four_meat_pizza);
+    print_pizza(four_meat_pizza);
+
+    return 0;
+  }
+  ```
+
+@. What will the following program print if executed?
+
+  ``` c
+  #include <stdio.h>
+  #include <string.h>
+
+  struct pizza
+  {
+    int radius_inches;
+    double price;
+    char toppings[100];
+  };
+
+  void initialize_pizza(struct pizza *p)
+  {
+    p->radius_inches = 0;
+    p->price = 0;
+    p->toppings[0] = '\0';
+  }
+
+  void print_pizza(struct pizza p)
+  {
+    printf("Radius: %d inches\n", p.radius_inches);
+    printf("Price: $%0.2lf\n", p.price);
+    printf("Toppings: %s\n", p.toppings);
+  }
+
+  int main(void)
+  {
+    struct pizza four_meat_pizza;
+
+    initialize_pizza(&four_meat_pizza);
+
+    four_meat_pizza.radius_inches = 13;
+    four_meat_pizza.price = 9.99;
+    strcpy(four_meat_pizza.toppings, "Pepperoni, beef, sausage, and bacon");
+
+    print_pizza(four_meat_pizza);
+
+    return 0;
+  }
+  ```
+
+---
+
 ## Pointers and Structs (Advanced)
 
 @. Suppose I am teaching an introduction to C programming class at a university, but for some reason this university didn't pick a system to store course material and grades. (Something called "Webcourses" was suggested, but it didn't seem to catch on.) That said, now I want to create my own system of storing student grades. I have some basic code to get started, but it needs some work. How can I set the names of my 3 students in class to "Alice", "Bob", and "Charlie"?
