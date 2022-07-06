@@ -1,6 +1,6 @@
 # How to Reverse a Linked List Process
 
-*Created by Yohan Hmaiti.*
+*Created by Yohan Hmaiti and Matthew Gibbons.*
 
 ```
 +------+
