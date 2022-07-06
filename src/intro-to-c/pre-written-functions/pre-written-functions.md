@@ -30,6 +30,7 @@ Please enter the number 1: 1
 
 ## <stdlib.h>
 A library with general functions such as:
+
 - **int rand()**: returns a random number;
 - **void srand(int seed)**: seeds the random number generator used by the function rand;
 - **int abs(int x)**: returns the absolute value of int x;
@@ -72,6 +73,7 @@ Bye now!
 
 ## <math.h> - Math library functions
 An assort of mathematical functions. To use them, you must include `<math.h>`. Some of the most used ones are:
+
 - **double fabs(double x);** returns the absolute value of double x;
 - **double pow(double x, double y);** return x^y;
 - **double sqrt(double x);** returns the square root of x, only works with positive numbers.
@@ -135,6 +137,7 @@ Hours since January 1, 1970 = 457100
 
 ## ctype.h
 This library has functions for mapping characters.
+
 - **int isalpha(int c);**: checks if the passed character is alphabetic;
 - **int tolower(int c);**: converts a letter to lowercase;
 - **int toupper(int c);**: converts a letter to uppercase.
