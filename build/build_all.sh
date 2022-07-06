@@ -10,7 +10,7 @@ IFS='
 '
 
 CONVERT_SCRIPT=$(readlink -e "$SCRIPT_LOCATION/md_to_html.sh")
-INPUT_DIR="$SCRIPT_LOCATION/../src/" 
+INPUT_DIR="$SCRIPT_LOCATION/../src/"
 OUTPUT_DIR="$SCRIPT_LOCATION/../out/"
 
 
