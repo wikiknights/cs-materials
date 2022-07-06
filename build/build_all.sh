@@ -6,6 +6,8 @@ GREY='\033[1;30m'
 RESET='\033[0m'
 SCRIPT_LOCATION=$(readlink -e "$0")
 SCRIPT_LOCATION=${SCRIPT_LOCATION%/*}
+IFS='
+'
 
 CONVERT_SCRIPT=$(readlink -e "$SCRIPT_LOCATION/md_to_html.sh")
 INPUT_DIR="$SCRIPT_LOCATION/../src/" 
