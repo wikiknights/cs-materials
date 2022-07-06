@@ -5,6 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title> </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" data-external="1" />
   <style>
     html {
       line-height: 1.5;
@@ -84,18 +85,21 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: 'Fira Code VF', Menlo, Monaco, 'Lucida Console', Consolas, monospace;
       font-size: 85%;
       margin: 0;
+      font-weight: 500;
     }
     pre {
       margin: 1em 0;
       overflow: auto;
+      line-height: 1;
     }
     pre code {
       padding: 0;
       overflow: visible;
       overflow-wrap: normal;
+      font-weight: 450;
     }
     div.sourceCode, pre:not(.sourceCode) {
       border: 1px solid black;
@@ -276,11 +280,15 @@ in the <code>&lt;stdio.h&gt;</code> library.</p>
 requested:</p>
 <pre><code>Please enter the number 1: 1</code></pre>
 <h2 id="stdlib.h">&lt;stdlib.h&gt;</h2>
-<p>A library with general functions such as: - <strong>int
-rand()</strong>: returns a random number; - <strong>void srand(int
-seed)</strong>: seeds the random number generator used by the function
-rand; - <strong>int abs(int x)</strong>: returns the absolute value of
-int x; - <strong>void exit(int s)</strong>: exists the program.</p>
+<p>A library with general functions such as:</p>
+<ul>
+<li><strong>int rand()</strong>: returns a random number;</li>
+<li><strong>void srand(int seed)</strong>: seeds the random number
+generator used by the function rand;</li>
+<li><strong>int abs(int x)</strong>: returns the absolute value of int
+x;</li>
+<li><strong>void exit(int s)</strong>: exists the program.</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;time.h&gt;</span></span>
@@ -313,11 +321,14 @@ Bye now!</code></pre>
 <h2 id="math.h---math-library-functions">&lt;math.h&gt; - Math library
 functions</h2>
 <p>An assort of mathematical functions. To use them, you must include
-<code>&lt;math.h&gt;</code>. Some of the most used ones are: -
-<strong>double fabs(double x);</strong> returns the absolute value of
-double x; - <strong>double pow(double x, double y);</strong> return x^y;
-- <strong>double sqrt(double x);</strong> returns the square root of x,
-only works with positive numbers.</p>
+<code>&lt;math.h&gt;</code>. Some of the most used ones are:</p>
+<ul>
+<li><strong>double fabs(double x);</strong> returns the absolute value
+of double x;</li>
+<li><strong>double pow(double x, double y);</strong> return x^y;</li>
+<li><strong>double sqrt(double x);</strong> returns the square root of
+x, only works with positive numbers.</li>
+</ul>
 <p>Let’s see it how it works in code:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;math.h&gt;</span></span>
@@ -363,11 +374,15 @@ the time since the January 1, 1970 (the Epoch), measured in seconds.</p>
 <p>This code will display:</p>
 <pre><code>Hours since January 1, 1970 = 457100</code></pre>
 <h2 id="ctype.h">ctype.h</h2>
-<p>This library has functions for mapping characters. - <strong>int
-isalpha(int c);</strong>: checks if the passed character is alphabetic;
-- <strong>int tolower(int c);</strong>: converts a letter to lowercase;
-- <strong>int toupper(int c);</strong>: converts a letter to
-uppercase.</p>
+<p>This library has functions for mapping characters.</p>
+<ul>
+<li><strong>int isalpha(int c);</strong>: checks if the passed character
+is alphabetic;</li>
+<li><strong>int tolower(int c);</strong>: converts a letter to
+lowercase;</li>
+<li><strong>int toupper(int c);</strong>: converts a letter to
+uppercase.</li>
+</ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ctype.h&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
