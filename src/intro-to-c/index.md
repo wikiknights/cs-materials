@@ -14,6 +14,8 @@
 
 [Conditionals Practice](conditionals/conditionals-practice.md) ([Answers](conditionals/conditionals-practice-answers.md))
 
+[Switch Statements](switch-statements/switch-statements.md)
+
 [Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
 
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
