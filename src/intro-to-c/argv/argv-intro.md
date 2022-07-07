@@ -1,6 +1,7 @@
-# Introduction to `argc` and `argv`
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Introduction to `argc` and `argv`
+author: Jerrett Longworth
+---
 
 You may be familiar with the good 'ol `int main(void)`, but surely, you think, there's more to it than that... and you'd be right! This lesson will introduce you to `argc` and `argv`, and how exactly they are used.
 
@@ -63,6 +64,11 @@ int main(int argc, char *argv[])
   for (int i = 0; i < argc; i++)
   {
     printf("\"%s\"", argv[i]);
+
+    if (i < argc - 1)
+    {
+      printf(", ");
+    }
   }
   printf("]\n");
 

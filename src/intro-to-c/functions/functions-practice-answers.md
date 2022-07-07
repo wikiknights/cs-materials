@@ -1,13 +1,16 @@
-# Functions (Solutions)
-
-*Originally created by Jerrett Longworth and Idel Martinez in Spring 2021.*
+---
+title: Functions (Solutions)
+author:
+  - Jerrett Longworth
+  - Idel Martinez
+---
 
 ## Function Scope
 This is important to get right. Functions are the base of every program, and knowing what your variables are doing in them is crucial.
 
-1. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
+@. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
 
-  ``` c lineNumber
+  ``` {.c .numberLines}
   int add_everything(int num1, int num2)
   {
     return num1 + num2;
@@ -32,7 +35,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-2. What happens when you return a value from a function? Things can get tricky if you're snoozing... What's the value of `floaty_float` after the execution of this program, assuming the user enters `5`?
+@. What happens when you return a value from a function? Things can get tricky if you're snoozing... What's the value of `floaty_float` after the execution of this program, assuming the user enters `5`?
 
   ``` c
   void get_value(float f)
@@ -56,7 +59,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-3. What if the previous example is altered a little? What happens to `floaty_float`? Assume, again, that the user enters `5`.
+@. What if the previous example is altered a little? What happens to `floaty_float`? Assume, again, that the user enters `5`.
 
   ``` c
   float get_value(void)
@@ -81,7 +84,77 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-4. Define a function that calculates the slope between two points using this fancy function header:
+@. What will `main` print in lines 10, 12, and 14?
+
+  ``` {.c .numberLines}
+  void add_num(int x, int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    int x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20, 10);
+    printf("Now x is %d\n", x);
+    add_num(x, 10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  ```
+  At first x was 10
+  Now x is 10
+  While x is now 10
+  ```
+
+\newpage
+
+@. What will `main` print in lines 12, 14, and 16?
+
+  ``` {.c .numberLines}
+  int x; // A wild global variable has appeared!
+
+  void add_num(int y)
+  {
+    x = x + y;
+  }
+
+  int main(void)
+  {
+    x = 10;
+
+    printf("At first x was %d\n", x);
+    add_num(20);
+    printf("Now x is %d\n", x);
+    add_num(10);
+    printf("While x is now %d\n", x);
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  ```
+  At first x was 10
+  Now x is 30
+  While x is now 40
+  ```
+
+---
+
+\newpage
+
+## Creating Functions
+
+@. Define a function that calculates the slope between two points using this fancy function header:
 
   **Answer:**
 
@@ -122,7 +195,7 @@ This is important to get right. Functions are the base of every program, and kno
 
 \newpage
 
-5. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**:
+@. **CHALLENGE:** Define a function that accomplishes the following task using the function **header**: (Hint: You may use the `sqrt()` function provided by the `math.h` library.)
 
   **Answer:**
 
@@ -163,11 +236,13 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
+---
+
 \newpage
 
-## Loops
+## Functions with Loops
 
-6. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
+@. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 
   **Answer:**
 
@@ -217,3 +292,5 @@ This is important to get right. Functions are the base of every program, and kno
     return 0;
   }
   ```
+
+  Fun fact: This problem is based on the one seen in [CS50](https://cs50.harvard.edu/x/2021/psets/1/mario/less/).

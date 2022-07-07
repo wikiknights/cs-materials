@@ -1,6 +1,7 @@
-*Originally created by Idel Martinez in Fall 2020.*
-
-# The Final Project...
+---
+title: The Final Project...
+author: Idel Martinez
+---
 
 Let's revisit dynamic memory allocation with `realloc()`, a peek into program organization, and steps on starting the project - along with a sample grocery list program.
 

@@ -1,6 +1,7 @@
-# Bubble Sort and Selection Sort Exercices
-
-*Created by Yohan Hmaiti.*
+---
+title: Bubble Sort and Selection Sort Exercices
+author: Yohan Hmaiti
+---
 
 **Bubble sort algorithm and Selection Sort Algorithm Knowledge Check:**
 

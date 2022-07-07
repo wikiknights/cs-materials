@@ -1,12 +1,15 @@
-# Switch Statements
-
-*Created by Ian Thomas in February 2022*
+---
+title: Switch Statements
+author: Ian Thomas
+---
 
 We have previously learned about `if-else` statements, but what if there was a more efficient way to handle multiple conditional arguments? 
 
 
 Consider the following program:
+
 ## If-Else Example
+
 ``` c
 #include <stdio.h>
 
@@ -37,7 +40,9 @@ int main(void)
 This code works fine as it is, but as the number of conditions increase, cycling through each if statement can become both very tedious as well as computationally expensive. This is where `switch` statements come in.
 
 Consider the following program:
+
 ## Switch Statement Example
+
 ```C
 #include <stdio.h>
 
@@ -66,15 +71,15 @@ int main(void)
 
 Functionally, this executes the same functions as the previous example. Let's break down each component of the statement:
 
-``` switch(a)```
+`switch(a)`
 
 This establishes the switch statement. It takes in a variable a to be compared. 
 
-``` case CONSTANT: ```
+`case CONSTANT:`
 
 This compares the variable a that was previously taken in to a constant. Functionally, this is the same as `if (a == CONSTANT)`
 
-``` break; ```
+`break;`
 
 This breaks the switch statement, ceasing any more comparisons and taking the user to the next line after the brackets. In the example above, it would take you to the line `return 0;`. This is not required, and can even be omitted to continue iterating through the switch statements. Here is an example:
 

@@ -1,4 +1,6 @@
-# Printing
+---
+title: Printing
+---
 
 ## The `printf();` function
 
@@ -22,9 +24,9 @@ This code will display  ```Hello, world!```  to the screen.
 
 If you wish to display your text a certain way, such as adding a new line or a tab, you can use some special characters:
 
-- **\n:** will add a new line
-- **\t:** will add a tab
-- **\b:** will do a backspace (move one character backward)
+- **\\n:** will add a new line
+- **\\t:** will add a tab
+- **\\b:** will do a backspace (move one character backward)
 
 Here is an example of a code that uses all these special characters:
 

@@ -1,6 +1,7 @@
-# Creating and Using Functions
-
-*Originally created by Idel Martinez in Spring 2021.*
+---
+title: Creating and Using Functions
+author: Idel Martinez
+---
 
 ## **Define**-ing a function.
 
@@ -11,6 +12,7 @@ The syntax to define a function starts with the function header, which consists 
 ```
 
 In here, `return_type` can be any of the **types** that we have learned so far:
+
 * `int`: integer
 * `float`: **single**-precision floating-point number
 * `double`: **double**-precision floating-point number

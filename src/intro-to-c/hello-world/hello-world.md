@@ -1,6 +1,7 @@
-# Writing Your First C Program
-
-*Created by Jerrett Longworth in January 2022.*
+---
+title: Writing Your First C Program
+author: Jerrett Longworth
+---
 
 This guide will show you how to write your first C program from scratch with only a few lines of code.
 
@@ -19,7 +20,7 @@ int main(void)
 
 Let's run the program (in a command line) and find out what happens! (*Note:* since command lines vary wildly between systems, this will only simulate one with generic prompts and fake commands.)
 
-```
+``` {.console}
 prompt> (I type the command to run the program...)
 Hello, world!
 prompt>
@@ -57,7 +58,7 @@ Without the newline character, you may see that text runs into each other withou
 
 For example:
 
-```
+``` {.console}
 prompt> (I type the command to run my program...)
 Hello, world!prompt>
 ```

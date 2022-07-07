@@ -1,12 +1,15 @@
-# Conditional Statement Practice
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Conditional Statement Practice
+author: Jerrett Longworth
+---
 
 How can you check if something is true or not, and can you get your code to act differently depending on those conditions? Yes, you can! Let's get some practice using conditional statements.
 
 ---
 
-1. Given the following program, what will be the output?
+@. Whenever Bob is in class, the variable `class` is set to 1, and 0 otherwise. If Bob is doing homework, the variable `homework` is set to 1, and 0 otherwise. Create an expression using boolean operators and the provided variables that would evaluate to true if Bob is doing their homework in class.
+
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -30,7 +33,7 @@ int main(void)
 ```
 
 
-2. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -59,10 +62,10 @@ int main(void)
 ```
 
 
-3. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
+@. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
 
 
-4. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -86,7 +89,7 @@ int main(void)
 ```
 
 
-5. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -111,7 +114,7 @@ int main(void)
 ```
 
 
-6. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -146,7 +149,7 @@ int main(void)
 In some curricula, conditions are covered before functions, so these following questions are considered "challenge problems." If you have already studied functions, these additional problems are excellent exercises to get more familiar with both conditionals and functions.
 
 
-7. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -183,7 +186,7 @@ int main(void)
 ```
 
 
-8. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
@@ -224,7 +227,7 @@ int main(void)
 ```
 
 
-9. Given the following program, what will be the output?
+@. Given the following program, what will be the output?
 
 ``` c
 #include <stdio.h>
