@@ -1,6 +1,7 @@
-# Preprocessor Directives
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Preprocessor Directives
+author: Jerrett Longworth
+---
 
 Here's a rundown of how preprocessor directives work and how you can use them in your program!
 

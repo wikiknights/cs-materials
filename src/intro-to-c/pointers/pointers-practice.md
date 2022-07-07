@@ -1,6 +1,9 @@
-# Pointers Practice
-
-*Problems created by Idel Martinez and Jerrett Longworth.*
+---
+title: Pointers Practice
+author:
+  - Idel Martinez
+  - Jerrett Longworth
+---
 
 Let's try some example problems using pointers!
 

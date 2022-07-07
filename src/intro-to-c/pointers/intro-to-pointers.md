@@ -1,6 +1,7 @@
-# Introduction to Pointers
-
-*Created by Jerrett Longworth in March 2022.*
+---
+title: Introduction to Pointers
+author: Jerrett Longworth
+---
 
 This is where things start to get really crazy. With the concept of pointers, you are given more power, but it requires great responsibility.
 

@@ -1,6 +1,9 @@
-# How to Reverse a Linked List Process
-
-*Created by Yohan Hmaiti and Matthew Gibbons.*
+---
+title: How to Reverse a Linked List Process
+author:
+    - Yohan Hmaiti
+    - Matthew Gibbons
+---
 
 ## The Overview
 ```

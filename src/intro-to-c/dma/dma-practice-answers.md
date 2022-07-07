@@ -1,6 +1,9 @@
-# Dynamic Memory Allocation (Solutions)
-
-*Originally created by Jerrett Longworth and Idel Martinez in Fall 2020.*
+---
+title: Dynamic Memory Allocation (Solutions)
+author:
+  - Jerrett Longworth
+  - Idel Martinez
+---
 
 Let's take a look at one of the *craziest* concepts we have in our toolkit to date: dynamically-allocated memory.
 

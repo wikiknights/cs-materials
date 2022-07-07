@@ -1,6 +1,7 @@
-# Conditional Statement Practice (Answers)
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Conditional Statement Practice (Answers)
+author: Jerrett Longworth
+---
 
 How can you check if something is true or not, and can you get your code to act differently depending on those conditions? Yes, you can! Let's get some practice using conditional statements.
 

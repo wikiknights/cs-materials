@@ -1,4 +1,6 @@
-# Computer Science 1
+---
+title: Computer Science 1
+---
 
 [Bubble Sort and Selection Sort Exercices](sorting/SortingQuiz.md)
 

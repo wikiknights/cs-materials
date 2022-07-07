@@ -1,6 +1,7 @@
-# A Quick Review on Variables
-
-*Originally created by Idel Martinez in Spring 2021.*
+---
+title: A Quick Review on Variables
+author: Idel Martinez
+---
 
 ## **Declare**-ing a variable.
 

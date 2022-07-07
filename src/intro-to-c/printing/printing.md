@@ -1,4 +1,6 @@
-# Printing
+---
+title: Printing
+---
 
 ## The `printf();` function
 

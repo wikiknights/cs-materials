@@ -1,6 +1,9 @@
-# Array Practice (Solutions)
-
-*Originally created by Jerrett Longworth and Idel Martinez in Spring 2021.*
+---
+title: Array Practice (Solutions)
+author:
+  - Jerrett Longworth
+  - Idel Martinez
+---
 
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 

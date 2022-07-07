@@ -1,4 +1,6 @@
-# Supplementary Computer Science Materials
+---
+title: Supplementary Computer Science Materials
+---
 
 These materials were developed by [Wiki Knights](https://wikiknights.com), a student organization at the University of Central Florida.
 

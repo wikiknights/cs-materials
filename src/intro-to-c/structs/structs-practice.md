@@ -1,6 +1,9 @@
-# Structs
-
-*Originally created by Idel Martinez and Jerrett Longworth in Fall 2020.*
+---
+title: Structs
+author:
+  - Idel Martinez
+  - Jerrett Longworth
+---
 
 Here is some additional practice using structs. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
 

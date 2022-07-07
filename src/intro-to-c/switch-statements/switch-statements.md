@@ -1,6 +1,7 @@
-# Switch Statements
-
-*Created by Ian Thomas in February 2022*
+---
+title: Switch Statements
+author: Ian Thomas
+---
 
 We have previously learned about `if-else` statements, but what if there was a more efficient way to handle multiple conditional arguments? 
 

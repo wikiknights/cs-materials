@@ -1,6 +1,7 @@
-# Creating and Using Functions
-
-*Originally created by Idel Martinez in Spring 2021.*
+---
+title: Creating and Using Functions
+author: Idel Martinez
+---
 
 ## **Define**-ing a function.
 

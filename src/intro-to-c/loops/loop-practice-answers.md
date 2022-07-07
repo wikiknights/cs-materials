@@ -1,6 +1,9 @@
-# Loop Practice (Solutions)
-
-*Originally created by Jerrett Longworth and Idel Martinez in Spring 2021. Appended by Jerrett Longworth in Summer 2022.*
+---
+title: Loop Practice (Solutions)
+author:
+  - Jerrett Longworth
+  - Idel Martinez
+---
 
 @. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)
 

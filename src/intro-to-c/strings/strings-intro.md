@@ -1,4 +1,6 @@
-# Strings
+---
+title: Strings
+---
 
 Strings are used to form words or sentences. In C, they are an array of characters.
 

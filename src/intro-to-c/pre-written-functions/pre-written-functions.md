@@ -1,4 +1,7 @@
-# Pre Written Functions (Predefined)
+---
+title: Pre Written Functions (Predefined)
+---
+
 These functions are already defined in the system libraries. So you do not need to code anything, you just need to know in which library it is, what it does and when to use it.
 Just like a regular written function, predefined functions have a name, datatype parameter and a return type.
 A good example of a predefined function is the `printf()`. The parameter for the `printf()` is a string and the return type is "void" (but it is omitted) and it is found in the `<stdio.h>` library.

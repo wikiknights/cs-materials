@@ -1,6 +1,9 @@
-# Binary I/O
-
-*Originally created by Idel Martinez and Jerrett Longworth in Fall 2020.*
+---
+title: Binary I/O
+author:
+  - Jerrett Longworth
+  - Idel Martinez
+---
 
 Here is some additional practice using binary I/O. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.
 

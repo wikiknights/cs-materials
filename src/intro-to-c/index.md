@@ -1,4 +1,6 @@
-# Intro to C Programming
+---
+title: Intro to C Programming
+---
 
 [Writing Your First C Program](hello-world/hello-world.md)
 

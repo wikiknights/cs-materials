@@ -1,6 +1,7 @@
-# Writing Your First C Program
-
-*Created by Jerrett Longworth in January 2022.*
+---
+title: Writing Your First C Program
+author: Jerrett Longworth
+---
 
 This guide will show you how to write your first C program from scratch with only a few lines of code.
 

@@ -1,4 +1,9 @@
-# Strings Practice
+---
+title: Strings Practice
+author:
+  - Idel Martinez
+  - Jerrett Longworth
+---
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
 
@@ -17,8 +22,6 @@ A fun thing to do in these exercises is to create a separate function and call i
 ---
 
 ## More Practice Using Strings
-
-*Originally created by Idel Martinez and Jerrett Longworth in Fall 2020.*
 
 For all questions, assume all necessary libraries are included, and all function calls are properly defined. Assume that `remove_clrf(string);` will remove any newline characters ('`\n`' or '`\r`') at the end of `string` passed in.
 

@@ -1,6 +1,7 @@
-# Variable Practice (Answers)
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Variable Practice (Answers)
+author: Jerrett Longworth
+---
 
 Here are some exercises that will help you get a better grasp of using variables! (Try solving these by hand without a compiler!)
 
