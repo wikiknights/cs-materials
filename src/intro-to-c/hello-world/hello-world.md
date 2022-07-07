@@ -20,7 +20,7 @@ int main(void)
 
 Let's run the program (in a command line) and find out what happens! (*Note:* since command lines vary wildly between systems, this will only simulate one with generic prompts and fake commands.)
 
-```
+``` {.console}
 prompt> (I type the command to run the program...)
 Hello, world!
 prompt>
@@ -58,7 +58,7 @@ Without the newline character, you may see that text runs into each other withou
 
 For example:
 
-```
+``` {.console}
 prompt> (I type the command to run my program...)
 Hello, world!prompt>
 ```
