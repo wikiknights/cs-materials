@@ -42,7 +42,7 @@ convert_html() {
 	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained -V title:' ' --metadata title=' ' --data-dir="$ROOT_DIR"
+	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained --data-dir="$ROOT_DIR"
 
 	if [ $enable_premailer -eq 1 ]; then
 		echo "Fixing CSS..."
