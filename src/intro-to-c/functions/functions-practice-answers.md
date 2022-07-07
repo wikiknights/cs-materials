@@ -145,7 +145,11 @@ This is important to get right. Functions are the base of every program, and kno
   While x is now 40
   ```
 
+---
+
 \newpage
+
+## Creating Functions
 
 @. Define a function that calculates the slope between two points using this fancy function header:
 
@@ -229,9 +233,11 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
+---
+
 \newpage
 
-## Loops
+## Functions with Loops
 
 @. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 

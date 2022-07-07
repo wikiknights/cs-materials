@@ -115,6 +115,10 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
+---
+
+## Creating Functions
+
 @. Define a function that calculates the slope between the two points using the fancy function header:
 
   ``` c
@@ -170,7 +174,9 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-## Loops
+---
+
+## Functions with Loops
 
 @. **CHALLENGE BONUS:** Write a `mario()` function that prints an `m` x `n` block using `#` characters.
 
