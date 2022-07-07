@@ -177,6 +177,10 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre.console, pre.terminal, pre.command-line {
+      background-color: black;
+      color: white;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -265,7 +269,7 @@ scratch with only a few lines of code.</p>
 <p>Let’s run the program (in a command line) and find out what happens!
 (<em>Note:</em> since command lines vary wildly between systems, this
 will only simulate one with generic prompts and fake commands.)</p>
-<pre><code>prompt&gt; (I type the command to run the program...)
+<pre class="console"><code>prompt&gt; (I type the command to run the program...)
 Hello, world!
 prompt&gt;</code></pre>
 <p>It really works! But what does it all mean? Let’s break each line
@@ -322,7 +326,7 @@ Additionally, if you are running your program in the command line, a
 missing newline character at the very end will cause your command line’s
 prompt to be on the same line as the last line of your program!</p>
 <p>For example:</p>
-<pre><code>prompt&gt; (I type the command to run my program...)
+<pre class="console"><code>prompt&gt; (I type the command to run my program...)
 Hello, world!prompt&gt;</code></pre>
 <p>This is no good! Adding the <code>\n</code> prevents this
 mis-formatting from happening.</p>
