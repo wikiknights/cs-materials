@@ -1,6 +1,6 @@
 # Pointers Practice (Solutions)
 
-*Created by Jerrett Longworth in June 2022.*
+*Problems created by Idel Martinez and Jerrett Longworth.*
 
 Let's try some example problems using pointers!
 
