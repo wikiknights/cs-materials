@@ -254,7 +254,8 @@
 <p>We have previously learned about <code>if-else</code> statements, but
 what if there was a more efficient way to handle multiple conditional
 arguments?</p>
-<p>Consider the following program: ## If-Else Example</p>
+<p>Consider the following program:</p>
+<h2 id="if-else-example">If-Else Example</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
@@ -284,7 +285,8 @@ arguments?</p>
 increase, cycling through each if statement can become both very tedious
 as well as computationally expensive. This is where <code>switch</code>
 statements come in.</p>
-<p>Consider the following program: ## Switch Statement Example</p>
+<p>Consider the following program:</p>
+<h2 id="switch-statement-example">Switch Statement Example</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
@@ -310,47 +312,48 @@ statements come in.</p>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Functionally, this executes the same functions as the previous
 example. Let’s break down each component of the statement:</p>
-<pre class="switch(a)```"><code>
-This establishes the switch statement. It takes in a variable a to be compared. 
-
-``` case CONSTANT: ```
-
-This compares the variable a that was previously taken in to a constant. Functionally, this is the same as `if (a == CONSTANT)`
-
-``` break; ```
-
-This breaks the switch statement, ceasing any more comparisons and taking the user to the next line after the brackets. In the example above, it would take you to the line `return 0;`. This is not required, and can even be omitted to continue iterating through the switch statements. Here is an example:
-
-```C
-#include &lt;stdio.h&gt;
-
-int main(void)
-{
-    int starRating = 4;
-
-    switch (starRating)
-    {
-        case 5:
-            printf(&quot;Your movie is perfect!\n&quot;);
-            break;
-        case 4:
-        case 3:
-            printf(&quot;Your movie is good!\n&quot;);
-            break;
-        case 2:
-            printf(&quot;Your movie is okay.\n&quot;);
-            break;
-        case 1:
-        case 0:
-            printf(&quot;Your movie is bad.\n&quot;)
-            break;
-        default:
-            printf(&quot;Invalid rating.\n&quot;);
-            break;
-    }
-
-    return 0;
-}</code></pre>
+<p><code>switch(a)</code></p>
+<p>This establishes the switch statement. It takes in a variable a to be
+compared.</p>
+<p><code>case CONSTANT:</code></p>
+<p>This compares the variable a that was previously taken in to a
+constant. Functionally, this is the same as
+<code>if (a == CONSTANT)</code></p>
+<p><code>break;</code></p>
+<p>This breaks the switch statement, ceasing any more comparisons and
+taking the user to the next line after the brackets. In the example
+above, it would take you to the line <code>return 0;</code>. This is not
+required, and can even be omitted to continue iterating through the
+switch statements. Here is an example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> starRating <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">switch</span> <span class="op">(</span>starRating<span class="op">)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">5</span><span class="op">:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            printf<span class="op">(</span><span class="st">&quot;Your movie is perfect!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">4</span><span class="op">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">3</span><span class="op">:</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            printf<span class="op">(</span><span class="st">&quot;Your movie is good!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            printf<span class="op">(</span><span class="st">&quot;Your movie is okay.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="dv">0</span><span class="op">:</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            printf<span class="op">(</span><span class="st">&quot;Your movie is bad.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">)</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            printf<span class="op">(</span><span class="st">&quot;Invalid rating.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The output above prints</p>
 <p><code>Your movie is good!</code></p>
 <p>Since the case for 4 is not broken, it executes the statement for the
