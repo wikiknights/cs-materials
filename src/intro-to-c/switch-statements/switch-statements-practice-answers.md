@@ -117,4 +117,83 @@ Here is some additional practice with switch statements.
 	**Answer:** Yes. The switch case on line 30 does not have a `break` in it.
 
 
-@. 
+@. Upper managment was very happy with your help finding the mobile order issue in the system. So happy, in fact, that you ended up having a small article in the company newsletter. You were elated to be recognized for your good work. 
+
+	You recieved an email the evening of the release of the newsletter from an anonymous address. 
+
+	> From: ~~redacted~~
+	> Subject: RECRUITMENT CHALLENGE 
+	>
+	> Greetings.
+	>
+	> We are very aware of your recent programming accomplishments. We have decided to extend an opportunity of employment to you. Successful completion our challenge will be taken as an acceptance of the offer. **It is advised to look up an ascii table.** Best of luck. 
+	>
+
+	Attached to the email was a code snippet and the challenge. You have been tasked with predicting the output of the code snippet given specific inputs. The input list is separated by commas. 
+
+	> 5, 'm'
+	> 82, 'i'
+	> 15, 'i'
+	> 'B', 't'
+	> 0, 'h'
+
+	``` c
+	int option;
+	int subOption;
+
+	...
+
+	switch(option)
+		{
+			case 5:
+				printf("Hello, World!");
+			case ' ' + 'z':
+				printf("?");
+				break;
+			case 78:
+				printf("Nintendo Switch");
+				break;
+			case 15:
+				printf("Switch Statements.");
+			case 'B':
+				switch(subOption)
+					{
+						case 'i':
+							printf("Alphabet Soup");
+							break;
+						case 'm':
+							printf("Sonder by");
+						case 'e':
+							printf(" The Wrecks");
+							break;
+						case 't':
+							printf("Break ");
+							break;
+					}
+			case 1:
+				printf("check!");
+				break;
+			case 27 + 54:
+			default:
+				printf("Fallout 76");
+				break;
+			case 'Q' + 1:
+				printf("Baby ");
+			case 3:
+				printf("Shark");
+				break;
+			case 291:
+				printf("Croissantwich? What?");
+				break;
+			case 20 * '\0':
+				break;
+		} 
+
+	...
+	```
+
+	**Answer:** Hello, World!?
+	            Baby Shark
+	            Switch Statements.Alphabet Soup
+	            Break check!
+	            \[NO OUTPUT\]
