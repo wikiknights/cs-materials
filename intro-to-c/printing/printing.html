@@ -36,7 +36,7 @@
       }
     }
     @media print {
-      body {
+      html {
         background-color: transparent;
         color: black;
         font-size: 12pt;
@@ -52,10 +52,7 @@
     p {
       margin: 1em 0;
     }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
+    a, a:visited {
       color: #1a1a1a;
     }
     img {
@@ -179,6 +176,41 @@
     pre.console, pre.terminal, pre.command-line {
       background-color: black;
       color: white;
+    }
+    @media screen and (prefers-color-scheme: dark)
+    {
+      :root {
+        --primary-color: #dcdcdc;
+        --secondary-color: #b1b1b1;
+        --background-color: #1b1b1b;
+      }
+      html {
+        color: var(--primary-color);
+        background-color: var(--background-color);
+      }
+      a, a:visited {
+        color: var(--primary-color);
+      }
+      blockquote {
+        border-left-color: var(--secondary-color);
+        color: var(--secondary-color);
+      }
+      div.sourceCode, pre:not(.sourceCode) {
+        border-color: var(--primary-color);
+      }
+      hr {
+        background-color: var(--primary-color);
+      }
+      tbody, th {
+        border-top-color: var(--primary-color);
+      }
+      footer, footer a, footer a:visited {
+        color: #979797;
+      }
+      div.sourceCode {
+        filter: invert(1) hue-rotate(60deg) brightness(1.3) saturate(0.85);
+        color: initial;
+      }
     }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
