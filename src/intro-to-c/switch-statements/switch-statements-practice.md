@@ -1,5 +1,5 @@
 ---
-Title: Switch Statements
+title: Switch Statements
 author: Matthew Gibbons
 ---
 
@@ -9,37 +9,55 @@ Here is some additional practice with switch statements.
 
 
 
-@. You have returned from your time traveling adventure and are back to working your generic service job. The Romans appreciated the number system lesson, but they promptly dropped it because it only went up to 10. Time paradox avoided. 
+@. You have returned from your time traveling adventure and are back to working your \[generic service job\]. The Romans appreciated the number system lesson, but they promptly dropped it because it only went up to 10. Time paradox avoided. 
 
-There has been a recent problem with mobile orders. You decided to take a look at the mobile order system to locate the issue. You located where orders are differentiated in the code. Is there an issue in the code? If there is, what is it?
+There has been a recent problem with mobile orders. You decided to take a look at the mobile order system to locate the issue. You located where orders are differentiated in the code. You have the menu for reference. Is there an issue in the code? If there is, what is it?
 
-``` c
+``` {.c .numberLines}
+/*
++-------------------------------------------+
+|          1. Chicken Sandwich              |
+|     2. Cheddar Broccoli Bread Bowl        |
+| 3. Ham Egg and Cheese Breakfast Burrito   |
+|         4. Vegan Crunch Wrap              |
+| 5. Bacon Egg and Salsa Breakfast Bagel    |
+|       6. Turkey Super Sandwich            |
+|            7. Avocado Toast               |
+|   8. Cheddar Bacon Ham Croissantwich      |
++-------------------------------------------+
+*/
+
+...
+
 switch(order)
 {
-	case "Chicken Sandwich":
+	case 1:
 		total = total + 4.50;
 		break;
-	case "Cheddar Broccoli Bread Bowl":
+	case 2:
 		total = total + 5.00;
 		break;
-	case "Ham Egg and Cheese Breakfast Burrito":
+	case 3:
 		total = total + 3.79;
 		break;
-	case "Vegan Crunch Wrap":
+	case 4:
 		total = total + 3.00;
 		break;
-	case "Bacon Egg and Salsa Breakfast Bagel":
+	case 5:
 		total = total + 4.00;
-	case "Turkey Super Sandwich":
+	case 6:
 		total = total + 7.85;
 		break;
-	case "Avocado Toast":
+	case 7:
 		total = total + 4.29;
 		break;
-	case "Cheddar Bacon Ham Croissantwich":
+	case 8:
 		total = total + 3.35;
 }
+
+...
 ```
+
 
 
 @. 
