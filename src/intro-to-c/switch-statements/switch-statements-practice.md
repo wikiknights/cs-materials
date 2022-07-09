@@ -85,7 +85,7 @@ Here is some additional practice with switch statements.
 	>
 	> 0, 104
 
-	**Note:** `\0` is the null character.
+	**Note:** `\0` is the `NULL` character.
 
 	``` c
 	int option;
