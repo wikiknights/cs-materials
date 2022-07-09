@@ -16,10 +16,11 @@ OUTPUT_DIR="$SCRIPT_LOCATION/../out/"
 
 show_usage() {
 	cat << EOF
-Usage: ${0##*/} [-sv]
+Usage: ${0##*/} [-csv]
 Builds all markdown files.
 
 Options:
+  -c      Only build files that are changed and not committed, according to git.
   -s      Suppress all output from secondary build script.
   -v      Show all logs.
 EOF
@@ -27,11 +28,15 @@ EOF
 
 
 # Test for command line options
+changed=0
 suppress=0
 verbose=0
 OPTIND=1
-while getopts sv option; do
+while getopts csv option; do
 	case $option in
+    c)
+      changed=1
+      ;;
     s)
       suppress=1
       ;;
@@ -47,7 +52,13 @@ done
 shift "$((OPTIND-1))"
 
 # Read the list of all markdown files to process
-files=$(find ${INPUT_DIR} -type f -name "*.md" -printf "%P\n")
+if [ $changed -eq 1 ]; then
+# Get all changed files in the src/ directory, then remove the "src/" from the path
+  files=$(git diff --name-only 2>/dev/null | grep -E '^src/' | sed -e 's#^src/##')
+else
+  files=$(find ${INPUT_DIR} -type f -name "*.md" -printf "%P\n")
+fi
+
 total=$(echo "$files" | wc -l)
 
 
