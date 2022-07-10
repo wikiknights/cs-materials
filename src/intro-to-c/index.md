@@ -18,6 +18,8 @@ title: Intro to C Programming
 
 [Switch Statements](switch-statements/switch-statements.md)
 
+[Switch Statements Practice](switch-statements/switch-statements-practice.md) ([Answers](switch-statements/switch-statements-practice-answers.md))
+
 [Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
 
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
