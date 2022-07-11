@@ -108,3 +108,56 @@ With `else if`, we can now control multiple scenarios with differing outcomes, a
 
 ---
 
+The ternary operator is named so because it takes three operands.  It is similar to an `if else` in that it takes in a condition statement and then has an outcome for true and false. Looking at the structure will help.
+
+``` c
+condition?expression_1:expression_2;
+```
+
+This is a rewrite of this equivalent `if-else` statement:
+
+``` c
+if(condition)
+{
+	expression_1;
+}
+else
+{
+	expression_2
+}
+```
+
+Lets first look at it with our blinds example:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int sunny = is_it_sunny();
+
+	sunny == 1 ? close_the_blinds() : keep_the_blinds_open();
+
+	return 0;
+}
+```
+
+Here is a different example with a condition that compares two integers:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int num1 = 20, num2 = 23;
+
+	(num1 > num2) ? printf("%d is greater than %d\n", num1, num2) : printf("%d is greater than %d\n", num2, num1);
+
+	return 0;
+}
+```
+
+## Short Circuiting
+
+---
+
