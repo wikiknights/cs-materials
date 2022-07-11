@@ -48,6 +48,21 @@ My favorite fruits (best to worst):
 2. Apples
 3. Grapes
 
+# Paragraphs in Lists
+
+<!-- What if you want a list with multiple paragraphs on each bullet point? To do this, just add four
+     spaces or a tab at the beginning of the line. The same rules of starting new paragraphs apply here,
+     so new paragraphs will need to have an empty new line before and after them. -->
+
+- This is a normal list item.
+
+- This is a list item... but now I will add a second paragraph.
+
+    Notice that this paragraph shows up on the same bullet at the previous paragraph!
+
+- Now this is a third bullet, also part of the same list.
+
+
 # Auto-Numbered Lists
 
 <!-- What if you want to make a list, but then interrupt it with something else, then come back to
