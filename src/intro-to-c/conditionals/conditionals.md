@@ -88,11 +88,19 @@ else if(boolean expression)
 We're going to adjust our blinds example a bit to introduce multiple conditions. This time I will close the blinds if it is sunny or if it is dark. I will keep them open if it is snowing or raining. Otherwise, I will go on a drive. That would look something like this:
 
 ``` c
-if(sunny == 1 || dark == 1)
+if(sunny == 1)
 {
 	close_the_blinds();
 }
-else if(snowy == 1 || rainy == 1)
+else if(dark == 1)
+{
+	close_the_blinds();
+}
+else if(snowy == 1)
+{
+	keep_the_blinds_open();
+}
+else if(rainy == 1)
 {
 	keep_the_blinds_open();
 }
@@ -111,7 +119,7 @@ With `else if`, we can now control multiple scenarios with differing outcomes, a
 The ternary operator is named so because it takes three operands.  It is similar to an `if else` in that it takes in a condition statement and then has an outcome for true and false. Looking at the structure will help.
 
 ``` c
-condition?expression_1:expression_2;
+condition ? expression_1 : expression_2;
 ```
 
 This is a rewrite of this equivalent `if-else` statement:
@@ -136,7 +144,7 @@ int main(void)
 {
 	int sunny = is_it_sunny();
 
-	sunny == 1 ? close_the_blinds() : keep_the_blinds_open();
+	(sunny == 1) ? close_the_blinds() : keep_the_blinds_open();
 
 	return 0;
 }
@@ -157,7 +165,120 @@ int main(void)
 }
 ```
 
+## Multi-condition Statements
+
+---
+
+`if` statements and the ternary operator can actually handle multiple comparisons or conditions. Looking back at the example in the `else if` section, it can be more efficiently rewritten like this:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	if(sunny == 1 || dark == 1)
+	{
+		close_the_blinds();
+	}
+	else if(snowy == 1 || rainy == 1)
+	{
+		keep_the_blinds_open();
+	}
+	else
+	{
+		go_for_a_drive();
+	}
+	return 0;
+}
+```
+
+Let's try it with the ternary operator.
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int m = 20, n = 15, g = 17, p = 3;
+
+	(m > n && m > g && m > p) ? printf("%d is the greatest.\n", m) : printf("%d is not the greatest.\n", m);
+
+return 0;
+}
+```
+
+Order doesn't technically matter, but the best practice is to order them in a way that allows for potential short circuiting.
+
 ## Short Circuiting
 
 ---
 
+When writing conditional statements, it is good practice to write them in a way that allows for the compiler to skip the evaluation of further conditions when possible. This skip by the compiler is called short circuiting. Short circuiting is possible when evaluating logical `and` and logical `or`. For example, if the left side of a logical and is false, the whole expression will be false regardless of the right side of the expression, so the compiler skips this evaluation. Here is an example of such a case:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int x = 1, y = 2, z = 2;
+
+	if(x == y && y == z)
+	{
+		printf("Everything is the same!\n");
+	}
+	else
+	{
+		printf("Everything is NOT the same!\n");
+	}
+	return 0;
+}
+```
+
+`x` and `y` are not equivalent, so the comparison would resolve to false, rendering the whole statement false.
+
+With a slight change, here is a similar example for a logical or short circuit:
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int x = 1, y = 2, z = 2;
+
+	if(y == z || x == y)
+	{
+		printf("Something is the same!\n");
+	}
+	else
+	{
+		printf("Nothing is the same!\n");
+	}
+	return 0;
+}
+```
+
+Note that logical or will resolved if **either** side of the expression is true, so comparing `y` and `z` will resolve to true, rendering the whole statement true.
+
+Here is a small program that will help in visualizing the short circuit. Feel free to copy this and plug it into a compiler!
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int x = 1, y = 2, z = 2;
+
+	if(y == z || x++)
+	{
+		printf("Something is the same!\n");
+	}
+	else
+	{
+		printf("Nothing is the same!\n");
+	}
+	printf("x = %d\n", x);
+	return 0;
+}
+```
+
+When you run this program, the output will show that `x = 1`, even though it was incremented in the in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
