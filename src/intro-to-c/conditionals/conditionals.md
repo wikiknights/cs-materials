@@ -3,8 +3,6 @@ title: Conditionals
 author: Matthew Gibbons
 ---
 
-<!--TODO: ELSE IF, TERNIERY OPERATOR. NOTE: SHORT CIRCUITING, MULTI-CONDITION CONDITIONALS-->
-
 ## The Basics of Conditionals
 
 ---
@@ -282,3 +280,5 @@ int main(void)
 ```
 
 When you run this program, the output will show that `x = 1`, even though it was incremented in the in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
+
+<!--- TODO: One line if statements --->
