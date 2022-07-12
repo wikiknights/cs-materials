@@ -307,7 +307,7 @@ else
 	printf("Nothing is the same!\n");
 ```
 
-This comes in handy when dealing with many short conditionals. However, there is an important pitfall to be aware of. C will only recognize the next following executable line as within the `if` statement. That is, even if you put twenty new lines between `if` and the "Something is the same" `printf`, it will be executed if the condition is true. If you did something like this, though, your compiler will be unhappy:
+This comes in handy when dealing with many short conditionals. However, there is an important pitfall to be aware of. C will only recognize the next following executable line as within the `if` statement. That is, even if you put twenty new lines between `if` and `printf("Something is the same!\n");`, "Something is the same!" will still only be executed if the condition is true. If you did something like this, though, your compiler will be unhappy:
 
 ``` c
 if(y == z || x++)
