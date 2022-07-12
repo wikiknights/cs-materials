@@ -125,11 +125,11 @@ This is a rewrite of this equivalent `if-else` statement:
 ``` c
 if(condition)
 {
-	expression_1;
+	expression_if_true;
 }
 else
 {
-	expression_2;
+	expression_if_false;
 }
 ```
 
@@ -157,10 +157,16 @@ int main(void)
 {
 	int num1 = 20, num2 = 23;
 
-	(num1 > num2) ? printf("%d is greater than %d\n", num1, num2) : printf("%d is greater than %d\n", num2, num1);
+	(num1 > num2) ? printf("%d is greater than %d.\n", num1, num2) : printf("%d is greater than %d.\n", num2, num1);
 
 	return 0;
 }
+```
+
+In this example, `num1` is not greater than `num2`, so the output would be as follows:
+
+```
+23 is greater than 20.
 ```
 
 ## Multi-condition Statements
@@ -203,6 +209,12 @@ int main(void)
 
 return 0;
 }
+```
+
+In this example, the output would be as follows:
+
+```
+ "20 is the greatest."
 ```
 
 Order doesn't technically matter, but the best practice is to order them in a way that allows for potential short circuiting.
@@ -255,7 +267,7 @@ int main(void)
 }
 ```
 
-Note that logical `or` will resolved if **either** side of the expression is true, so comparing `y` and `z` will resolve to true, rendering the whole statement true.
+Note that logical `or` will resolved if **either** side of the expression is true, so comparing `y` and `z` will resolve to true, rendering the whole statement true. Since `y == z` is true, `x` and `y` don't even need to be compared. The result of `x == y` would have no effect on the truthiness of the logical expression.
 
 Here is a small program that will help in visualizing the short circuit. Feel free to copy this and plug it into a compiler!
 
@@ -279,6 +291,6 @@ int main(void)
 }
 ```
 
-When you run this program, the output will show that `x = 1`, even though it was (supposedly) incremented in the in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
+When you run this program, the output will show that `x = 1`, even though it was (supposedly) incremented in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
 
 <!--- TODO: One line if statements --->
