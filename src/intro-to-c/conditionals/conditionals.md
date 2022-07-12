@@ -32,7 +32,7 @@ if(sunny == 1)
 }
 ```
 
-In this example, sunny is being compared to true. If it is sunny, then the condition will be met, and we will execute `close_the_blinds()`. If it is not sunny (`sunny = 0`), then the condition statement would essentially be `0 == 1`, which we know is false. This would mean that `close_the_blinds()` would not be executed.
+In this example, `sunny` is being compared to true. If it is sunny, then the condition will be met, and we will execute `close_the_blinds()`. If it is not sunny (`sunny = 0`), then the condition statement would essentially be `0 == 1`, which we know is false. This would mean that `close_the_blinds()` would not be executed.
 
 It is important to note that you can put more than one conditional statement in the `if` statement, but we'll explore this more in a later section.
 
@@ -40,7 +40,7 @@ It is important to note that you can put more than one conditional statement in 
 
 ---
 
-`else` is the jelly to the `if` peanut butter. Not required, but it makes it better. So, to jelly up our example, if it is sunny then I will close the blinds. Otherwise, it its \[raining, cloudy, chance of meatballs, snowy, dark\] and the blinds will be open. `else` is a catch-all for things that make the condition false. The basic structure would look something like this:
+`else` is the jelly to the `if` peanut butter. Not required, but it makes it better. So, to jelly up our example, if it is sunny then I will close the blinds. Otherwise, it is \[raining, cloudy, chance of meatballs, snowy, dark\] and the blinds will be open. `else` is a catch-all for things that make the condition false. The basic structure would look something like this:
 
 ``` c
 if(boolean)
@@ -117,7 +117,7 @@ With `else if`, we can now control multiple scenarios with differing outcomes, a
 The ternary operator is named so because it takes three operands.  It is similar to an `if else` in that it takes in a condition statement and then has an outcome for true and false. Looking at the structure will help.
 
 ``` c
-condition ? expression_1 : expression_2;
+condition ? expression_if_true : expression_if_false;
 ```
 
 This is a rewrite of this equivalent `if-else` statement:
@@ -129,7 +129,7 @@ if(condition)
 }
 else
 {
-	expression_2
+	expression_2;
 }
 ```
 
@@ -211,7 +211,7 @@ Order doesn't technically matter, but the best practice is to order them in a wa
 
 ---
 
-When writing conditional statements, it is good practice to write them in a way that allows for the compiler to skip the evaluation of further conditions when possible. This skip by the compiler is called short circuiting. Short circuiting is possible when evaluating logical `and` and logical `or`. For example, if the left side of a logical and is false, the whole expression will be false regardless of the right side of the expression, so the compiler skips this evaluation. Here is an example of such a case:
+When writing conditional statements, it is good practice to write them in a way that allows for the compiler to skip the evaluation of further conditions when possible. This skip by the compiler is called short circuiting. Short circuiting is possible when evaluating logical `and` and logical `or`. For example, if the left side of a logical `and` is false, the whole expression will be false regardless of the right side of the expression, so the compiler skips this evaluation. Here is an example of such a case:
 
 ``` c
 #include <stdio.h>
@@ -234,7 +234,7 @@ int main(void)
 
 `x` and `y` are not equivalent, so the comparison would resolve to false, rendering the whole statement false.
 
-With a slight change, here is a similar example for a logical or short circuit:
+With a slight change, here is a similar example for a logical `or` short circuit:
 
 ``` c
 #include <stdio.h>
@@ -255,7 +255,7 @@ int main(void)
 }
 ```
 
-Note that logical or will resolved if **either** side of the expression is true, so comparing `y` and `z` will resolve to true, rendering the whole statement true.
+Note that logical `or` will resolved if **either** side of the expression is true, so comparing `y` and `z` will resolve to true, rendering the whole statement true.
 
 Here is a small program that will help in visualizing the short circuit. Feel free to copy this and plug it into a compiler!
 
@@ -279,6 +279,6 @@ int main(void)
 }
 ```
 
-When you run this program, the output will show that `x = 1`, even though it was incremented in the in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
+When you run this program, the output will show that `x = 1`, even though it was (supposedly) incremented in the in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
 
 <!--- TODO: One line if statements --->
