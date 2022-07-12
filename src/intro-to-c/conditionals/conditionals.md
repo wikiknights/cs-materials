@@ -1,5 +1,5 @@
 ---
-title: Conditionals
+title: Conditional Statements
 author: Matthew Gibbons
 ---
 
