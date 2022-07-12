@@ -317,4 +317,16 @@ else
 	printf("Nothing is the same!\n");
 ```
 
-The second `printf` would not be executed as part of the `if`, but instead be interpreted as a new line of code, effectively separating the `if` and `else`, causing a compilation error. This would be an "`else` without previous `if`" error
+The second `printf` would not be executed as part of the `if`, but instead be interpreted as a new line of code outside of the `if`, effectively separating the `if` and `else`, causing a compilation error. The error would be an "`else` without previous `if`" error. To resolve this error, curly brackets can be placed around both the print statements like this:
+
+``` c
+if(y == z || x++)
+{
+	printf("Something is the same!\n");
+	printf("Hooray!\n");
+}
+else
+	printf("Nothing is the same!\n");
+```
+
+The `else` still being only one line would not require curly brackets, but you may add them if it is more pleasing to the eye.
