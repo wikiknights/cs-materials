@@ -291,6 +291,30 @@ int main(void)
 }
 ```
 
-When you run this program, the output will show that `x = 1`, even though it was (supposedly) incremented in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. This code can be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
+When you run this program, the output will show that `x = 1`, even though it was (supposedly) incremented in the if statement. This part of the code was actually never executed due to the short circuit, so `x` was never incremented. If you switch the conditions around, you will get different behavior from this program, even though it will still short circuit. This code can also be slightly manipulated to show the short circuiting of the logical `and` as well, but I will leave that for you to try.
 
 <!--- TODO: One line if statements --->
+## One-Line If and Else Statements
+
+---
+
+As programmers, saving keystrokes makes us feel fancy and smart. Two places we can do this is in one-line `if` and `else` statements. By one-line, I specifically mean the code executed by the `if` or `else` statement, not the condition statement. I will use the previous example to demonstrate, just adjusted a little.
+
+``` c
+if(y == z || x++)
+	printf("Something is the same!\n");
+else
+	printf("Nothing is the same!\n");
+```
+
+This comes in handy when dealing with many short conditionals. However, there is an important pitfall to be aware of. C will only recognize the next following executable line as within the `if` statement. That is, even if you put twenty new lines between `if` and the "Something is the same" `printf`, it will be executed if the condition is true. If you did something like this, though, your compiler will be unhappy:
+
+``` c
+if(y == z || x++)
+	printf("Something is the same!\n");
+	printf("Hooray!\n");
+else
+	printf("Nothing is the same!\n");
+```
+
+The second `printf` would not be executed as part of the `if`, but instead be interpreted as a new line of code, effectively separating the `if` and `else`, causing a compilation error. This would be an "`else` without previous `if`" error
