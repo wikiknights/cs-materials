@@ -214,7 +214,7 @@ return 0;
 In this example, the output would be as follows:
 
 ```
- "20 is the greatest."
+20 is the greatest.
 ```
 
 Order doesn't technically matter, but the best practice is to order them in a way that allows for potential short circuiting.
