@@ -14,6 +14,8 @@ title: Intro to C Programming
 
 [Printing](printing/printing.md)
 
+[Conditional Statements Introduction](conditionals/conditionals.md)
+
 [Conditionals Practice](conditionals/conditionals-practice.md) ([Answers](conditionals/conditionals-practice-answers.md))
 
 [Switch Statements](switch-statements/switch-statements.md)
