@@ -48,6 +48,8 @@ title: Intro to C Programming
 
 [How to use Pointers](pointers/using-pointers.md)
 
+[Arrays are (Secretly) Pointers](pointers/arrays-are-pointers.md)
+
 [Pointers Practice](pointers/pointers-practice.md) ([Answers](pointers/pointers-practice-answers.md))
 
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
