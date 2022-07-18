@@ -42,7 +42,7 @@ convert_html() {
 	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained --data-dir="$ROOT_DIR"
+	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
 
 	if [ $enable_premailer -eq 1 ]; then
 		echo "Fixing CSS..."
@@ -61,7 +61,7 @@ convert_docx() {
 	fi
 
 	echo "Converting to DOCX..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme"
+	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
 }
 
 convert_pdf() {
@@ -72,7 +72,7 @@ convert_pdf() {
 	fi
 
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --metadata=geometry:margin=1in
+	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
 }
 
 converter() {

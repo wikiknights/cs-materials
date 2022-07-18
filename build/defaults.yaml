@@ -1,0 +1,7 @@
+metadata:
+  geometry: "margin=1in"
+
+table-of-contents: true
+
+variables:
+  toc-title: "Contents"
