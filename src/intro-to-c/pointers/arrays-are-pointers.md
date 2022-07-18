@@ -189,6 +189,44 @@ As you can see, these two forms are equivalent! Arrays are (secretly) pointers!
 
 ---
 
+## Pointer Arithmetic in Different Types of Arrays
+
+Something that C will take care of for you in pointer arithmetic is the "distance" between each element in an array. In other words, even though you may use the same indices in different types of arrays (e.g.: 0, 1, 2, 3, ...), pointer arithmetic will automatically scale depending on the type of pointer/array.
+
+For example, in an array of `int`s, adding 1 is the same as adding 4 bytes to the address of the array, since each `int` takes 4 bytes of space. In an array of `double`s, adding 1 is the same as adding 8 bytes to the address of the array, since each `double` takes 8 bytes of space.
+
+To show this visually, this is the picture of our integer array from before, but with example addresses of each element added.
+
+```
+  numbers[0]   numbers[1]   numbers[2]    ...    numbers[5]
++------------+------------+------------+-------+------------+
+|     77     |     84     |     52     |  ...  |      3     |
++------------+------------+------------+-------+------------+
+  ^            ^            ^                    ^
+  |            |            |                    |
+  |            |            |                    |
+numbers      numbers + 1  numbers + 2          numbers + 5
+(0x1000)     (0x1004)     (0x1008)        ...
+```
+
+Now imagine the same array, but with `double`s instead of integers:
+
+```
+  numbers[0]   numbers[1]   numbers[2]    ...    numbers[5]
++------------+------------+------------+-------+------------+
+|    77.0    |    84.0    |    52.0    |  ...  |     3.0    |
++------------+------------+------------+-------+------------+
+  ^            ^            ^                    ^
+  |            |            |                    |
+  |            |            |                    |
+numbers      numbers + 1  numbers + 2          numbers + 5
+(0x1000)     (0x1008)     (0x101B)        ...
+```
+
+Notice that the way each array is indexed remains the same, but the exact addresses are different, depending on the type of array.
+
+---
+
 ## Passing Arrays to Functions
 
 Keep in mind that a pointer and an array aren't all that different from each other. When passing arrays into functions, there are two possible ways to indicate it, and both have the same effect!
