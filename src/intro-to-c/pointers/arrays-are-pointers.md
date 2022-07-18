@@ -195,7 +195,7 @@ Something that C will take care of for you in pointer arithmetic is the "distanc
 
 For example, in an array of `int`s, adding 1 is the same as adding 4 bytes to the address of the array, since each `int` takes 4 bytes of space. In an array of `double`s, adding 1 is the same as adding 8 bytes to the address of the array, since each `double` takes 8 bytes of space.
 
-To show this visually, this is the picture of our integer array from before, but with example addresses of each element added.
+To show this visually, this is the picture of our integer array from before, but with example addresses of each element added, in both hexadecimal and base-10.
 
 ```
   numbers[0]   numbers[1]   numbers[2]    ...    numbers[5]
@@ -206,7 +206,8 @@ To show this visually, this is the picture of our integer array from before, but
   |            |            |                    |
   |            |            |                    |
 numbers      numbers + 1  numbers + 2          numbers + 5
-(0x1000)     (0x1004)     (0x1008)        ...
+(0x1000)     (0x1004)     (0x1008)             (0x1014)
+(4096)       (4100)       (4104)               (4116)
 ```
 
 Now imagine the same array, but with `double`s instead of integers:
@@ -220,7 +221,8 @@ Now imagine the same array, but with `double`s instead of integers:
   |            |            |                    |
   |            |            |                    |
 numbers      numbers + 1  numbers + 2          numbers + 5
-(0x1000)     (0x1008)     (0x101B)        ...
+(0x1000)     (0x1008)     (0x1010)             (0x1028)
+(4096)       (4104)       (4112)               (4136)
 ```
 
 Notice that the way each array is indexed remains the same, but the exact addresses are different, depending on the type of array.
