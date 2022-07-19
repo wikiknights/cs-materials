@@ -48,6 +48,25 @@ My favorite fruits (best to worst):
 2. Apples
 3. Grapes
 
+# Blockquotes
+
+<!-- Blockquotes can be added, even with multiple paragraphs! -->
+
+> Fun fact: "All your base are belong to us" is an Internet meme based on a badly translated phrase from the opening cutscene of the video game Zero Wing.
+>
+> \- Wikipedia
+
+<!-- Blockquotes can also be nested! -->
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+>>
+>>> Dorothy went to work meekly, with her mind made up to work as hard as she could; for she was glad the Wicked Witch had decided not to kill her.
+>>>
+>>>> With Dorothy hard at work, the Witch thought she would go into the courtyard and harness the Cowardly Lion like a horse.
+
+
 # Paragraphs in Lists
 
 <!-- What if you want a list with multiple paragraphs on each bullet point? To do this, just add four
