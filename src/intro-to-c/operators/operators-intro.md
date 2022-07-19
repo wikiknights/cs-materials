@@ -1,4 +1,5 @@
 # Operators
+By Nicole Zolnier
 
 ## Arithmetic Operators
 An arithmetic operator performs mathematical operations, the ones we learn in elementary school. 

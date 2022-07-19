@@ -1,6 +1,8 @@
 # Arithmetic Operators Practice (Solutions)
+By Nicole Zolnier
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
+Note that these are suggestions, there are many ways to solve these problems.
 
 1. Write a function that takes 5 numbers and returns the sum and average (in two decimal places) of them.
 **Answer:**
@@ -165,7 +167,7 @@ void checkTriangle(int x, int y, int z) {
         printf("Isosceles Triangle\n");
     } // a scalene triangle has all different sides
     else {
-        printf("Scalene triangle\n");
+        printf("Scalene Triangle\n");
     }
 }
 ```
