@@ -1,5 +1,6 @@
 ---
 title: Data types
+author: Nicole Zolnier
 ---
 
 We store information in RAM through variables and there are certain data types that are used for this.

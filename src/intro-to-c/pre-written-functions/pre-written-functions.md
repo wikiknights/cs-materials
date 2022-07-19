@@ -1,5 +1,6 @@
 ---
 title: Pre Written Functions (Predefined)
+author: Nicole Zolnier
 ---
 
 These functions are already defined in the system libraries. So you do not need to code anything, you just need to know in which library it is, what it does and when to use it.

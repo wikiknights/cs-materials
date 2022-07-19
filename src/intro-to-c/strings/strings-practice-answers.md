@@ -1,6 +1,7 @@
 ---
 title: Strings Practice (Solutions)
 author:
+  - Nicole Zolnier
   - Idel Martinez
   - Jerrett Longworth
 toc: false

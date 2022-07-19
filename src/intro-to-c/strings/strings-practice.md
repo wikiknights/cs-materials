@@ -1,6 +1,7 @@
 ---
 title: Strings Practice
 author:
+  - Nicole Zolnier
   - Idel Martinez
   - Jerrett Longworth
 toc: false

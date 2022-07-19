@@ -1,5 +1,6 @@
 ---
 title: Printing
+author: Nicole Zolnier
 ---
 
 ## The `printf();` function
