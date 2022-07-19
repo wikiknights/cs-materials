@@ -6,7 +6,10 @@
 
 <!-- This first part here demonstrates a metadata block (in YAML syntax), which just
      indicates the title of the document and its author(s). Note that this block is not
-     strictly required, but is useful to keep consistency between documents. -->
+     strictly required, but is useful to keep consistency between documents.
+     
+     By default, a table of contents is added under the title and author(s). To disable
+     this for a specific page, add the line "toc: false" in the metadata block. -->
 
 ---
 title: Sample Document
