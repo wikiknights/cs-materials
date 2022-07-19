@@ -3,6 +3,7 @@ title: Strings Practice
 author:
   - Idel Martinez
   - Jerrett Longworth
+toc: false
 ---
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
