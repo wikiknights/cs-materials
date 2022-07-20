@@ -105,7 +105,8 @@
     div.sourceCode, pre:not(.sourceCode) {
       border: 1px solid var(--primary-color);
       border-radius: 8px;
-      padding: 8px;
+      padding: 0.4em;
+      break-inside: avoid;
     }
     .sourceCode {
      background-color: transparent;
@@ -144,13 +145,16 @@
       margin-bottom: 2em;
       text-align: center;
     }
+    h1.title {
+      margin-top: 0;
+    }
     footer {
       margin-top: 4em;
       text-align: center;
     }
     footer, footer a, footer a:visited {
       color: var(--footer-color);
-      font-size: 16px;
+      font-size: 0.8rem;
       text-decoration: none;
     }
     #TOC {
@@ -159,7 +163,7 @@
       border-radius: 4px;
       box-shadow: 4px 4px 10px var(--shadow-color);
       margin-bottom: 2em;
-      padding: 16px;
+      padding: 0.8em;
       width: fit-content;
       max-width: inherit;
     }
@@ -190,6 +194,7 @@
       margin-left: auto;
       margin-right: auto;
       max-height: 10em;
+      margin-bottom: 2.8em;
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
