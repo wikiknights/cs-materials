@@ -1,7 +1,8 @@
 metadata:
   geometry: "margin=1in"
-
+resource-path:
+  - .
+  - ${.}/../static
 table-of-contents: true
-
 variables:
   toc-title: "Contents"
