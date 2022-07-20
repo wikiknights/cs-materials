@@ -44,6 +44,9 @@ convert_html() {
 	echo "Converting to HTML..."
 	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
 
+	# Stop if conversion failed
+	[ $? -ne 0 ] && return 1
+
 	if [ $enable_premailer -eq 1 ]; then
 		echo "Fixing CSS..."
 		python3 -m premailer -f tmp.html -o tmp2.html
