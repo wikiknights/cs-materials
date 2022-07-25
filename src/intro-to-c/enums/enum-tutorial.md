@@ -45,3 +45,33 @@ strawberries = 11
 ```
 
 This is in line with the "previous + 1" rule stated earlier. `onion`, `carrot`, and `potatoes` will all follow this rule because they were not explicitly defined.
+
+## Errors and Reused Values
+
+Enumerated constants can only appear in one enumerated list. For example, this code would produce a `replication of enumerator` error:
+
+``` c
+#include <stdio.h>
+
+enum days_of_the_week {sun = 1, mon, tues, wed = 5, thur, fri, sat} day;
+enum celsetial_bodies {sun, moon, jupiter} body;
+
+int main(void)
+{
+	day = mon;
+	printf("%d\n", mon);
+	body = sun;
+	printf("%d\n", sun);
+	return 0;
+}
+```
+
+In this case, `sun` appears in two enumerated lists, thus the error. You will also get an error if you use non-integer values.
+
+Separately, values in the same list can have the same values. If we look back at our `game_dificulty` example, we can add a few more titles that have equivalent difficulty.
+
+``` c
+enum game_difficulty {Cookie_Clicker = 1, Gungeon = 6, ARK = 7, Dark_Souls = 10, Super_Meat_Boy = 10, House_Flipper = 1, Bloodborne = 10};
+```
+
+As you can see, Dark Souls, Bloodborne, and Super Meat Boy are all rated at the same level of difficulty, as well as House Flipper and Cookie Clicker. These will not cause any errors, they just happen to hold the same value, as if they were any regular `int` variable.
