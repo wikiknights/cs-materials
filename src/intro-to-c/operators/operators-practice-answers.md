@@ -1,6 +1,8 @@
 ---
 title: Arithmetic Operators Practice (Solutions)
-author: Nicole Zolnier
+author:
+    - Nicole Zolnier
+    - Matthew Gibbons
 ---
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
@@ -177,4 +179,22 @@ void checkTriangle(int x, int y, int z) {
         printf("Scalene Triangle\n");
     }
 }
+```
+
+@. Assign this expression to a float. You can do this in a single line without writing a main function.
+
+$$\frac{2x+7y-13}{37^2+z}$$
+
+**Answer:**
+``` c
+float m = (2*x + 7*y - 13) / (37*37 + z);
+```
+
+@. Multiply an integer by 8, another integer by 32, and divide a third integer by 4, all using bitwise operators. You do not need to write a main function.
+
+**Answer:**
+```
+a << 3
+b << 5
+c >> 2
 ```
