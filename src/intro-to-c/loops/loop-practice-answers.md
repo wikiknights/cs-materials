@@ -3,6 +3,7 @@ title: Loop Practice (Solutions)
 author:
   - Jerrett Longworth
   - Idel Martinez
+toc: false
 ---
 
 @. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)

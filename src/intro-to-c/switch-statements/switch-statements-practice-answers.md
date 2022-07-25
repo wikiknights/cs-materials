@@ -1,6 +1,7 @@
 ---
 title: Switch Statements (Solutions)
 author: Matthew Gibbons
+toc: false
 ---
 
 Here is some additional practice with switch statements.

@@ -1,5 +1,6 @@
 ---
 title: Intro to C Programming
+toc: false
 ---
 
 [Writing Your First C Program](hello-world/hello-world.md)

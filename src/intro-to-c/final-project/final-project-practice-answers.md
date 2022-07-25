@@ -1,6 +1,7 @@
 ---
 title: The Final Project... (Solutions)
 author: Idel Martinez
+toc: false
 ---
 
 Let's revisit dynamic memory allocation with `realloc()`, a peek into program organization, and steps on starting the project - along with a sample grocery list program.

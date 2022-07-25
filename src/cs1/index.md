@@ -1,5 +1,6 @@
 ---
 title: Computer Science 1
+toc: false
 ---
 
 [Bubble Sort and Selection Sort Exercices](sorting/SortingQuiz.md)

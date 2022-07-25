@@ -3,6 +3,7 @@ title: Binary I/O (Answers)
 author:
   - Jerrett Longworth
   - Idel Martinez
+toc: false
 ---
 
 Here is some additional practice using binary I/O. Some of these might take a little bit of thinking, but this practice is here to help you get more comfortable with the material.

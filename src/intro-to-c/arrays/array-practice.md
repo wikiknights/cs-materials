@@ -3,6 +3,7 @@ title: Array Practice
 author:
   - Jerrett Longworth
   - Idel Martinez
+toc: false
 ---
 
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
