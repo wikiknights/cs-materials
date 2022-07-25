@@ -1,3 +1,5 @@
+html-math-method:
+  method: mathml
 metadata:
   geometry: "margin=1in"
 resource-path:
