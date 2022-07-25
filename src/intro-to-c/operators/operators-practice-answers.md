@@ -1,10 +1,13 @@
-# Arithmetic Operators Practice (Solutions)
-By Nicole Zolnier
+---
+title: Arithmetic Operators Practice (Solutions)
+author: Nicole Zolnier
+---
 
 A fun thing to do in these exercises is to create a separate function and call it in main. That way, you can have your own library of functions and reuse it if you need.
 Note that these are suggestions, there are many ways to solve these problems.
 
-1. Write a function that takes 5 numbers and returns the sum and average (in two decimal places) of them.
+@. Write a function that takes 5 numbers and returns the sum and average (in two decimal places) of them.
+
 **Answer:**
 ```c
 #include <stdio.h>
@@ -40,7 +43,8 @@ float average(int v, int w, int x, int y, int z) {
 }
 ```
 
-2. Write a function that receives a number and returns whether it is even or odd.
+@. Write a function that receives a number and returns whether it is even or odd.
+
 **Answer:**
 ```c
 #include <stdio.h>
@@ -72,7 +76,8 @@ void isEven(int x) {
 }
 ```
 
-3. Write a function that receives a number and returns if the number is divisible by 3.
+@. Write a function that receives a number and returns if the number is divisible by 3.
+
 **Answer:**
 ```c
 #include <stdio.h>
@@ -104,7 +109,8 @@ void isDivisibleBy3(int x) {
 }
 ```
 
-4. Write a function that takes two numbers and returns which one is higher.
+@. Write a function that takes two numbers and returns which one is higher.
+
 **Answer:**
 ```c
 #include <stdio.h>
@@ -130,13 +136,14 @@ int findHighest(int x, int y) {
     // compare which one is bigger
     if(x > y) {
         return x;
-    } 
+    }
     return y;
 }
 
 ```
 
-5. Write a function that takes three numbers, the sides of a triangle and returns whether the triangle formed by the given sides is equilateral, isosceles, or scalene.
+@. Write a function that takes three numbers, the sides of a triangle and returns whether the triangle formed by the given sides is equilateral, isosceles, or scalene.
+
 **Answer:**
 ```c
 #include <stdio.h>
