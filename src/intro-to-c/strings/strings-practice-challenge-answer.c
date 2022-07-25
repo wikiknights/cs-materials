@@ -71,7 +71,7 @@ void print_grades(float *grades, int n)
 {
 	/**
 	 * For grammatical purposes, check if we should print "grade" or "grades".
-	 * Notice the use of the terminator operator, the syntax is: <condition> ? <if_true> : <else>.
+	 * Notice the use of the ternary operator, the syntax is: <condition> ? <if_true> : <else>.
 	 */
 	printf("\nYou entered %d %s. Here is a list of them:\n\n", n, (n == 1) ? "grade" : "grades");
 

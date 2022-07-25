@@ -1,6 +1,7 @@
-*Originally created by Jerrett Longworth in Fall 2020.*
-
-# Endianness
+---
+title: Endianness
+author: Jerrett Longworth
+---
 
 Suppose you have an integer stored in memory with the value `169552957`, or `0x0A1B2C3D` in hexadecimal. Depending on the archetecture of your system, the actual *ordering* of these bytes making up this integer can be different. This difference is the "endianness" of the data in memory.
 

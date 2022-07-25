@@ -1,6 +1,7 @@
-# Preprocessor Directives
-
-*Created by Jerrett Longworth in February 2022.*
+---
+title: Preprocessor Directives
+author: Jerrett Longworth
+---
 
 Here's a rundown of how preprocessor directives work and how you can use them in your program!
 
@@ -20,7 +21,6 @@ This is a directive that allows you to *include* other code that can be used in 
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
@@ -44,6 +44,8 @@ This allows you to *define* values to be used in your program that only need to 
 int main(void)
 {
   printf("This program always assumes there are %d marbles!\n", MARBLES);
+
+  return 0;
 }
 ```
 
@@ -57,6 +59,8 @@ int main(void)
 int main(void)
 {
   printf("This program always assumes there are %d marbles!\n", 10);
+
+  return 0;
 }
 ```
 

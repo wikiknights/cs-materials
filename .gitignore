@@ -3,3 +3,5 @@
 *.docx
 *.html
 .vscode
+out/
+tmp.md

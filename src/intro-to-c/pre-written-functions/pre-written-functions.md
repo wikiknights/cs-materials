@@ -1,4 +1,8 @@
-# Pre Written Functions (Predefined)
+---
+title: Pre Written Functions (Predefined)
+author: Nicole Zolnier
+---
+
 These functions are already defined in the system libraries. So you do not need to code anything, you just need to know in which library it is, what it does and when to use it.
 Just like a regular written function, predefined functions have a name, datatype parameter and a return type.
 A good example of a predefined function is the `printf()`. The parameter for the `printf()` is a string and the return type is "void" (but it is omitted) and it is found in the `<stdio.h>` library.
@@ -30,6 +34,7 @@ Please enter the number 1: 1
 
 ## <stdlib.h>
 A library with general functions such as:
+
 - **int rand()**: returns a random number;
 - **void srand(int seed)**: seeds the random number generator used by the function rand;
 - **int abs(int x)**: returns the absolute value of int x;
@@ -72,6 +77,7 @@ Bye now!
 
 ## <math.h> - Math library functions
 An assort of mathematical functions. To use them, you must include `<math.h>`. Some of the most used ones are:
+
 - **double fabs(double x);** returns the absolute value of double x;
 - **double pow(double x, double y);** return x^y;
 - **double sqrt(double x);** returns the square root of x, only works with positive numbers.
@@ -135,6 +141,7 @@ Hours since January 1, 1970 = 457100
 
 ## ctype.h
 This library has functions for mapping characters.
+
 - **int isalpha(int c);**: checks if the passed character is alphabetic;
 - **int tolower(int c);**: converts a letter to lowercase;
 - **int toupper(int c);**: converts a letter to uppercase.

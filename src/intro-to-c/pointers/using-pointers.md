@@ -1,6 +1,7 @@
-# How to Use Pointers
-
-*Created by Jerrett Longworth in March 2022.*
+---
+title: How to Use Pointers
+author: Jerrett Longworth
+---
 
 To use pointers, there are two main operations involved: reference and dereference. After this, we can see how to store pointers and use them throughout programs.
 
