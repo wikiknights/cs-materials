@@ -1,0 +1,54 @@
+name: Suggestion
+description: Suggest additions to content, practice problems, or website appearance.
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to write a suggestion!
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: What type of suggestion is this?
+      options:
+        - New content suggestion
+        - Clarification with existing material (i.e. wording)
+        - Issue with appearance or rendering
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Describe the current issue or suggestion.
+      placeholder: "Example: There is no tutorial on using goto."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like.
+      description: Is it new content, further description, more elaborate practice problems?
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: origin
+    attributes:
+      label: Describe the origin of this idea. Did it come from an online resource, from a lecture, or some other reachable source?
+      description: We all have good ideas or need a better explanation sometimes. Ex. Dr. Whowuzit showed us this very nice example problem that would be great for the problem set.
+      placeholder: The name or link to the source material, if there is any.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here. Some professors may not want you sharing their examples online, and we want to respect that. Links to webpages that had content you want added can be put here, though.
+
+  - type: markdown
+    attributes:
+      value: By submitting this issue, you agree to act respectfully and follow common sense behavior.
