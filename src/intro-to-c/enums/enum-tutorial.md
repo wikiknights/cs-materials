@@ -8,10 +8,12 @@ author: Matthew Gibbons
 `enum` is the keyword for the enumerator data type in C, which is a user defined data type. It is used to assign names to integer constants to make for improved readability and easy maintenance. The basic syntax is as follows:
 
 ``` c
-enum name {const1, const2, const3,... constN};
+enum name {Const1, Const2, Const3,... ConstN};
 ```
 
-If no values are assigned, `const1` will be assigned 0, `const2` will be assigned 1, and so on. However, these values can be easily changed. It should also be noted that `name` is optional, and unnamed enumerators will not break your code.
+If no values are assigned, `Const1` will be assigned 0, `Const2` will be assigned 1, and so on. However, these values can be easily changed. It should also be noted that `name` is optional, and unnamed enumerators will not break your code.
+
+There are some naming conventions to keep in mind while working with enums. Enum constants are either capitalized or in all caps. Name tags are lowercase.
 
 ## Enum Valuation and Adjustment
 
@@ -30,21 +32,21 @@ enum game_difficulty {Cookie_Clicker = 1, Gungeon = 6, ARK = 7, Dark_Souls = 10}
 or we can define some of them like this:
 
 ``` c
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11};
+enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11};
 ```
 
 In this case, the assigned values would look like this:
 
 ```
-wheat = 2
-onion = 3
-carrot = 4
-corn = 7
-potatoes = 8
-strawberries = 11
+Wheat = 2
+Onion = 3
+Carrot = 4
+Corn = 7
+Potatoes = 8
+Strawberries = 11
 ```
 
-This is in line with the "previous + 1" rule stated earlier. `onion`, `carrot`, and `potatoes` will all follow this rule because they were not explicitly defined.
+This is in line with the "previous + 1" rule stated earlier. `Onion`, `Carrot`, and `Potatoes` will all follow this rule because they were not explicitly defined.
 
 Values in the same list can have the same values. If we look back at our `game_difficulty` example, we can add a few more titles that have equivalent difficulty.
 
