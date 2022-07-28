@@ -15,6 +15,10 @@ toc: false
 
 [Printing](printing/printing.md)
 
+[Arithmetic Operators Intro](operators/operators-intro.md)
+
+[Arithmetic Operators Practice](operators/operators-practice.md) ([Answers](operators/operators-practice-answers.md))
+
 [Conditional Statements Introduction](conditionals/conditionals.md)
 
 [Conditionals Practice](conditionals/conditionals-practice.md) ([Answers](conditionals/conditionals-practice-answers.md))
