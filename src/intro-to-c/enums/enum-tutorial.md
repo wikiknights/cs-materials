@@ -62,22 +62,22 @@ When using enums, we must define a variable type. This can be done in one of two
 
 ```c
 enum enum_name {Const1, Const2, Const3, ..., ConstN};
-enum enum_name variable_type;
+enum enum_name variable_name;
 
 // or
 
-enum enum_name {Const1, Const2, Const3, ..., ConstN} variable_type;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} variable_name;
 ```
 
 We can even define multiple variables of type `enum_name` like this:
 
 ```c
-enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_type;
-enum enum_name variable_type, another_one;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_name;
+enum enum_name variable_name, another_one;
 
 // or
 
-enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_type, variable_type, another_one;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_name, variable_name, another_one;
 ```
 
 **Note:** Splitting the variable type up looks a bit strange. This is only done for the sake of example. The second option is a nicer and cleaner.
@@ -110,7 +110,7 @@ Corn Experience Gain: 7
 Potatoes Experience Gain: 8
 ```
 
-But what if we don't want to use the enum constants explicitly?
+But what if we don't want to use the enum keyword explicitly?
 
 ### Using `typedef` With Enums
 
