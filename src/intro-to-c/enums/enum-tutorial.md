@@ -58,40 +58,43 @@ As you can see, Dark Souls, Bloodborne, and Super Meat Boy are all rated at the 
 
 ## Using Enums in Code
 
-When using enums, we must define a variable type. This can be done in one of two ways. I will reuse the `exp_value` example.
+When using enums, we must define a variable type. This can be done in one of two ways. Here is a general example:
 
 ```c
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11};
-enum exp_value crops;
+enum enum_name {Const1, Const2, Const3, ..., ConstN};
+enum enum_name variable_type;
 
 // or
 
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11} crops;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} variable_type;
 ```
 
-We can even define multiple variables of type `exp_value` like this:
+We can even define multiple variables of type `enum_name` like this:
 
 ```c
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11} plants;
-enum exp_value crops, dirt_growers;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_type;
+enum enum_name variable_type, another_one;
 
 // or
 
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11} crops, plants, dirt_growers;
+enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_type, variable_type, another_one;
 ```
 
-Now we can assign and use our enumerated values in code. Lets look at something simple.
+**Note:** Splitting the variable type up looks a bit strange. This is only done for the sake of example. The second option is a nicer and cleaner.
+
+
+Now we can assign and use our enumerated values in code. Lets look at something simple using the `exp_value` example.
 
 ``` c
 #include <stdio.h>
 
-enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11} crops, plants, dirt_growers;
+enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crops, plants, dirt_growers;
 
 int main(void)
 {
-	crops = onion;
-	plants = corn;
-	dirt_growers = potatoes;
+	crops = Onion;
+	plants = Corn;
+	dirt_growers = Potatoes;
 	printf("Onion Experience Gain: %d\n", crops);
 	printf("Corn Experience Gain: %d\n", plants);
 	printf("Potatoes Experience Gain: %d\n", dirt_growers);
@@ -99,7 +102,7 @@ int main(void)
 }
 ```
 
-Here we assign the value of `onion` to `crops`, which we know is 3. The expected output would be as follows:
+Here we assign the value of `Onion` to `crops`, which we know is 3. The expected output would be as follows:
 
 ```
 Onion Experience Gain: 3
@@ -107,14 +110,7 @@ Corn Experience Gain: 7
 Potatoes Experience Gain: 8
 ```
 
-But what if we want to get a bit more tricky with our enums, like this maybe?
-
-``` c
-int x = 8
-crops Mystery_crop = x;
-```
-
-The compiler will warn you that it is expecting a semicolon after `crops` if you try to define an enumerator variable this way without the use of `typedef`.
+But what if we don't want to use the enum constants explicitly?
 
 ### Using `typedef` With Enums
 
@@ -123,19 +119,19 @@ We can use the `typedef` keyword to make our enumerated list a bit more versatil
 ``` c
 #include <stdio.h>
 
-typedef enum exp_value {wheat = 2, onion, carrot, corn = 7, potatoes, strawberries = 11} crops;
+typedef enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crop_experience;
 
 int main(void)
 {
 	int x = 9;
-	crops Mystery_crop = x;
+	crop_experience Mystery_crop = x;
 
 	switch(Mystery_crop)
 	{
-		case wheat:
+		case Wheat:
 			printf("It is wheat.\n");
 			break;
-		case onion:
+		case Onion:
 		...
 		default:
 			printf("You have found a new crop. You gained %d experience.\n", Mystery_crop);
