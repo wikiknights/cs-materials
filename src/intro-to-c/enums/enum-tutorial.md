@@ -114,7 +114,32 @@ But what if we don't want to use the enum keyword explicitly?
 
 ### Using `typedef` With Enums
 
-We can use the `typedef` keyword to make our enumerated list a bit more versatile. For example, we will be able to create an enum variable, rather than being restricted to the constants in the enumerated list. Let's look at this example.
+We can use the `typedef` keyword to make our enumerated list a bit more versatile. The basic syntax would look something like this:
+
+``` c
+// 1)
+typedef enum {Const1, Const2, Const3,... ConstN} variable_name;
+
+// or
+
+// 2)
+typedef enum name {Const1, Const2, Const3,... ConstN} variable_name;
+
+// or
+
+// 3)
+enum name {Const1, Const2, Const3,... ConstN};
+typedef enum name variable_name
+```
+
+In the first syntax example, the enumerator is not named, but it is type defined to the variable name. In the second example, the enumerator is both named and type defined on the same line. In the third example, the enumerator is named on one line and then type defined on the next. The second and third example have the same meaning, and allow us to call our enumerator with the `enum` keyword or with the type defined variable name, like this:
+
+``` c
+enum name constant_1 = Const1;
+variable_name constant_2 = Const2;
+```
+
+With this, we will be able to create an enum variable, rather than being restricted to the constants in the enumerated list. Let's look at this example.
 
 ``` c
 #include <stdio.h>
