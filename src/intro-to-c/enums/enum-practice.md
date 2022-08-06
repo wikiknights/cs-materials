@@ -13,3 +13,5 @@ srand(24164132);
 // Crop Values
 3, 5, 6, 9, 11, 12;
 ```
+
+**Note:** `#include <stdlib.h>` needs to be included to make the rand work.
