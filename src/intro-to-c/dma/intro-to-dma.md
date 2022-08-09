@@ -188,7 +188,7 @@ This still causes an infinite loop, but at least you won't be hogging all the me
 
 `calloc()` is like the sibling of `malloc()` that always tries to do more. They are both related, but have differences on what they do. `calloc()` is short for "**c**ontiguous **alloc**ation," and it will allocate memory just like `malloc()`, but also **initialize** the memory to 0, so you have no garbage values right off the bat. In this way, `calloc()` can be useful for making, for example, arrays that would have been initialized anyway.
 
-`calloc()` takes a size and a quantity of that size. For example:
+`calloc()` takes a quantity and a size. For example:
 
 ``` c
 // Allocate space for 10 integers, and initialize it to 0.
