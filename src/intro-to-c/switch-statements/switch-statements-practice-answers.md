@@ -200,12 +200,15 @@ Here is some additional practice with switch statements.
 	...
 	```
 
-	**Answer:** Hello, World!?
+	**Answer:**
+
+	```
+				Hello, World!?
 	            Baby Shark
 	            Switch Statements.Alphabet Soupcheck!
 	            Break check!
 	            \[NO OUTPUT\]
-
+	```
 
 
 @. You, a master of switch statements, successfully analyzed the code and sent your answer as a reply and went to bed. The following morning, you had another email, this time from the Time Police, congratulating you on your successful completion of the challenge and your new position as a Time Police programmer. You graciously accept the offer, as they offer great benefits, good pay, and the option to work remotely or in person.
