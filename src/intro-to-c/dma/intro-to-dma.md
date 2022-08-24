@@ -199,4 +199,49 @@ int *numbers = calloc(10, sizeof(int));
 
 ## `realloc()`: I Changed My Mind
 
-There is also a cousin to `malloc()`, called `realloc()`, which allows you re **re-alloc**ate memory. This can be extremely useful if you, for example, want to take an array with an initial size, but expand it later.
+There is also a cousin to `malloc()`, called `realloc()`, which allows you re **re-alloc**ate memory. This can be extremely useful if you, for example, want to take an array with an initial size, but resize it later.
+
+The basic syntax of `realloc()` is to provide a pointer to dynamically allocated memory and the new amount of memory that should be allocated. As a result, `realloc()` returns a new pointer to dynamically allocated memory. For example:
+
+``` c
+// Assume "array" is already a pointer to dynamically allocated memory.
+int *resized_array = realloc(array, sizeof(int) * 100);
+```
+
+You can consider the following two pieces of code to be equivalent, but notice how much shorter the version with `realloc()` is!
+
+*Version using `malloc()` and `free()`:*
+
+``` c
+// Allocate space for 10 integers
+int *array = malloc(sizeof(int) * 10);
+
+// Assume you put values in this array, and now you decided you wanted space
+// for 20 integers in the array. You will need to allocate a new array, copy
+// the integers from the old array to the new array, then free the old array.
+
+int *new_array = malloc(sizeof(int) * 20);
+
+for (int i = 0; i < 10; i++)
+{
+  new_array[i] = array[i];
+}
+
+free(array);
+
+// Now we can say that "new_array" contains the same data as before, but with
+// space for 20 integers instead of 10!
+```
+
+*Version using `realloc()`:*
+
+``` c
+// Allocate space for 10 integers
+int *array = malloc(sizeof(int) * 10);
+
+// Assume you put values in this array, and now you decided you wanted space
+// for 20 integers in the array. Let's use realloc() to combine many steps
+// into a single function!
+
+int *new_array = realloc(array, sizeof(int) * 20);
+```
