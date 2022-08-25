@@ -25,8 +25,8 @@ jobs:
       # on apt is just too old
       - name: Install pandoc
         run: |
-          wget https://github.com/jgm/pandoc/releases/download/2.18/pandoc-2.18-1-amd64.deb
-          sudo dpkg -i pandoc-2.18-1-amd64.deb
+          wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb
+          sudo dpkg -i pandoc-2.19.2-1-amd64.deb
 
       - name: Install premailer
         run: pip3 install --user premailer
