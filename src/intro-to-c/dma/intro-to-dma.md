@@ -199,7 +199,7 @@ int *numbers = calloc(10, sizeof(int));
 
 ## `realloc()`: I Changed My Mind
 
-There is also a cousin to `malloc()`, called `realloc()`, which allows you re **re-alloc**ate memory. This can be extremely useful if you, for example, want to take an array with an initial size, but resize it later.
+There is also a cousin to `malloc()`, called `realloc()`, which allows you to **re-alloc**ate memory. This can be extremely useful if you, for example, want to take an array with an initial size, but resize it later.
 
 The basic syntax of `realloc()` is to provide a pointer to dynamically allocated memory and the new amount of memory that should be allocated. As a result, `realloc()` returns a new pointer to dynamically allocated memory. For example:
 
