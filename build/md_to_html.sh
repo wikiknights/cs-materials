@@ -42,7 +42,7 @@ convert_html() {
 	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --self-contained --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
+	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --embed-resources --standalone --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
 
 	# Stop if conversion failed
 	[ $? -ne 0 ] && return 1
