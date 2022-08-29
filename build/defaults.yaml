@@ -1,7 +1,5 @@
 html-math-method:
   method: mathml
-include-in-header:
-  - ${.}/linewrap.tex
 metadata:
   geometry: "margin=1in"
 resource-path:

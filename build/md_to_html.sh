@@ -75,7 +75,7 @@ convert_pdf() {
 	fi
 
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
+	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml" --include-in-header "$ROOT_DIR/build/linewrap.tex"
 }
 
 converter() {
