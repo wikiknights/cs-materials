@@ -65,6 +65,8 @@ toc: false
 
 [Introduction to Dynamic Memory Allocation](dma/intro-to-dma.md)
 
+[Basics of Dynamic Memory Allocation](dma/dma-basics.md)
+
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
 ## Bonus Topics
