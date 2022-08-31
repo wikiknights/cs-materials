@@ -2,6 +2,7 @@ html-math-method:
   method: mathml
 metadata:
   geometry: "margin=1in"
+pdf-engine: xelatex
 resource-path:
   - .
   - ${.}/../static
