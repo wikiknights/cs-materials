@@ -289,3 +289,98 @@ You can imagine as this program runs, once it reaches the line containing the `p
 
 
 ```
+
+---
+
+## Example 2: Allocating an Array
+
+In this example, let's see what it might look like to allocate an array of `double`s! The following code allocates an array of 5 `double`s, puts values in the array, then prints them out.
+
+**The code:**
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  double *grades;
+
+  grades = malloc(sizeof(double) * 5);
+
+  grades[0] = 89.5;
+  grades[1] = 56.4;
+  grades[2] = 98.1;
+  grades[3] = 89.9;
+  grades[4] = 87.3;
+
+  for (int i = 0; i < 5; i++)
+  {
+    printf("grades[%d] = %lf\n", i, grades[i]);
+  }
+
+  free(grades);
+
+  return 0;
+}
+```
+
+Let's break down the code line-by-line!
+
+### `double *grades;` {.unlisted}
+
+Similar to before, this declares a variable that contains a pointer to a `double`.
+
+### `grades = malloc(sizeof(double) * 5);` {.unlisted}
+
+`malloc()` allocates enough memory to store 5 consecutive `double`s. Like the previous example, note that the datatype in `sizeof()` should match the datatype of the variable storing the pointer.
+
+### `grades[...] = ...;` {.unlisted}
+
+For these lines, we are performing a 3-step process:
+
+- Add the address `grades` with the offset in the square brackets. (`grades + ...`)
+- Dereference the address given by the previous sum. (`*(grades + ...)`)
+- Assign the value at the address. (`*(grades + ...) = ...`)
+
+Note that due to this process, as an example, the first assignment is equivalent to the following:
+
+``` c
+*(grades + 0) = 89.5;
+```
+
+### For loop {.unlisted}
+
+This is a standard for loop that simply prints the value in each index of the array.
+
+### `free(grades);` {.unlisted}
+
+Before your program finishes, you must always make sure to free any dynamically-allocated memory. In this case, although there were multiple `double`s allocated, this was done with a single call to `malloc()`, meaning only a single call to `free()` is necessary to free all memory.
+
+
+While the for loop is running, you can imagine that the memory used by the program looks like the following:
+
+```
+
+  (double*)
+┌─────────────────────┐
+│                     │
+│      0x784030    ───┼───┐
+│                     │   │
+└─────────────────────┘   │
+  grades (0x289100)       │
+                          │
+                          │
+            ┌─────────────┘
+            │
+            │
+  (double)  │           (double)              (double)              (double)              (double)             
+┌───────────v─────────┬─────────────────────┬─────────────────────┬─────────────────────┬─────────────────────┐
+│                     │                     │                     │                     │                     │
+│        89.5         │        56.4         │        98.1         │        89.9         │        87.3         │
+│                     │                     │                     │                     │                     │
+└─────────────────────┴─────────────────────┴─────────────────────┴─────────────────────┴─────────────────────┘
+  (0x784030)            (0x784038)            (0x784040)            (0x784048)            (0x784050)           
+
+
+```
