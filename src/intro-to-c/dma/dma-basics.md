@@ -255,7 +255,7 @@ This declares a new integer pointer, where we will then store a pointer to dynam
 
 ### `my_number = malloc(sizeof(int));` {.unlisted}
 
-On this line, we are first allocating enough space to store an integer (`malloc(sizeof(int))`), then we are saving this address to `my_number`. We also could have combined this with the previous line, like so:
+On this line, we are first allocating enough space to store an integer (`malloc(sizeof(int))`), then we are saving this address to `my_number`. Make sure that the datatype passed to `sizeof()` is the same as the datatype of the variable. We also could have combined this with the previous line, like so:
 
 ``` c
 int *my_number = malloc(sizeof(int));
@@ -263,8 +263,29 @@ int *my_number = malloc(sizeof(int));
 
 ### `*my_number = 5;` {.unlisted}
 
-With the new memory allocated, `5` can be placed inside the allocated memory.
+With the new memory allocated, `5` can be placed inside the allocated memory. Notice that the dereference operator (`*`) is necessary to modify the value at the address that `my_number` stores.
+
+### `printf("My number is %d\n", *my_number);` {.unlisted}
+
+This is almost like any other `printf()` statement, but the dereference operator is used to get the value pointed to by `my_number`.
 
 ### `free(my_number);` {.unlisted}
 
 At the end of any program, before it finishes, all dynamically-allocated memory should be freed!
+
+
+You can imagine as this program runs, once it reaches the line containing the `printf()` statement, the memory used by the program may look like the following:
+
+```
+
+  (int)                     (int*)               
+┌─────────────────────┐   ┌─────────────────────┐
+│                     │   │                     │
+│         5        <──┼───┼───   0x549AAC       │
+│                     │   │                     │
+└─────────────────────┘   └─────────────────────┘
+  (0x549AAC)                my_number (0x863990)   
+
+
+
+```
