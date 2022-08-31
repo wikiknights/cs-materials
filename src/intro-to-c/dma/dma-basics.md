@@ -245,15 +245,15 @@ int main(void)
 
 Let's walk through parts of this code example and see how it works!
 
-### `#include <stdlib.h>`
+### `#include <stdlib.h>` {.unlisted}
 
 When using the `malloc()` and `free()` functions, you will need to make sure you include `stdlib.h`. You will likely get an "implicit declaration" message from your compiler otherwise!
 
-### `int *my_number;`
+### `int *my_number;` {.unlisted}
 
 This declares a new integer pointer, where we will then store a pointer to dynamically-allocated memory.
 
-### `my_number = malloc(sizeof(int));`
+### `my_number = malloc(sizeof(int));` {.unlisted}
 
 On this line, we are first allocating enough space to store an integer (`malloc(sizeof(int))`), then we are saving this address to `my_number`. We also could have combined this with the previous line, like so:
 
@@ -261,10 +261,10 @@ On this line, we are first allocating enough space to store an integer (`malloc(
 int *my_number = malloc(sizeof(int));
 ```
 
-### `*my_number = 5;`
+### `*my_number = 5;` {.unlisted}
 
 With the new memory allocated, `5` can be placed inside the allocated memory.
 
-### `free(my_number);`
+### `free(my_number);` {.unlisted}
 
 At the end of any program, before it finishes, all dynamically-allocated memory should be freed!
