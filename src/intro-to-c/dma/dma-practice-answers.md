@@ -9,6 +9,29 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 ---
 
+## Basic DMA
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+
+int main(void)
+{
+  double *pointy_pointer;
+  pointy_pointer = malloc(sizeof(double));
+
+  *pointy_pointer = 3.14159;
+  printf("*pointy_pointer = %lf\n", *pointy_pointer);
+
+  return 0;
+}
+```
+
+**Answer:** This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 9, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
+
+---
+
 ## Dynamically Allocated Structs
 
 @. Is this program managing memory correctly?
