@@ -9,6 +9,27 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 ---
 
+## Basic DMA
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+  double *pointy_pointer;
+  pointy_pointer = malloc(sizeof(double));
+
+  *pointy_pointer = 3.14159;
+  printf("*pointy_pointer = %lf\n", *pointy_pointer);
+
+  return 0;
+}
+```
+
+---
+
 ## Dynamically Allocated Structs
 
 @. Is this program managing memory correctly?
