@@ -70,7 +70,7 @@ int main(void)
 
 This code will display:
 ```
-The absolute value of b = 10
+The absolute value of -10 = 10
 The random number is ~integer~
 Bye now!
 ```
