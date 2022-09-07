@@ -365,7 +365,7 @@ in the <code>&lt;stdio.h&gt;</code> library.</p>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Please enter the number 1: &quot;</span><span class="op">);</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>a<span class="op">);</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -380,7 +380,7 @@ requested:</p>
 generator used by the function rand;</li>
 <li><strong>int abs(int x)</strong>: returns the absolute value of int
 x;</li>
-<li><strong>void exit(int s)</strong>: exists the program.</li>
+<li><strong>void exit(int s)</strong>: exits the program.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
