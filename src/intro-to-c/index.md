@@ -67,6 +67,8 @@ toc: false
 
 [Basics of Dynamic Memory Allocation](dma/dma-basics.md)
 
+[Dynamic Memory and Pointer Safety](dma/dma-pointer-safety.html)
+
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
 ## Bonus Topics
