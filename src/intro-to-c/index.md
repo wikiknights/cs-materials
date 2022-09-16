@@ -51,6 +51,8 @@ toc: false
 
 [Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
 
+## Structs
+
 [Structs Practice](structs/structs-practice.md) ([Answers](structs/structs-practice-answers.md))
 
 ## Pointers and Dynamic Memory Allocation
