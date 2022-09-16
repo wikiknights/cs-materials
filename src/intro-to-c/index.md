@@ -21,6 +21,14 @@ toc: false
 
 [Arithmetic Operators Practice](operators/operators-practice.md) ([Answers](operators/operators-practice-answers.md))
 
+## Functions
+
+[Pre written Functions](pre-written-functions/pre-written-functions.md)
+
+[Creating and Using Functions - An Overview](functions/functions-intro.md)
+
+[Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
+
 ## Making Decisions - Conditions and Switch Statements
 
 [Conditional Statements Introduction](conditionals/conditionals.md)
@@ -42,14 +50,6 @@ toc: false
 [Strings Introduction](strings/strings-intro.md)
 
 [Strings Practice](strings/strings-practice.md) ([Answers](strings/strings-practice-answers.md))
-
-## Functions
-
-[Pre written Functions](pre-written-functions/pre-written-functions.md)
-
-[Creating and Using Functions - An Overview](functions/functions-intro.md)
-
-[Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
 
 ## Structs
 
