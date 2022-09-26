@@ -15,6 +15,7 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 ``` c
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
