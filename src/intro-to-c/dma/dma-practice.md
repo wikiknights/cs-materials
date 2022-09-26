@@ -29,6 +29,47 @@ int main(void)
 }
 ```
 
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char *letter = NULL;
+  malloc(sizeof(char));
+  *letter = 'M';
+
+  printf("The letter of the day is: %c\n", *letter);
+
+  free(letter);
+
+  return 0;
+}
+```
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  float *pi;
+
+  pi = malloc(sizeof(float) * 5);
+  *pi = 3.14;
+
+  printf("pi = %.2lf\n", *pi);
+
+  free(pi);
+
+  return 0;
+}
+```
+
 ---
 
 ## Dynamically Allocated Structs
