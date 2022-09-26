@@ -15,6 +15,7 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 ``` {.c .numberLines}
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -28,7 +29,7 @@ int main(void)
 }
 ```
 
-**Answer:** This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 9, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
+**Answer:** This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 10, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
 
 ---
 
