@@ -337,223 +337,249 @@ color: var(--font-color);
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Contents</h2>
 <ul>
-<li><a href="#function-scope" id="toc-function-scope">Function
+<li><a href="#variable-scope" id="toc-variable-scope">Variable
 Scope</a></li>
+<li><a href="#variable-scope-with-functions" id="toc-variable-scope-with-functions">Variable Scope with
+Functions</a></li>
 <li><a href="#creating-functions" id="toc-creating-functions">Creating
 Functions</a></li>
 <li><a href="#functions-with-loops" id="toc-functions-with-loops">Functions with Loops</a></li>
 </ul>
 </nav>
-<h2 id="function-scope">Function Scope</h2>
+<h2 id="variable-scope">Variable Scope</h2>
+<p>This is one of the most important topics in programming, especially
+in the C language. This starts by looking at variable scope without
+functions, then bringing them into the mix later.</p>
+<ol class="example" type="1">
+<li>Will this code compile? Explain why or why not. If it does compile,
+what will be printed?</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">int</span> my_number <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  printf<span class="op">(</span><span class="st">&quot;The value of my_number is: %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_number<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="dt">int</span> my_number <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  printf<span class="op">(</span><span class="st">&quot;The value of my_number is: %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> my_number<span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="variable-scope-with-functions">Variable Scope with
+Functions</h2>
 <p>This is important to get right. Functions are the base of every
 program, and knowing what your variables are doing in them is
 crucial.</p>
-<ol class="example" type="1">
+<ol start="2" class="example" type="1">
 <li>Fill in the blank so that all the types match correctly. By the way…
 What do lines 10 and 15 print?</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>_____ add_everything<span class="op">(</span>_____ num1<span class="op">,</span> <span class="dt">int</span> num2<span class="op">)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="cf">return</span> num1 <span class="op">+</span> num2<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="op">}</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="op">{</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="dt">int</span> x<span class="op">,</span> y<span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a>  printf<span class="op">(</span><span class="st">&quot;%_____</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> add_everything<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a>  x <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a>  y <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> add_everything<span class="op">(</span>x<span class="op">,</span> y<span class="op">));</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="op">}</span></span></code></pre></div>
-<ol start="2" class="example" type="1">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>_____ add_everything<span class="op">(</span>_____ num1<span class="op">,</span> <span class="dt">int</span> num2<span class="op">)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="cf">return</span> num1 <span class="op">+</span> num2<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="op">}</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="dt">int</span> x<span class="op">,</span> y<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  printf<span class="op">(</span><span class="st">&quot;%_____</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> add_everything<span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>  x <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  y <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> add_everything<span class="op">(</span>x<span class="op">,</span> y<span class="op">));</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="op">}</span></span></code></pre></div>
+<ol start="3" class="example" type="1">
 <li>What happens when you return a value from a function? Things can get
 tricky if you’re snoozing… What’s the value of <code>floaty_float</code>
 after the execution of this program, assuming the user enters
 <code>5</code>?</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> get_value<span class="op">(</span><span class="dt">float</span> f<span class="op">)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%f&quot;</span><span class="op">,</span> <span class="op">&amp;</span>f<span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> f <span class="op">+</span> <span class="fl">0.5</span><span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> floaty_float<span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  get_value<span class="op">(</span>floaty_float<span class="op">);</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> floaty_float<span class="op">);</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="3" class="example" type="1">
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> get_value<span class="op">(</span><span class="dt">float</span> f<span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%f&quot;</span><span class="op">,</span> <span class="op">&amp;</span>f<span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  f <span class="op">=</span> f <span class="op">+</span> <span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> floaty_float<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  get_value<span class="op">(</span>floaty_float<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> floaty_float<span class="op">);</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="4" class="example" type="1">
 <li>What if the previous example is altered a little? What happens to
 <code>floaty_float</code>? Assume, again, that the user enters
 <code>5</code>.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> get_value<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> f<span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%f&quot;</span><span class="op">,</span> <span class="op">&amp;</span>f<span class="op">);</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> f <span class="op">+</span> <span class="fl">15.5</span><span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> floaty_float<span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  floaty_float <span class="op">=</span> get_value<span class="op">();</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> floaty_float<span class="op">);</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="4" class="example" type="1">
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> get_value<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> f<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%f&quot;</span><span class="op">,</span> <span class="op">&amp;</span>f<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> f <span class="op">+</span> <span class="fl">15.5</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> floaty_float<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  floaty_float <span class="op">=</span> get_value<span class="op">();</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> floaty_float<span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="5" class="example" type="1">
 <li>What will <code>main</code> print in lines 10, 12, and 14?</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">void</span> add_num<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  x <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="op">}</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="op">{</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a>  printf<span class="op">(</span><span class="st">&quot;At first x was %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>  add_num<span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>  printf<span class="op">(</span><span class="st">&quot;Now x is %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>  add_num<span class="op">(</span>x<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>  printf<span class="op">(</span><span class="st">&quot;While x is now %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="op">}</span></span></code></pre></div>
-<ol start="5" class="example" type="1">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">void</span> add_num<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  x <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="op">}</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  printf<span class="op">(</span><span class="st">&quot;At first x was %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  add_num<span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  printf<span class="op">(</span><span class="st">&quot;Now x is %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  add_num<span class="op">(</span>x<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>  printf<span class="op">(</span><span class="st">&quot;While x is now %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="op">}</span></span></code></pre></div>
+<ol start="6" class="example" type="1">
 <li>What will <code>main</code> print in lines 12, 14, and 16?</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">int</span> x<span class="op">;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="dt">void</span> add_num<span class="op">(</span><span class="dt">int</span> y<span class="op">)</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="op">{</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  x <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="op">}</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="op">{</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a></span>
-<span id="cb5-12"><a href="#cb5-12"></a>  printf<span class="op">(</span><span class="st">&quot;At first x was %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>  add_num<span class="op">(</span><span class="dv">20</span><span class="op">);</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a>  printf<span class="op">(</span><span class="st">&quot;Now x is %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>  add_num<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a>  printf<span class="op">(</span><span class="st">&quot;While x is now %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a></span>
-<span id="cb5-18"><a href="#cb5-18"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource c numberLines"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="dt">void</span> add_num<span class="op">(</span><span class="dt">int</span> y<span class="op">)</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  x <span class="op">=</span> x <span class="op">+</span> y<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>  x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a>  printf<span class="op">(</span><span class="st">&quot;At first x was %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>  add_num<span class="op">(</span><span class="dv">20</span><span class="op">);</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a>  printf<span class="op">(</span><span class="st">&quot;Now x is %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>  add_num<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>  printf<span class="op">(</span><span class="st">&quot;While x is now %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 <h2 id="creating-functions">Creating Functions</h2>
-<ol start="6" class="example" type="1">
+<ol start="7" class="example" type="1">
 <li>Define a function that calculates the slope between the two points
 using the fancy function header:</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the slope of two points.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> slope<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This is the function body. Your code goes here.</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_x1 <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_x2 <span class="op">=</span> <span class="fl">40.55</span><span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_y1 <span class="op">=</span> <span class="fl">98.122321</span><span class="op">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_y2 <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The first point is: (%lf.2, %lf.2)</span><span class="sc">\n</span><span class="st">&quot;</span> point_x1<span class="op">,</span> point_y1<span class="op">);</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The second point is: (%lf.2, %lf.2)</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> point_x2<span class="op">,</span> point_y2<span class="op">);</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The slope of the points is %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> slope<span class="op">(</span>point_x1<span class="op">,</span> point_y1<span class="op">,</span> point_x2<span class="op">,</span> point_y2<span class="op">));</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="7" class="example" type="1">
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the slope of two points.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> slope<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// This is the function body. Your code goes here.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_x1 <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_x2 <span class="op">=</span> <span class="fl">40.55</span><span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_y1 <span class="op">=</span> <span class="fl">98.122321</span><span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> point_y2 <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The first point is: (%lf.2, %lf.2)</span><span class="sc">\n</span><span class="st">&quot;</span> point_x1<span class="op">,</span> point_y1<span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The second point is: (%lf.2, %lf.2)</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> point_x2<span class="op">,</span> point_y2<span class="op">);</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The slope of the points is %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> slope<span class="op">(</span>point_x1<span class="op">,</span> point_y1<span class="op">,</span> point_x2<span class="op">,</span> point_y2<span class="op">));</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ol start="8" class="example" type="1">
 <li><strong>CHALLENGE:</strong> Define a function that accomplishes the
 following task using the function <strong>header</strong>: (Hint: You
 may use the <code>sqrt()</code> function provided by the
 <code>math.h</code> library.)</li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the distance between two points.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> distance_between_points<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Code goes here.</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> p_x1<span class="op">,</span> p_x2<span class="op">,</span> p_y1<span class="op">,</span> p_y2<span class="op">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Please enter the first point</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; x: &quot;</span><span class="op">);</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_x1<span class="op">);</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; y: &quot;</span><span class="op">);</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_y1<span class="op">);</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Please enter the second point</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; x: &quot;</span><span class="op">);</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_x2<span class="op">);</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; y: &quot;</span><span class="op">);</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_y2<span class="op">);</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The distance between these two points is %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> distance_between_points<span class="op">(</span>p_x1<span class="op">,</span> p_y1<span class="op">,</span> p_x2<span class="op">,</span> p_y2<span class="op">));</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the distance between two points.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> distance_between_points<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Code goes here.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> p_x1<span class="op">,</span> p_x2<span class="op">,</span> p_y1<span class="op">,</span> p_y2<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Please enter the first point</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; x: &quot;</span><span class="op">);</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_x1<span class="op">);</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; y: &quot;</span><span class="op">);</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_y1<span class="op">);</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Please enter the second point</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; x: &quot;</span><span class="op">);</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_x2<span class="op">);</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;&gt; y: &quot;</span><span class="op">);</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%lf&quot;</span><span class="op">,</span> <span class="op">&amp;</span>p_y2<span class="op">);</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The distance between these two points is %lf</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> distance_between_points<span class="op">(</span>p_x1<span class="op">,</span> p_y1<span class="op">,</span> p_x2<span class="op">,</span> p_y2<span class="op">));</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 <h2 id="functions-with-loops">Functions with Loops</h2>
-<ol start="8" class="example" type="1">
+<ol start="9" class="example" type="1">
 <li><strong>CHALLENGE BONUS:</strong> Write a <code>mario()</code>
 function that prints an <code>m</code> x <code>n</code> block using
 <code>#</code> characters.</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example output:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(3, 4) should print:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(1, 1) should print:</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">// #</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(10, 5) should print:</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mario<span class="op">(</span><span class="dt">int</span> m<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code here</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m<span class="op">,</span> n<span class="op">;</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Enter a width: &quot;</span><span class="op">);</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>m<span class="op">);</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Enter a height: &quot;</span><span class="op">);</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  mario<span class="op">(</span>m<span class="op">,</span> n<span class="op">);</span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example output:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(3, 4) should print:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">// </span><span class="al">###</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(1, 1) should print:</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">// #</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(10, 5) should print:</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">// ##########</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> mario<span class="op">(</span><span class="dt">int</span> m<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code here</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> m<span class="op">,</span> n<span class="op">;</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Enter a width: &quot;</span><span class="op">);</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>m<span class="op">);</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Enter a height: &quot;</span><span class="op">);</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  mario<span class="op">(</span>m<span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Fun fact: This problem is based on the one seen in <a href="https://cs50.harvard.edu/x/2021/psets/1/mario/less/">CS50</a>.</p>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/Wiki-Knights/CS-Materials">GitHub</a> | <a href="https://github.com/Wiki-Knights/CS-Materials/issues/new?assignees=&amp;labels=enhancement&amp;template=suggestions.yml" title="(Requires a free GitHub account)">Leave a Suggestion</a>
