@@ -5,7 +5,31 @@ author:
   - Idel Martinez
 ---
 
-## Function Scope
+## Variable Scope
+
+This is one of the most important topics in programming, especially in the C language. This starts by looking at variable scope without functions, then bringing them into the mix later.
+
+@. Will this code compile? Explain why or why not. If it does compile, what will be printed?
+
+  ``` {.c .numberLines}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int my_number = 5;
+    printf("The value of my_number is: %d\n", my_number);
+
+    {
+      int my_number = 10;
+    }
+
+    printf("The value of my_number is: %d\n", my_number);
+
+    return 0;
+  }
+  ```
+
+## Variable Scope with Functions
 This is important to get right. Functions are the base of every program, and knowing what your variables are doing in them is crucial.
 
 @. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
