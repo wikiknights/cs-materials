@@ -27,6 +27,8 @@ toc: false
 
 [Creating and Using Functions - An Overview](functions/functions-intro.md)
 
+[Variable and Function Scope](functions/scope.md)
+
 [Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
 
 ## Making Decisions - Conditions and Switch Statements
