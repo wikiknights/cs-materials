@@ -19,6 +19,44 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 int main(void)
 {
+  int integer_boi = malloc(sizeof(int));
+
+  *integer_boi = 123456789;
+  printf("integer_boi = %d\n", *integer_boi);
+
+  return 0;
+}
+```
+
+**Answer:** This program does not manage memory correctly! Notice that `integer_boi` declared on line 6 is just an integer, not an *integer pointer*. To properly utilize `malloc()`, its return value should be assigned to a pointer. The following shows this fixed:
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *integer_boi = malloc(sizeof(int));
+
+  *integer_boi = 123456789;
+  printf("integer_boi = %d\n", *integer_boi);
+
+  free(integer_boi);
+
+  return 0;
+}
+```
+
+\newpage
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
   double *pointy_pointer;
   pointy_pointer = malloc(sizeof(double));
 
@@ -81,6 +119,80 @@ int main(void)
 **Answer:** This program does manage memory correctly! While more memory than necessary was allocated on line 8 for this program, this is considered valid.
 
 ---
+
+\newpage
+
+## Dynamically Allocated Arrays
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+  char *stringy;
+
+  stringy = malloc(sizeof(char) * 30);
+  strcpy(stringy, "goober");
+
+  for (int i = 0; i < 30; i++)
+  {
+    free(stringy[i]);
+  }
+
+  return 0;
+}
+```
+
+**Answer:** This program does not manage memory correctly. This code attempts to free each individual character of the array, which is not correct. Since there was only one call to `malloc()`, there should only be one call to `free()`. Instead, the for loop should be replaced with the following:
+
+``` c
+free(stringy);
+```
+
+\newpage
+
+@. Fill in the blanks to create and fill a dynamically-allocated array of 20 integers. The array should contain the elements `[1, 2, 3, 4, ..., 20]`.
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *array;
+
+  // Allocate the array
+  array = malloc(sizeof(int) * 20);
+
+  // Initialize the array
+  for (int i = 0; i < 20; i++)
+  {
+    array[i] = i + 1;
+  }
+
+  // Free the array
+  free(array);
+
+  return 0;
+}
+```
+
+*Editor's Note:* Your solution for the array initialization may look slightly different. This is a sample solution. The following is an example of a different (also correct) version of that for loop:
+
+``` c
+for (int i = 1; i <= 20; i++)
+{
+  array[i - 1] = i;
+}
+```
+
+---
+
+\newpage
 
 ## Dynamically Allocated Structs
 
