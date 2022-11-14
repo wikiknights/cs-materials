@@ -19,6 +19,25 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 int main(void)
 {
+  int integer_boi = malloc(sizeof(int));
+
+  *integer_boi = 123456789;
+  printf("integer_boi = %d\n", *integer_boi);
+
+  free(integer_boi);
+
+  return 0;
+}
+```
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
   double *pointy_pointer;
   pointy_pointer = malloc(sizeof(double));
 
@@ -65,6 +84,59 @@ int main(void)
   printf("pi = %.2lf\n", *pi);
 
   free(pi);
+
+  return 0;
+}
+```
+
+---
+
+## Dynamically Allocated Arrays
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+  char *stringy;
+
+  stringy = malloc(sizeof(char) * 30);
+  strcpy(stringy, "goober");
+
+  for (int i = 0; i < 30; i++)
+  {
+    free(stringy[i]);
+  }
+
+  return 0;
+}
+```
+
+@. Fill in the blanks to create and fill a dynamically-allocated array of 20 integers. The array should contain the elements `[1, 2, 3, 4, ..., 20]`.
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *array;
+
+  // Allocate the array
+  array = _____(_____);
+
+  // Initialize the array
+  for (_____; _____; _____)
+  {
+    array[_____] = _____;
+  }
+
+  // Free the array
+  _____;
 
   return 0;
 }
