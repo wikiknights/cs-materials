@@ -305,7 +305,7 @@ int main(void)
 
 ---
 
-## CHALLENGE PROBLEMS:
+## Challenge Problems
 
 @. Below we have a `Pixel` struct with the red, green, and blue components. (1) Create an array of `1024` pixels **dynamically**, (2) assign values to each pixel, and (3) free the memory associated with the array.
 
