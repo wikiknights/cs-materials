@@ -118,3 +118,5 @@ toc: false
     return 0;
   }
   ```
+
+@. Create a function that adds 5 to every odd element of an array of integers. Assume you are provided an integer array (called `array`) and an integer representing the number of elements in the array (called `length`).

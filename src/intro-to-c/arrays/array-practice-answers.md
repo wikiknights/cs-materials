@@ -147,3 +147,35 @@ toc: false
     return 0;
   }
   ```
+
+\newpage
+
+@. Create a function that adds 5 to every odd element of an array of integers. Assume you are provided an integer array (called `array`) and an integer representing the number of elements in the array (called `length`).
+
+    **Answer:** First, we must figure out what the function declaration will look like. If we are given an integer array and the number of elements, the parameters may look like `(int *array, int length)` or `(int array[], int length)`.
+
+    Next, we must figure out the return type of the function. Since we are modifying the array in-place, this function does not need to return anything. This makes the return type `void`.
+
+    Finally, we will call the function `add_five_to_odd`. With this, we can get the function declaration:
+
+    ``` c
+    void add_five_to_odd(int *array, int length)
+    {
+      // Your code here
+    }
+    ```
+
+    This function should traverse through the array, and if it finds an odd element (using the modulus operation), five should be added to this element. In total, this function may look like the following:
+
+    ``` c
+    void add_five_to_odd(int *array, int length)
+    {
+      for (int i = 0; i < length; i++)
+      {
+        if (array[i] % 2 == 1)
+        {
+          array[i] += 5;
+        }
+      }
+    }
+    ```
