@@ -43,6 +43,42 @@ toc: false
 
 \newpage
 
+@. Create a program that prints the first 33 multiples of 3. (3, 6, 9, 12, ..., 99)
+
+  **Possible Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    for (int i = 0; i < 33; i++)
+    {
+      printf("%d\n", (i + 1) * 3);
+    }
+
+    return 0;
+  }
+  ```
+
+  **Another Possible Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    for (int i = 1; i <= 33; i++)
+    {
+      printf("%d\n", i * 3);
+    }
+
+    return 0;
+  }
+  ```
+
+\newpage
+
 @. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
 
   **Sample Answer:**
@@ -61,6 +97,54 @@ toc: false
       }
 
       printf("%d\n", i);
+    }
+
+    return 0;
+  }
+  ```
+
+\newpage
+
+@. Create a program that prints all multiples of 8 between 8 and 148 inclusive, except for numbers evenly divisible by 3. (8, 16, 32, 40, 56, ...)
+
+  **Possible Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    for (int i = 8; i <= 148; i = i + 8)
+    {
+      // If i isn't evenly divisible by 3, print it
+      if (i % 3 != 0)
+      {
+        printf("%d\n", i);
+      }
+    }
+
+    return 0;
+  }
+  ```
+
+  **Another Possible Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int i = 8;
+
+    while (i <= 148)
+    {
+      // If i isn't evenly divisible by 3, print it
+      if (i % 3 != 0)
+      {
+        printf("%d\n", i);
+      }
+
+      i = i + 8;
     }
 
     return 0;

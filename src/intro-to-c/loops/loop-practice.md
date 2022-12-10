@@ -8,7 +8,11 @@ toc: false
 
 @. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)
 
+@. Create a program that prints the first 33 multiples of 3. (3, 6, 9, 12, ..., 99)
+
 @. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
+
+@. Create a program that prints all multiples of 8 between 8 and 160 inclusive, except for numbers evenly divisible by 3. (8, 16, 32, 40, 56, ...)
 
 @. How many times will the following loop run? (Hint: Don't try to run it)
 
