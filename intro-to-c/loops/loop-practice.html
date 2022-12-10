@@ -337,8 +337,13 @@ color: var(--font-color);
 <ol class="example" type="1">
 <li><p>Create a program that prints all even numbers from 1 to 50
 inclusive. (You must use a loop.)</p></li>
+<li><p>Create a program that prints the first 33 multiples of 3. (3, 6,
+9, 12, …, 99)</p></li>
 <li><p>Create a program that prints all numbers between 1 and 100
 inclusive, except for numbers evenly divisible by 5.</p></li>
+<li><p>Create a program that prints all multiples of 8 between 8 and 160
+inclusive, except for numbers evenly divisible by 3. (8, 16, 32, 40, 56,
+…)</p></li>
 <li><p>How many times will the following loop run? (Hint: Don’t try to
 run it)</p></li>
 </ol>
@@ -351,7 +356,7 @@ run it)</p></li>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;i is %d!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> i<span class="op">);</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="4" class="example" type="1">
+<ol start="6" class="example" type="1">
 <li>What will the print statements in lines 9 and 17 output? Will it be
 the same? (You may use a calculator if you want to be exact.) Assume
 that uninitialized variables in C get assigned garbage values.</li>
@@ -374,7 +379,7 @@ that uninitialized variables in C get assigned garbage values.</li>
 <span id="cb2-16"><a href="#cb2-16"></a>  <span class="op">}</span></span>
 <span id="cb2-17"><a href="#cb2-17"></a>  printf<span class="op">(</span><span class="st">&quot;Sum is now %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> sum<span class="op">);</span></span>
 <span id="cb2-18"><a href="#cb2-18"></a><span class="op">}</span></span></code></pre></div>
-<ol start="5" class="example" type="1">
+<ol start="7" class="example" type="1">
 <li>Rewrite the following code to make an equivalent program that uses a
 for loop, rather than this while loop.</li>
 </ol>
@@ -384,7 +389,7 @@ for loop, rather than this while loop.</li>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;number = %d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> number<span class="op">);</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  number<span class="op">++;</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="6" class="example" type="1">
+<ol start="8" class="example" type="1">
 <li>Rewrite the following code to make an equivalent program that uses a
 while loop, rather than this for loop.</li>
 </ol>
@@ -400,7 +405,7 @@ while loop, rather than this for loop.</li>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;You bought a total of %d items with your money!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> items<span class="op">);</span></span></code></pre></div>
-<ol start="7" class="example" type="1">
+<ol start="9" class="example" type="1">
 <li>Is there a difference between the output of these two loops? If so,
 what is it?</li>
 </ol>
@@ -421,7 +426,7 @@ what is it?</li>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;%d</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  x<span class="op">++;</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
-<ol start="8" class="example" type="1">
+<ol start="10" class="example" type="1">
 <li>Fill in the blanks to end the loop if
 <code>sum &gt; 200</code>.</li>
 </ol>
@@ -436,7 +441,7 @@ what is it?</li>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  sum <span class="op">+=</span> i<span class="op">;</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="9" class="example" type="1">
+<ol start="11" class="example" type="1">
 <li>What would be printed if the following program runs?</li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -459,7 +464,7 @@ what is it?</li>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="10" class="example" type="1">
+<ol start="12" class="example" type="1">
 <li>What would be the <strong>return value</strong> of
 <code>loopy_loop()</code> if executed?</li>
 </ol>
@@ -481,7 +486,7 @@ what is it?</li>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<ol start="11" class="example" type="1">
+<ol start="13" class="example" type="1">
 <li>Write a program that finds the sum of all integers that a user types
 in, then when the user types 0, the final sum will be displayed and the
 program ends. The following is an example of running the program:</li>
@@ -492,7 +497,7 @@ program ends. The following is an example of running the program:</li>
 -9
 0
 The sum is: 10</code></pre>
-<ol start="12" class="example" type="1">
+<ol start="14" class="example" type="1">
 <li>Write a program that prints an <code>n</code> by <code>n</code>
 “addition table.” An addition table is like a multiplication table,
 except the row and column numbers are added instead of being multiplied.
@@ -503,7 +508,7 @@ For example, the following is a 5x5 addition table.</li>
 2   3   4   5   6
 3   4   5   6   7
 4   5   6   7   8</code></pre>
-<ol start="13" class="example" type="1">
+<ol start="15" class="example" type="1">
 <li><strong>Challenge:</strong> Write a program that prints a diamond
 shape with a height of <code>n</code>. Assume that <code>n</code> is
 greater than 2 and is odd. As an example, the following is a diamond
