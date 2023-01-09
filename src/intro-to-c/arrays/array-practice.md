@@ -6,6 +6,50 @@ author:
 toc: false
 ---
 
+@. Write a line of code that declares an array called `uv_levels` that contains 5 integers.
+
+@. Which element of the array does the following expression refer to?
+
+  ``` c
+  numbers[3]
+  ```
+
+@. What is the difference between the `4` in each of the following statements?
+
+  ``` c
+  int numbers[4] = 25;
+
+  int numbers[4];
+  ```
+
+@. What will be the output of the following program? If there is an error in the code, explain what the error is instead.
+
+  ``` c
+  #include <stdio.h>
+
+  void increase_by_one(int array[], int length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[i]++;
+    }
+  }
+
+  int main(void)
+  {
+    int array[5] = {1, 2, 3, 4, 5};
+
+    increase_by_one(array, 5);
+
+    for (int i = 0; i < 5; i++)
+    {
+      printf("%d\n", array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 
   ``` c
