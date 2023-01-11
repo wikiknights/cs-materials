@@ -22,6 +22,37 @@ toc: false
   int numbers[4];
   ```
 
+@. Fill in the blanks to initialize an array with 10 `double`s, starting at 0 and incrementing by 0.5 for each value. In other words, the final array should contain `[0.0, 0.5, 1.0, 1.5, 2.0, ..., 4.5]`.
+
+  ``` c
+  #include <stdio.h>
+
+  void initialize(_____array, _____length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[_____] = _____;
+    }
+  }
+
+  int main(void)
+  {
+    // Create the array
+    _____ array[_____];
+
+    // Initialize array values
+    initialize(_____, _____);
+
+    // View the values in the array
+    for (int i = 0; i < 10; i++)
+    {
+      printf("array[%d] = %0.1lf\n", i, array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
 @. What will be the output of the following program? If there is an error in the code, explain what the error is instead.
 
   ``` c

@@ -80,6 +80,41 @@ toc: false
 
 \newpage
 
+@. Fill in the blanks to initialize an array with 10 `double`s, starting at 0 and incrementing by 0.5 for each value. In other words, the final array should contain `[0.0, 0.5, 1.0, 1.5, 2.0, ..., 4.5]`.
+
+  **Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  void initialize(double *array, int length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[i] = 0.5 * i;
+    }
+  }
+
+  int main(void)
+  {
+    // Create the array
+    double array[10];
+
+    // Initialize array values
+    initialize(array, 10);
+
+    // View the values in the array
+    for (int i = 0; i < 10; i++)
+    {
+      printf("array[%d] = %0.1lf\n", i, array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
+\newpage
+
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 
   **Answer**:
