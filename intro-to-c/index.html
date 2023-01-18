@@ -209,7 +209,7 @@ color: white;
 --shadow-color: #FFFFFF30;
 --footer-color: #979797;
 }
-div.sourceCode {
+div.sourceCode, code.sourceCode:not(div.sourceCode>pre.sourceCode>code.sourceCode) {
 filter: invert(1) hue-rotate(60deg) brightness(1.3) saturate(0.85);
 color: initial;
 }
@@ -275,12 +275,10 @@ Variables, Data Types, and Printing</h2>
 Program</a></p>
 <p><a href="variables/variables-intro.html">Introduction to
 Variables</a></p>
+<p><a href="datatypes/datatypes-intro.html">Data types</a></p>
+<p><a href="printing/printing.html">Printing</a></p>
 <p><a href="variables/variables-practice.html">Variables Practice</a>
 (<a href="variables/variables-practice-answers.html">Answers</a>)</p>
-<p><a href="datatypes/datatypes-intro.html">Data types</a></p>
-<p><a href="preprocessor-directives/preprocessor-directives.html">Preprocessor
-Directives</a></p>
-<p><a href="printing/printing.html">Printing</a></p>
 <p><a href="operators/operators-intro.html">Arithmetic Operators
 Intro</a></p>
 <p><a href="operators/operators-practice.html">Arithmetic Operators
@@ -328,6 +326,8 @@ Safety</a></p>
 <p><a href="dma/dma-practice.html">Dynamic Memory Allocation
 Practice</a> (<a href="dma/dma-practice-answers.html">Answers</a>)</p>
 <h2 id="bonus-topics">Bonus Topics</h2>
+<p><a href="preprocessor-directives/preprocessor-directives.html">Preprocessor
+Directives</a></p>
 <p><a href="argv/argv-intro.html">Introduction to argc and argv</a></p>
 <p><a href="endianness/endianness.html">Endianness</a></p>
 <p><a href="binary-io/binary-io-practice.html">Binary I/O Practice</a>

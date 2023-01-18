@@ -210,7 +210,7 @@ color: white;
 --shadow-color: #FFFFFF30;
 --footer-color: #979797;
 }
-div.sourceCode {
+div.sourceCode, code.sourceCode:not(div.sourceCode>pre.sourceCode>code.sourceCode) {
 filter: invert(1) hue-rotate(60deg) brightness(1.3) saturate(0.85);
 color: initial;
 }
@@ -373,6 +373,73 @@ revised version of the code might look like the following:</p>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <ol start="3" class="example" type="1">
+<li>Which of the following are not valid variable names? If any are
+invalid, explain why.</li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code>__basic</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code>apple#3</code>
+<ul>
+<li>Invalid - The <code>#</code> symbol is not allowed in a
+variable.</li>
+</ul></li>
+<li><code>2023_year</code>
+<ul>
+<li>Invalid - A variable name cannot begin with a number.</li>
+</ul></li>
+<li><code>INT</code>
+<ul>
+<li>Valid. (Since it is not the lowercase <code>int</code>, this is an
+allowed variable name.)</li>
+</ul></li>
+<li><code>orANGE</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code>total students</code>
+<ul>
+<li>Invalid - A variable name cannot contain a space.</li>
+</ul></li>
+<li><code>982</code>
+<ul>
+<li>Invalid - A variable name cannot begin with a number.</li>
+</ul></li>
+<li><code>float_</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+</ul>
+<ol start="4" class="example" type="1">
+<li>Which of the following statements are not valid in C? If any are
+invalid, explain why.</li>
+</ol>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code class="sourceCode c"><span class="dt">int</span> <span class="dt">float</span> <span class="op">=</span> <span class="fl">34123.4123</span> <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></code>
+<ul>
+<li>Invalid. <code>float</code> cannot be used as a variable name.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dt">char</span> student_name <span class="op">=</span> &#39;John Smith&#39;<span class="op">;</span></code>
+<ul>
+<li>Invalid. The single quotation marks (“<code>&#39;</code>”) can only
+contain one character.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dv">4</span> <span class="op">=</span> gpa<span class="op">;</span></code>
+<ul>
+<li>Invalid. The statement is in the wrong order. To assign the value 4
+to <code>gpa</code>, the order should be flipped to
+<code>gpa = 4</code>.</li>
+</ul></li>
+</ul>
+<ol start="5" class="example" type="1">
 <li>What is wrong with the following code? How can you fix it?</li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
@@ -418,7 +485,7 @@ unnecessarily verbose, declaring and assigning
 <code>ounces_of_milk</code> on two consecutive lines. Should there have
 been other code between these lines, this decision may make more sense,
 but the first solution is preferrable.</p>
-<ol start="4" class="example" type="1">
+<ol start="6" class="example" type="1">
 <li>What is the final output of this program?</li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
