@@ -13,8 +13,6 @@ toc: false
 
 [Data types](datatypes/datatypes-intro.md)
 
-[Preprocessor Directives](preprocessor-directives/preprocessor-directives.md)
-
 [Printing](printing/printing.md)
 
 [Arithmetic Operators Intro](operators/operators-intro.md)
@@ -76,6 +74,8 @@ toc: false
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
 ## Bonus Topics
+
+[Preprocessor Directives](preprocessor-directives/preprocessor-directives.md)
 
 [Introduction to argc and argv](argv/argv-intro.md)
 
