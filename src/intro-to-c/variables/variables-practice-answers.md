@@ -81,7 +81,7 @@ int main(void)
 - `int float = 34123.4123 * 4;`{.c}
   * Invalid. `float` cannot be used as a variable name.
 - `char student_name = 'John Smith';`{.c}
-  * Invalid. The single quotation marks ("`'`") can only contain one character.
+  * Invalid. The single quotation marks (`'`) can only contain one character.
 - `int i = 0; i = i + 1;`{.c}
   * Valid.
 - `4 = gpa;`{.c}
