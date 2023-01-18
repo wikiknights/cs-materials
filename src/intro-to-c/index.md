@@ -9,11 +9,11 @@ toc: false
 
 [Introduction to Variables](variables/variables-intro.md)
 
-[Variables Practice](variables/variables-practice.md) ([Answers](variables/variables-practice-answers.md))
-
 [Data types](datatypes/datatypes-intro.md)
 
 [Printing](printing/printing.md)
+
+[Variables Practice](variables/variables-practice.md) ([Answers](variables/variables-practice-answers.md))
 
 [Arithmetic Operators Intro](operators/operators-intro.md)
 
