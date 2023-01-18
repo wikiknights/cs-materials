@@ -25,6 +25,24 @@ int main(void)
 }
 ```
 
+@. Which of the following are not valid variable names? If any are invalid, explain why.
+
+- `__basic`
+- `apple#3`
+- `2023_year`
+- `INT`
+- `orANGE`
+- `total students`
+- `982`
+- `float_`
+
+@. Which of the following statements are not valid in C? If any are invalid, explain why.
+
+- `int float = 34123.4123 * 4;`{.c}
+- `char student_name = 'John Smith';`{.c}
+- `int i = 0; i = i + 1;`{.c}
+- `4 = gpa;`{.c}
+
 @. What is wrong with the following code? How can you fix it?
 
 ``` c

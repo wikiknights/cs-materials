@@ -51,6 +51,44 @@ int main(void)
 
 \newpage
 
+@. Which of the following are not valid variable names? If any are invalid, explain why.
+
+**Answer:**
+
+- `__basic`
+  * Valid.
+- `apple#3`
+  * Invalid - The `#` symbol is not allowed in a variable.
+- `2023_year`
+  * Invalid - A variable name cannot begin with a number.
+- `INT`
+  * Valid. (Since it is not the lowercase `int`, this is an allowed variable name.)
+- `orANGE`
+  * Valid.
+- `total students`
+  * Invalid - A variable name cannot contain a space.
+- `982`
+  * Invalid - A variable name cannot begin with a number.
+- `float_`
+  * Valid.
+
+\newpage
+
+@. Which of the following statements are not valid in C? If any are invalid, explain why.
+
+**Answer:**
+
+- `int float = 34123.4123 * 4;`{.c}
+  * Invalid. `float` cannot be used as a variable name.
+- `char student_name = 'John Smith';`{.c}
+  * Invalid. The single quotation marks ("`'`") can only contain one character.
+- `int i = 0; i = i + 1;`{.c}
+  * Valid.
+- `4 = gpa;`{.c}
+  * Invalid. The statement is in the wrong order. To assign the value 4 to `gpa`, the order should be flipped to `gpa = 4`.
+
+\newpage
+
 @. What is wrong with the following code? How can you fix it?
 
 ``` c
