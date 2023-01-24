@@ -19,6 +19,6 @@ The following are other great resources available in the public domain or Creati
 
 - [CS50x](https://cs50.harvard.edu/x/) - Harvard University's introduction to computer science and the art of programming. ([Source Code](https://github.com/cs50))
 
-- [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) - How to master the command-line, use a powerful text editor, use fancy features of version control systems, and much more! Learn how to be proficient with your tools! ([Source Code](https://github.com/missing-semester/missing-semester))
+- [The Missing Semester of Your CS Education - MIT](https://missing.csail.mit.edu/) - How to master the command-line, use a powerful text editor, use fancy features of version control systems, and much more! Learn how to be proficient with your tools! Created by Anish Athalye, Jon Gjengset, and Jose Javier Gonzalez Ortiz. ([Source Code](https://github.com/missing-semester/missing-semester))
 
 - [UCF Foundation Exam Practice](https://ucffe.vijaystroup.com/) - Created by Vijay Stroup. ([Source Code](https://github.com/VijayStroup/ucf-fe))
