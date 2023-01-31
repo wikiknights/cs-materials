@@ -170,6 +170,59 @@ The program then proceeds to print statement #1.
 \newpage
 
 
+@. *The infamous Bizz-Fuzz Problem.* Create a program that does the following:
+
+    - Accept an integer input from the user. You do not need to accommodate for invalid inputs.
+    - If the number is evenly divisible by 5, print "`Bizz!`"
+    - If the number is evenly divisible by 7, print "`Fuzz!`"
+    - If the number is evenly divisible by BOTH 5 and 7, print "`Bizz-Fuzz!`"
+    - If the number is not evenly divisible by 5 or 7, print nothing.
+
+    **Examples:**
+
+    - *Example 1:*
+      - Input: `15`
+      - Output: `Bizz!`
+    - *Example 2:*
+      - Input: `24`
+      - Output:
+    - *Example 3:*
+      - Input: `70`
+      - Output: `Bizz-Fuzz!`
+    - *Example 4:*
+      - Input: `14`
+      - Output: `Fuzz!`
+
+    **Answer:**
+
+    ``` c
+    #include <stdio.h>
+
+    int main(void)
+    {
+      int input;
+
+      scanf("%d", &input);
+
+      if (input % 5 == 0 && input % 7 == 0)
+      {
+        printf("Bizz-Fuzz!\n");
+      }
+      else if (input % 5 == 0)
+      {
+        printf("Bizz!\n");
+      }
+      else if (input % 7 == 0)
+      {
+        printf("Fuzz!\n");
+      }
+
+      return 0;
+    }
+    ```
+
+\newpage
+
 @. Given the following program, what will be the output?
 
 ``` c
