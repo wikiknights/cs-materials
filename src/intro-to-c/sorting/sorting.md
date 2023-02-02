@@ -80,26 +80,125 @@ There are many different sorting algorithms, some of which could be made entirel
 
 The faster ways to sort, Merge, Heap, and Quick Sort are very useful and quick! However, we will not be going over these sorting methods in this section and you are encouraged to go over these in your own time to learn what makes them so fast and effective.
 
-**Bubble Sort**
+# **Bubble Sort**
 
 Explanation
 
 ```
-code
+#include <stdio.h>
+
+int main(void){
+    int arr[] = {61, 3, 30, 12, 45, 9, 90, 99, 1, 24};
+    int n = sizeof(arr); // Size of the array is 10
+
+    printf("Array before Bubble Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    for(int i = 0; i < (n-1); i++){
+        for(int j = 0; j < (n-i-1); j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    printf("Array after Bubble Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
 ```
 
-**Selection Sort**
+# **Selection Sort**
 
 Explanation
 
 ```
-code
+#include <stdio.h>
+
+int main(void){
+    int arr[] = {61, 3, 30, 12, 45, 9, 90, 99, 1, 24};
+    int n = sizeof(arr); // Size of the array is 10
+
+    printf("Array before Selection Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    for(int i = 0; i < (n-1); i++){
+
+        int minIdx = i;
+
+        for(int j = (i+1); j < n; j++){
+            if(arr[minIdx] > arr[j]){
+                minIdx = j;
+            }
+        }
+
+        if(arr[minIdx] != i){
+            int temp = arr[minIdx];
+            arr[minIdx] = arr[i];
+            arr[i] = temp;
+        }
+
+    }
+
+    printf("Array after Selection Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
 ```
 
-**Insertion Sort**
+# **Insertion Sort**
 
 Explanation
 
 ```
-code
+#include <stdio.h>
+
+int main(void){
+    int arr[] = {61, 3, 30, 12, 45, 9, 90, 99, 1, 24};
+    int n = sizeof(arr); // Size of the array is 10
+
+    printf("Array before Insertion Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    for(int i = 1; i < n; i++){
+
+        int curValue = arr[i];
+        int j = i - 1;
+
+        while(arr[j] > curValue && j >= 0){
+            arr[j+1] = arr[j];
+            j--;
+        }
+
+        arr[j+1] = curValue;
+
+    }
+
+    printf("Array after Insertion Sort:\n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
 ```
