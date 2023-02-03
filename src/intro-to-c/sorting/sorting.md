@@ -21,7 +21,7 @@ Let us say we have a certain number of operations throughout a singular loop in 
 If this loop goes through these operations $n$ times, we can call this order $n$ time complexity, or $O(n)$. This is called big-O notation, and is a useful way of classifying the
 speed of our code. An example of this is below:
 
-```
+``` c
 #include <stdio.h>
 
 int main(void)
