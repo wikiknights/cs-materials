@@ -177,6 +177,27 @@ the parentheses, or you use a `break` statement to end it! Otherwise
 you could end up in an infinite loop! Oh no!
 
 
+# Math Style Text
+
+<!-- To write mathematical expressions, surround them with dollar
+     signs ($). Anything available in TeX math mode is available
+     here. -->
+
+Examples:
+
+What is the value of $x^2$ if $x$ is 5?
+
+<!-- Surrounding a mathematical expression with two dollar signs will
+     separate it on its own line. -->
+
+Solve for $x$ using the quadratic formula:
+
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+Solve the following:
+
+$$\int_{0}^{\infty}{ln^2(\frac{x^2}{x^2+3x+2})dx}$$
+
 
 # Code Blocks
 
