@@ -18,7 +18,7 @@ Time complexity is an important concept to understand for sorting algorithms! Ea
 the algorithms themselves.
 
 Let us say we have a certain number of operations throughout a singular loop in our code, such as addition, multiplication, conditional statements, printing, etc.
-If this loop goes through these operations _*n*_ times, we can call this order _*n*_ time complexity, or O(n). This is called big-O notation, and is a useful way of classifying the
+If this loop goes through these operations $n$ times, we can call this order $n$ time complexity, or $O(n)$. This is called big-O notation, and is a useful way of classifying the
 speed of our code. An example of this is below:
 
 ```
