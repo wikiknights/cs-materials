@@ -5,6 +5,8 @@ toc: false
 
 ## Sorting
 
+[Sorting Tutorial](sorting/sorting.md)
+
 [Bubble Sort and Selection Sort Exercices](sorting/SortingQuiz.md)
 
 ## Linked Lists
