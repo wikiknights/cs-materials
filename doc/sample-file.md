@@ -161,6 +161,60 @@ Here's a horizontal line!
 ![Mountain](mountain.jpg)\
 
 
+# Tables
+
+Examples:
+
+<!-- This is a simple table with minimal formatting. The alignment of
+     each column is based on the lines relative to the header text
+     above it.  -->
+
+Left                  Right     Center     Default
+---------------   ---------   ----------   -------
+apples                  456       C        56
+watermelons               9      Java      9321
+bananas               13713     Python     485
+
+<!-- Tables can also be created using a more grid-like format.
+     Alignment is done by colons. -->
+
+| Left              |        Right |   Center   |    Default   |
+|:------------------|-------------:|:----------:|--------------|
+| Barack Obama      |      Retired |     5      | 2009         |
+| Thomas Jefferson  | Very Retired |     10     | 1801         |
+| George Washington | Very Retired |     15     | 1789         |
+| Joe Biden         |      Current |     20     | 2021         |
+
+<!-- While it's harder to read in Markdown, spacing nor the vertical
+     bars at the beginning and end of each line are a requirement. -->
+
+Left|Right|Center|Default
+:---|----:|:----:|-------
+Barack Obama|Retired|5|2009
+Thomas Jefferson|Very Retired|10|1801
+George Washington|Very Retired|15|1789
+Joe Biden|Current|20|2021
+
+You can also have very fancy tables!
+
+<!-- These "fancy tables" can use any markdown nested inside of them. -->
+
++---------------+---------------------+-------------------+---------------------------------+
+| Brand         | Card                | Launch MSRP       | Notes                           |
++:==============+:====================+:=================:+:================================+
+| Nvidia        | GeForce GTX 1080    | $599              | - The first card released       |
+|               |                     |                   |   with the Pascal architecture. |
+|               +---------------------+-------------------+---------------------------------+
+|               | GeForce RTX 2080    | $699              | - The first consumer product to |
+|               |                     |                   |   implement realtime hardware   |
+|               |                     |                   |   ray tracing in a consumer     |
+|               |                     |                   |   product.                      |
+|---------------+---------------------+-------------------+---------------------------------+
+| AMD           | Radeon RX 6800      | $579              |                                 |
+|               +---------------------+-------------------+---------------------------------+
+|               | Radeon RX 7900 XT   | $899              |                                 |
++---------------+---------------------+-------------------+---------------------------------+
+
 # Monospaced ("Code Style") Text
 
 <!-- To write monospace text, surround it with one backtick (`). This
