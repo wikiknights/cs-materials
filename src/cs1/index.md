@@ -7,7 +7,7 @@ toc: false
 
 [Sorting Tutorial](sorting/sorting.md)
 
-[Bubble Sort and Selection Sort Exercices](sorting/SortingQuiz.md)
+[Bubble Sort and Selection Sort Exercises](sorting/SortingQuiz.md)
 
 ## Linked Lists
 

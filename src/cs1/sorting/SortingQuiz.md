@@ -1,5 +1,5 @@
 ---
-title: Bubble Sort and Selection Sort Exercices
+title: Bubble Sort and Selection Sort Exercises
 author: Yohan Hmaiti
 ---
 
