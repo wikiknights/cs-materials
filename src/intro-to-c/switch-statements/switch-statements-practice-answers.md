@@ -240,7 +240,7 @@ Here is some additional practice with switch statements.
 		switch(option)
 		{
 			case 1:
-				printf("Connecting you to Time Police operator.");
+				printf("Connecting you to Time Police dispatcher.");
 				break;
 			case 2:
 				printf("Press 1 for SUBEXAMPLE 1. Press 2 for...");
@@ -287,7 +287,7 @@ Here is some additional practice with switch statements.
 		switch(option)
 		{
 			case 1:
-				printf("Connecting you to Time Police operator.\n");
+				printf("Connecting you to Time Police dispatcher.\n");
 				break;
 
 			// Time Travel Requests
