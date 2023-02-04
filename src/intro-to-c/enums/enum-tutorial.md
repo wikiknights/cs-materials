@@ -80,7 +80,7 @@ enum enum_name variable_name, another_one;
 enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_name, variable_name, another_one;
 ```
 
-**Note:** Splitting the variable type up looks a bit strange. This is only done for the sake of example. The second option is a nicer and cleaner.
+**Note:** Splitting the variable type up looks a bit strange. This is only done for the sake of example. The second option is nicer and cleaner.
 
 
 Now we can assign and use our enumerated values in code. Lets look at something simple using the `exp_value` example.
