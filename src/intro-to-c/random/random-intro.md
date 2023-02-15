@@ -1,8 +1,7 @@
 ---
-title: Random Introduction
+title: Introduction to Random Number Generation
 author: Johnson Laguerre
 ---
-
 
 # Introduction to Random Number Generation.
 
@@ -46,7 +45,7 @@ First, we'll look at `rand()`. It can be used to return a random integer between
 
 int main(void)
 {
-    //num1 is assigned a value between 0 and RAND_MAX.
+    // num1 is assigned a value between 0 and RAND_MAX.
     int num1 = rand();
 
     printf("num1 = %d.\n", num1);
@@ -80,14 +79,14 @@ Let's go back to our opening example.
 Remember that we can use the modulus operator, `%`, to return a number between 0 and `n-1`, where `n` is the number we modulo by. Let's perform `rand()` modulo 10 to return a number between 0 and 9.
 
 ``` c
-//This modulo operation returns a number between 0 and 9.
+// This modulo operation returns a number between 0 and 9.
 int random_num = rand() % 10;
 ```
 
 Now, we can add 1 to the result to bring the value to between 1 and 10.
 
 ``` c
-//random_num is now between 1 and 10.
+// random_num is now between 1 and 10.
 random_num += 1;
 ```
 
@@ -147,12 +146,12 @@ Behind the scenes, it is given a positive integer, or `unsigned int`, called a s
 This is where `srand()` comes into play. Once you pass `srand()` a seed, `rand()` can use it to generate random numbers.
 
 ``` c
-//In stdlib.h.
+// In stdlib.h.
 
-//seed is visible to both rand() and srand(). Its default value is 1.
+// seed is visible to both rand() and srand(). Its default value is 1.
 unsigned int seed = 1;
 
-//Note: This is not the actual algorithm, only a simplified example.
+// Note: This is not the actual algorithm, only a simplified example.
 int rand(void)
 {
     seed = (seed * 5) + 1;
@@ -161,7 +160,7 @@ int rand(void)
 
 void srand(unsigned int your_seed)
 {
-    //Sets the global seed variable to the your_seed value passed into the function.
+    // Sets the global seed variable to the your_seed value passed into the function.
     seed = your_seed;
 }
 ```
@@ -174,13 +173,13 @@ Now if we return to the main function, we can call `srand()` then `rand()` to se
 
 int main(void)
 {
-    //Declaring and initializing a seed variable.
+    // Declaring and initializing a seed variable.
     int your_seed = 4; 
 
-    //Passing your_seed to srand().
+    // Passing your_seed to srand().
     srand(your_seed);
 
-    //Calling rand() after seeding srand().
+    // Calling rand() after seeding srand().
     int last_random_num = rand();
 
     printf("Your random number: %d.\n", last_random_num);
@@ -190,23 +189,23 @@ int main(void)
 ```
 
 ``` c
-//In the background...
+// In the background...
 
-//seed starts as 1.
+// seed starts as 1.
 unsigned int seed = 1;
 
 void srand(unsigned int your_seed)
 {
-    //Reassigns seed using your_seed.
+    // Reassigns seed using your_seed.
     seed = 4;
 }
 
 int rand(void)
 {
-    //seed evaluates to 21, which is then stored in the global variable.
+    // seed evaluates to 21, which is then stored in the global variable.
     seed = (4 * 5) + 1;
 
-    //Returns 0 to the main function. 
+    // Returns 0 to the main function.
     return (21 / 2) % 10;
 }
 ```
@@ -221,10 +220,10 @@ It is considered good practice to call `srand()` only **once**, at the start of 
 
 int main(void)
 {
-    //Seeding srand() with the current time.
+    // Seeding srand() with the current time.
     srand(time(NULL));
 
-    //Calling rand() after seeding srand().
+    // Calling rand() after seeding srand().
     int last_random_num = rand();
 
     printf("Your random number: %d.\n", last_random_num);
