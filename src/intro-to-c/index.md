@@ -15,6 +15,8 @@ toc: false
 
 [Variables Practice](variables/variables-practice.md) ([Answers](variables/variables-practice-answers.md))
 
+[My New Page](variables/my-new-file.md)
+
 [Arithmetic Operators Intro](operators/operators-intro.md)
 
 [Arithmetic Operators Practice](operators/operators-practice.md) ([Answers](operators/operators-practice-answers.md))
