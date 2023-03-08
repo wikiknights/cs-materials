@@ -73,6 +73,10 @@ toc: false
 
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
+## Random Number Generation
+
+[Introduction to Random Number Generation](random/random-intro.md)
+
 ## Bonus Topics
 
 [Preprocessor Directives](preprocessor-directives/preprocessor-directives.md)
