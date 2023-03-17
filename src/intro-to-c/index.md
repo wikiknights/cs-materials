@@ -43,6 +43,10 @@ toc: false
 
 [Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
 
+## Random Number Generation
+
+[Introduction to Random Number Generation](random/random-intro.md)
+
 ## Arrays and Strings
 
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
@@ -72,10 +76,6 @@ toc: false
 [Dynamic Memory and Pointer Safety](dma/dma-pointer-safety.md)
 
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
-
-## Random Number Generation
-
-[Introduction to Random Number Generation](random/random-intro.md)
 
 ## Bonus Topics
 
