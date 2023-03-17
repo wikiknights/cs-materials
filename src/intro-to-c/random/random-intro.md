@@ -3,8 +3,6 @@ title: Introduction to Random Number Generation
 author: Johnson Laguerre
 ---
 
-# Introduction to Random Number Generation.
-
 Quick--choose a number between 1 and 10! What number did you choose?
 
 Let's say you chose the number 4.
@@ -29,6 +27,13 @@ int main(void)
 }
 ```
 
+If we ran our code, we would see this:
+
+```
+Choose a number between 1 and 10: 4
+You chose: 4.
+```
+
 Here, we take user input and store the value 4. However, let's say we were debugging our code and didn't want to keep entering random numbers by hand. Is there anything we could do to save ourselves the effort?
 
 ---
@@ -41,7 +46,7 @@ First, we'll look at `rand()`. It can be used to return a random integer between
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // Don't forget to include this!
 
 int main(void)
 {
@@ -52,6 +57,10 @@ int main(void)
 
     return 0;
 }
+```
+
+```
+num1 = 41.
 ```
 
 Pretty neat, huh?
@@ -68,6 +77,10 @@ int main(void)
 
     return 0;
 }
+```
+
+```
+On my system, RAND_MAX is 32767.
 ```
 
 ---
@@ -88,6 +101,13 @@ Now, we can add 1 to the result to bring the value to between 1 and 10.
 ``` c
 // random_num is now between 1 and 10.
 random_num += 1;
+```
+
+As a whole, the concept looks like this:
+
+```
+// Generates a random number between 1 and 10.
+int random_num = (rand() % 10) + 1;
 ```
 
 ---
@@ -131,6 +151,13 @@ Finally, we add `lower_bound` to the previous result to have our numbers fall be
 another_random_num += lower_bound;
 ```
 
+If we hard-coded all of the values and put the expression on one line, it would look like this:
+
+```
+// (rand() % (upper_bound - lower_bound + 1)) + lower_bound
+int another_random_num = (rand() % (100 - 7 + 1)) + 7
+```
+
 ---
 
 ## `rand()` and `srand()`: psuedo-random generators.
@@ -144,28 +171,6 @@ Behind the scenes, it is given a positive integer, or `unsigned int`, called a s
 ### Seeding `rand()`: the `srand()` function.
 
 This is where `srand()` comes into play. Once you pass `srand()` a seed, `rand()` can use it to generate random numbers.
-
-``` c
-// In stdlib.h.
-
-// seed is visible to both rand() and srand(). Its default value is 1.
-unsigned int seed = 1;
-
-// Note: This is not the actual algorithm, only a simplified example.
-int rand(void)
-{
-    seed = (seed * 5) + 1;
-    return (seed / 2) % 10;
-}
-
-void srand(unsigned int your_seed)
-{
-    // Sets the global seed variable to the your_seed value passed into the function.
-    seed = your_seed;
-}
-```
-
-Now if we return to the main function, we can call `srand()` then `rand()` to see what happens.
 
 ``` c
 #include <stdio.h>
@@ -187,6 +192,38 @@ int main(void)
     return 0;
 }
 ```
+
+Running our code gives us this:
+
+```
+Your random number: 0.
+```
+
+### The inner workings of `rand()` and `srand()`.
+
+That's great, but as it currently stands, a little mysterious. How exactly do the two work together? Well, if we were to peek inside of `stdlib.h`, we would see code that looked like this:
+
+``` c
+// In stdlib.h.
+
+// seed is visible to both rand() and srand(). Its default value is 1.
+unsigned int seed = 1;
+
+// Note: This is not the actual algorithm, only a simplified example.
+int rand(void)
+{
+    seed = (seed * 5) + 1;
+    return (seed / 2) % 10;
+}
+
+void srand(unsigned int your_seed)
+{
+    // Sets the global seed variable to the your_seed value passed into the function.
+    seed = your_seed;
+}
+```
+
+When we ran our example from earlier in the section, the process to get our `0` value worked like this.
 
 ``` c
 // In the background...
@@ -211,12 +248,12 @@ int rand(void)
 ```
 
 <!-- Also mentioned on the "Pre Written Functions (Predefined)" page in the stdlib.h section. -->
-It is considered good practice to call `srand()` only **once**, at the start of your program. While useful for predictability, you may not want to use the same seed every time. In that case, pass `time(NULL)` to `srand()` to use the current time as a seed--and don't forget to include `<time.h>`.
+It is considered good practice to call `srand()` only **once**, at the start of your program. While useful for predictability, you may not want to use the same seed every time. In that case, pass `time(NULL)` to `srand()` to use the current time as a seed--and don't forget to include `<time.h>`!
 
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h> // rand() and srand().
+#include <time.h> // Accessing the time() function.
 
 int main(void)
 {
@@ -232,10 +269,3 @@ int main(void)
 }
 ```
 
----
-
-## Further Reading
-
-For a summary of these functions, explore the links on [this page from DevDocs](https://devdocs.io/c/numeric/random).
-
-For technical discussion on `rand()` and even better ways to use it, see [this article](https://c-faq.com/lib/rand.931117.html).
