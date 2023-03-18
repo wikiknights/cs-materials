@@ -105,7 +105,7 @@ random_num += 1;
 
 As a whole, the concept looks like this:
 
-```
+``` c
 // Generates a random number between 1 and 10.
 int random_num = (rand() % 10) + 1;
 ```
@@ -153,7 +153,7 @@ another_random_num += lower_bound;
 
 If we hard-coded all of the values and put the expression on one line, it would look like this:
 
-```
+``` c
 // (rand() % (upper_bound - lower_bound + 1)) + lower_bound
 int another_random_num = (rand() % (100 - 7 + 1)) + 7
 ```
