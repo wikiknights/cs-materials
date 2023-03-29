@@ -99,6 +99,36 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+@. Which of the following lines are valid? Explain why each is valid or not.
+
+  - `char food[7] = "Apple";`{.c}
+  - `char food[7] = "Avocado";`{.c}
+  - `char food[7] = "Banana";`{.c}
+  - `char food[7] = "Chocolate";`{.c}
+
+@. What would be displayed if `string` was printed after running these lines?
+
+  ``` c
+  char string[10];
+
+  string[0] = 'B';
+  string[2] = 'n';
+  string[1] = 'i';
+  string[3] = 'g';
+  string[4] = '\0';
+  string[1] = '\0';
+  string[2] = 'g';
+  string[3] = '\0';
+  ```
+
+@. What would be displayed if `string` was printed after running these lines?
+
+  ``` c
+  char string[10] = "Hello";
+
+  strcpy(string, "I love C!");
+  ```
+
 @. In how many lines will the print statement in line 6 output?
 
   ``` {.c .numberLines}
