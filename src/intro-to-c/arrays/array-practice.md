@@ -17,9 +17,9 @@ toc: false
 @. What is the difference between the `4` in each of the following statements?
 
   ``` c
-  int numbers[4] = 25;
-
   int numbers[4];
+  
+  numbers[4] = 25;
   ```
 
 @. Fill in the blanks to initialize an array with 10 `double`s, starting at 0 and incrementing by 0.5 for each value. In other words, the final array should contain `[0.0, 0.5, 1.0, 1.5, 2.0, ..., 4.5]`.

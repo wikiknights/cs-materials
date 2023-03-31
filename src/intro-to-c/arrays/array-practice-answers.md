@@ -29,12 +29,12 @@ toc: false
 @. What is the difference between the `4` in each of the following statements?
 
   ``` c
-  int numbers[4] = 25;
-
   int numbers[4];
+  
+  numbers[4] = 25;
   ```
 
-  **Answer:** In the first statement, the `4` indicates a particular element, in this case the fifth element of the `numbers` array. In the second statement, the `4` indicates an array size, in this case creating an array of four elements.
+  **Answer:** In the first statement, the `4` indicates an array size, in this case creating an array of four elements. In the second statement, the `4` indicates a particular element, in this case the fifth element of the `numbers` array. (Bonus: This second statement would actually be considered improper in the context of the first statement, as there are only four elements, where the fifth element is attempted to be accessed.)
 
 \newpage
 
