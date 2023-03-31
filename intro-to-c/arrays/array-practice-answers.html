@@ -350,14 +350,17 @@ to?</li>
 <li>What is the difference between the <code>4</code> in each of the
 following statements?</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> numbers<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> numbers<span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> numbers<span class="op">[</span><span class="dv">4</span><span class="op">];</span></span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>numbers<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span></code></pre></div>
 <p><strong>Answer:</strong> In the first statement, the <code>4</code>
-indicates a particular element, in this case the fifth element of the
-<code>numbers</code> array. In the second statement, the <code>4</code>
 indicates an array size, in this case creating an array of four
-elements.</p>
+elements. In the second statement, the <code>4</code> indicates a
+particular element, in this case the fifth element of the
+<code>numbers</code> array. (Bonus: This second statement would actually
+be considered improper in the context of the first statement, as there
+are only four elements, where the fifth element is attempted to be
+accessed.)</p>
 <ol start="4" class="example" type="1">
 <li>What will be the output of the following program? If there is an
 error in the code, explain what the error is instead.</li>
