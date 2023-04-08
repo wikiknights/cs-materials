@@ -77,6 +77,10 @@ toc: false
 
 [Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
 
+## Debugging
+
+[Introduction to GDB](debugging/gdb-intro.md)
+
 ## Bonus Topics
 
 [Preprocessor Directives](preprocessor-directives/preprocessor-directives.md)
