@@ -3,9 +3,9 @@ title: Introduction to GDB
 author: Johnson Laguerre
 ---
 
-GDB is a very useful debugging tool that allows you to see what the values in your program look like at any given point in time, and it lets you temporarily modify those values to see how your program runs, acting as if you actually made those changes in your code.
+The GNU Project Debugger, or GDB for short, is a very useful debugging tool. It allows you to see what the values in your program look like at any given point in time, and it lets you temporarily modify those values to see how your program runs in response, acting as if you actually made those changes in your code.
 
-In the example below, a student is working on a program but encounters a segmentation fault (segfault). They're not sure what's causing it, but thanks to GDB, they can see what's going on "under the hood" of their program and try to solve the problem.
+In the example below, a student is working on a program but encounters a segmentation fault (also known as a "segfault"). They're not sure what's causing it, but thanks to GDB, they can see what's going on "under the hood" of their program and try to solve the problem.
 
 ## Case Study: A Pointer Program
 
@@ -61,14 +61,14 @@ void multiply_by_two(int *current, int *arr)
 
 Okay, everything looks alright. Time to compile.
 
-```
+``` {.terminal}
 my-pc:~intro-to-c/assignments/pointers$ gcc my_file.c
 my-pc:~intro-to-c/assignments/pointers$
 ```
 
 Yes, no warnings! Okay, now let me run it.
 
-```
+``` {.terminal}
 my-pc:~intro-to-c/assignments/pointers$ ./a.out
 Before
 ------
@@ -89,16 +89,18 @@ No, not a segfault! This can't be possible--my code is *perfect*! Fine, I guess 
 
 Alright, first I have to recompile my code with the `-g` flag.
 
-```
+``` {.terminal}
 my-pc:~intro-to-c/assignments/pointers$ gcc -g my_file.c
 my-pc:~intro-to-c/assignments/pointers$
 ```
+
+> Using the `-g` flag adds debugging information to your compiled file. Alternatively, you could use the `-ggdb` flag, which adds debugging information specifically meant for GDB (e.g., `gcc -ggdb my_file.c`).
 
 ## Entering GDB
 
 Now I need to pass GDB the program's name, and in I go.
 
-```
+``` {.terminal}
 my-pc:~intro-to-c/assignments/pointers$ gdb a.out
 GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
 Copyright (C) 2022 Free Software Foundation, Inc.
@@ -119,11 +121,15 @@ Reading symbols from a.out...
 (gdb)
 ```
 
+> This is what it looks like once you enter GDB. It is a command-line program that you interact with using a wide range of commands. This case study will explore some basic commands to get you started.
+
+> You may find it useful to pass the `-q` flag to GDB on start-up if you don't want to see the introductory and copyright information (e.g., `gdb -q a.out`).
+
 ## Finding the Problem
 
 Let me run the program and see where it's stopping.
 
-```
+``` {.terminal}
 (gdb) run
 Starting program: /home/my-pc/intro-to-c/assignments/pointers/a.out
 [Thread debugging using libthread_db enabled]
@@ -145,9 +151,11 @@ Program received signal SIGSEGV, Segmentation fault.
 (gdb)
 ```
 
+> The `run` command runs your program as if it were running normally in the terminal. Here, we see that the program stopped on the same segmentation fault from earlier.
+
 Hmm, what do the variables look like when I print them?
 
-```
+``` {.terminal}
 (gdb) print i
 $1 = 0
 (gdb) print &arr
@@ -157,9 +165,13 @@ $3 = (int *) 0x4
 (gdb)
 ```
 
-Okay, so it happened on my first time through the loop, and `current` *clearly* isn't pointing to `arr`. I'll continue and see if anything else pops up.
+> The `print` command can print specific values to the screen. You can use it to get an idea of what your program looked like when it stopped.
 
-```
+Okay, since `i` is 0, that means the segfault happened on my first time through the loop. I can also see that `current` *clearly* isn't pointing to `arr`'s address.
+
+In fact, the address in `current` is only 4 bytes away from `NULL`, so it looks like I dereferenced a `NULL` pointer then did the post-increment. I'll continue and see if anything else pops up.
+
+``` {.terminal}
 (gdb) continue
 Continuing.
 
@@ -168,11 +180,13 @@ The program no longer exists.
 (gdb)
 ```
 
+> The `continue` command lets your program continue running as it normally would. The program will still stop on any breakpoints, a concept we will look at next.
+
 ## Forming a Hypothesis
 
-Alright, so the problem is happening *before* the for loop, but where? I'll set a breakpoint at the top of `main` so I can step through the program and try to figure it out.
+Alright, so the problem is happening *before* the second for loop, but where? I'll set a breakpoint at the top of `main()` so I can move through the program and try to figure it out.
 
-```
+``` {.terminal}
 (gdb) break main
 Breakpoint 1 at 0x555555555195: file my_file.c, line 6.
 (gdb) run
@@ -185,9 +199,17 @@ Breakpoint 1, main () at my_file.c:6
 (gdb)
 ```
 
+> The `break` command lets you set breakpoints, specific points where you want your program to stop while it's running. A breakpoint gives you a location from which you can choose how and where you want to proceed, whether line-by-line or multiples lines at a time.
+
+> Here, we pass `break` a function name as an argument, but you can also pass it a line number (e.g., `break 6`). If you wanted to be more specific, you could pass it a location written as a file name, colon, and either a function name or a line number (e.g., `break my_file.c:main`, `break my_file.c:6`).
+
+> To see all of your current breakpoints, run `info break`.
+
+> To delete specific breakpoints, run `delete [breakpoint_number_or_range]` (e.g., `delete 1`, `delete 2 3`, `delete 4-7`). To delete all breakpoints, type `delete` with no arguments.
+
 Let me list out a couple of lines to see where I should go.
 
-```
+``` {.terminal}
 (gdb) list
 1       #include <stdio.h>
 2
@@ -224,9 +246,11 @@ Let me list out a couple of lines to see where I should go.
 (gdb) 
 ```
 
-That looks like enough. Since the first loop works, something must be happening in the `multiply_by_two` function. I'll skip ahead to that line and step into the function.
+> The `list` command prints, by default, ten lines of a file to the screen, centered around the line currently you're on. You can run `list -` to print ten lines before the lines you just printed. (If you didn't run `list` yet, then `list -` would start off by printing the same ten lines as `list`.)
 
-```
+That looks like enough. Since the first loop works, maybe something is happening in the `multiply_by_two()` function. I'll skip ahead to that line and step into the function.
+
+``` {.terminal}
 (gdb) until 20
 Before
 ------
@@ -243,9 +267,11 @@ multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:37
 (gdb)
 ```
 
+> The `until` command lets you continue running your program until you reach a certain line. The program will still stop on any breakpoints.
+
 Let me list out some lines like before to get an overview.
 
-```
+``` {.terminal}
 (gdb) list
 32          return 0;
 33      }
@@ -266,15 +292,15 @@ Let me list out some lines like before to get an overview.
 (gdb)
 ```
 
-Okay, that's the whole function. `current` starts off pointing to `NULL`, then I set it to point to `arr` just before I leave the function. Shouldn't the `current` in `main` be pointing to `arr`, too?
+Okay, that's the whole function. `current` starts off pointing to `NULL`, then I set it to point to `arr` just before I leave the function. Shouldn't the `current` in `main()` be pointing to `arr`, too?
 
-Wait a minute... I learned about this! The `current` variable *here* is local to *this* function's scope. That means I actually need to set `current` to point to `arr` in the `main` function!
+Wait a minute... I learned about this! The `current` variable *here* is local to *this* function's scope. That means I actually need to set `current` to point to `arr` in the `main()` function!
 
 ## Testing the Hypothesis
 
 Let me finish this function to see if I'm right.
 
-```
+``` {.terminal}
 (gdb) finish
 Run till exit from #0  multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:37
 main () at my_file.c:22
@@ -288,9 +314,13 @@ $6 = (int (*)[5]) 0x7fffffffdf60
 (gdb)
 ```
 
+> The `finish` command tells your program to continue running until the function exits. The program will still stop on any breakpoints.
+
+> As we saw in the above block with the `print current = arr` line, the `print` command can be used to not only *display* values but to also *change* values. Here, we passed it an assignment expression to change the value held in `current`. If you did something like this while debugging, then once your program started running again, it would run as if that change had *actually* been made in your code.
+
 Okay, now I set `current` to point to `arr`, and I can see that the addresses match. Will it work this time?
 
-```
+``` {.terminal}
 (gdb) continue
 Continuing.
 
@@ -307,18 +337,22 @@ All done!
 (gdb)
 ```
 
+> Here, we come to end of the program again, but this time, there is no segmentation fault because we changed the value held in `current`. **However, any changes you make using `print` are temporary, lasting only for the duration of that specific program run. Permanent changes need to actually be edited into your code**, as you will see below.
+
 ## Making the Changes
 
 Yes, it worked! Let me quit GDB and edit my code so I can see it if it *really*, really works.
 
-```
+```  {.terminal}
 (gdb) quit
 ```
+
+> The `quit` command lets you exit GDB. You can also use `exit` instead of `quit`.
 
 ``` c
     // In the text editor.
 	
-    // In the main function.
+    // In the main() function.
     ...
     current = NULL;
     multiply_by_two(current, arr);
@@ -330,7 +364,7 @@ Yes, it worked! Let me quit GDB and edit my code so I can see it if it *really*,
     printf("-----\n");
     ...
 	
-    // In the multiply_by_two function.
+    // In the multiply_by_two() function.
     ...
     for (i = 0; i < 5; i++)
     {
@@ -343,7 +377,7 @@ Yes, it worked! Let me quit GDB and edit my code so I can see it if it *really*,
 	
 ```
 
-```
+``` {.terminal}
 my-pc:~intro-to-c/assignments/pointers$ gcc my_file.c
 my-pc:~intro-to-c/assignments/pointers$ ./a.out
 Before
