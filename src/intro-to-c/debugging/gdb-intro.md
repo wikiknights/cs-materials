@@ -25,9 +25,10 @@ int main(void)
 
     for (i = 0; i < 5; i++)
     {
-        printf("arr[%d] = %d\n", i, *(current++));
+        printf("arr[%d] = %d\n", i, *current);
+        current++;
     }
-	
+
     current = NULL;
     multiply_by_two(current, arr);
 
@@ -36,7 +37,8 @@ int main(void)
 
     for (i = 0; i < 5; i++)
     {
-        printf("arr[%d] = %d\n", i, *(current++));
+        printf("arr[%d] = %d\n", i, *current);
+        current++;
     }
 
     printf("\nAll done!\n");
@@ -51,9 +53,10 @@ void multiply_by_two(int *current, int *arr)
 
     for (i = 0; i < 5; i++)
     {
-        *(current++) = (*current * 2);
+        *current = *current * 2;
+        current++;
     }
-	
+
     current = arr;
 }
 
@@ -146,8 +149,8 @@ After
 -----
 
 Program received signal SIGSEGV, Segmentation fault.
-0x000055555555527c in main () at my_file.c:27
-27              printf("arr[%d] = %d\n", i, *(current++));
+0x000055555555527c in main () at my_file.c:28
+28              printf("arr[%d] = %d\n", i, *current);
 (gdb)
 ```
 
@@ -161,7 +164,7 @@ $1 = 0
 (gdb) print &arr
 $2 = (int (*)[5]) 0x7fffffffdfe0
 (gdb) print current
-$3 = (int *) 0x4
+$3 = (int *) 0x0
 (gdb)
 ```
 
@@ -169,7 +172,7 @@ $3 = (int *) 0x4
 
 Okay, since `i` is 0, that means the segfault happened on my first time through the loop. I can also see that `current` *clearly* isn't pointing to `arr`'s address.
 
-In fact, the address in `current` is only 4 bytes away from `NULL`, so it looks like I dereferenced a `NULL` pointer then did the post-increment. I'll continue and see if anything else pops up.
+In fact, the address in `current` is `NULL`, so it looks like I dereferenced a `NULL` pointer. I'll continue and see if anything else pops up.
 
 ``` {.terminal}
 (gdb) continue
@@ -227,31 +230,33 @@ Let me list out a couple of lines to see where I should go.
 13
 14          for (i = 0; i < 5; i++)
 15          {
-16              printf("arr[%d] = %d\n", i, *(current++));
-17          }
-18
-19          current = NULL;
-20          multiply_by_two(current, arr);
+16              printf("arr[%d] = %d\n", i, *current);
+17              current++;
+18          }
+19
+20          current = NULL;
 (gdb) list
-21
-22          printf("\nAfter\n");
-23          printf("-----\n");
-24
-25          for (i = 0; i < 5; i++)
-26          {
-27              printf("arr[%d] = %d\n", i, *(current++));
-28          }
-29
-30          printf("\nAll done!\n");
-(gdb) 
+21          multiply_by_two(current, arr);
+22
+23          printf("\nAfter\n");
+24          printf("-----\n");
+25
+26          for (i = 0; i < 5; i++)
+27          {
+28              printf("arr[%d] = %d\n", i, *current);
+29              current++;
+30          }
+(gdb)
 ```
 
 > The `list` command prints, by default, ten lines of a file to the screen, centered around the line currently you're on. You can run `list -` to print ten lines before the lines you just printed. (If you didn't run `list` yet, then `list -` would start off by printing the same ten lines as `list`.)
 
+> Tip: If you ever want to run a command you just used, such as `list`, instead of typing it out again, you can simply press your Enter key.
+
 That looks like enough. Since the first loop works, maybe something is happening in the `multiply_by_two()` function. I'll skip ahead to that line and step into the function.
 
 ``` {.terminal}
-(gdb) until 20
+(gdb) until 21
 Before
 ------
 arr[0] = 10
@@ -259,36 +264,39 @@ arr[1] = 20
 arr[2] = 30
 arr[3] = 40
 arr[4] = 50
-main () at my_file.c:20
-20          multiply_by_two(current, arr);
+main () at my_file.c:21
+21          multiply_by_two(current, arr);
 (gdb) step
-multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:37
-37          int i = 0;
+multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:39
+39          int i = 0;
 (gdb)
 ```
 
 > The `until` command lets you continue running your program until you reach a certain line. The program will still stop on any breakpoints.
 
+> The `step` command lets you enter into a function call. If you wanted to continue past a function call, you could run the `next` command instead.
+
 Let me list out some lines like before to get an overview.
 
 ``` {.terminal}
 (gdb) list
-32          return 0;
-33      }
-34
-35      void multiply_by_two(int *current, int *arr)
-36      {
-37          int i = 0;
-38          current = arr;
-39
-40          for (i = 0; i < 5; i++)
-41          {
+34          return 0;
+35      }
+36
+37      void multiply_by_two(int *current, int *arr)
+38      {
+39          int i = 0;
+40          current = arr;
+41
+42          for (i = 0; i < 5; i++)
+43          {
 (gdb) list
-42              *(current++) = (*current * 2);
-43          }
-44
-45          current = arr;
-46      }
+44              *current = *current * 2;
+45              current++;
+46          }
+47
+48          current = arr;
+49      }
 (gdb)
 ```
 
@@ -302,15 +310,15 @@ Let me finish this function to see if I'm right.
 
 ``` {.terminal}
 (gdb) finish
-Run till exit from #0  multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:37
-main () at my_file.c:22
-22          printf("\nAfter\n");
+Run till exit from #0  multiply_by_two (current=0x0, arr=0x7fffffffdfe0) at my_file.c:39
+main () at my_file.c:23
+23          printf("\nAfter\n");
 (gdb) print current = arr
 $4 = (int *) 0x7fffffffdfe0
 (gdb) print current
-$5 = (int *) 0x7fffffffdf60
+$5 = (int *) 0x7fffffffdfe0
 (gdb) print &arr
-$6 = (int (*)[5]) 0x7fffffffdf60
+$6 = (int (*)[5]) 0x7fffffffdfe0
 (gdb)
 ```
 
@@ -368,7 +376,8 @@ Yes, it worked! Let me quit GDB and edit my code so I can see it if it *really*,
     ...
     for (i = 0; i < 5; i++)
     {
-        *(current++) = (*current * 2);
+        *current = *current * 2;
+        current++;
     }
 	
     // Deleting this line!
