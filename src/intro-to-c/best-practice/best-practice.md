@@ -77,6 +77,50 @@ Notice now that the functionality for the actual "changing" is kept within one f
 
 ## Don't Repeat Yourself (DRY)
 
+"Don't repeat yourself" is a phrase in programming practice that essentially boils down to writing code in a way that is concise and easy to maintain. Let's take a look at an example of what this might look like:
+
+``` c
+// Suppose I am making a weather app with some default locations to show
+// information about when the program starts.
+
+int main(void)
+{
+  // ...
+
+  show_current_weather("Orlando, FL");
+  show_current_weather("New York City, NY");
+  show_current_weather("Chicago, IL");
+  show_current_weather("Las Vegas, NV");
+
+  // ...
+}
+```
+
+This would not satisfy the "don't repeat yourself" principle, as you may expect, because there are many lines that repeat with only slight changes. (In addition, a telltale sign that this principle is not satisfied is if a programmer ever needs to copy-paste their own code.)
+
+What if the name of the `show_current_weather()` function changes, or it adds more parameters? What if you want to use the same locations and display other information about them, like the weekly forecast? While these are again hypothetical cases, the point of best practices are to help with managing both present and future code in a reliable way.
+
+A way to write this without the repetition may be the following:
+
+``` c
+int main(void)
+{
+  // ...
+
+  char *default_locations[] = {"Orlando, FL", "New York City, NY", "Chicago, IL", "Las Vegas, NV"};
+  int location_count = 4;
+
+  for (int i = 0; i < location_count; i++)
+  {
+    show_current_weather(default_locations[i]);
+  }
+
+  // ...
+}
+```
+
+In this version, the program is now more flexible while accomplishing the same original task. If there happen to be changes in the function or default locations, these are now easier to maintain as a programmer.
+
 ## Keep It Simple, Stupid (KISS)
 
 ## New Code by Addition, Not Subtraction
