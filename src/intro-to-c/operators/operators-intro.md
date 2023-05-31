@@ -13,7 +13,11 @@ An arithmetic operator performs mathematical operations, the ones we learn in el
 - **`/`** : division
 - **`%`** : modulus, remainder after division
 - **`++`** : increment, increases the value by one
+	- If it is at the front of an operand, it applies a pre-increment.
+	- If it is at the end of an operand, it applies a post-increment.
 - **`--`** : decrement, decreases the value by one
+	- If it is at the front of an operand, it applies a pre-decrement.
+	- If it is at the end of an operand, it applies a post-decrement.
 
 Let's look at a coding example!
 
@@ -62,9 +66,9 @@ int main(void)
 {
     int a = 5;
     printf("a = %d \n", a);
-    int b = ++a; // first 'a' becomes 6 and then stored in 'b';
+    int b = ++a; // first 'a' becomes 6 and then stored in 'b'. Pre-increment.
     printf("b = %d \n", b);
-    int c = a++; // first 'a' i.e. 6 is stored in 'c' then 'a' becomes 7.
+    int c = a++; // first 'a' i.e. 6 is stored in 'c' then 'a' becomes 7. Post-increment.
     printf("c = %d \n", c);
     int d = a; // a is now 7 in memory slot d.
     printf("d = %d \n", d);
