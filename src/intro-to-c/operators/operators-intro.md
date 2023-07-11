@@ -19,6 +19,8 @@ An arithmetic operator performs mathematical operations, the ones we learn in el
 	- If it is at the front of an operand, it applies a pre-decrement.
 	- If it is at the end of an operand, it applies a post-decrement.
 
+A note on pre- and post- operations: a pre-increment or pre-decrement will update the operand's value *before* using the value in an expression. A post-increment or post-decrement will update the operand's value *after* using the current value in an expression.
+
 Let's look at a coding example!
 
 ```c
