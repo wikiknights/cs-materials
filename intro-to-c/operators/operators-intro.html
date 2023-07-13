@@ -364,10 +364,24 @@ learn in elementary school.</p>
 <li><strong><code>%</code></strong> : modulus, remainder after
 division</li>
 <li><strong><code>++</code></strong> : increment, increases the value by
-one</li>
+one
+<ul>
+<li>If it is at the front of an operand, it applies a
+pre-increment.</li>
+<li>If it is at the end of an operand, it applies a post-increment.</li>
+</ul></li>
 <li><strong><code>--</code></strong> : decrement, decreases the value by
-one</li>
+one
+<ul>
+<li>If it is at the front of an operand, it applies a
+pre-decrement.</li>
+<li>If it is at the end of an operand, it applies a post-decrement.</li>
+</ul></li>
 </ul>
+<p>A note on pre- and post- operations: a pre-increment or pre-decrement
+will update the operand’s value <em>before</em> using the value in an
+expression. A post-increment or post-decrement will update the operand’s
+value <em>after</em> using the current value in an expression.</p>
 <p>Let’s look at a coding example!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -406,9 +420,9 @@ tricky.</p>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;a = %d </span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> a<span class="op">);</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="op">++</span>a<span class="op">;</span> <span class="co">// first &#39;a&#39; becomes 6 and then stored in &#39;b&#39;;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="op">++</span>a<span class="op">;</span> <span class="co">// first &#39;a&#39; becomes 6 and then stored in &#39;b&#39;. Pre-increment.</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;b = %d </span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> b<span class="op">);</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> c <span class="op">=</span> a<span class="op">++;</span> <span class="co">// first &#39;a&#39; i.e. 6 is stored in &#39;c&#39; then &#39;a&#39; becomes 7.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> c <span class="op">=</span> a<span class="op">++;</span> <span class="co">// first &#39;a&#39; i.e. 6 is stored in &#39;c&#39; then &#39;a&#39; becomes 7. Post-increment.</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;c = %d </span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> c<span class="op">);</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> d <span class="op">=</span> a<span class="op">;</span> <span class="co">// a is now 7 in memory slot d.</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;d = %d </span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">);</span></span>
