@@ -1,6 +1,8 @@
 ---
 title: Switch Statements
-author: Ian Thomas
+author:
+  - Ian Thomas
+  - Mattehw Gibbons
 ---
 
 We have previously learned about `if-else` statements, but what if there was a more efficient way to handle multiple conditional arguments?
@@ -121,4 +123,63 @@ The output above prints
 
 Since the case for 4 is not broken, it executes the statement for the next case below. In this case it executes case 3's statement and then breaks.
 
-Overall, switch statements provide an efficient way of comparing a variable against multiple constants.
+## Switch Statement Versatility
+
+Much like if statements, you can nest switch statements inside switch cases. You can also do arithmetic and conditional statements (because true and false are represented by 1 and 0 in C) in the switch condition. We'll take a look at each of these uses of switch statements, plus one more weird thing you can do with switches (but shouldn't).
+
+### Nested Switch Statements
+
+Take a look at this small switch statement:
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    int option = 1;
+    int sub_option = 20;
+
+    switch(option)
+    {
+    case 1:
+        printf("Entered case 1...\n\n");
+        switch(sub_option){
+        case 10:
+            printf("Case 1 of the nested switch :(");
+            break;
+        case 20:
+            printf("Inside case 2 of the nested switch!\n");
+            break;
+        }
+        break;
+    case 2:
+        printf("Case 2 of the first switch statement :(\n");
+        break;
+
+    }
+        return 0;
+}
+```
+
+The output will be as follows:
+
+```
+Entered case 1...
+
+Inside case 2 of the nested switch!
+```
+
+You will notice that the print statement in case 1 is executed before the nested switch statement, which then executes case 20. After case 20 is executed and broken out of, the nested switch has ended and the break statement from case 1 is hit, terminating the outer switch statement and thus the program. A default is excluded from this example, but best practice is to add a default case as the last case of a switch statement.
+
+*Note:* These cases were named this way to make it easy to talk about, but you can have cases with the same names if the duplicate names are in different switch statements, including nested switch statements.
+
+### Arithmetic and Conditional Statements in Switch Conditions
+
+#### Conditions in Switch Cases
+
+### Weird Switch Cases
+
+First step: don't do this. You can use switch statements around other control structures, the most common being curly brackets.
+
+## Switch Statement Errors
+
