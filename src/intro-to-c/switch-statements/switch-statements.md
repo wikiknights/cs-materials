@@ -3,7 +3,7 @@ title: Switch Statements
 author: Ian Thomas
 ---
 
-We have previously learned about `if-else` statements, but what if there was a more efficient way to handle multiple conditional arguments? 
+We have previously learned about `if-else` statements, but what if there was a more efficient way to handle multiple conditional arguments?
 
 
 Consider the following program:
@@ -73,7 +73,7 @@ Functionally, this executes the same functions as the previous example. Let's br
 
 `switch(a)`
 
-This establishes the switch statement. It takes in a variable a to be compared. 
+This establishes the switch statement. It takes in a variable a to be compared.
 
 `case CONSTANT:`
 
@@ -115,10 +115,10 @@ int main(void)
 }
 ```
 
-The output above prints 
+The output above prints
 
 `Your movie is good!`
 
-Since the case for 4 is not broken, it executes the statement for the next case below. In this case it executes case 3's statement and then breaks. 
+Since the case for 4 is not broken, it executes the statement for the next case below. In this case it executes case 3's statement and then breaks.
 
 Overall, switch statements provide an efficient way of comparing a variable against multiple constants.
