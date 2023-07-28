@@ -83,21 +83,24 @@ enum enum_name {Const1, Const2, Const3, ..., ConstN} different_variable_name, va
 **Note:** Splitting the variable type up looks a bit strange. This is only done for the sake of example. The second option is nicer and cleaner.
 
 
-Now we can assign and use our enumerated values in code. Lets look at something simple using the `exp_value` example.
+Now we can assign and use our enumerated values in code. Lets look at something simple using the `exp_value` example. You'll notice the enum variables are not declared on the same line that the enum is defined. That is because it is best practice not to declare global variables.
 
-``` c
+``` {.c #dirt-growers}
 #include <stdio.h>
 
-enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crops, plants, dirt_growers;
+enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11};
 
 int main(void)
 {
+	enum exp_value crops, plants, dirt_growers;
+
 	crops = Onion;
 	plants = Corn;
 	dirt_growers = Potatoes;
 	printf("Onion Experience Gain: %d\n", crops);
 	printf("Corn Experience Gain: %d\n", plants);
 	printf("Potatoes Experience Gain: %d\n", dirt_growers);
+
 	return 0;
 }
 ```
@@ -139,16 +142,17 @@ enum name constant_1 = Const1;
 variable_name constant_2 = Const2;
 ```
 
-With this, we will be able to create an enum variable, rather than being restricted to the constants in the enumerated list. Let's look at this example.
+With this, we will be able to create an enum variable, rather than being restricted to the constants in the enumerated list. Let's look at this example where we use option 3.
 
-``` c
+``` {.c #mystery-example}
 #include <stdio.h>
 
-typedef enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crop_experience;
+enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11};
 
 int main(void)
 {
 	int x = 9;
+	typedef enum exp_value crop_experience;
 	crop_experience Mystery_crop = x;
 
 	switch(Mystery_crop)
@@ -175,11 +179,14 @@ Enumerated constants can only appear in one enumerated list. For example, this c
 ``` c
 #include <stdio.h>
 
-enum days_of_the_week {sun = 1, mon, tues, wed, thur, fri, sat} day;
-enum celsetial_bodies {sun, moon, jupiter} body;
+enum days_of_the_week {Sun = 1, Mon, Tues, Wed, Thur, Fri, Sat};
+enum celsetial_bodies {Sun, Moon, Jupiter};
 
 int main(void)
 {
+	enum celestial_bodies body;
+	enum days_of_the_week day;
+
 	day = mon;
 	printf("%d\n", mon);
 	body = sun;
@@ -188,4 +195,52 @@ int main(void)
 }
 ```
 
-In this case, `sun` appears in two enumerated lists, thus the error. You will also get an error if you use non-integer values.
+In this case, `Sun` appears in two enumerated lists, thus the error. You will also get an error if you use non-integer values.
+
+## Bad-Practice Uses of Enums
+
+In general, you shouldn't have global variables. However, enums provide a lot of versatility and wiggle room for things that will work. You may notice this being very similar to the [dirt grower example](#dirt-grower). The only difference is that `crops`, `plants`, and `dirt_growers` are now globally defined.
+
+``` C
+#include <stdio.h>
+
+enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crops, plants, dirt_growers;
+
+int main(void)
+{
+	crops = Onion;
+	plants = Corn;
+	dirt_growers = Potatoes;
+	printf("Onion Experience Gain: %d\n", crops);
+	printf("Corn Experience Gain: %d\n", plants);
+	printf("Potatoes Experience Gain: %d\n", dirt_growers);
+	return 0;
+}
+```
+
+If you recall the [Mystery Crop example](#mystery-example) we looked at, you'll notice this is that example with a global definition and `typedef` of `crop_experience`.
+
+``` c
+#include <stdio.h>
+
+typedef enum exp_value {Wheat = 2, Onion, Carrot, Corn = 7, Potatoes, Strawberries = 11} crop_experience;
+
+int main(void)
+{
+	int x = 9;
+	crop_experience Mystery_crop = x;
+
+	switch(Mystery_crop)
+	{
+		case Wheat:
+			printf("It is wheat.\n");
+			break;
+		case Onion:
+		...
+		default:
+			printf("You have found a new crop. You gained %d experience.\n", Mystery_crop);
+			break;
+	}
+	return 0;
+}
+```
