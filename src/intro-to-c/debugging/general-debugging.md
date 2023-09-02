@@ -59,9 +59,9 @@ int main(void)
     {
         printf("array1[%d] = %d\n", i, array1[i]);
     }
-	
+
     printf("\n");
-	
+
     for (int i = 1; i <= n; i++)
     {
         printf("array2[%d] = %d\n", i, array2[i]);
@@ -125,14 +125,14 @@ int main(void)
     {
         printf("array1[%d] = %d\n", i, array1[i]);
     }
-	
+
     printf("\n");
-	
+
     for (int i = 0; i < n; i++)
     {
         printf("array2[%d] = %d\n", i, array2[i]);
     }
-	
+
     return 0;
 }
 ```
@@ -252,7 +252,7 @@ int main(void)
     // b a n a n a
     // b a n a n a
     // b a n a n a
-	
+
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 100; j++)
@@ -261,8 +261,8 @@ int main(void)
         }
         printf("\n");
     }
-	
-	return 0;
+
+    return 0;
 }
 ```
 
@@ -437,43 +437,42 @@ int main(void)
 {
     double change = 0.00;
     int dollars = 0, quarters = 0, dimes = 0, nickels = 0, pennies = 0;
-    int factor = 100;  // For moving decimal points.
 
     printf("Enter the amount of change: ");
     scanf("%lf", &change);
-	
+
     printf("change initially = %0.20lf\n", change);
     change = (int)(round((change * 100)));
-    printf("change rounded = %0.20lf\n", change);
-	
+    printf("change multiplied by 100 and rounded = %0.20lf\n", change);
+
     while (change != 0)
     {
-        if (change >= 1 * factor)
+        if (change >= 100)
         {
             dollars++;
-            change = change - (1 * factor);
+            change = change - 100;
         }
-        else if (change >= 0.25 * factor)
+        else if (change >= 25)
         {
             quarters++;
-            change = change - (0.25 * factor);
+            change = change - 25;
         }
-        else if (change >= 0.10 * factor)
+        else if (change >= 10)
         {
             dimes++;
-            change = change - (0.10 * factor);
+            change = change - 10;
         }
-        else if (change >= 0.05 * factor)
+        else if (change >= 5)
         {
             nickels++;
-            change = change - (0.05 * factor);
+            change = change - 5;
         }
-        else if (change >= 0.01 * factor)
+        else if (change >= 1)
         {
             printf("pennies = %d\n", pennies);
             printf("change = %0.2lf\n", change);
             pennies++;
-            change = change - (0.01 * factor);
+            change = change - 1;
         }
         printf("change = %0.20lf\n", change);
     }
