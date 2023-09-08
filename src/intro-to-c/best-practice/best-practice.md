@@ -142,7 +142,6 @@ While it is great to have a program with plenty of options and features to opera
 
 This change is great if this program is expected to have more features in the future, perhaps as a mobile phone app or website. However, if this program is merely intended for a simple look at the weather, it may be worth considering leaving the original code as-is. It is important to weigh the "cognitive load" it takes to understand a program versus the potential investment it would take to make changes around it.
 
-## New Code by Addition, Not Subtraction
 
 ## Choose Consistency
 
