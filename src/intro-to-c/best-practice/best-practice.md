@@ -142,7 +142,9 @@ While it is great to have a program with plenty of options and features to opera
 
 This change is great if this program is expected to have more features in the future, perhaps as a mobile phone app or website. However, if this program is merely intended for a simple look at the weather, it may be worth considering leaving the original code as-is. It is important to weigh the "cognitive load" it takes to understand a program versus the potential investment it would take to make changes around it.
 
+## You Aren't Gonna Need It (YAGNI)
 
+This idea states to wait to add something into a program only when it is actually necessary. While it may sound exciting to add lots of new, flashy features to a program, it is important to take pause and think about if it is really needed. Any additions to a program automatically make it more difficult to understand.
 
 ## Choose Consistency
 
