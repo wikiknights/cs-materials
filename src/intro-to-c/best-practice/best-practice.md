@@ -13,6 +13,17 @@ Some programmers will argue that certain tips may not apply depending on the spe
 
 # Best Practices for Any Language
 
+## Reduce Cognitive Load
+
+"Cognitive load" is a measure of how much time and effort it takes to understand something (particularly code in this case). Behind most other best practices lies this principle.
+
+An important goal with programming, especially when working with others (including your future self) is to reduce the amount of time and effort it takes to understand a piece of code. If a programmer works on a project, leaves to focus on something else for a few months, then come back to work on it again, how long would it take for them to understand how everything works again? What if they left for a year? What if a completely different programmer continued to work on it? This is the idea behind cognitive load.
+
+There will always be some cognitive load associated with any project, so it cannot be removed entirely, but measures can be taken during the coding process to alleviate the headaches of someone else later. Here are some signals that your code may have more cognitive load than it needs:
+
+- You have extra information about how your code works in your head that is not written anywhere.
+- While abstraction is good, too much can make understanding code difficult, as a programmer may need to jump to many different functions to fully understand a segment of code. Some code is prematurely optimized, before a certain level of abstraction is needed.
+
 ## The Single-Responsibility Principle (SRP)
 
 The *single-responsibility principle* states that "A module should be responsible to one, and only one, actor." In practice, this means that a function should only ever do one thing. This principle also applies to structs in C, and in other programming languages, this applies to objects.
