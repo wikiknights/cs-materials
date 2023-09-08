@@ -143,18 +143,18 @@ While it is great to have a program with plenty of options and features to opera
 This change is great if this program is expected to have more features in the future, perhaps as a mobile phone app or website. However, if this program is merely intended for a simple look at the weather, it may be worth considering leaving the original code as-is. It is important to weigh the "cognitive load" it takes to understand a program versus the potential investment it would take to make changes around it.
 
 
+
 ## Choose Consistency
 
-In:
+When writing code, choose a consistent scheme in every aspect where possible. Here are a few points where you may think about being consistent:
 
-- Style (indentation et al.)
-- Variable names
-- Verbiage of functions (i.e. "check_window()" and "window_checking()" do not belong together)
-  - And mirroring - "enter" and "exit", versus "open" and "close"
-- The orders of things
+- **Style and formatting.** (This includes indentation, spacing, alignment of brackets, etc.)
+- **Variable names.** When creating variables across a program, use the same naming conventions across all parts.
+- **Verbiage of function names.** When creating functions, use the form to name functions. For example, `check_window()` and `window_checking()` use two different grammatical structures and should ideally not be in the same program. A common approach is to have all functions start with a verb, but this may not be preferred in all contexts.
+- **Mirroring of function names.** This is similar to the last point, but is specifically targeted for functions that serve related purposes. Use word pairings that are common in language, like "enter/exit," or "open/close." For example, suppose there is a program that reads a file, gathers some data, then finishes. When the program begins and ends, it is generally not a good practice to have functions named `open_file()` and `exit_file()`, as "open" and "exit" are not consistent. It would be more appropriate to use `open_file()` and `close_file()` in this case.
+- **Ordering.** If a certain process has steps to begin and steps to end, it is good to mirror these steps across each. As an example, consider the tire changing example from earlier. If the setup process uses "purchase a tire" first then "take out tools" second, the teardown process should use "put away tools" first then "discard tire" second to mirror the order from before.
 
-If in a larger project, agree upon a standard and style guide. Use linting if desired.
-
+An additional great way to be consistent is to adhere to a *style guide*. Nearly every language and framework has a style guide (sometimes created by the people who made it), and offer a standardized way to write code. A certain style can be made easier to commit to by using a *linter*, a type of tool used by programmers to enforce good coding patterns.
 
 ## Write Comments
 
