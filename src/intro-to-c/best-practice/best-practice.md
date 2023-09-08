@@ -160,6 +160,10 @@ An additional great way to be consistent is to adhere to a *style guide*. Nearly
 
 ## Write Comments
 
+Comments are the number one best way for programmers to communicate with each other, either across space (with other people) or across time (with yourself). By writing constructive comments about the thought processes involved with writing code, a programmer can help someone else to understand the logic later, without needing to take the time to trace these steps for themselves.
+
+Use comments to explain on a high level *why* things were designed the way they were, possibly some of the advantages and limitations, or what groups of code does that may not otherwise be clear. Comments help tell the story of how code works.
+
 # Best Practices for C
 
 ## Defined Function Parameters
