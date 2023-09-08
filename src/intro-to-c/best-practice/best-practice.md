@@ -136,7 +136,7 @@ However, something else to keep in mind is that the original code seen may be pe
 
 ## Keep It Simple, Stupid (KISS)
 
-It is important as a programmer to consider how "complex" a program needs to be. Another way to say this is the following: if a program doesn't need to be more complicated, don't make it more complicated. Programs with increasing length and complexity usually necessitate more time for other programmers to understand them (or even yourself if you have not seen the program in a while). 
+It is important as a programmer to consider how "complex" a program needs to be. Another way to say this is the following: if a program doesn't need to be more complicated, don't make it more complicated. Programs with increasing length and complexity usually necessitate more time for other programmers to understand them (or even yourself if you have not seen the program in a while).
 
 While it is great to have a program with plenty of options and features to operate in a variety of situations, this is not all there is to creating programs. Consider, for example, the previous weather program. The functionality of showing the current weather was initially simple with four lines, and then changed to use a more nuanced approach, separating the list of default locations from the code that shows the current weather.
 
