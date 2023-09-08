@@ -156,7 +156,6 @@ In:
 
 If in a larger project, agree upon a standard and style guide. Use linting if desired.
 
-## Avoid Side-Effects
 
 ## Write Comments
 
