@@ -164,6 +164,57 @@ Comments are the number one best way for programmers to communicate with each ot
 
 Use comments to explain on a high level *why* things were designed the way they were, possibly some of the advantages and limitations, or what groups of code does that may not otherwise be clear. Comments help tell the story of how code works.
 
+
 # Best Practices for C
 
+These practices are specific to the C language and some of its specific eccentricities.
+
 ## Defined Function Parameters
+
+Functions in C do not *require* a set of function parameters. For example, this is a valid function:
+
+``` c
+// Generate a random integer between 0 and 99.
+// (Assume that everything is set up correctly for random number generation.)
+int generate_number()
+{
+  int random_number = rand() % 100;
+  return random_number;
+}
+```
+
+No problems here! But a strange thing can happen when you call this function...
+
+``` c
+// Assume all required libraries are included.
+int main(void)
+{
+  int numbers[4];
+
+  int seed = 23512;
+  srand(seed);
+
+  // Should these work?
+  numbers[0] = generate_number();
+  numbers[1] = generate_number(seed);
+  numbers[2] = generate_number(7);
+  numbers[3] = generate_number(5, 5.5, 21, "apples");
+
+  for (int i = 0; i < 4; i++)
+  {
+    printf("numbers[%d] = %d\n", i, numbers[i]);
+  }
+
+  return 0;
+}
+```
+
+While the `generate_number` function is called with a variety of different arguments, this still works! This is not considered a good practice because the function can be used ambiguously, using *undefined function parameters*.
+
+Functions should always have defined parameters. Thus, it would be better to write `generate_number` like the following:
+
+``` c
+int generate_number(void)
+```
+
+With the addition of `void`, there is now an explicit expectation that no arguments are used with the `generate_number` function.
