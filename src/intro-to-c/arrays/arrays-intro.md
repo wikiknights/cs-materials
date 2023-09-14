@@ -155,11 +155,11 @@ We create an array of integers, with a size of 5. Currently, it is empty.
 numbers[x] = x*2;
 ```
 Using our counter variable, x, we access the element in our array at index x. 
-Then, we use the assignment operator to set this element equal to whatever the counter variable is currently multiplied by 2.
+Then, we use the assignment operator to set this element equal to what the counter variable is currently, multiplied by 2.
 So, for instance, if x = 3, our loop would essentially be doing this:
 
 ```c
-numbers[3] = 3 * 2;
+numbers[3] = 3*2;
 ```
 Thus, the element at `numbers[3]` would be equal to 6.
 
@@ -258,3 +258,27 @@ By the time i = 5 in our loop, we start getting some wacky numbers. We are acces
 and the program is unsafe. This is extremely dangerous,
 at this point we have abandoned our trajectory and are reaching beyond the known limits of the universe, 
 where physics starts breaking down, etc.
+
+### Variable Length Arrays (VLAs)
+
+Let's say you want to create an array, but you don't know what
+size it will be at runtime. At this point, you may not know about using `malloc` to create arrays, so you may think, "What if I just ask the user how big they want the array to be?"
+
+```c
+int n;
+printf("how many numbers?\n");
+scanf("%d", &n);
+int nums[n];
+```
+
+This is bad practice. Without getting into too much detail,
+currently, when creating an array the traditional way (using brackets), we are creating an array in the stack space, which has limited memory. If the user enters an incredibly large number when we are using VLAs:
+
+```c
+$ ./a.out
+how many numbers?
+10000000000000000000
+Segmentation fault
+```
+
+We get a segmentation fault. We just allowed the user to crash the program, since we allowed them to overflow the stack memory. This is why, most of the time, if we do not know how large our array will be at runtime, we want to use `malloc`, or any other related memory allocation function, since we can have much more space, and also catch these errors in case the user wants to try pulling anything sneaky like this.
