@@ -1,6 +1,6 @@
 ---
-title: Arrays
-author: Bed Pandey
+title: Array Introduction
+author: Bed Pandey, Carson Cox
 ---
 
 <h1>TODO</h1>
@@ -8,7 +8,11 @@ author: Bed Pandey
 
 Arrays can be used to represent a collection of items with the same datatype. For instance, let's say we wanted an array to represent the grades our class got for a test in our hypothetical class of size 5.
 
-`[ 92.5 | 52.4 | 75.0 | 82.0 | 88.9 ]`
+```
++------+------+------+------+------+
+| 92.5 | 52.4 | 75.0 | 82.0 | 88.9 |
++------+------+------+------+------+
+```
 
 This is a common representation of an array, a one-dimensional grid with a specific size. Since our array should have 5 grades, we have 5 separate cells we can put our data in.
 
@@ -35,7 +39,11 @@ However, we have only just created the array to hold our grades in, but not actu
 ## Populating our Array
 Currently, our array (essentially) looks like this:
 
-`[     |     |     |     |     ]`
+```
++------+------+------+------+------+
+|      |      |      |      |      |
++------+------+------+------+------+
+```
 
 It's empty and barren. Let's put some grades into it!
 
@@ -53,7 +61,11 @@ grades[0] = 92.5; // first cell of the grades array will have an index of 0
 Great! Now we have one grade in... but what about the rest?
 Our array currently looks like this now:
 
-`[ 92.5 |      |      |      |      ]`
+```
++------+------+------+------+------+
+| 92.5 |      |      |      |      |
++------+------+------+------+------+
+```
 
 We've populated the first cell with a grade, by using our array access operator. We can do this for the rest of the grades as well:
 
@@ -65,16 +77,24 @@ grades[3] = 82.0;
 grades[4] = 88.9;
 ```
 
+Here is what our array looks like now:
+
+```
++------+------+------+------+------+
+| 92.5 | 52.4 | 75.0 | 82.0 | 88.9 |
++------+------+------+------+------+
+```
+
 Now we finally have our array full of grades! Obviously, this is a pretty tedious way to populate our array; we just manually typed out the grades for each student! However, there are other ways in which we can initialize and populate an array:
 
-### Other Ways to Create and Populate an Array
+## Other Ways to Create and Populate an Array
 
-#### Initializer List
+### Initializer List
 If we already know what will be in our array, we can create an array like this, using what is called an initializer list:
 ```c
 int favorite_numbers[] = {3, 5, 9, 2184, 1, 3141592};
 ```
-Notice how we didn't need to specify the size of the array. This is because we used curly brackets (`{}`) to 'initialize' our array inline, so C will automatically create our array with the smallest size needed to house all of our elements. We can verify this by using `sizeof`:
+Notice how we didn't need to specify the size of the array. This is because we used curly brackets (`{}`) to 'initialize' our array inline, so C will automagically create our array with the smallest size needed to house all of our elements. We can verify this by using `sizeof`:
 
 <details>
 <summary>Show code</summary>
@@ -107,7 +127,7 @@ float grades[5] = {92.5, 52.4, 75.0, 82.0, 88.9};
 int numbers[3] = {1, 2, 3, 4, 5}; // array of size 3 with 5 elements?! uh oh...
 ```
 
-#### Loops
+### Loops
 We can also use loops to initialize our array, such as a for loop. Can you guess what our array will look like after running this code?
 
 ```c
