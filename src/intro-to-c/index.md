@@ -49,6 +49,8 @@ toc: false
 
 ## Arrays and Strings
 
+[Array Introduction](arrays/arrays-intro.md)
+
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
 
 [Strings Introduction](strings/strings-intro.md)

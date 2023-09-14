@@ -3,9 +3,6 @@ title: Array Introduction
 author: Bed Pandey, Carson Cox
 ---
 
-<h1>TODO</h1>
-<h2>This page is under construction!!!</h2>
-
 Arrays can be used to represent a collection of items with the same datatype. For instance, let's say we wanted an array to represent the grades our class got for a test in our hypothetical class of size 5.
 
 ```
@@ -132,12 +129,132 @@ We can also use loops to initialize our array, such as a for loop. Can you guess
 
 ```c
 int numbers[5];
-for (int i = 0; i < 5; i++) {
-    numbers[i] = i*2;
+for (int x = 0; x < 5; x++) {
+    numbers[x] = x*2;
 }
 ```
 <details>
 <summary>Reveal answer</summary>
-`[  0  |  2  |  4  |  6  |  8  ]`
+
+```
++-----+-----+-----+-----+-----+
+|  0  |  2  |  4  |  6  |  8  |
++-----+-----+-----+-----+-----+
+```
+
 </details>
 
+Let's break down what the array parts of our code does.
+
+```c
+int numbers[5];
+```
+We create an array of integers, with a size of 5. Currently, it is empty.
+
+```c
+numbers[x] = x*2;
+```
+Using our counter variable, x, we access the element in our array at index x. 
+Then, we use the assignment operator to set this element equal to whatever the counter variable is currently multiplied by 2.
+So, for instance, if x = 3, our loop would essentially be doing this:
+
+```c
+numbers[3] = 3 * 2;
+```
+Thus, the element at `numbers[3]` would be equal to 6.
+
+## Being Careful With Arrays
+Arrays are powerful. However, this also means that if you aren't careful, 
+you can really mess things up!
+
+### Out of Bounds
+One common mistake one might make is forgetting that arrays in C start at 0, and end at `n - 1`, 
+n being the size of the array. If you declare an array with 
+
+```c
+int arr[5] = {10, 20, 30, 40, 50};
+```
+
+Remember that to access the first element, in this case 10, we would use `arr[0]`. To access the last element,
+we would need to know how large the array is, and subtract 1 from that number. We declared the array with a size of 5,
+so to access the last element in the array, we would use `arr[4]`, which in this case is 50.
+
+It is **extremely** important to be aware of the sizes of your arrays. If you have an array of size 5, and try accessing 
+what is in index 5, (e.g. `arr[5]`) C will let you do this! However, this may cause unintended behavior, and at this point, 
+we're crossing into dangerous territory. 
+
+```
++------+------+------+------+------+
+|  10  |  20  |  30  |  40  |  50  |   *?*&!( 
++------+------+------+------+------+
+                                         ^
+```
+
+Because we accidentally accessed the array element at index 5, we get garbage data!
+
+Here's an example program to show what can happen if you access 
+far beyond the limits of what you defined your array to be:
+
+<details>
+<summary>Show code and output</summary>
+
+```c
+#include <stdio.h>
+
+int main(void) {
+// define an integer array of size 5, and assign numbers
+int numbers[5] = {7, 14, 2, 3, 4};
+// try accessing the 25th index of our numbers array
+// ...which doesn't make sense, since our array has a size of 5!
+numbers[25] = 20;
+
+	// try printing every single element 
+	for (int i = 0; i <= 25; i++) {
+		// print a warning when i is greater than the last index of our array
+		if (i == 5)
+			printf("\nwarning: entering uncharted territory!\n");
+		// print the number located in the i-th index of numbers
+		printf("i: %d, numbers[i]: %d\n", i, numbers[i]);
+	}
+	return 0;
+}
+```
+
+```
+$ ./a.out
+i: 0, numbers[i]: 7
+i: 1, numbers[i]: 14
+i: 2, numbers[i]: 2
+i: 3, numbers[i]: 3
+i: 4, numbers[i]: 4
+
+warning: entering uncharted territory!
+i: 5, numbers[i]: 0
+i: 6, numbers[i]: 920873472
+i: 7, numbers[i]: 751128285
+i: 8, numbers[i]: 1
+i: 9, numbers[i]: 0
+i: 10, numbers[i]: -1641050736
+i: 11, numbers[i]: 32569
+i: 12, numbers[i]: 0
+i: 13, numbers[i]: 0
+i: 14, numbers[i]: 1475289481
+i: 15, numbers[i]: 22057
+i: 16, numbers[i]: -1290891536
+i: 17, numbers[i]: 1
+i: 18, numbers[i]: -1290891512
+i: 19, numbers[i]: 32767
+i: 20, numbers[i]: 0
+i: 21, numbers[i]: 0
+i: 22, numbers[i]: -1257979970
+i: 23, numbers[i]: -1807158654
+i: 24, numbers[i]: -1290891512
+i: 25, numbers[i]: 20
+```
+
+</details>
+
+By the time i = 5 in our loop, we start getting some wacky numbers. We are accessing garbage values at this point,
+and the program is unsafe. This is extremely dangerous,
+at this point we have abandoned our trajectory and are reaching beyond the known limits of the universe, 
+where physics starts breaking down, etc.
