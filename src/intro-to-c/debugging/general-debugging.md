@@ -425,7 +425,7 @@ However, not all floating-point values can be represented exactly; most are only
 
 One way we can avoid this issue is by moving the decimal points of our input and conditional values further to the right so that we can deal only with integers. Since we care about `change` only to the hundredths place, we can move the decimal point two places to the right by multiplying all of the relevant values by 100.
 
-In addition, we need to ensure the floating-point value will round to the correct integer value. If you look at the output above, you will notice that 0.39 is represented roughly as 0.389, which means that we need to round up to get 0.39 rather than 0.38 cents. A simple integer cast won't work because that will discard the fractional part of the number and round the number down (i.e., toward zero). However, in the `<math.h>` library, there is a function called `round()` that we can use alongside a cast to get the correct result.
+In addition, we need to ensure the floating-point value will round to the correct integer value. If you look at the output above, you will notice that 0.39 is represented roughly as 0.389, which means that we need to round up to get 0.39 rather than 0.38 cents. A simple integer cast won't work because that will discard the fractional part of the number and round the number down (i.e., toward zero). However, in the `<math.h>` library, there is a function called `round()` that we can use to get the correct result to assign to an `int` variable.
 
 *Note*: if you ever use the `<math.h>` library, you need to compile your source file with the `-lm` flag (e.g., `gcc change.c -lm`).
 
@@ -435,15 +435,15 @@ In addition, we need to ensure the floating-point value will round to the correc
 
 int main(void)
 {
-    double change = 0.00;
-    int dollars = 0, quarters = 0, dimes = 0, nickels = 0, pennies = 0;
+    double temp = 0.00;
+    int change = 0, dollars = 0, quarters = 0, dimes = 0, nickels = 0, pennies = 0;
 
     printf("Enter the amount of change: ");
-    scanf("%lf", &change);
+    scanf("%lf", &temp);
 
-    printf("change initially = %0.20lf\n", change);
-    change = (int)(round((change * 100)));
-    printf("change multiplied by 100 and rounded = %0.20lf\n", change);
+    printf("change initially = %0.20lf\n", temp);
+    change = round(temp * 100);
+    printf("change multiplied by 100 and rounded = %d\n", change);
 
     while (change != 0)
     {
@@ -470,11 +470,11 @@ int main(void)
         else if (change >= 1)
         {
             printf("pennies = %d\n", pennies);
-            printf("change = %0.2lf\n", change);
+            printf("change = %d\n", change);
             pennies++;
             change = change - 1;
         }
-        printf("change = %0.20lf\n", change);
+        printf("change = %d\n", change);
     }
 
     printf("%d Dollars\n", dollars);
@@ -490,25 +490,25 @@ int main(void)
 ``` {.terminal}
 Enter the amount of change: 4.39
 change initially = 4.38999999999999968026
-change rounded = 439.00000000000000000000
-change = 339.00000000000000000000
-change = 239.00000000000000000000
-change = 139.00000000000000000000
-change = 39.00000000000000000000
-change = 14.00000000000000000000
-change = 4.00000000000000000000
+change multiplied by 100 and rounded = 439
+change = 339
+change = 239
+change = 139
+change = 39
+change = 14
+change = 4
 pennies = 0
-change = 4.00
-change = 3.00000000000000000000
+change = 4
+change = 3
 pennies = 1
-change = 3.00
-change = 2.00000000000000000000
+change = 3
+change = 2
 pennies = 2
-change = 2.00
-change = 1.00000000000000000000
+change = 2
+change = 1
 pennies = 3
-change = 1.00
-change = 0.00000000000000000000
+change = 1
+change = 0
 4 Dollars
 1 Quarters
 1 Dimes
