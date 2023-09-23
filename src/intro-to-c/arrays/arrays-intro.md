@@ -23,7 +23,7 @@ To create an array, we need to specify the datatype, a variable name, and the si
 ```c
 float grades[5];
 ```
-Here, we just created an array of size 5 with a datatype of `float`, meaning each element in this array should be a `float`. 
+Here, we just created an array of size 5 with a datatype of `float`, meaning each element in this array should be a `float`.
 
 We can also have different types:
 
@@ -168,7 +168,7 @@ We create an array of integers, with a size of 5. Currently, it is empty.
 ```c
 numbers[x] = x*2;
 ```
-Using our counter variable, x, we access the element in our array at index x. 
+Using our counter variable, x, we access the element in our array at index x.
 Then, we use the assignment operator to set this element equal to what the counter variable is currently, multiplied by 2.
 So, for instance, if x = 3, our loop would essentially be doing this:
 
@@ -179,11 +179,11 @@ Thus, the element at `numbers[3]` would be set to 6.
 Since this loop runs from 0 to 4, then we will apply this "formula" for each cell in the array.
 
 ## Being Careful With Arrays
-Arrays are powerful. However, this also means that if you aren't careful, 
+Arrays are powerful. However, this also means that if you aren't careful,
 you can really mess things up!
 
 ### Out of Bounds
-One common mistake one might make is forgetting that arrays in C start at 0, and end at `n - 1`, 
+One common mistake one might make is forgetting that arrays in C start at 0, and end at `n - 1`,
 n being the size of the array. If you declare an array with the following statement:
 
 ```c
@@ -194,13 +194,13 @@ Remember that to access the first element, in this case 10, we would use `arr[0]
 we would need to know how large the array is, and subtract 1 from that number. We declared the array with a size of 5,
 so to access the last element in the array, we would use `arr[4]`, which in this case holds 50.
 
-It is **extremely** important to be aware of the sizes of your arrays. If you have an array of size 5, and try accessing 
-what is in index 5, (e.g. `arr[5]`) C will let you do this! However, this may cause unintended behavior, and at this point, 
-we're crossing into dangerous territory. 
+It is **extremely** important to be aware of the sizes of your arrays. If you have an array of size 5, and try accessing
+what is in index 5, (e.g. `arr[5]`) C will let you do this! However, this may cause unintended behavior, and at this point,
+we're crossing into dangerous territory.
 
 ```
 +------+------+------+------+------+
-|  10  |  20  |  30  |  40  |  50  |   *?*&!( 
+|  10  |  20  |  30  |  40  |  50  |   *?*&!(
 +------+------+------+------+------+
                                          ^
 ```
@@ -208,7 +208,7 @@ we're crossing into dangerous territory.
 Because we accidentally accessed the array element at index 5, we get garbage data! This could even be parts of memory
 that the program is not supposed to be able to access.
 
-Here's an example program to show what can happen if you access 
+Here's an example program to show what can happen if you access
 far beyond the limits of what you defined your array to be:
 
 <details>
@@ -224,7 +224,7 @@ int main(void) {
     // ...which doesn't make sense, since our array has a size of 5!
     numbers[25] = 20;
 
-	// try printing every single element 
+	// try printing every single element
 	for (int i = 0; i <= 25; i++) {
 		// print a warning when i is greater than the last index of our array
 		if (i == 5)
@@ -272,7 +272,7 @@ i: 25, numbers[i]: 20
 
 By the time i = 5 in our loop, we start getting some wacky numbers. We are accessing garbage values at this point,
 and the program is unsafe. This is extremely dangerous,
-at this point we have abandoned our trajectory and are reaching beyond the known limits of the universe, 
+at this point we have abandoned our trajectory and are reaching beyond the known limits of the universe,
 where physics starts breaking down, etc.
 
 ### Variable Length Arrays (VLAs)
