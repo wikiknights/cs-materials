@@ -1,6 +1,8 @@
 ---
 title: Array Introduction
-author: Bed Pandey, Carson Cox
+author:
+    - Bed Pandey
+    - Carson Cox
 ---
 
 Arrays can be used to represent a collection of items with the same datatype. For instance, let's say we wanted an array to represent the grades our class got for a test in our hypothetical class of size 5.
