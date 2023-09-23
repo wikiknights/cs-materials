@@ -85,7 +85,7 @@ Here is what our array looks like now:
 ```
 
 You can also overwrite the values in an array by using the array access operator:
-```
+```c
 grades[3] = 23.0 // they failed...
 ```
 
@@ -290,7 +290,7 @@ int nums[n];
 This is bad practice. Without getting into too much detail,
 currently, when creating an array the traditional way (using brackets), we are creating an array in the stack space, which has limited memory. If the user enters an incredibly large number when we are using VLAs:
 
-```c
+``` {.terminal}
 $ ./a.out
 how many numbers?
 10000000000000000000
