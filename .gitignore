@@ -17,6 +17,4 @@ Thumbs.db
 *.html
 out/
 tmp.md
-.idea/vcs.xml
-.idea/modules.xml
-.idea/cs-materials.iml
+.idea
