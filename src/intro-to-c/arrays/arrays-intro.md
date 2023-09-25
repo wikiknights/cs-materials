@@ -51,7 +51,11 @@ Currently, our array (essentially) looks like this:
 +------------+------------+------------+------------+------------+
 ```
 
-It's empty and barren. Let's put some grades into it!
+It's empty* and barren. Let's put some grades into it!
+
+_*Technically, when we instantiate an array like this, our array isn't really empty. Instead,
+it's filled with garbage values. We will learn more about this later, but it is important
+to know, since accessing these array values when we have garbage values still in them may give unintended behavior._
 
 To access each cell in an array, we have to know what _index_ we want to access first. 
 You may have noticed that on top of each cell, we have a number next to the array name (for instance, `grades[0]`). This represents the index of each cell in our grades array.
@@ -312,3 +316,52 @@ Segmentation fault
 ```
 
 We get a segmentation fault. We just allowed the user to crash the program, since we allowed them to overflow the stack memory. This is why, most of the time, if we do not know how large our array will be at runtime, we want to use `malloc`, or any other related memory allocation function, since we can have much more space, and also catch these errors in case the user wants to try pulling anything sneaky like this.
+
+### "Empty" Arrays and Garbage Values
+All the way back up, we had a visualization an "empty" array. Here's another example, using
+`nums` as a variable instead:
+```
+    nums[0]      nums[1]      nums[2]      nums[3]      nums[4]
++------------+------------+------------+------------+------------+
+|            |            |            |            |            |
++------------+------------+------------+------------+------------+
+```
+However, in reality, if we created an array (for instance, using `int nums[5]`), our array
+actually looks more like this:
+```
+    nums[0]      nums[1]      nums[2]      nums[3]      nums[4]
++------------+------------+------------+------------+------------+
+|   ^&*%$*   |   *&%$%(   |   &*#$^{   |   *&^$#%   |   &*%$^*   |
++------------+------------+------------+------------+------------+
+```
+What we're representing here is how, when creating an array with seemingly "nothing" in it (such as only writing `int nums[5]`), our array is actually initialized with garbage values. We can actually see this with our own eyes if we just print the array before we actually put any values in it!
+
+<details>
+<summary>Show code and output</summary>
+
+```c
+#include <stdio.h>
+
+int main(void) {
+	int nums[5];
+	for (int i = 0; i < 5; i++) {
+		printf("nums[%d]: %d\n", i, nums[i]);
+	}
+
+	return 0;
+}
+```
+
+```
+$ ./a.out 
+nums[0]: -1041127463
+nums[1]: 32766
+nums[2]: 100
+nums[3]: 0
+nums[4]: 4096
+```
+
+</details>
+
+More wacky numbers! This is why it's important to make sure you properly initialize your array
+after creating it. You may also look into using `calloc` to initialize your arrays with zeroes.
