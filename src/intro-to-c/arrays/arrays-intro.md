@@ -244,7 +244,7 @@ int main(void) {
 		if (i == 5)
 			printf("\nwarning: entering uncharted territory!\n");
 		// print the number located in the i-th index of numbers
-		printf("i: %d, numbers[i]: %d\n", i, numbers[i]);
+        printf("numbers[%d]: %d\n", i, numbers[i]);
 	}
 	return 0;
 }
@@ -252,39 +252,39 @@ int main(void) {
 
 ```
 $ ./a.out
-i: 0, numbers[i]: 7
-i: 1, numbers[i]: 14
-i: 2, numbers[i]: 2
-i: 3, numbers[i]: 3
-i: 4, numbers[i]: 4
+numbers[0]: 7
+numbers[1]: 14
+numbers[2]: 2
+numbers[3]: 3
+numbers[4]: 4
 
 warning: entering uncharted territory!
-i: 5, numbers[i]: 0
-i: 6, numbers[i]: 920873472
-i: 7, numbers[i]: 751128285
-i: 8, numbers[i]: 1
-i: 9, numbers[i]: 0
-i: 10, numbers[i]: -1641050736
-i: 11, numbers[i]: 32569
-i: 12, numbers[i]: 0
-i: 13, numbers[i]: 0
-i: 14, numbers[i]: 1475289481
-i: 15, numbers[i]: 22057
-i: 16, numbers[i]: -1290891536
-i: 17, numbers[i]: 1
-i: 18, numbers[i]: -1290891512
-i: 19, numbers[i]: 32767
-i: 20, numbers[i]: 0
-i: 21, numbers[i]: 0
-i: 22, numbers[i]: -1257979970
-i: 23, numbers[i]: -1807158654
-i: 24, numbers[i]: -1290891512
-i: 25, numbers[i]: 20
+numbers[5]: 0
+numbers[6]: -1575731456
+numbers[7]: -1231441846
+numbers[8]: 1
+numbers[9]: 0
+numbers[10]: -1815982704
+numbers[11]: 32633
+numbers[12]: 0
+numbers[13]: 0
+numbers[14]: 1721135497
+numbers[15]: 21954
+numbers[16]: -301701456
+numbers[17]: 1
+numbers[18]: -301701432
+numbers[19]: 32766
+numbers[20]: 0
+numbers[21]: 0
+numbers[22]: -710817234
+numbers[23]: 711796881
+numbers[24]: -301701432
+numbers[25]: 20
 ```
 
 </details>
 
-By the time i = 5 in our loop, we start getting some wacky numbers. We are accessing garbage values at this point,
+By the time our index is 5 in our loop, we start getting some wacky numbers. We are accessing garbage values at this point,
 and the program is unsafe. This is extremely dangerous,
 at this point we have abandoned our trajectory and are reaching beyond the known limits of the universe,
 where physics starts breaking down, etc.
