@@ -26,7 +26,12 @@ float grades[5];
 ```
 Here, we just created an array called "grades" of size 5 with a datatype of `float`, meaning each element in this array should be a `float`.
 
-We can also have different types:
+A generic form of creating arrays looks like this:
+```
+<datatype> <variablename>[<size>];
+```
+
+So, using this format, we can also have different types:
 
 ```c
 int pineapples[10];     // integer array of size 10
