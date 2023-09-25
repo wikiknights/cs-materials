@@ -8,9 +8,10 @@ author:
 Arrays can be used to represent a collection of items with the same datatype. For instance, let's say we wanted an array to represent the grades our class got for a test in our hypothetical class of size 5.
 
 ```
-+------+------+------+------+------+
-| 92.5 | 52.4 | 75.0 | 82.0 | 88.9 |
-+------+------+------+------+------+
+   grades[0]    grades[1]    grades[2]    grades[3]    grades[4]
++------------+------------+------------+------------+------------+
+|    92.5    |    52.4    |    75.0    |    82.0    |    88.9    |
++------------+------------+------------+------------+------------+
 ```
 
 This is a common representation of an array, a one-dimensional grid with a specific size. Since our array should have 5 grades, we have 5 separate cells we can put our data in.
@@ -39,14 +40,17 @@ However, in our previous example, we only created the _skeleton_ that can hold o
 Currently, our array (essentially) looks like this:
 
 ```
-+------+------+------+------+------+
-|      |      |      |      |      |
-+------+------+------+------+------+
+   grades[0]    grades[1]    grades[2]    grades[3]    grades[4]
++------------+------------+------------+------------+------------+
+|            |            |            |            |            |
++------------+------------+------------+------------+------------+
 ```
 
 It's empty and barren. Let's put some grades into it!
 
-To access each cell in an array, we have to know what _index_ we want to access first. The index represents the location of a cell in an array. An important thing to note about C (and many other programming languages) is that array indexes start at **0**.
+To access each cell in an array, we have to know what _index_ we want to access first. 
+You may have noticed that on top of each cell, we have a number next to the array name (for instance, `grades[0]`). This represents the index of each cell in our grades array.
+The index represents the location of a cell in an array. An important thing to note about C (and many other programming languages) is that array indexes start at **0**.
 
 What does this mean? Well, if we wanted the index of the first cell, we wouldn't use 1. Instead, we would use 0 to represent the first cell in an array. This also means that if we wanted to access the last cell in an array, we would use `n - 1`, `n` being the size of the array. For instance, in our `grades` array of size 5, if we wanted to access the last element, we would use index 4, since we start from 0 for our indexes.
 
@@ -61,9 +65,10 @@ Great! Now we have one grade in... but what about the rest?
 Our array currently looks like this now:
 
 ```
-+------+------+------+------+------+
-| 92.5 |      |      |      |      |
-+------+------+------+------+------+
+   grades[0]    grades[1]    grades[2]    grades[3]    grades[4]
++------------+------------+------------+------------+------------+
+|    92.5    |            |            |            |            |
++------------+------------+------------+------------+------------+
 ```
 
 We've populated the first cell with a grade, by using our array access operator. We can do this for the rest of the grades as well:
@@ -79,9 +84,10 @@ grades[4] = 88.9; // this is the last element we can access in our grades array!
 Here is what our array looks like now:
 
 ```
-+------+------+------+------+------+
-| 92.5 | 52.4 | 75.0 | 82.0 | 88.9 |
-+------+------+------+------+------+
+   grades[0]    grades[1]    grades[2]    grades[3]    grades[4]
++------------+------------+------------+------------+------------+
+|    92.5    |    52.4    |    75.0    |    82.0    |    88.9    |
++------------+------------+------------+------------+------------+
 ```
 
 You can also overwrite the values in an array by using the array access operator:
@@ -91,9 +97,10 @@ grades[3] = 23.0 // they failed...
 
 Here's a preview of the array after overwriting what's in index 3 of `grades`:
 ```
-+------+------+------+------+------+
-| 92.5 | 52.4 | 75.0 | 23.0 | 88.9 |
-+------+------+------+------+------+
+   grades[0]    grades[1]    grades[2]    grades[3]    grades[4]
++------------+------------+------------+------------+------------+
+|    92.5    |    52.4    |    75.0    |    23.0    |    88.9    |
++------------+------------+------------+------------+------------+
 ```
 
 Now we finally have our array full of grades! Obviously, this is a pretty tedious way to populate our array; we just manually typed out the grades for each student! However, there are other ways in which we can initialize and populate an array:
@@ -142,18 +149,19 @@ int numbers[3] = {1, 2, 3, 4, 5}; // array of size 3 with 5 elements?! uh oh...
 We can also use loops to initialize our array, such as a for loop. Can you guess what our array will look like after running this code?
 
 ```c
-int numbers[5];
-for (int x = 0; x < 5; x++) {
-    numbers[x] = x*2;
+int nums[5];
+for (int i = 0; i < 5; i++) {
+    nums[i] = i*2;
 }
 ```
 <details>
 <summary>Reveal answer</summary>
 
 ```
-+-----+-----+-----+-----+-----+
-|  0  |  2  |  4  |  6  |  8  |
-+-----+-----+-----+-----+-----+
+   	nums[0]    	 nums[1]      nums[2]      nums[3]      nums[4]
++------------+------------+------------+------------+------------+
+|    92.5    |    52.4    |    75.0    |    82.0    |    88.9    |
++------------+------------+------------+------------+------------+
 ```
 
 </details>
@@ -161,21 +169,21 @@ for (int x = 0; x < 5; x++) {
 Let's break down what the array parts of our code does.
 
 ```c
-int numbers[5];
+int nums[5];
 ```
 We create an array of integers, with a size of 5. Currently, it is empty.
 
 ```c
-numbers[x] = x*2;
+nums[i] = i*2;
 ```
-Using our counter variable, x, we access the element in our array at index x.
+Using our counter variable, i, we access the element in our array at index i.
 Then, we use the assignment operator to set this element equal to what the counter variable is currently, multiplied by 2.
-So, for instance, if x = 3, our loop would essentially be doing this:
+So, for instance, if i = 3, our loop would essentially be doing this:
 
 ```c
-numbers[3] = 3*2;
+nums[3] = 3*2;
 ```
-Thus, the element at `numbers[3]` would be set to 6.
+Thus, the element at `nums[3]` would be set to 6.
 Since this loop runs from 0 to 4, then we will apply this "formula" for each cell in the array.
 
 ## Being Careful With Arrays
@@ -199,10 +207,11 @@ what is in index 5, (e.g. `arr[5]`) C will let you do this! However, this may ca
 we're crossing into dangerous territory.
 
 ```
-+------+------+------+------+------+
-|  10  |  20  |  30  |  40  |  50  |   *?*&!(
-+------+------+------+------+------+
-                                         ^
+	arr[0]    	 arr[1]       arr[2]       arr[3]       arr[4]
++------------+------------+------------+------------+------------+
+|     10     |     20     |     30     |     40     |     50     |     *?*&!(
++------------+------------+------------+------------+------------+
+																		 ^
 ```
 
 Because we accidentally accessed the array element at index 5, we get garbage data! This could even be parts of memory
