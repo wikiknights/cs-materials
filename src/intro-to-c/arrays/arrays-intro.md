@@ -24,7 +24,7 @@ To create an array, we need to specify the datatype, a variable name, and the si
 ```c
 float grades[5];
 ```
-Here, we just created an array of size 5 with a datatype of `float`, meaning each element in this array should be a `float`.
+Here, we just created an array called "grades" of size 5 with a datatype of `float`, meaning each element in this array should be a `float`.
 
 We can also have different types:
 
