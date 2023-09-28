@@ -57,7 +57,7 @@ _*Technically, when we instantiate an array like this, our array isn't really em
 it's filled with garbage values. We will learn more about this later, but it is important
 to know, since accessing these array values when we have garbage values still in them may give unintended behavior._
 
-To access each cell in an array, we have to know what _index_ we want to access first. 
+To access each cell in an array, we have to know what _index_ we want to access first.
 You may have noticed that on top of each cell, we have a number next to the array name (for instance, `grades[0]`). This represents the index of each cell in our grades array.
 The index represents the location of a cell in an array. An important thing to note about C (and many other programming languages) is that array indexes start at **0**.
 
@@ -167,7 +167,7 @@ for (int i = 0; i < 5; i++) {
 <summary>Reveal answer</summary>
 
 ```
-   	nums[0]    	 nums[1]      nums[2]      nums[3]      nums[4]
+    nums[0]      nums[1]      nums[2]      nums[3]      nums[4]
 +------------+------------+------------+------------+------------+
 |    92.5    |    52.4    |    75.0    |    82.0    |    88.9    |
 +------------+------------+------------+------------+------------+
@@ -216,11 +216,11 @@ what is in index 5, (e.g. `arr[5]`) C will let you do this! However, this may ca
 we're crossing into dangerous territory.
 
 ```
-	arr[0]    	 arr[1]       arr[2]       arr[3]       arr[4]
+    arr[0]       arr[1]       arr[2]       arr[3]       arr[4]
 +------------+------------+------------+------------+------------+
 |     10     |     20     |     30     |     40     |     50     |     *?*&!(
 +------------+------------+------------+------------+------------+
-																		 ^
+                                                                         ^
 ```
 
 Because we accidentally accessed the array element at index 5, we get garbage data! This could even be parts of memory
@@ -353,7 +353,7 @@ int main(void) {
 ```
 
 ```
-$ ./a.out 
+$ ./a.out
 nums[0]: -1041127463
 nums[1]: 32766
 nums[2]: 100
