@@ -7,6 +7,5 @@ For full instructions on getting started with Docker, see [https://docs.docker.c
 To create and run the build environment, open this folder in a command line environment and run the following command:
 
 ``` sh
-sudo docker build -t csmaterials .
-sudo docker run --rm -p 8080:8080 -i csmaterials
+sudo docker compose up --build -d
 ```
