@@ -163,17 +163,19 @@ array2[8] = 10
 array2[9] = 10
 ```
 
-One important thing to note: the stack smashing error occurred at the *end* of the function. The lesson here is that off-by-one errors won't always cause issues immediately, so your program could fail unexpectedly long after a mistake was made. Be careful with the values you use as your start and end arguments, and check whether or not you want to reach your end argument (e.g., <=, >= vs. <, >).
+One important thing to note: the stack smashing error occurred at the *end* of the function. The lesson here is that off-by-one errors won't always cause issues immediately, so your program could fail unexpectedly long after a mistake was made. Be careful with the values you use as your start and end arguments, and check whether or not you want to reach your end argument (e.g., `<=`, `>=` vs. `<`, `>`).
 
 # Example B: Bothersome Bananas.
 
 ``` c
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    int i;
+    int i, len;
     char name[100] = "banana";
+    len = strlen(name);
 
     // This should print the name as a grid with 5 rows like:
     // b a n a n a
@@ -184,7 +186,7 @@ int main(void)
 
     for (i = 0; i < 5; i++)
     {
-        for (i = 0; i < 100; i++)
+        for (i = 0; i < len; i++)
         {
             printf("%c ", name[i]);
         }
@@ -196,18 +198,20 @@ int main(void)
 ```
 
 ``` {.terminal}
-b a n a n a                                                                                                                                                                                             
+b a n a n a 
 ```
 
 Hey, what gives? I wanted five bananas, not one! Maybe if I take a look at `i`, I'll find a clue.
 
 ``` c
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    int i;
+    int i, len;
     char name[100] = "banana";
+    len = strlen(name);
 
     // This should print the name as a grid with 5 rows like:
     // b a n a n a
@@ -218,12 +222,12 @@ int main(void)
 
     for (i = 0; i < 5; i++)
     {
-        for (i = 0; i < 100; i++)
+        for (i = 0; i < len; i++)
         {
             printf("%c ", name[i]);
         }
-        printf("i = %d\n", i);
         printf("\n");
+        printf("i = %d\n", i);
     }
 
     return 0;
@@ -231,20 +235,23 @@ int main(void)
 ```
 
 ``` {.terminal}
-b a n a n a                                                                                                                                                                                             i = 100
+b a n a n a 
+i = 6
 ```
 
-`i = 100`? How did it go from being 0 before the inner loop to 100 afterward? Wait a minute--I'm using `i` to control *both* loops. That means when the inner loop ends, `i` is at 100, causing the condition for the outer loop, `i < 5`, to evaluate to false and end the loop.
+`i = 6`? How did it go from being 0 before the inner loop to 6 afterward? `i` should still be equal to 0. Wait a minute--I'm using `i` to control *both* loops. That means when the inner loop ends, `i` is at 6, causing the condition for the outer loop, `i < 5`, to evaluate to false and end the loop.
 
 If we want to see all five bananas, we need to use a separate variable for the inner loop. Here, we'll use a variable `j` as its counter.
 
 ``` c
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    int i, j;
+    int i, j, len;
     char name[100] = "banana";
+    len = strlen(name);
 
     // This should print the name as a grid with 5 rows like:
     // b a n a n a
@@ -255,7 +262,7 @@ int main(void)
 
     for (i = 0; i < 5; i++)
     {
-        for (j = 0; j < 100; j++)
+        for (j = 0; j < len; j++)
         {
             printf("%c ", name[j]);
         }
@@ -269,12 +276,11 @@ int main(void)
 If we run that, we get our expected result:
 
 ``` {.terminal}
-b a n a n a                                                                                                                                                                                             
-b a n a n a                                                                                                                                                                                             
-b a n a n a                                                                                                                                                                                             
-b a n a n a                                                                                                                                                                                             
-b a n a n a                                                                                                                                                                                             
-
+b a n a n a 
+b a n a n a 
+b a n a n a 
+b a n a n a 
+b a n a n a 
 ```
 
 # Example C: Chaotic Change.
@@ -335,6 +341,8 @@ Enter the amount of change: 4.39
 ```
 
 Why isn't my program printing anything? Maybe something is going wrong inside of the loop? Let me put in a few print statements toward the end of the loop and see what they show.
+
+In the `pennies` check, I'll print two decimal places to see how many cents I have left, then at the end of the loop, I'll print 20 decimals places. It's more than I need, but maybe it will show me something I'm missing.
 
 ``` c
 #include <stdio.h>
