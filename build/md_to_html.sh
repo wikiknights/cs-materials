@@ -36,6 +36,9 @@ EOF
 customout=""
 enable_premailer=0
 
+# Initialize variable for temporary file during build
+tmpfile=""
+
 convert_html() {
 	if [ -n "$customout" ]; then
 		outputfile="$customout"
@@ -44,21 +47,23 @@ convert_html() {
 	fi
 
 	echo "Adjusting *.md links to *.html links..."
-	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
+	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' "$tmpfile"
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --embed-resources --standalone --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
+	tmphtml=$(mktemp)
+	pandoc --from markdown "$tmpfile" --to html -o "$tmphtml" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --embed-resources --standalone --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
 
 	# Stop if conversion failed
 	[ $? -ne 0 ] && return 1
 
 	if [ $enable_premailer -eq 1 ]; then
 		echo "Fixing CSS..."
-		python3 -m premailer -f tmp.html -o tmp2.html
-		mv tmp2.html tmp.html
+		tmphtml2=$(mktemp)
+		python3 -m premailer --file "$tmphtml" --output "$tmphtml2"
+		mv "$tmphtml2" "$tmphtml"
 	fi
 
-	mv tmp.html "$outputfile"
+	mv "$tmphtml" "$outputfile"
 }
 
 convert_docx() {
@@ -69,7 +74,7 @@ convert_docx() {
 	fi
 
 	echo "Converting to DOCX..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
+	pandoc --from markdown "$tmpfile" --to docx -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
 }
 
 convert_pdf() {
@@ -80,13 +85,7 @@ convert_pdf() {
 	fi
 
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml" --data-dir="$ROOT_DIR" --include-in-header "$ROOT_DIR/build/linewrap.tex"
-}
-
-converter() {
-	convert_html "$1"
-	convert_docx "$1"
-	convert_pdf "$1"
+	pandoc --from markdown "$tmpfile" --to pdf -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml" --data-dir="$ROOT_DIR" --include-in-header "$ROOT_DIR/build/linewrap.tex"
 }
 
 # Set default flags for output formats
@@ -155,7 +154,8 @@ if [ ! -f "$1" ]; then
 	exit -1
 fi
 
-cp "$1" tmp.md
+tmpfile=$(mktemp)
+cp "$1" "$tmpfile"
 
 echo "Converting files..."
 file_no_extension="${1%.*}"
@@ -171,6 +171,6 @@ fi
 echo "Finished all converting."
 
 echo "Cleaning up..."
-rm -f tmp.md tmp.html
+rm -f "$tmpfile"
 
 echo "All done!"
