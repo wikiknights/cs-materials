@@ -4,7 +4,7 @@
 
 This Docker image provides a consistent build environment without requiring operating system-dependent packages.
 
-For full instructions on getting started with Docker, see [https://docs.docker.com/get-docker](the official Docker documentation).
+For full instructions on getting started with Docker, see [the official Docker documentation](https://docs.docker.com/get-docker/).
 
 To create and run the build environment, open this folder in a command line environment and run the following command:
 
