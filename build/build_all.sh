@@ -59,8 +59,8 @@ shift "$((OPTIND-1))"
 
 # Read the list of all markdown files to process
 if [ $changed -eq 1 ]; then
-# Get all changed files in the src/ directory, then remove the "src/" from the path
-  files=$(git diff --name-only 2>/dev/null | grep -E '^src/' | sed -e 's#^src/##')
+  # Only get files that have been detected as changed since the last build
+  files=$("$SCRIPT_LOCATION/get_newer.sh")
 else
   files=$(find ${INPUT_DIR} -type f -name "*.md" -printf "%P\n")
 fi
