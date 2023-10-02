@@ -20,7 +20,7 @@ show_usage() {
 	cat << EOF
 Usage: ${0##*/} [-dhmp] [-o output_file] <file>
 Converts a Pandoc markdown file into a variety of formats. If no format is specified,
-it will be converted to all formats supported by this script.
+it will be converted to HTML only.
 
 Options:
   -d          Convert to DOCX.
@@ -89,8 +89,8 @@ converter() {
 	convert_pdf "$1"
 }
 
-# Set default flags for conversion modes
-all=1
+# Set default flags for output formats
+format_given=0
 docx=0
 html=0
 pdf=0
@@ -100,12 +100,12 @@ OPTIND=1
 while getopts dhmo:p option; do
 	case $option in
 		d)
+			format_given=1
 			docx=1
-			all=0
 			;;
 		h)
+			format_given=1
 			html=1
-			all=0
 			;;
 		m)
 			enable_premailer=1
@@ -114,8 +114,8 @@ while getopts dhmo:p option; do
 			customout="${OPTARG}"
 			;;
 		p)
+			format_given=1
 			pdf=1
-			all=0
 			;;
 		:)
 			echo "Error: -${OPTARG} requires an argument."
@@ -159,8 +159,10 @@ cp "$1" tmp.md
 
 echo "Converting files..."
 file_no_extension="${1%.*}"
-if [ $all -eq 1 ]; then
-	converter "$file_no_extension"
+
+if [ $format_given -eq 0 ]; then
+	# By default, convert to HTML.
+	convert_html "$file_no_extension"
 else
 	if [ $docx -eq 1 ]; then convert_docx "$file_no_extension"; fi
 	if [ $html -eq 1 ]; then convert_html "$file_no_extension"; fi
