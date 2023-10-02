@@ -1,6 +1,13 @@
 #!/bin/bash
 # Created by Jerrett Longworth
 
+# Generates all HTML output from the project. Each Markdown file within the project's
+# source directory is converted one-to-one into HTML files. The directory structure
+# from the source directory is mirrored in the HTML output directory.
+#
+# By default, the output directory is set to `out/` within the project's root folder,
+# but can be overridden using the $OUTPUT_DIR environment variable.
+
 # Setup variables
 GREY='\033[1;30m'
 RESET='\033[0m'
@@ -11,7 +18,8 @@ IFS='
 
 CONVERT_SCRIPT=$(readlink -e "$SCRIPT_LOCATION/md_to_html.sh")
 INPUT_DIR="$SCRIPT_LOCATION/../src/"
-OUTPUT_DIR="$SCRIPT_LOCATION/../out/"
+# Set output directory if not set using environment variable
+OUTPUT_DIR="${OUTPUT_DIR:-$SCRIPT_LOCATION/../out/}"
 
 
 show_usage() {
@@ -20,7 +28,7 @@ Usage: ${0##*/} [-csv]
 Builds all markdown files.
 
 Options:
-  -c      Only build files that are changed and not committed, according to git.
+  -c      Only build files that have been changed since the last build.
   -s      Suppress all output from secondary build script.
   -v      Show all logs.
 EOF
