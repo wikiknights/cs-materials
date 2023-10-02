@@ -1,6 +1,10 @@
 #!/bin/bash
 # Created by Idel Martinez and Jerrett Longworth
 
+# Script that will convert a singular Markdown file into another format, using
+# all the configured style presets and Pandoc options. Currently supported
+# formats include HTML, DOCX, and PDF.
+
 # Setup variables
 SCRIPT_LOCATION=$(readlink -e "$0")
 SCRIPT_LOCATION=${SCRIPT_LOCATION%/*}
@@ -22,7 +26,8 @@ Options:
   -d          Convert to DOCX.
   -h          Convert to HTML.
   -m          Use premailer in HTML output (disabled by default).
-  -o <file>   Outputs to the specified file.
+  -o <file>   Outputs to the specified file. (By default, will be saved to the same
+              directory as the input file.)
   -p          Convert to PDF.
 EOF
 }
