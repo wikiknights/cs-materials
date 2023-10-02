@@ -9,8 +9,6 @@
 # but can be overridden using the $OUTPUT_DIR environment variable.
 
 # Setup variables
-GREY='\033[1;30m'
-RESET='\033[0m'
 SCRIPT_LOCATION=$(readlink -e "$0")
 SCRIPT_LOCATION=${SCRIPT_LOCATION%/*}
 IFS='
@@ -91,7 +89,6 @@ for file in $files; do
 
   # Temporarily enter the directory the file is in for relative-path links
   pushd "$INPUT_DIR$filepath" 2>/dev/null > /dev/null
-  echo -en "$GREY"
 
   # Build the HTML file based on the command line arguments
   if [ $suppress -eq 1 ]; then
@@ -106,7 +103,6 @@ for file in $files; do
   fi
 
   # Restore the working directory
-  echo -en "$RESET"
   popd 2>/dev/null > /dev/null
 
   i=$((i + 1))
