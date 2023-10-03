@@ -9,6 +9,8 @@ These materials were developed by [Wiki Knights](https://wikiknights.com), a stu
 
 [Intro to C Programming](intro-to-c/index.md)
 
+[Object-Oriented Programming](object-oriented-programming/index.md)
+
 [Computer Science I](cs1/index.md)
 
 ## Additional Resources
