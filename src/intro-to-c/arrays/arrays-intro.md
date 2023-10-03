@@ -51,11 +51,9 @@ Currently, our array (essentially) looks like this:
 +------------+------------+------------+------------+------------+
 ```
 
-It's empty* and barren. Let's put some grades into it!
+It's empty[^garbagedata] and barren. Let's put some grades into it!
 
-_*Technically, when we instantiate an array like this, our array isn't really empty. Instead,
-it's filled with garbage values. We will learn more about this later, but it is important
-to know, since accessing these array values when we have garbage values still in them may give unintended behavior._
+[^garbagedata]: Technically, when we instantiate an array like this, our array isn't really empty. Instead, it's filled with garbage values. We will learn more about this later, but it is important to know, since accessing these array values when we have garbage values still in them may give unintended behavior.
 
 To access each cell in an array, we have to know what _index_ we want to access first.
 You may have noticed that on top of each cell, we have a number next to the array name (for instance, `grades[0]`). This represents the index of each cell in our grades array.
