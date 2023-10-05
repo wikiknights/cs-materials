@@ -1,3 +1,3 @@
 [submodule "pandoc-templates"]
 	path = templates
-	url = https://github.com/Wiki-Knights/pandoc-templates
+	url = https://github.com/wikiknights/pandoc-templates

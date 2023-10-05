@@ -22,7 +22,7 @@ int main(void)
 {
     int a;
     printf("Please enter the number 1: ");
-    scanf("%d", a);
+    scanf("%d", &a);
 
     return 0;
 }
@@ -38,7 +38,7 @@ A library with general functions such as:
 - **int rand()**: returns a random number;
 - **void srand(int seed)**: seeds the random number generator used by the function rand;
 - **int abs(int x)**: returns the absolute value of int x;
-- **void exit(int s)**: exists the program.
+- **void exit(int s)**: exits the program.
 
 ``` c
 #include <stdio.h>
@@ -70,7 +70,7 @@ int main(void)
 
 This code will display:
 ```
-The absolute value of b = 10
+The absolute value of -10 = 10
 The random number is ~integer~
 Bye now!
 ```

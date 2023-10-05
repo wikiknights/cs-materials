@@ -6,6 +6,81 @@ author:
 toc: false
 ---
 
+@. Write a line of code that declares an array called `uv_levels` that contains 5 integers.
+
+@. Which element of the array does the following expression refer to?
+
+  ``` c
+  numbers[3]
+  ```
+
+@. What is the difference between the `4` in each of the following statements?
+
+  ``` c
+  int numbers[4];
+  
+  numbers[4] = 25;
+  ```
+
+@. Fill in the blanks to initialize an array with 10 `double`s, starting at 0 and incrementing by 0.5 for each value. In other words, the final array should contain `[0.0, 0.5, 1.0, 1.5, 2.0, ..., 4.5]`.
+
+  ``` c
+  #include <stdio.h>
+
+  void initialize(_____array, _____length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[_____] = _____;
+    }
+  }
+
+  int main(void)
+  {
+    // Create the array
+    _____ array[_____];
+
+    // Initialize array values
+    initialize(_____, _____);
+
+    // View the values in the array
+    for (int i = 0; i < 10; i++)
+    {
+      printf("array[%d] = %0.1lf\n", i, array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
+@. What will be the output of the following program? If there is an error in the code, explain what the error is instead.
+
+  ``` c
+  #include <stdio.h>
+
+  void increase_by_one(int array[], int length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[i]++;
+    }
+  }
+
+  int main(void)
+  {
+    int array[5] = {1, 2, 3, 4, 5};
+
+    increase_by_one(array, 5);
+
+    for (int i = 0; i < 5; i++)
+    {
+      printf("%d\n", array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 
   ``` c
@@ -118,3 +193,5 @@ toc: false
     return 0;
   }
   ```
+
+@. Create a function that adds 5 to every odd element of an array of integers. Assume you are provided an integer array (called `array`) and an integer representing the number of elements in the array (called `length`).

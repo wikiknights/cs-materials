@@ -9,6 +9,191 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 ---
 
+## Basic DMA
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int integer_boi = malloc(sizeof(int));
+
+  *integer_boi = 123456789;
+  printf("integer_boi = %d\n", *integer_boi);
+
+  return 0;
+}
+```
+
+**Answer:** This program does not manage memory correctly! Notice that `integer_boi` declared on line 6 is just an integer, not an *integer pointer*. To properly utilize `malloc()`, its return value should be assigned to a pointer. The following shows this fixed:
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *integer_boi = malloc(sizeof(int));
+
+  *integer_boi = 123456789;
+  printf("integer_boi = %d\n", *integer_boi);
+
+  free(integer_boi);
+
+  return 0;
+}
+```
+
+\newpage
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  double *pointy_pointer;
+  pointy_pointer = malloc(sizeof(double));
+
+  *pointy_pointer = 3.14159;
+  printf("*pointy_pointer = %lf\n", *pointy_pointer);
+
+  return 0;
+}
+```
+
+**Answer:** This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 10, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
+
+\newpage
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char *letter = NULL;
+  malloc(sizeof(char));
+  *letter = 'M';
+
+  printf("The letter of the day is: %c\n", *letter);
+
+  free(letter);
+
+  return 0;
+}
+```
+
+**Answer:** This program has a memory leak and dereferences a null pointer. On line 7, memory for a `char` is allocated, but it is not assigned to the variable `letter`, so this allocation is effectively wasted. The following lines that dereference `letter` thus will fail, and the wasted `malloc()` call will cause a memory leak.
+
+\newpage
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` {.c .numberLines}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  float *pi;
+
+  pi = malloc(sizeof(float) * 5);
+  *pi = 3.14;
+
+  printf("pi = %.2lf\n", *pi);
+
+  free(pi);
+
+  return 0;
+}
+```
+
+**Answer:** This program does manage memory correctly! While more memory than necessary was allocated on line 8 for this program, this is considered valid.
+
+---
+
+\newpage
+
+## Dynamically Allocated Arrays
+
+@. Is this program managing memory correctly? If not, how can it be fixed?
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+  char *stringy;
+
+  stringy = malloc(sizeof(char) * 30);
+  strcpy(stringy, "goober");
+
+  for (int i = 0; i < 30; i++)
+  {
+    free(stringy[i]);
+  }
+
+  return 0;
+}
+```
+
+**Answer:** This program does not manage memory correctly. This code attempts to free each individual character of the array, which is not correct. Since there was only one call to `malloc()`, there should only be one call to `free()`. Instead, the for loop should be replaced with the following:
+
+``` c
+free(stringy);
+```
+
+\newpage
+
+@. Fill in the blanks to create and fill a dynamically-allocated array of 20 integers. The array should contain the elements `[1, 2, 3, 4, ..., 20]`.
+
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int *array;
+
+  // Allocate the array
+  array = malloc(sizeof(int) * 20);
+
+  // Initialize the array
+  for (int i = 0; i < 20; i++)
+  {
+    array[i] = i + 1;
+  }
+
+  // Free the array
+  free(array);
+
+  return 0;
+}
+```
+
+*Editor's Note:* Your solution for the array initialization may look slightly different. This is a sample solution. The following is an example of a different (also correct) version of that for loop:
+
+``` c
+for (int i = 1; i <= 20; i++)
+{
+  array[i - 1] = i;
+}
+```
+
+---
+
+\newpage
+
 ## Dynamically Allocated Structs
 
 @. Is this program managing memory correctly?
@@ -190,7 +375,7 @@ Let's take a look at one of the *craziest* concepts we have in our toolkit to da
 
 \newpage
 
-## CHALLENGE PROBLEMS:
+## Challenge Problems
 
 @. Below we have a `Pixel` struct with the red, green, and blue components. (1) Create an array of `1024` pixels **dynamically**, (2) assign values to each pixel, and (3) free the memory associated with the array.
 

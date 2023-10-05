@@ -2,9 +2,11 @@ html-math-method:
   method: mathml
 metadata:
   geometry: "margin=1in"
+pdf-engine: xelatex
 resource-path:
   - .
   - ${.}/../static
 table-of-contents: true
 variables:
+  default-monofont-pdf: "Fira Code"
   toc-title: "Contents"

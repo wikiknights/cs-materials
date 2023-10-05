@@ -6,6 +6,115 @@ author:
 toc: false
 ---
 
+@. Write a line of code that declares an array called `uv_levels` that contains 5 integers.
+
+  **Answer:**
+
+  ``` c
+  int uv_levels[5];
+  ```
+
+\newpage
+
+@. Which element of the array does the following expression refer to?
+
+  ``` c
+  numbers[3]
+  ```
+
+  **Answer:** The fourth element of the array.
+
+\newpage
+
+@. What is the difference between the `4` in each of the following statements?
+
+  ``` c
+  int numbers[4];
+  
+  numbers[4] = 25;
+  ```
+
+  **Answer:** In the first statement, the `4` indicates an array size, in this case creating an array of four elements. In the second statement, the `4` indicates a particular element, in this case the fifth element of the `numbers` array. (Bonus: This second statement would actually be considered improper in the context of the first statement, as there are only four elements, where the fifth element is attempted to be accessed.)
+
+\newpage
+
+@. What will be the output of the following program? If there is an error in the code, explain what the error is instead.
+
+  ``` c
+  #include <stdio.h>
+
+  void increase_by_one(int array[], int length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[i]++;
+    }
+  }
+
+  int main(void)
+  {
+    int array[5] = {1, 2, 3, 4, 5};
+
+    increase_by_one(array, 5);
+
+    for (int i = 0; i < 5; i++)
+    {
+      printf("%d\n", array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  Output of the program is as follows:
+
+  ```
+  2
+  3
+  4
+  5
+  6
+  ```
+
+\newpage
+
+@. Fill in the blanks to initialize an array with 10 `double`s, starting at 0 and incrementing by 0.5 for each value. In other words, the final array should contain `[0.0, 0.5, 1.0, 1.5, 2.0, ..., 4.5]`.
+
+  **Answer:**
+
+  ``` c
+  #include <stdio.h>
+
+  void initialize(double *array, int length)
+  {
+    for (int i = 0; i < length; i++)
+    {
+      array[i] = 0.5 * i;
+    }
+  }
+
+  int main(void)
+  {
+    // Create the array
+    double array[10];
+
+    // Initialize array values
+    initialize(array, 10);
+
+    // View the values in the array
+    for (int i = 0; i < 10; i++)
+    {
+      printf("array[%d] = %0.1lf\n", i, array[i]);
+    }
+
+    return 0;
+  }
+  ```
+
+\newpage
+
 @. Fill in the blanks for the program to create an array of odd numbers from 1 to `max`, which will be inputted by the user.
 
   **Answer**:
@@ -147,3 +256,35 @@ toc: false
     return 0;
   }
   ```
+
+\newpage
+
+@. Create a function that adds 5 to every odd element of an array of integers. Assume you are provided an integer array (called `array`) and an integer representing the number of elements in the array (called `length`).
+
+    **Answer:** First, we must figure out what the function declaration will look like. If we are given an integer array and the number of elements, the parameters may look like `(int *array, int length)` or `(int array[], int length)`.
+
+    Next, we must figure out the return type of the function. Since we are modifying the array in-place, this function does not need to return anything. This makes the return type `void`.
+
+    Finally, we will call the function `add_five_to_odd`. With this, we can get the function declaration:
+
+    ``` c
+    void add_five_to_odd(int *array, int length)
+    {
+      // Your code here
+    }
+    ```
+
+    This function should traverse through the array, and if it finds an odd element (using the modulus operation), five should be added to this element. In total, this function may look like the following:
+
+    ``` c
+    void add_five_to_odd(int *array, int length)
+    {
+      for (int i = 0; i < length; i++)
+      {
+        if (array[i] % 2 == 1)
+        {
+          array[i] += 5;
+        }
+      }
+    }
+    ```

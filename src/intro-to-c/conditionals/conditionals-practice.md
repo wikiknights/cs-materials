@@ -114,6 +114,29 @@ int main(void)
 }
 ```
 
+@. *The infamous Bizz-Fuzz Problem.* Create a program that does the following:
+
+    - Accept an integer input from the user. Assume that the input is positive. You do not need to accommodate for invalid inputs.
+    - If the number is evenly divisible by 5, print "`Bizz!`"
+    - If the number is evenly divisible by 7, print "`Fuzz!`"
+    - If the number is evenly divisible by BOTH 5 and 7, print "`Bizz-Fuzz!`"
+    - If the number is not evenly divisible by 5 or 7, print nothing.
+
+    **Examples:**
+
+    - *Example 1:*
+      - Input: `15`
+      - Output: `Bizz!`
+    - *Example 2:*
+      - Input: `24`
+      - Output:
+    - *Example 3:*
+      - Input: `70`
+      - Output: `Bizz-Fuzz!`
+    - *Example 4:*
+      - Input: `14`
+      - Output: `Fuzz!`
+
 
 @. Given the following program, what will be the output?
 
@@ -142,6 +165,56 @@ int main(void)
   return 0;
 }
 ```
+
+@. You want to buy fruits from Super Saver Superstore. At Super Saver, there are incredible (but very convoluted) discounts for the more you buy. You just want to buy apples and bananas, so only the discounts for those will be listed. The costs are as follows:
+
+    - Apples normally cost $1.50 per pound.
+    - Bananas normally cost $0.75 per pound.
+    - If at least 10 pounds of bananas are purchased, the cost of apples is discounted 40% off their original rate.
+    - If at least 14 pounds of apples are purchased, the cost of bananas is discounted 60% off their original rate.
+    - While the savings are outrageous, there is also a limit to the magic. After discounts, if your total order cost is greater than $100, your order will be rejected. In this case, print "`Sorry, you are limited to $100 of items.`"
+    - To make the discounts economically feasible, there is also a minimum order cost (after discounts) of $5. If the order is less than this amount, print "`Sorry, you must spend a minimum of $5.`"
+    - Do not calculate any additional taxes or fees.
+
+    Write a program that takes an input for the weights of apples and bananas in pounds, and outputs their total cost after discounts, unless the minimum or maximum has been reached. Assume that the inputs are valid, positive numbers.
+
+    **Examples:**
+
+    - *Example 1:*
+
+        ```
+        Enter weight of apples in pounds: 6
+        Enter weight of bananas in pounds: 2.4
+        The total cost is $10.80.
+        ```
+    - *Example 2:*
+
+        ```
+        Enter weight of apples in pounds: 0
+        Enter weight of bananas in pounds: 1
+        Sorry, you must spend a minimum of $5.
+        ```
+    - *Example 3:*
+
+        ```
+        Enter weight of apples in pounds: 18
+        Enter weight of bananas in pounds: 26
+        The total cost is $24.00.
+        ```
+    - *Example 4:*
+
+        ```
+        Enter weight of apples in pounds: 80.8
+        Enter weight of bananas in pounds: 10
+        The total cost is $75.72.
+        ```
+    - *Example 5:*
+
+        ```
+        Enter weight of apples in pounds: 80.8
+        Enter weight of bananas in pounds: 9.5
+        Sorry, you are limited to $100 of items.
+        ```
 
 ---
 

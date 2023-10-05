@@ -326,6 +326,67 @@ For all questions, assume all necessary libraries are included, and all function
 
 \newpage
 
+@. Which of the following lines are valid? Explain why each is valid or not.
+
+  **Answer:**
+
+  - `char food[7] = "Apple";`{.c}
+
+      This line is valid. "`Apple`" has 6 characters, including the null terminator, which fits in an array of length 7.
+
+  - `char food[7] = "Avocado";`{.c}
+
+      This line is not valid. "`Avocado`" has 8 characters, including the null terminator, which does not fit in an array of length 7.
+
+  - `char food[7] = "Banana";`{.c}
+
+      This line is valid. "`Banana`" has 7 characters, including the null terminator, which fits in an array of length 7.
+
+  - `char food[7] = "Chocolate";`{.c}
+
+      This line is not valid. "`Chocolate`" has 10 characters, including the null terminator, which does not fit in an array of length 7.
+
+\newpage
+
+@. What would be displayed if `string` was printed after running these lines?
+
+  ``` c
+  char string[10];
+
+  string[0] = 'B';
+  string[2] = 'n';
+  string[1] = 'i';
+  string[3] = 'g';
+  string[4] = '\0';
+  string[1] = '\0';
+  string[2] = 'g';
+  string[3] = '\0';
+  ```
+
+  **Answer:**
+
+  ```
+  B
+  ```
+
+\newpage
+
+@. What would be displayed if `string` was printed after running these lines?
+
+  ``` c
+  char string[10] = "Hello";
+
+  strcpy(string, "I love C!");
+  ```
+
+  **Answer:**
+
+  ```
+  I love C!
+  ```
+
+\newpage
+
 @. In how many lines will the print statement in line 6 output?
 
   ``` {.c .numberLines}

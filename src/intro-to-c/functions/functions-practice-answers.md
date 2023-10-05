@@ -5,7 +5,90 @@ author:
   - Idel Martinez
 ---
 
-## Function Scope
+## Variable Scope
+
+This is one of the most important topics in programming, especially in the C language. This starts by looking at variable scope without functions, then bringing them into the mix later.
+
+@. Will this code compile? Explain why or why not. If it does compile, what will be printed?
+
+  ``` {.c .numberLines}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int my_number = 5;
+    printf("The value of my_number is: %d\n", my_number);
+
+    {
+      int my_number = 10;
+    }
+
+    printf("The value of my_number is: %d\n", my_number);
+
+    return 0;
+  }
+  ```
+
+  **Answer:**
+
+  This code compiles! Normally, variables with the same name can't be declared twice in the same function. (A compiler would give you an error like "`redefinition of ‘my_number’`".) In this case, this is actually considered valid due to differences in variable scope!
+
+  The first `my_number` declared on line 5 has a scope of the entire `main()` function. This is because the innermost pair of curly braces at this line are the ones used to define this function.
+
+  Scope of first `my_number` visually:
+
+  ``` {.c .numberLines}
+    #include <stdio.h>
+  
+    int main(void)
+  ┌─{────────────────────────────────────────────────────────┐
+  │   int my_number = 5;                                     │
+  │   printf("The value of my_number is: %d\n", my_number);  │
+  │                                                          │
+  │   {                                                      │
+  │     int my_number = 10;                                  │
+  │   }                                                      │
+  │                                                          │
+  │    printf("The value of my_number is: %d\n", my_number); │
+  │                                                          │
+  │   return 0;                                              │
+  └─}────────────────────────────────────────────────────────┘
+  ```
+
+  The second `my_number` declared on line 9 also has a scope of the innermost pair of curly braces it is defined in. Looking closely, we see that while it doesn't contain much meaningful code, the pair of curly braces still create another scope. Since this scope is different from the previous variable, they are considered two separate variables.
+
+  Scope of second `my_number` visually:
+
+  ``` {.c .numberLines}
+  #include <stdio.h>
+
+  int main(void)
+  {
+    int my_number = 5;
+    printf("The value of my_number is: %d\n", my_number);
+
+  ┌─{────────────────────────────────────────────┐
+  │   int my_number = 10;                        │
+  └─}────────────────────────────────────────────┘
+
+    printf("The value of my_number is: %d\n", my_number);
+
+    return 0;
+  }
+  ```
+
+  Program output:
+
+  ```
+  The value of my_number is: 5
+  The value of my_number is: 5
+  ```
+
+  The value of `my_number` is still 5 in both of the printed statements due to this difference in scope. Both `printf()` statements are inside `main()`, but are not inside the inner pair of curly braces, so they refer to the first `my_number`.
+
+\newpage
+
+## Variable Scope with Functions
 This is important to get right. Functions are the base of every program, and knowing what your variables are doing in them is crucial.
 
 @. Fill in the blank so that all the types match correctly. By the way... What do lines 10 and 15 print?
