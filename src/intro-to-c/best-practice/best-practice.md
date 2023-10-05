@@ -151,6 +151,42 @@ This idea states to wait to add something into a program only when it is actuall
 When writing code, choose a consistent scheme in every aspect where possible. Here are a few points where you may think about being consistent:
 
 - **Style and formatting.** (This includes indentation, spacing, alignment of brackets, etc.)
+
+    As an example, which code sample is more readable to you?
+
+    Sample 1:
+
+    ```c
+    #include <stdio.h>
+    int main(void){
+    for(int i=10;i>=0;i--)
+    {
+    printf("How many cookies do I have?\n");
+      printf("I have %d cookies!\n",i);
+    }
+    printf("No more cookies :(\n");
+    return 0;
+    }
+    ```
+
+    Sample 2:
+
+    ```c
+    #include <stdio.h>
+    int main(void)
+    {
+        for (int i = 10; i >= 0; i--)
+        {
+            printf("How many cookies do I have?\n");
+            printf("I have %d cookies!\n", i);
+        }
+        printf("No more cookies :(\n");
+        return 0;
+    }
+    ```
+
+    The second sample may be considered more consistent and easier to read due to its indendation and formatting style.
+
 - **Variable names.** When creating variables across a program, use the same naming conventions across all parts.
 - **Verbiage of function names.** When creating functions, use the form to name functions. For example, `check_window()` and `window_checking()` use two different grammatical structures and should ideally not be in the same program. A common approach is to have all functions start with a verb, but this may not be preferred in all contexts.
 - **Mirroring of function names.** This is similar to the last point, but is specifically targeted for functions that serve related purposes. Use word pairings that are common in language, like "enter/exit," or "open/close." For example, suppose there is a program that reads a file, gathers some data, then finishes. When the program begins and ends, it is generally not a good practice to have functions named `open_file()` and `exit_file()`, as "open" and "exit" are not consistent. It would be more appropriate to use `open_file()` and `close_file()` in this case.
