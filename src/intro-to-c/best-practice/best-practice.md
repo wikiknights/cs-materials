@@ -188,7 +188,7 @@ When writing code, choose a consistent scheme in every aspect where possible. He
     The second sample may be considered more consistent and easier to read due to its indendation and formatting style.
 
 - **Variable names.** When creating variables across a program, use the same naming conventions across all parts.
-- **Verbiage of function names.** When creating functions, use the form to name functions. For example, `check_window()` and `window_checking()` use two different grammatical structures and should ideally not be in the same program. A common approach is to have all functions start with a verb, but this may not be preferred in all contexts.
+- **Verbiage of function names.** When creating functions, use a consistent form to name functions. For example, `check_window()` and `window_checking()` use two different grammatical structures and should ideally not be in the same program. A common approach is to have all functions start with a verb, but this may not be preferred in all contexts.
 - **Mirroring of function names.** This is similar to the last point, but is specifically targeted for functions that serve related purposes. Use word pairings that are common in language, like "enter/exit," or "open/close." For example, suppose there is a program that reads a file, gathers some data, then finishes. When the program begins and ends, it is generally not a good practice to have functions named `open_file()` and `exit_file()`, as "open" and "exit" are not consistent. It would be more appropriate to use `open_file()` and `close_file()` in this case.
 - **Ordering.** If a certain process has steps to begin and steps to end, it is good to mirror these steps across each. As an example, consider the tire changing example from earlier. If the setup process uses "purchase a tire" first then "take out tools" second, the teardown process should use "put away tools" first then "discard tire" second to mirror the order from before.
 
@@ -199,6 +199,80 @@ An additional great way to be consistent is to adhere to a *style guide*. Nearly
 Comments are the number one best way for programmers to communicate with each other, either across space (with other people) or across time (with yourself). By writing constructive comments about the thought processes involved with writing code, a programmer can help someone else to understand the logic later, without needing to take the time to trace these steps for themselves.
 
 Use comments to explain on a high level *why* things were designed the way they were, possibly some of the advantages and limitations, or what groups of code does that may not otherwise be clear. Comments help tell the story of how code works.
+
+A few rules of thumb:
+
+- Your comments should not restate what the code already says. (Alternatively, if you find that you write comments for every line of code, you are probably writing too many comments.)
+
+    For example, the following comment is unnecessary:
+
+    ``` c
+    x = x + 1;  // Add one to x
+    ```
+
+- If you find a problem with your code to be addressed later, or your code is incomplete, write a comment describing this.
+- If a bug arises in your code and you fix it, write a comment describing how it was fixed.
+- Comments do not substitute good code. For example, instead of using single-letter or otherwise misleading variable names (and explaining the code in a comment), incorporate the phrasing of the comment into the code itself.
+
+    See this example of a poor use of comments:
+
+    ``` c
+    int get_largest_value(int *arr, int le)
+    {
+      // Initially, the largest value is the first value.
+      int l = arr[0];
+
+      for (int i = 1; i < le; i++)
+      {
+        // Update the largest value if the current value is larger.
+        l = (arr[i] > l) ? arr[i] : l;
+      }
+
+      return l;
+    ```
+
+    This code may take a programmer longer than necessary to understand due to the use of short, vague variable names. The comments help, but should really be incorporated into the code itself.
+
+    The following is a better use of comments and code structure (notice that assumptions made in the function are also added):
+
+    ``` c
+    // Given an array of integers and its length, this function returns the value of
+    // the largest element.
+    //
+    // Note: It is assumed that the array has a length of at least one, and that the
+    // pointer to `array` is non-null.
+    int get_largest_value(int *array, int length)
+    {
+      // Initially, the largest value is the first value.
+      int largest = array[0];
+
+      // Check through all other elements in the array, and update the largest value as needed.
+      for (int i = 1; i < length; i++)
+      {
+        if (array[i] > largest)
+        {
+          largest = array[i];
+        }
+      }
+
+      return largest;
+    ```
+
+- You should explain code that is not already a common practice in the language. (This point will vary depending on your level of knowledge of what is best practice, and this is okay. Part of becoming a better programmer is learning what is common enough to no longer need an explanation for.)
+
+    For example, while the following comment is typically unnecessary, it may be helpful while first learning C.
+
+    ``` c
+    // Instead of writing an explicit check of `free_space_available == true`, it can simply
+    // be written as `free_space_available`, as C can interpret the value of a variable
+    // as "truth-y" or "false-y".
+    if (free_space_available)
+    {
+      ...
+    }
+    ```
+
+- If you use outside sources to assist with your code (either documentation or code examples online), add links to the original code in your comments. This will give an easy location to refer to more information about a particular piece of code, should it be needed later.
 
 
 # Best Practices for C
