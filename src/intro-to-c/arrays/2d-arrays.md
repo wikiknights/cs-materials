@@ -295,3 +295,56 @@ int main(void) {
 
 ## Dynamically Allocating 2D Arrays
 
+If you haven't learned about dynamically allocating memory yet, then this section may not make much sense.
+Consider viewing the section on **Pointers and Dynamic Memory Allocation** first.
+
+However, if you have, then this section will detail some of the thought behind dynamically allocating multi-dimensional arrays.
+
+### Syntax
+
+_Note_: There are a multitude of ways to implement 2D arrays in C. This is simply one of them, which may not be the most efficient
+
+Before, we saw how to create a 2D array in the stack space, like the following example below:
+
+```c
+char tic_tac_toe[3][3];
+```
+
+<!-- In C, the stack space is limited, and you may run into issues where you might need more memory. With the heap, however, we can ... (? maybe include information about stack vs heap?) -->
+
+Of course, this only creates a 2D array in the _stack space_. Let's try to create our tic-tac-toe array in the heap with `malloc` (assuming you already have `#include <stdlib.h>`).
+
+```c
+char **tic_tac_toe = malloc(sizeof(char *) * 3);
+```
+
+Let's draw out what's currently happening:
+
+<!-- the following images are going to be very crusty for now until i make them 
+look nicer -->
+
+![](img/dbpointer.png)
+
+We now have a variable, `**tic_tac_toe`, which holds an address that points to our _array_ of `char` pointers. We aren't done yet, however. So far, we've only laid out the foundation of what will become our 2D array. 
+
+<!-- i think with this method of creation the arrays aren't really contiguous so the drawing isn't really accurate, but maybe put a footnote about that at the bottom?  -->
+
+If you've been paying close attention, you might realize that each "cell" in our `tic_tac_toe` array of pointers could also be, well, arrays. And that's exactly what we'll do: for each `char *` cell in `**tic_tac_toe`, we can initialize (using `malloc` again) a new array of `char`, thus finally creating a 2D array.
+
+<!-- images are wayyy too big i think -->
+
+![](img/chararray.png)
+
+How would we do that? Well, you could individually access each `char *` cell, `malloc` a new `char` array for each, and then eventually place a value inside each cell. It's a bit tedious, but I'll explain it here:
+
+```c
+// create the "double pointer" that points to an array of (empty) arrays
+char **tic_tac_toe = malloc(sizeof(char *) * 3);
+// individually access each cell of tic_tac_toe (which are of type (char *))
+// so that we can then allocate space in each cell for char arrays
+tic_tac_toe[0] = malloc(sizeof(char) * 3);
+tic_tac_toe[1] = malloc(sizeof(char) * 3);
+tic_tac_toe[2] = malloc(sizeof(char) * 3);
+// finally, we can access each element like a 2d array:
+tic_tac_toe[0][0] = 'X';
+```
