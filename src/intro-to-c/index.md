@@ -53,6 +53,8 @@ toc: false
 
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
 
+[2D Arrays](arrays/2d-arrays.md)
+
 [Strings Introduction](strings/strings-intro.md)
 
 [Strings Practice](strings/strings-practice.md) ([Answers](strings/strings-practice-answers.md))
