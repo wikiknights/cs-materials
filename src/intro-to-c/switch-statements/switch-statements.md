@@ -179,7 +179,78 @@ You will notice that the print statement in case 1 is executed before the nested
 
 ### Weird Switch Cases
 
-First step: don't do this. You can use switch statements around other control structures, the most common being curly brackets.
+Switch statements have some very strange behaviors that allow for interesting code. When a switch statement is used, it calculates and address and jumps to it. That means you can use switch statements around other control structures. For example, this would be valid code:
+
+``` {.c .numberLines}
+...
+// Please don't do this.
+
+    switch(state){
+    case 0:
+        if(x == 'a') {
+            printf("In the if in case 0.\n");
+        break;
+    case 1:
+        printf("In the if in case 1.\n");
+        }
+        printf("Out of the if, but in case 1.\n");
+        break;
+    case 2:
+        printf("Case 2 is less interesting.\n");
+        break;
+    }
+...
+```
+
+To process what would happen with this code, look at it without all the switch cases and breaks around it.
+
+``` {.c .numberLines}
+...
+// Please don't do this.
+
+//    switch(state){
+//    case 0:
+          if(x == 'a') {
+              printf("In the if in case 0.\n");
+//        break;
+//    case 1:
+          printf("In the if in case 1.\n");
+          }
+//        printf("Out of the if, but in case 1.\n");
+//        break;
+//    case 2:
+//        printf("Case 2 is less interesting.\n");
+//        break;
+//    }
+...
+```
+
+You will notice that you have a perfectly normal `if` statement. So what happens if we treat it like one? If `state` is set equal to 0 and `x` is set equal to `'a'`, then the output looks like this.
+
+```
+In the if in case 0.
+```
+
+That's very strange. It didn't execute the entire `if` statement. That is because of the `break` statement on line 8, but maybe not for the reason you'd think. Specifically, break statements break out of loops (`do`, `for`, and `while`) and switches. Note that `if` is not included in that list, and because the `if` is nested in a switch statement we escape before reaching line 10.
+
+Let's take a look at the two other possibilities that create interesting results. Specifically, if 1) `x != 'a'` and `state = 0` and 2) `state = 1`. This would be the output for these cases:
+
+@)
+```
+Out of the if, but in case 1.
+```
+
+In this instance, we enter `Case 0` and then the `if` statement, which resolves to false. Because of this, we jump to line 12, which is the middle of `Case 1`.
+
+@)
+```
+In the if in case 1.
+Out of the if, but in case 1
+```
+
+What we see here is the entrance into `Case 1`, which happens to be the middle of the `if` statement. This means we execute both print statements in the switch case, even though one of them is also inside an `if` statement.
+
+If you want to implement this unique behavior, step one is simple: ***don't***. This has actual been used in code before, and is named Duff's device. It is a manual implementation of what we call "loop unrolling." I'm telling you that so you can look it up, _not so you can use it._
 
 ## Switch Statement Errors
 
