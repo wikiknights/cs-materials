@@ -143,7 +143,7 @@ Here is some additional practice with switch statements.
 	>
 	> 0, 104
 
-	**Note:** `\0` is the `NULL` character.
+	**Note:** `\0` is the `NULL` character and each output should be on a new line.
 
 	``` c
 	int option;
@@ -203,11 +203,11 @@ Here is some additional practice with switch statements.
 	**Answer:**
 
 	```
-				Hello, World!?
-	            Baby Shark
-	            Switch Statements.Alphabet Soupcheck!
-	            Break check!
-	            \[NO OUTPUT\]
+	Hello, World!?
+    Baby Shark
+    Switch Statements.Alphabet Soupcheck!
+    Break check!
+    \[NO OUTPUT\]
 	```
 
 
