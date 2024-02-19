@@ -1,6 +1,10 @@
 #!/bin/bash
 # Created by Idel Martinez and Jerrett Longworth
 
+# Script that will convert a singular Markdown file into another format, using
+# all the configured style presets and Pandoc options. Currently supported
+# formats include HTML, DOCX, and PDF.
+
 # Setup variables
 SCRIPT_LOCATION=$(readlink -e "$0")
 SCRIPT_LOCATION=${SCRIPT_LOCATION%/*}
@@ -16,13 +20,14 @@ show_usage() {
 	cat << EOF
 Usage: ${0##*/} [-dhmp] [-o output_file] <file>
 Converts a Pandoc markdown file into a variety of formats. If no format is specified,
-it will be converted to all formats supported by this script.
+it will be converted to HTML only.
 
 Options:
   -d          Convert to DOCX.
   -h          Convert to HTML.
   -m          Use premailer in HTML output (disabled by default).
-  -o <file>   Outputs to the specified file.
+  -o <file>   Outputs to the specified file. (By default, will be saved to the same
+              directory as the input file.)
   -p          Convert to PDF.
 EOF
 }
@@ -30,6 +35,9 @@ EOF
 # Set default flags
 customout=""
 enable_premailer=0
+
+# Initialize variable for temporary file during build
+tmpfile=""
 
 convert_html() {
 	if [ -n "$customout" ]; then
@@ -39,21 +47,23 @@ convert_html() {
 	fi
 
 	echo "Adjusting *.md links to *.html links..."
-	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' tmp.md
+	perl -pi -e 's/(\(.*?\.)(md)(\))/\1html\3/g' "$tmpfile"
 
 	echo "Converting to HTML..."
-	pandoc tmp.md -o tmp.html --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --embed-resources --standalone --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
+	tmphtml=$(mktemp)
+	pandoc --from markdown "$tmpfile" --to html -o "$tmphtml" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --embed-resources --standalone --data-dir="$ROOT_DIR" --defaults "$ROOT_DIR/build/defaults.yaml"
 
 	# Stop if conversion failed
 	[ $? -ne 0 ] && return 1
 
 	if [ $enable_premailer -eq 1 ]; then
 		echo "Fixing CSS..."
-		python3 -m premailer -f tmp.html -o tmp2.html
-		mv tmp2.html tmp.html
+		tmphtml2=$(mktemp)
+		python3 -m premailer --file "$tmphtml" --output "$tmphtml2"
+		mv "$tmphtml2" "$tmphtml"
 	fi
 
-	mv tmp.html "$outputfile"
+	mv "$tmphtml" "$outputfile"
 }
 
 convert_docx() {
@@ -64,7 +74,7 @@ convert_docx() {
 	fi
 
 	echo "Converting to DOCX..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
+	pandoc --from markdown "$tmpfile" --to docx -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml"
 }
 
 convert_pdf() {
@@ -75,17 +85,11 @@ convert_pdf() {
 	fi
 
 	echo "Converting to PDF..."
-	pandoc tmp.md -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml" --data-dir="$ROOT_DIR" --include-in-header "$ROOT_DIR/build/linewrap.tex"
+	pandoc --from markdown "$tmpfile" --to pdf -o "$outputfile" --highlight-style "$ROOT_DIR/templates/customhighlight.theme" --defaults "$ROOT_DIR/build/defaults.yaml" --data-dir="$ROOT_DIR" --include-in-header "$ROOT_DIR/build/linewrap.tex"
 }
 
-converter() {
-	convert_html "$1"
-	convert_docx "$1"
-	convert_pdf "$1"
-}
-
-# Set default flags for conversion modes
-all=1
+# Set default flags for output formats
+format_given=0
 docx=0
 html=0
 pdf=0
@@ -95,12 +99,12 @@ OPTIND=1
 while getopts dhmo:p option; do
 	case $option in
 		d)
+			format_given=1
 			docx=1
-			all=0
 			;;
 		h)
+			format_given=1
 			html=1
-			all=0
 			;;
 		m)
 			enable_premailer=1
@@ -109,8 +113,8 @@ while getopts dhmo:p option; do
 			customout="${OPTARG}"
 			;;
 		p)
+			format_given=1
 			pdf=1
-			all=0
 			;;
 		:)
 			echo "Error: -${OPTARG} requires an argument."
@@ -150,12 +154,15 @@ if [ ! -f "$1" ]; then
 	exit -1
 fi
 
-cp "$1" tmp.md
+tmpfile=$(mktemp)
+cp "$1" "$tmpfile"
 
 echo "Converting files..."
 file_no_extension="${1%.*}"
-if [ $all -eq 1 ]; then
-	converter "$file_no_extension"
+
+if [ $format_given -eq 0 ]; then
+	# By default, convert to HTML.
+	convert_html "$file_no_extension"
 else
 	if [ $docx -eq 1 ]; then convert_docx "$file_no_extension"; fi
 	if [ $html -eq 1 ]; then convert_html "$file_no_extension"; fi
@@ -164,6 +171,6 @@ fi
 echo "Finished all converting."
 
 echo "Cleaning up..."
-rm -f tmp.md tmp.html
+rm -f "$tmpfile"
 
 echo "All done!"

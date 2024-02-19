@@ -49,6 +49,8 @@ toc: false
 
 ## Arrays and Strings
 
+[Array Introduction](arrays/arrays-intro.md)
+
 [Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
 
 [Strings Introduction](strings/strings-intro.md)
@@ -92,3 +94,5 @@ toc: false
 [Binary I/O Practice](binary-io/binary-io-practice.md) ([Answers](binary-io/binary-io-practice-answers.md))
 
 [Final Project Practice](final-project/final-project-practice.md) ([Answers](final-project/final-project-practice-answers.md))
+
+[Programming Best Practices](best-practice/best-practice.md)
