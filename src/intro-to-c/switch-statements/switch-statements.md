@@ -173,9 +173,59 @@ You will notice that the print statement in case 1 is executed before the nested
 
 *Note:* These cases were named this way to make it easy to talk about, but you can have cases with the same names if the duplicate names are in different switch statements, including nested switch statements.
 
-### Arithmetic and Conditional Statements in Switch Conditions
+### Arithmetic and Conditionals in Switch Statements
 
-#### Conditions in Switch Cases
+Switch statements allow for plenty of versatility as a conditional statement. They can provide an outcome for every possible value of the condition. It may be a nightmare to actually do that, but that's what we had the default cases for.
+
+#### Arithmetic in Switch Cases
+
+Switch cases can be defined simply with integer values, as we've shown in previous examples. It is important to note that it is required of switch cases to resolve to a constant integer. Integers, arithmetic, integer comparison, and ASCII can all resolve to constant integers. This would be an example that does all of those things:
+
+``` c
+...
+    switch(state){
+    case 0 > 1:
+        printf("This case resolves to 0 and is an integer comparison.\n");
+        break;
+    case 100 > 20:
+        printf("This case resolves to 1 and is an integer comparison.\n");
+        break;
+    case 2:
+        printf("This case resolves to 2 and is an integer.\n");
+        break;
+    case 2 + 1:
+        printf("This case resolves to 3 and is arithmetic.\n");
+        break;
+    case ' ':
+        printf("This case resolves to 32 and is ASCII.\n");
+        break;
+    }
+...
+```
+
+**Things to note:** You cannot compare variables in switch cases, nor do any arithmetic with them. This is the constant integer issue from before.
+
+In this switch statement, our `case 0` and `case 1` are defined integer comparison that resolve to 0 and 1, the `true` and `false` values in C. `Case 2` is an integer like we've seen before. `Case 3` is some integer arithmetic, but it can be defined with ASCII arithmetic, too, like `'A' + 35`. In our final case, we are using the value of the space character.
+
+The first two cases are cumbersome ways to get to 0 and 1, but it's interesting nonetheless.
+
+#### What can I use as a Switch Condition?
+
+You can do more with the conditional portion of switch statements. Here are some examples of what we can do in the `state` of the switch statement:
+
+```c
+ switch((var1 * var2) % 15){
+    ...
+}
+ switch(var3 > var4 || var5 == 'G'){
+    ...
+}
+ switch(character[i]){
+    ...
+}
+```
+
+As you can see, you can do variable arithmetic, or a comparison, or even use a `char` (in this case I used a character array and used the ith element, which would also work) because they all resolve to an integer value that can be predicted as an outcome.
 
 ### Weird Switch Cases
 
