@@ -156,14 +156,14 @@ To explain what's going on, let's walk through the important bits:
     tic_tac_toe[2][0] = 'X';
 ```
 
-Here, we're just creating our tic-tac-toe 2D `char` array, with a size of 3x3. Then, we're setting the character at the third row, first column to 'X'. Remember, arrays in C start at 0!
+Here, we're just creating our tic-tac-toe 2D `char` array, with a size of 3x3. Then, we're setting the character at the third row, first column to 'X'. Remember, arrays in C start at index 0!
 
 ```c
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
 ```
 
-This may look a little strange, but all that is essentially going on these two lines is that we're setting up the first, "outer" loop so that we start at i = 0, all the way to i = 2, then increment. Then, for each iteration of that outer loop, we are also looping through _another_ loop located inside that first loop. So, if we track the variables:
+This may look a little strange, but all that is essentially going on in these two lines is that we're setting up the first, "outer" loop so that we start at i = 0, all the way to i = 2, then increment. Then, for each iteration of that outer loop, we are also looping through _another_ loop located inside that first loop. So, if we track the variables:
 
 ```
 i-index  j-index  (i, j)
@@ -183,7 +183,7 @@ i = 2    j = 0    (2, 0)
                         <- both i and j have reached their terminating conditions
 ```
 
-You'll see that for every iteration of `i`, we finish up the inner loop first (e.g. by incrementing until we reach the end condition), then finally going back to the outer loop and incrementing it's counter.
+You'll see that for every iteration of `i`, we finish up the inner loop first (e.g. by incrementing until we reach the end condition), then finally going back to the outer loop and incrementing its counter.
 
 Now, you may realize something: if we look at (i, j) when tracking the variables, the indexes line up with the positions on our tic-tac-toe grid, at least in terms of accessing them, like we did with `tic_tac_toe[2][0] = 'X'`. For instance, (0, 0) represents the top-left, (0, 1) represents the cell right next to that, (0, 2) then is the top-right, etc.
 
@@ -194,16 +194,6 @@ We now have a way to generate the indexes of all of the possible cells in our 2D
 ```
 
 Here, we print a single character (with a space after it), by accessing what's in our 2D array. Just like what we did before, when trying to assign 'X' to `tic_tac_toe[2][0]`, in this line of code, we access the character in `tic_tac_toe[i][j]`. For instance, if we randomly stopped the program from running when i = 2 and j = 0, we would see that the character at `tic_tac_toe[2][0]` is, in fact, `X`.
-
-Now, there is one problem that I am ashamed to admit: if we ran this right now, it would compile and run, but we'd get output like this:
-
-```
-
-
-X
-```
-
-</details>
 
 Finally, when we run our program, we get the following output:
 
