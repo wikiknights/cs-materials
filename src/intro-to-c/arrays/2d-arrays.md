@@ -56,7 +56,24 @@ index    +-----+-----+-----+
          +-----+-----+-----+
 ```
 
-Let's say that we want to put an `X` in the bottom left cell:
+Now first, we want to make sure we can see the grid, so we're going to populate our array with underscores so we can view each "cell". Don't worry, we'll go over what the code means later, but for right now, just know that we're looping through each cell and placing an underscore in it.
+
+<details>
+<summary>Show code</summary>
+
+```c
+for (int i = 0; i < 3; i++) {
+   for (int j = 0; j < 3; j++) {
+      /* initalize the char at the row, col of tic_tac_toe 
+      to an underscore for better readability */
+      tic_tac_toe[i][j] = '_';
+   }
+}
+```
+
+Of course, you could have used another character, or maybe you're content with just using a space, but remember to initialize your values, else you could accidentally end up reading garbage values!
+
+Now, let's say that we want to put an `X` in the bottom left cell:
 
 Remember, array indexes start at 0. So although we have three rows and three columns (a 3x3 grid), we must remember to start each index at 0. 
 
@@ -110,9 +127,16 @@ Trick question! We would need multiple for loops! Specifically, we would need to
 #include <stdio.h>
 
 int main(void) {
-
     char tic_tac_toe[3][3];
     tic_tac_toe[2][0] = 'X';
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            /* initalize the char at the row, col of tic_tac_toe 
+            to an underscore for better readability */
+            tic_tac_toe[i][j] = '_';
+        }
+    }
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -178,25 +202,6 @@ Now, there is one problem that I am ashamed to admit: if we ran this right now, 
 
 X
 ```
-
-Technically, our program works, it's just that I forgot to initialize each cell in our tic-tac-toe 2D array with a value (oops!) so right now they're all "empty", except of course, `tic_tac_toe[2][0]`. This doesn't really look all that great though, and it's hard to discern where all the cells are. However, with your newfound knowledge, perhaps you could help me!
-
-Click the text below to see a potential solution!
-
-<details>
-<summary>Show code</summary>
-
-```c
-for (int i = 0; i < 3; i++) {
-   for (int j = 0; j < 3; j++) {
-      /* initalize the char at the row, col of tic_tac_toe 
-      to an underscore for better readability */
-      tic_tac_toe[i][j] = '_';
-   }
-}
-```
-
-Of course, you could have used another character, or maybe you're content with just using a space, but remember to initialize your values, else you could accidentally end up reading garbage values!
 
 </details>
 
