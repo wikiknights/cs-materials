@@ -22,7 +22,7 @@ jobs:
           submodules: recursive
 
       - name: Install pandoc
-        uses: pandoc/actions/setup@{main}
+        uses: pandoc/actions/setup@v1
         with:
           version: 3.1.12.3
 
