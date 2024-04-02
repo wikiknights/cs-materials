@@ -21,12 +21,10 @@ jobs:
         with:
           submodules: recursive
 
-      # Installing pandoc is done this way instead of with the package manager because the version
-      # on apt is just too old
       - name: Install pandoc
-        run: |
-          wget https://github.com/jgm/pandoc/releases/download/3.1.12.3/pandoc-3.1.12.3-1-amd64.deb
-          sudo dpkg -i pandoc-3.1.12.3-1-amd64.deb
+        uses: pandoc/actions/setup@{main}
+        with:
+          version: 3.1.12.3
 
       - name: Convert all markdown to HTML
         run: bash ${{ github.workspace }}/build/build_all.sh -v
