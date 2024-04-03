@@ -25,11 +25,8 @@ jobs:
       # on apt is just too old
       - name: Install pandoc
         run: |
-          wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb
-          sudo dpkg -i pandoc-2.19.2-1-amd64.deb
-
-      - name: Install premailer
-        run: pip3 install --user premailer
+          wget https://github.com/jgm/pandoc/releases/download/3.1.12.3/pandoc-3.1.12.3-1-amd64.deb
+          sudo dpkg -i pandoc-3.1.12.3-1-amd64.deb
 
       - name: Convert all markdown to HTML
         run: bash ${{ github.workspace }}/build/build_all.sh -v
