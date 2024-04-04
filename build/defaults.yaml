@@ -9,4 +9,7 @@ resource-path:
 table-of-contents: true
 variables:
   default-monofont-pdf: "Fira Code"
+  fontsize: "20px"
+  linestretch: "1.5"
+  mainfont-html: "Helvetica Neue, Helvetica, Arial, sans-serif"
   toc-title: "Contents"

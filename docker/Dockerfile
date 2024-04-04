@@ -1,14 +1,15 @@
 ARG SERVER_PORT
 
-FROM alpine:3
+FROM ubuntu:22.04
 
-RUN apk add --no-cache \
-	bash \
+RUN apt-get update && apt-get install -y \
 	coreutils \
+	curl \
 	findutils \
-	pandoc \
 	perl \
 	python3
+
+RUN curl --output-dir /tmp --remote-name --location "https://github.com/jgm/pandoc/releases/download/3.1.12.3/pandoc-3.1.12.3-1-amd64.deb" && dpkg -i /tmp/pandoc-3.1.12.3-1-amd64.deb
 
 WORKDIR /mnt/project
 
