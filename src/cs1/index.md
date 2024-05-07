@@ -12,3 +12,10 @@ toc: false
 ## Linked Lists
 
 [How to Reverse a Linked List Process](linked-lists/reverse-linked-list.md)
+
+## Trees
+
+[Intro to Binary Trees](trees/tree-basics.md)
+
+
+[Binary Search Trees](trees/bst.md)
