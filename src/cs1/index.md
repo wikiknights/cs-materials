@@ -11,4 +11,6 @@ toc: false
 
 ## Linked Lists
 
+[Linked List Basic](linked-lists/linked)
+
 [How to Reverse a Linked List Process](linked-lists/reverse-linked-list.md)
