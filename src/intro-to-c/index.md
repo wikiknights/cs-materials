@@ -83,6 +83,8 @@ toc: false
 
 ## Debugging
 
+[General Debugging](debugging/general-debugging.md)
+
 [Introduction to GDB](debugging/gdb-intro.md)
 
 ## Bonus Topics
