@@ -70,6 +70,7 @@ for (int i = 0; i < 3; i++) {
    }
 }
 ```
+</details>
 
 Of course, you could have used another character, or maybe you're content with just using a space, but remember to initialize your values, else you could accidentally end up reading garbage values!
 
