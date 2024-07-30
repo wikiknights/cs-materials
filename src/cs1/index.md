@@ -12,3 +12,7 @@ toc: false
 ## Linked Lists
 
 [How to Reverse a Linked List Process](linked-lists/reverse-linked-list.md)
+
+## Stacks & Queues
+
+[Stack Basics](stacks-and-queues/stack-basics.md)
