@@ -291,7 +291,7 @@ Just like before, we will need a temporary node to traverse the rest of the list
 +----------+
 ```
 
-Once we are here we will save `15` in another temporary node, then "patch over", then free `15.
+Once we are here we will save `15` in another temporary node, then "patch over", then free `15`.
 
 ```       
           ------------ 
