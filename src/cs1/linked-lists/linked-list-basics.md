@@ -12,7 +12,7 @@ One of the first, and most basic, data structures that we will learn about in CO
 
 A Linked List is exactly what it sounds like, a list where all of the elements are linked together like a chain.
 
-Here is an example of a Linked List
+Here is an example of a Linked List:
 
 ```
 +------+
