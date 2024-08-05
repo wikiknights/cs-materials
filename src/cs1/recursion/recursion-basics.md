@@ -16,7 +16,7 @@ The factorial of any non-negative integer, $n$, usually written as $n!$, is defi
 
 $n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1$
 
-Let's consider writing an iterative solution to this problem. This would the solution someone who hasn't encountered recursion before would probably come up with:
+Let's consider writing an iterative solution to this problem. This would probably be the solution from someone who hasn't encountered recursion before:
 
 ``` c
     // Perform the product from 1 to n
