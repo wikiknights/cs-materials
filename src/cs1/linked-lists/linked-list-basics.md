@@ -88,7 +88,7 @@ Assuming we have access to the head of this list, all we must do is have `head` 
 
 Since we have access constant access to the head,  we don't have to do any traversing. This make inserting in the front an `O(1)` operation.
 
-Now let's look at the code
+Now let's look at the code:
 
 ```c
 node* addToFront(node* head, int val){
