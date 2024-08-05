@@ -70,7 +70,7 @@ Tracing the function calls:
 
 This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to problem, this also ensures that our recursive calls end. For Factorial this base case will be `fact(0)`, since `0! = 1`.
 
-Now, lets add a base case to our code and see if it works
+Now, let's add a base case to our code and see if it works:
 
 ```c
 int fact(int n){
