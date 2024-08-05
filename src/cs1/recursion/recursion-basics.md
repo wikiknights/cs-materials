@@ -33,7 +33,7 @@ Notice for our simple Factorial program, we only do simple multiplication for ea
 
 ## Formulating a Recursive Solution
 
-When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at ,`n`, with whatever factorial of `n-1` is. 
+When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at, `n`, with whatever factorial of `n-1` is. 
 
 Lets write a function body along with the logic I just described
 
