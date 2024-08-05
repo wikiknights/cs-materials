@@ -22,7 +22,3 @@ Given the function header, write a recursive solution to this problem.
       // You write this
    }
 ```
-
-### Credits
-
-Thanks to professor Arup Guha, as this tutorial is an adaptation of his class notes. If you would like to view them click [here](https://www.cs.ucf.edu/~dmarino/ucf/transparency/cop3502/lec/RecursionIntro.pdf)

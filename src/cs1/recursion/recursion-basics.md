@@ -46,27 +46,27 @@ Let's write a function body using the logic I just described:
 
 ## Generating a Base Case
 
-Sweet! We are all done... or are we? There is a key piece of code that I have forgot to add. Can you figure out what it is?
+Sweet! We are all done... or are we? There is a key piece of code that I forgot to add. Can you figure out what it is?
 
 If you call `fact(5)` in `main()`, nothing will happen. This happens because an infinite loop has occurred.
 
 Why?
 
-Well let's trace through `fact(5)`
+Well, let's trace through `fact(5)`:
 
 > When things don't work like intended, it is always helpful to run a debugger, like GDB, which is extremely useful to show the steps your code took during execution. Wiki Knights has tutorials on using GDB if you are interested.
 
 Tracing the function calls:
 
 ```text
-                    fact(5) = 5 * fact(4)
-                    fact(4) = 4 * fact(3)
-                    fact(3) = 3 * fact(2)
-                    fact(2) = 2 * fact(1)
-                    fact(1) = 1 * fact(0)
-                            .
-                            .
-                            .
+                                        fact(5) = 5 * fact(4)
+                                        fact(4) = 4 * fact(3)
+                                        fact(3) = 3 * fact(2)
+                                        fact(2) = 2 * fact(1)
+                                        fact(1) = 1 * fact(0)
+                                                .
+                                                .
+                                                .
 ```
 
 This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to the problem, this also ensures that our recursive calls end. For factorial this base case will be `fact(1)`, since $1! = 1$.
@@ -103,7 +103,7 @@ If we analyze the structure of our recursive solution to the factorial, we will 
 ```
 
 1. We have a base case condition to see if we found a trivially easy problem. This will help terminate the recursive calls (Remember what happened when we didn't have this before).
-2. We have a second conditional that recursively calls the same function again but with a smaller input. Also notice how we solve the problem slightly in some sense. For our factorial this involves us multiplying `n` by `factorial(n-1)`.
+2. We have a second conditional that recursively calls the same function again but with a smaller input. Also notice how we solve the problem slightly in some sense. For our factorial this involves us multiplying `n` by `fact(n-1)`.
 
 While all problems might not have this simple layout, it is a good foundation to start with in your journey of learning recursion.
 
@@ -121,7 +121,7 @@ Given the function header, write a recursive solution to this problem.
 
 # Conclusion
 
-As we've learned, recursion is an incredibly powerful programming technique that can be used to solve many different types of problems. Understanding and utilizing recursion is a skill, which implies some practice is needed to hone. Recursion is also an important programming concept that integral to many different data structures and algorithms you will cover in Computer Science I. Because of this, it is important to take the time to practice utilizing recursion in different types of problems.
+As we've learned, recursion is an incredibly powerful programming technique that can be used to solve many different types of problems. Understanding and utilizing recursion is a skill, which implies some practice is needed to hone. Recursion is also an important programming concept that integral to many different data structures and algorithms you will cover throughout computer science. Because of this, it is important to take the time to practice utilizing recursion in different types of problems.
 
 ## Additional Resources
 
