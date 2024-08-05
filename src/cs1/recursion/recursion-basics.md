@@ -12,9 +12,9 @@ Recursion is a powerful programming concept which allows programmers to develop 
 
 Let's consider a classic example that is used to teach recursion: Factorial!
 
-The factorial of any non-negative integer, `n`, usually written as `n!`, is defined as the product of all the positive-integers less than or equal to `n`.
+The factorial of any non-negative integer, $n$, usually written as $n!$, is defined as the product of all the positive-integers less than or equal to $n$:
 
-`n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1`
+$n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1$
 
 Let's consider writing an iterative solution to this problem. This would the solution someone who hasn't encountered recursion before would probably come up with:
 
