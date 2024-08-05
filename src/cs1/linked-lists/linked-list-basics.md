@@ -267,7 +267,7 @@ Deleting an element from a Linked List will be a lot like adding in order. We wi
 
 Once we "patch over" the deleted node, then we can free it.
 
-Let's delete `15` from the list
+Let's delete `15` from the list:
 
 ```
 +------+
