@@ -310,7 +310,7 @@ Now we can call `free(tempHead2)` to safely delete `15`.
 
 Since at WORST we might have to traverse the whole list, this makes delete an `O(n)` operation.
 
-Now let's look at the delete code
+Now let's look at the delete code:
 
 ```c
 node* delNode(node* head, int val){
