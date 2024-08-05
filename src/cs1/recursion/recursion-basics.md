@@ -35,7 +35,7 @@ Notice for our simple Factorial program, we only do simple multiplication for ea
 
 When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at, `n`, with whatever factorial of `n-1` is. 
 
-Lets write a function body along with the logic I just described
+Let's write a function body using the logic I just described:
 
 ```c
 int fact(int n){
