@@ -1,5 +1,5 @@
 ---
-title: Intro to Recursion
+title: Recursion Basics
 author:
   - Jacob Gadberry
 ---
@@ -8,9 +8,9 @@ author:
 
 Recursion is a powerful programming concept which allows programmers to develop elegant solutions to seemingly complex problems. If you've never heard of recursion before; simply, it's a function that calls itself.
 
-## Simple Example
+# Simple Example
 
-Let's consider a classic example that is used to teach recursion: Factorial!
+Let's consider a classic example that is used to teach recursion: factorial!
 
 The factorial of any non-negative integer, $n$, usually written as $n!$, is defined as the product of all the positive-integers less than or equal to $n$:
 
@@ -19,28 +19,29 @@ $n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1$
 Let's consider writing an iterative solution to this problem. This would probably be the solution from someone who hasn't encountered recursion before:
 
 ```c
-    // Perform the product from 1 to n
-    for(int i = n; i >= 1; i--){
-        ans *= i;
-    }
-    // Display the answer
-    printf("%d ",ans);
+   int ans = 1;
+   // Perform the product from n to 1
+   for(int i = n; i >= 1; i--){
+       ans *= i;
+   }
+   // Display the answer
+   printf("%d ",ans);
 ```
 
 The key to utilizing recursive solutions to problems is answering one key question: "Can the problem I'm solving be broken into smaller sub-problems of the same type?"
 
-Notice for our simple Factorial program, we only do simple multiplication for each iteration `ans *= i`.
+Notice for our simple factorial program, we only do simple multiplication for each iteration `ans *= i`.
 
-## Formulating a Recursive Solution
+# Formulating a Recursive Solution
 
 When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at, `n`, with whatever factorial of `n-1` is.
 
 Let's write a function body using the logic I just described:
 
 ```c
-int fact(int n){
-    return n * factorial(n-1);
-}
+   int fact(int n){
+       return n * fact(n-1);
+   }
 ```
 
 ## Generating a Base Case
@@ -53,7 +54,7 @@ Why?
 
 Well let's trace through `fact(5)`
 
-> When things don't work like intended, it is always helpful to run a debugger, like GDB, which is extremely useful to show the steps your code took during execution. WikiKnights has tutorials on using GDB if you are interested.
+> When things don't work like intended, it is always helpful to run a debugger, like GDB, which is extremely useful to show the steps your code took during execution. Wiki Knights has tutorials on using GDB if you are interested.
 
 Tracing the function calls:
 
@@ -68,24 +69,24 @@ Tracing the function calls:
                             .
 ```
 
-This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to problem, this also ensures that our recursive calls end. For Factorial this base case will be `fact(1)`, since `1! = 1`.
+This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to the problem, this also ensures that our recursive calls end. For factorial this base case will be `fact(1)`, since $1! = 1$.
 
 Now, let's add a base case to our code and see if it works:
 
 ```c
-int fact(int n){
-    //Base Case: n == 1
-    if(n == 1){
-        return 1;
-    }
-    //Recursive Case: n > 1
-    else{
-        return n * fact(n-1);
-    }
-}
+   int fact(int n){
+       //Base Case: n == 1
+       if(n == 1){
+           return 1;
+       }
+       //Recursive Case: n > 1
+       else{
+           return n * fact(n-1);
+       }
+   }
 ```
 
-## General Form of Recursive Solutions
+# General Form of Recursive Solutions
 
 If we analyze the structure of our recursive solution to the factorial, we will notice a few things:
 
@@ -106,19 +107,19 @@ If we analyze the structure of our recursive solution to the factorial, we will 
 
 While all problems might not have this simple layout, it is a good foundation to start with in your journey of learning recursion.
 
-## Try a Problem Yourself
+# Try a Problem Yourself
 
 Given a positive integer `n`, return the sum of the digits of `n`. For example `123` would return `6` because `1 + 2 + 3 = 6`.
 
 Given the function header, write a recursive solution to this problem.
 
 ```c
-int sumDigits(int n){
-    // You write this
-}
+   int sumDigits(int n){
+       // You write this
+   }
 ```
 
-## Conclusion
+# Conclusion
 
 As we've learned, recursion is an incredibly powerful programming technique that can be used to solve many different types of problems. Understanding and utilizing recursion is a skill, which implies some practice is needed to hone. Recursion is also an important programming concept that integral to many different data structures and algorithms you will cover in Computer Science I. Because of this, it is important to take the time to practice utilizing recursion in different types of problems.
 
