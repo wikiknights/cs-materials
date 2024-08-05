@@ -127,7 +127,7 @@ Instead, we will create a temporary pointer called `tempHead` which we will use 
 +----------+
 ```                  
 
-We then iterate tempHeap until the node we are at has `NULL` next node. Then, we can add the new node to our list. 
+We then iterate `tempHead` until the node we are at has `NULL` as the value of the `next` node. Then, we can add the new node to our list. 
 
 ```
 +-----+       +------+
