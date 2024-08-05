@@ -362,7 +362,7 @@ node* delNode(node* head, int val){
 
 Searching in a Linked List is probably the easiest operation to perform since it is just a Linked List traversal.
 
-All we need is, you guessed it, a temporary node so we can search the whole list for the value what we are looking for. Once we find the value we are looking for we can return `1` to indicate a successful search or `0` for an unsuccessful.
+All we need is, you guessed it, a temporary pointer so we can search the whole list for the value what we are looking for. Once we find the value we are looking for we can return `1` to indicate a successful search or `0` for an unsuccessful.
 
 ```c
 int search(node* head, int val){
