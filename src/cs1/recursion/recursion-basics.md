@@ -1,12 +1,12 @@
 ---
 title: Intro to Recursion
 author:
-    - Jacob Gadberry
+  - Jacob Gadberry
 ---
 
 # Introduction
 
-Recursion is a powerful programming concept which allows programmers to develop elegant solutions to seemingly complex problems. If you've never heard of recursion before; simply, it's a function that calls itself. 
+Recursion is a powerful programming concept which allows programmers to develop elegant solutions to seemingly complex problems. If you've never heard of recursion before; simply, it's a function that calls itself.
 
 ## Simple Example
 
@@ -18,7 +18,7 @@ $n! = n * (n-1) * (n-2) * ... * 3 * 2 * 1$
 
 Let's consider writing an iterative solution to this problem. This would probably be the solution from someone who hasn't encountered recursion before:
 
-``` c
+```c
     // Perform the product from 1 to n
     for(int i = n; i >= 1; i--){
         ans *= i;
@@ -33,7 +33,7 @@ Notice for our simple Factorial program, we only do simple multiplication for ea
 
 ## Formulating a Recursive Solution
 
-When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at, `n`, with whatever factorial of `n-1` is. 
+When creating a recursive solution we need to consider how we can create the smaller sub-problems. When computing the factorial, notice at each iteration we are simply multiplying the number we are at, `n`, with whatever factorial of `n-1` is.
 
 Let's write a function body using the logic I just described:
 
@@ -45,7 +45,7 @@ int fact(int n){
 
 ## Generating a Base Case
 
-Sweet! We are all done... or are we? There is a key piece of code that I have forgot to add. Can you figure out what it is? 
+Sweet! We are all done... or are we? There is a key piece of code that I have forgot to add. Can you figure out what it is?
 
 If you call `fact(5)` in `main()`, nothing will happen. This happens because an infinite loop has occurred.
 
@@ -55,9 +55,9 @@ Well let's trace through `fact(5)`
 
 > When things don't work like intended, it is always helpful to run a debugger, like GDB, which is extremely useful to show the steps your code took during execution. WikiKnights has tutorials on using GDB if you are interested.
 
+Tracing the function calls:
 
-Tracing the function calls: 
-```
+```text
                     fact(5) = 5 * fact(4)
                     fact(4) = 4 * fact(3)
                     fact(3) = 3 * fact(2)
@@ -68,17 +68,17 @@ Tracing the function calls:
                             .
 ```
 
-This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to problem, this also ensures that our recursive calls end. For Factorial this base case will be `fact(0)`, since `0! = 1`.
+This issue highlights another key pillar of recursive solutions: base cases. A base case is a case in our recursive solution that is trivially easy to solve. Because of this, we can simply return the answer to problem, this also ensures that our recursive calls end. For Factorial this base case will be `fact(1)`, since `1! = 1`.
 
 Now, let's add a base case to our code and see if it works:
 
 ```c
 int fact(int n){
-    //Base Case: n == 0 
-    if(n == 0){
+    //Base Case: n == 1
+    if(n == 1){
         return 1;
     }
-    //Recursive Case: n > 0
+    //Recursive Case: n > 1
     else{
         return n * fact(n-1);
     }
@@ -100,8 +100,9 @@ If we analyze the structure of our recursive solution to the factorial, we will 
  }
 
 ```
-1) We have a base case condition to see if we found a trivially easy problem. This will help terminate the recursive calls (Remember what happened when we didn't have this before).
-2) We have a second conditional that recursively calls the same function again but with a smaller input. Also notice how we solve the problem slightly in some sense. For our factorial this involves us multiplying `n` by `factorial(n-1)`.
+
+1. We have a base case condition to see if we found a trivially easy problem. This will help terminate the recursive calls (Remember what happened when we didn't have this before).
+2. We have a second conditional that recursively calls the same function again but with a smaller input. Also notice how we solve the problem slightly in some sense. For our factorial this involves us multiplying `n` by `factorial(n-1)`.
 
 While all problems might not have this simple layout, it is a good foundation to start with in your journey of learning recursion.
 
@@ -116,9 +117,10 @@ int sumDigits(int n){
     // You write this
 }
 ```
+
 ## Conclusion
 
-As we've learned, recursion is an incredibly powerful programming technique that can be used to solve many different types of problems. Understanding and utilizing recursion is a skill, which implies some practice is needed to hone.  Recursion is also an important programming concept that integral to many different data structures and algorithms you will cover in Computer Science I. Because of this, it is important to take the time to practice utilizing recursion in different types of problems.
+As we've learned, recursion is an incredibly powerful programming technique that can be used to solve many different types of problems. Understanding and utilizing recursion is a skill, which implies some practice is needed to hone. Recursion is also an important programming concept that integral to many different data structures and algorithms you will cover in Computer Science I. Because of this, it is important to take the time to practice utilizing recursion in different types of problems.
 
 ## Additional Resources
 
