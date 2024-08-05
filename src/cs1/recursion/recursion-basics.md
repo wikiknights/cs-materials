@@ -122,7 +122,7 @@ As we've learned, recursion is an incredibly powerful programming technique that
 
 ## Additional Resources
 
-[William Fiset Recursion Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsCmu1lb9grUcljeYJtmgmYc&si=ZCzm6PNRa7iZw1bV)
+[William Fiset Recursion Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsCmu1lb9grUcljeYJtmgmYc)
 
 [Introduction to Recursion](https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/)
 
