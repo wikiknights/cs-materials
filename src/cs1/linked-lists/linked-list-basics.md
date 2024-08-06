@@ -141,7 +141,7 @@ Once we've identified the last node in the list we simply add our new node to th
 
 Another way we can insert to back is by having another pointer to the end of the list. Typically we call this node `tail`. Keeping track of `tail` allows us to insert in `O(1)` time.
 
-Let's look at the `O(n)` insert code
+Let's look at the `O(n)` insert code:
 
 ```c
    node* addToBack(node* head, int val){
