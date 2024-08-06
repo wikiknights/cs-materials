@@ -107,7 +107,7 @@ Now we will cover adding to the back of a linked list. There will be two differe
 
 Here we insert `7` to the end of the list with our first method.
 
-We will create a temporary `node*` that will allow us to find the end of the list. Consider what happens if we do not create a temporary pointer. If we use the head to traverse the rest of the list then we will loose the nodes we pass over. This lose of unfreed memory is called a `memory leak`.
+We will create a temporary `node*` that will allow us to find the end of the list. Consider what happens if we do not create a temporary pointer. If we use the `head` variable itself to traverse the rest of the list then we will lose the nodes we pass over. This loss of unfreed memory is called a `memory leak`.
 
 Instead, we will create a temporary pointer called `tempHead` which we will use to traverse until the end of the list is reached.
 
