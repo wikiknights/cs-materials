@@ -1,5 +1,5 @@
 ---
-title: Intro to Stacks
+title: Stack Basics
 author:
   - Jacob Gadberry
 ---
