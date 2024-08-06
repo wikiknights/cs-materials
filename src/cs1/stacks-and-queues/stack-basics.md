@@ -118,7 +118,7 @@ When we write `3 + 7 * 5`, we know that `7 * 5` should be evaluated first; this 
 
 But, why did `7 * 5` go first? Why not `3 + 7`? Most of us (hopefully) know the answer to this. In elementary school you learned about the order of operations: parenthesis, exponents, multiplication, division, addition, and subtraction (`PEMDAS` mnemonic helps us remember).
 
-"Why would we need this?" Well, when computers perform arithmetic they have no concept of operator precedents like we do. This precedents allows us to remove the ambiguity that arises when we write equations in `infix notation`.
+"Why would we need this?" Well, when computers perform arithmetic they have no concept of operator precedents like we do. These precedents allow us to remove the ambiguity that arises when we write equations in `infix notation`.
 
 > Think about it, if you didn't have operator precedents could you arrive at one "correct" answer to `3 + 7 * 5`?
 
