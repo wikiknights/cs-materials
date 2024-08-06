@@ -52,7 +52,7 @@ Step 3 in affect sets up our new top item in our stack.
           head
 ```
 
-Now that we understanding `push`, completing `pop` is just the opposite.
+Now that we understand `push`, completing `pop` is just the opposite.
 
 Since we kept track of the head, and since we have access to the next in the stack, we can simply return the data (or the node itself) in `head` and then set `head` to `head->next`. If you opt for just returning the data in the head node, remember to call `free()` on it so no memory leaks occur.
 
