@@ -226,7 +226,7 @@ Since we know that `tempHead->next` = `15`, we will add `13` into the list
 +----------+       +------+
 ```
 
-We set `13` next value as `15` and then we set `tempHead`'s next value to 13. Now we've inserted `13` in the correct place within the list
+We set `13`'s next value as `15` and then we set `tempHead`'s next value to `13`. Now we've inserted `13` in the correct place within the list.
 
 It's clear to see that at WORST we might have to traverse the whole list, which makes this an `O(n)` operation.
 
