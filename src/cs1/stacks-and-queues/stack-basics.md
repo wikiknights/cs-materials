@@ -114,7 +114,7 @@ One application where we can use Stacks is when evaluating mathematical expressi
 
 > If you've heard the phrase "reverse polish notation", that is another way to say `postfix notation`.
 
-When we write `3 + 7 * 5`, we that `7 * 5` should be evaluated first; this gives us `35`. From here we take `35` and and `3` giving us `38` as our final answer.
+When we write `3 + 7 * 5`, we know that `7 * 5` should be evaluated first; this gives us `35`. From here we take `35` and `3` giving us `38` as our final answer.
 
 But, why did `7 * 5` go first? Why not `3 + 7`? Most of us (hopefully) know the answer to this. In elementary school you learned about the order of operations: parenthesis, exponents, multiplication, division, addition, and subtraction (`PEMDAS` mnemonic helps us remember).
 
