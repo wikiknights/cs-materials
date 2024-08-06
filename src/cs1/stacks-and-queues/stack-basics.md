@@ -26,7 +26,7 @@ There are two main things that a stack can do `push` and `pop`. `push` puts an i
 
 One way we can implementing a stack is with a linked list. In order to do this we need to recall how to add to the head of a linked list. We can think of the head of the linked list as the top item in our stack.
 
-```
+```text
                 +-------+    +-------+
                 |   a   | -> |   b   | -> ...
                 +-------+    +-------+
@@ -43,7 +43,7 @@ Now each time we want to add an item to our stack we do 3 things:
 
 Step 3 in affect sets up our new top item in our stack.
 
-```
+```text
         +-------+     +-------+    +-------+
         |   x   | ->  |   a   | -> |   b   | -> ...
         +-------+     +-------+    +-------+
@@ -66,7 +66,7 @@ Another way we can implement stacks is with arrays. Here we define an array of s
 
 Example stack where `n`= 5
 
-```
+```text
     0       1       2       3       4
 +-------+-------+-------+-------+-------+
 |   5   |       |       |       |       |
@@ -78,7 +78,7 @@ Example stack where `n`= 5
 
 Here there is one item in the stack `5` residing at index 0. If we wanted to `push` 9 onto the stack, we would increase the head by one and then place 9.
 
-```
+```text
     0       1       2       3       4
 +-------+-------+-------+-------+-------+
 |   5   |   9   |       |       |       |
@@ -90,7 +90,7 @@ Here there is one item in the stack `5` residing at index 0. If we wanted to `pu
 
 If we want to perform a `pop`, we simply keep track of the item at head, then decrement head by 1.
 
-```
+```text
     0       1       2       3       4
 +-------+-------+-------+-------+-------+
 |   5   |   9   |       |       |       |
@@ -135,7 +135,7 @@ What we will do is start with an empty stack and read through our expression. Th
 
 Let's run through this with our original expression `3 7 5 * +`
 
-```
+```text
             3 7 5 * +
             ^
 
@@ -145,7 +145,7 @@ Let's run through this with our original expression `3 7 5 * +`
 Stack
 ```
 
-```
+```text
             3 7 5 * +
               ^
 
@@ -155,7 +155,7 @@ Stack
 Stack
 ```
 
-```
+```text
             3 7 5 * +
                 ^
   5
@@ -165,7 +165,7 @@ Stack
 Stack
 ```
 
-```
+```text
             3 7 5 * +
                   ^
 
@@ -175,7 +175,7 @@ Stack
 Stack
 ```
 
-```
+```text
             3 7 5 * +
                     ^
 
@@ -189,13 +189,15 @@ Now that our stack is empty we know our result is `40`.
 
 We can double check this by computing the answer to the `infix` version.
 
-```
+```text
 3 + 7 * 5 = 3 + 35 = 40
 ```
 
 Now, we can conclude that we've come to the correct answer! Yay!
 
 A natural question you might have is "how do we get `postfix` notation in the first place?" The process to get an infix expression into a postfix expression also uses a stack. However, that process takes a little longer to explain and demonstrate, which is why it will have its own tutorial.
+
+# Conclusion
 
 We've learned about stacks and how they are abstract data types. This makes them unlike any other data structure we've learned about thus far. We've also learned how to implement stacks with both a linked list and array. Lastly, we learned about some applications of stacks.
 
