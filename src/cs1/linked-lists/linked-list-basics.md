@@ -183,7 +183,7 @@ Let's insert `13` into our list.
 +------+    +------+    +------+    +------+    +------+
 ```
 
-What we will need to do is traverse the list until we find the first node that is greater than the value we want to add into our list. Just like add to back, we will need a temporary node in order to traverse over the list.
+What we will need to do is traverse the list until we find the first node that is greater than the value we want to add into our list. Just like add to back, we will need a temporary pointer in order to traverse over the list.
 
 ```text
 +------+
