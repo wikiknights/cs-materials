@@ -24,7 +24,7 @@ There are two main things that a stack can do `push` and `pop`. `push` puts an i
 
 ## Linked List
 
-One way we can implementing a stack is with a linked list. In order to do this we need to recall how to add to the head of a linked list. We can think of the head of the linked list as the top item in our stack.
+One way we can implement a stack is with a linked list. In order to do this we need to recall how to add to the head of a linked list. We can think of the head of the linked list as the top item in our stack.
 
 ```text
                 +-------+    +-------+
