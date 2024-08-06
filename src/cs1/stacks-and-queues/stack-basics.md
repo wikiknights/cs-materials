@@ -56,7 +56,7 @@ Now that we understand `push`, completing `pop` is just the opposite.
 
 Since we kept track of the head, and since we have access to the next in the stack, we can simply return the data (or the node itself) in `head` and then set `head` to `head->next`. If you opt for just returning the data in the head node, remember to call `free()` on it so no memory leaks occur.
 
-One of the pros when implementing a stack with a linked list is that you don't have to worry about a fixed length; as you can always add one more node (assuming you don't run out of memory of course). However, with great power comes great responsibility since freeing nodes is now your problem do deal with. Keep these in mind when determining which implementation to go with.
+One of the pros when implementing a stack with a linked list is that you don't have to worry about a fixed length; as you can always add one more node (assuming you don't run out of memory of course). However, with great power comes great responsibility since freeing nodes is now your problem to deal with. Keep these in mind when determining which implementation to go with.
 
 > Can you create `peek` on your own?
 
