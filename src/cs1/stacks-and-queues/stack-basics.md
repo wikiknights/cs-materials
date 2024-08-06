@@ -58,7 +58,7 @@ Since we kept track of the head, and since we have access to the next in the sta
 
 One of the pros when implementing a stack with a linked list is that you don't have to worry about a fixed length; as you can always add one more node (assuming you don't run out of memory of course). However, with great power comes great responsibility since freeing nodes is now your problem do deal with. Keep these in mind when determining which implementation to go with.
 
-> Can you create `peak` on your own?
+> Can you create `peek` on your own?
 
 ## Array
 
