@@ -10,24 +10,29 @@ One of the first, and most basic, data structures that we will learn about is li
 
 # What is a Linked List
 
-A Linked list is exactly what it sounds like, a list where all of the elements are linked together like a chain.
+A linked list is exactly what it sounds like, a list where all of the elements are linked together like a chain.
 
 Here is an example of a linked list:
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +-----+    +-----+    +------+
-|  10  | -> |  15  | -> |  3  | -> |  1  | -> | NULL |
-+------+    +------+    +-----+    +-----+    +------+
+  head
+   v
++------+    +------+    +-----+    +-----+
+|  10  | -> |  15  | -> |  3  | -> |  1  | -> X
++------+    +------+    +-----+    +-----+
 ```
 
-> `head` is written above `10` to represent that 10 is the head node.
+> `head` is written with a `v` pointing toward `10`. This shows us that `10` is the head of the linked list.
 
-While this might just look like an array IT IS NOT! An array gives us the ability to index into different spots within our array. We cannot do this with linked list because all of the nodes reside in non-contiguous spots in memory. All of the `->` represent pointers that each node has pointing to the next.
+While this might just look like an array **it is not!** An array gives us the ability to index, in constant time, into different slots within the array. We **cannot** do this with linked list because all of the nodes reside in non-contiguous spots in memory.
 
-A linked list are really useful for storing things when the number of items you need to store might not be known. We can also delete nodes pretty easily which allows us to save memory while not wasting it on unused slots like in an array.
+All of the `->` represent pointers that each node has pointing to the next. These pointers allow us to traverse the list because they give us the ability to hop from one node to the next.
+
+> Note that `1` points to `X`. Here `X` represents `null` since the last node points to nothing. The last element in a linked list **always** points to `null`.
+
+Linked list are useful when you might not know the amount of things you need to store, since you can just add a new node to the list. With arrays you can add a new item **into** the array, but if there is no space, then you would need to `realloc` the array (which is an `O(n)` operation).
+
+Deleting from a linked list is simple, so any unneeded nodes can be freed. This makes linked lists more memory efficient compared to arrays since we don't keep track of unneeded nodes, whereas arrays still hold onto indexes that you may not be using.
 
 # Linked List in Code
 
@@ -51,35 +56,33 @@ First, we will trace through an example of how we will insert, then we will go o
 Let's consider inserting `7` into this list.
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +-----+    +-----+    +------+
-|  10  | -> |  15  | -> |  3  | -> |  1  | -> | NULL |
-+------+    +------+    +-----+    +-----+    +------+
+  head
+   v
++------+    +------+    +-----+    +-----+
+|  10  | -> |  15  | -> |  3  | -> |  1  | -> X
++------+    +------+    +-----+    +-----+
 ```
 
-Assuming we have access to the head of this list, all we must do is have `head` point to `7` and `7` point to what `head` originally had.
+First, we set `7`'s `next` to the current head of the list, `10`.
 
 ```text
-+------+
-| head |
-+------+
+  head
+   v
 +------+
 |  10  | -> ...
 +------+
-    ^
-    |         Set 7's next pointer to 10
-    -----
-+-----+ |
-|  7  |-
+   ^
+   |         Set 7's next pointer to 10
++-----+
+|  7  |
 +-----+
 ```
 
+Next, we set the `head` pointer to point at `7` since we are inserting to the front.
+
 ```text
-+------+
-| head |
-+------+
+  head
+   v
 +-----+    +------+
 |  7  | -> |  10  | -> ...   Set 7's next pointer to 10
 +-----+    +------+
@@ -89,11 +92,12 @@ Since we have constant-time access to the head, we don't have to do any traversi
 
 Now let's look at the code:
 
+> Note that `makeNode()` takes in an `int` and returns a pointer to a new node. A good exercise for the reader would be to create this function.
+
 ```c
    node* addToFront(node* head, int val){
        //Create the new head of the list with the value we want
        node* newHead = makeNode(val);
-       newHead->data = val;
        //Set the new head of the list (This is what makes it O(1))
        newHead->next = head;
        //Return the new head of the list
@@ -103,7 +107,7 @@ Now let's look at the code:
 
 ## Insert in Back
 
-Now we will cover adding to the back of a linked list. There will be two different ways that we can insert to the back; one way requires us to utilize a temporary pointer to traverse to the end of the list to add our node, and the other requires we keep track of another node within our list to add in `O(1)` time.
+Now we will cover adding to the back of a linked list. There will be two different ways that we can insert to the back; one way requires us to utilize a temporary pointer to traverse to the end of the list to add our node to add in `O(n)` time; the other requires we keep track of another node within our list to add in `O(1)` time.
 
 Here we insert `7` to the end of the list with our first method.
 
@@ -112,42 +116,43 @@ We will create a temporary `node*` that will allow us to find the end of the lis
 Instead, we will create a temporary pointer called `tempHead` which we will use to traverse until the end of the list is reached.
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +-----+    +-----+    +------+
-|  10  | -> |  15  | -> |  3  | -> |  1  | -> | NULL |
-+------+    +------+    +-----+    +-----+    +------+
+  head
+   v
++------+    +------+    +-----+    +-----+
+|  10  | -> |  15  | -> |  3  | -> |  1  | -> X
++------+    +------+    +-----+    +-----+
     ^
-    |
-+----------+
-| tempHead |
-+----------+
+ tempHead
 ```
 
-We then iterate `tempHead` until the node we are at has `NULL` as the value of the `next` node. Then, we can add the new node to our list.
+We then iterate `tempHead` until the node we are at has `null` as it's `next` node. Then we can add the new node to our list.
 
 ```text
-+-----+       +------+
-|  1  | -     | NULL |     1's next node is NULL
-+-----+  |    +------+
-         |       ^------
-         |    +-----+  |
-         |--> |  7  | --
-              +-----+
+       +-----+
+... -> |  1  | -> X
+       +-----+         1's next node is null
+          ^
+       tempHead
 ```
 
 Once we've identified the last node in the list we simply add our new node to the back of the list. Since we have to traverse the WHOLE list to find the end, this makes this approach take `O(n)` time.
 
-Another way we can insert to back is by having another pointer to the end of the list. Typically we call this node `tail`. Keeping track of `tail` allows us to insert in `O(1)` time.
+```text
+       +-----+    +-----+
+... -> |  1  | -> |  7  | -> X
+       +-----+    +-----+
+          ^                 Set 1's next value to 7
+       tempHead
+```
 
 Let's look at the `O(n)` insert code:
 
 ```c
    node* addToBack(node* head, int val){
+       // Create our new node
        node* tail = makeNode(val);
-       tail->data = val;
 
+       // Create our temporary head to do the traversal
        node* temp = head;
        //If the head is NULL, then our new node is the head
        if(temp == NULL)
@@ -157,6 +162,7 @@ Let's look at the `O(n)` insert code:
            temp = temp->next;
 
        temp->next = tail;
+       // tail is the new tail of the list
        tail->next = NULL;
 
        //return the head of the new list
@@ -164,71 +170,63 @@ Let's look at the `O(n)` insert code:
    }
 ```
 
-Can you come up with the insert using `tail`?
+Can you come up with the insert using `tail`? Given the function body and the tail of the linked list, come up with a function to perform an `O(1)` insert.
+
+```c
+   node* addToBack(node* tail, int val){
+       // You write this
+   }
+```
 
 ## Insert in Order
 
-Besides adding either to the front of the back of a list we might want to add items in order. This will require us to add items in the middle of the list.
+Besides adding either to the front of the back of a list we might want to add items in order. This might require us to add items in the middle of the list.
 
 This approach will require us to iterate until we find the correct spot to place our new node at.
 
 Let's insert `13` into our list.
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +------+    +------+    +------+
-|  10  | -> |  11  | -> |  15  | -> |  18  | -> | NULL |
-+------+    +------+    +------+    +------+    +------+
+  head
+   v
++------+    +------+    +------+    +------+
+|  10  | -> |  11  | -> |  15  | -> |  18  | -> X
++------+    +------+    +------+    +------+
 ```
 
-What we will need to do is traverse the list until we find the first node that is greater than the value we want to add into our list. Just like add to back, we will need a temporary pointer in order to traverse over the list.
+What we will need to do is traverse the list until we find the first node that is **greater than** the value we want to add into our list. Just like add to back, we will need a temporary pointer in order to traverse over the list.
+
+We can utilize the ability to use `tempHead->next` to check the value in **front** of us. Once we find the first value that is greater than `13` we know that we make `13` the next pointer of `tempHead`.
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +------+    +------+    +------+
-|  10  | -> |  11  | -> |  15  | -> |  18  | -> | NULL |
-+------+    +------+    +------+    +------+    +------+
-    ^
-    |
-+----------+
-| tempHead |
-+----------+
-```
-
-We can utilize the ability to use `tempHead->next` to check the value in front of us. Once we find the first value that is greater than `13` we know that we make `13` the next pointer of `tempHead`.
-
-```text
+  head
+   v
 +------+    +------+    +------+    +------+
-|  11  | -> |  15  | -> |  18  | -> | NULL |
+|  10  | -> |  11  | -> |  15  | -> |  18  | -> X
 +------+    +------+    +------+    +------+
-    ^
-    |
-+----------+
-| tempHead |
-+----------+
+               ^
+            tempHead
 ```
 
 Since we know that `tempHead->next` = `15`, we will add `13` into the list
 
 ```text
-+------+    +------+    +------+    +------+
-|  11  | -| |  15  | -> |  18  | -> | NULL |
-+------+  | +------+    +------+    +------+
-    ^     |      ^
-    |     |      |-----
-    |     ------      |
-+----------+   |   +------+
-| tempHead |   |-> |  13  |
-+----------+       +------+
+  head
+   v
++------+    +------+    +------+    +------+    +------+
+|  10  | -> |  11  | -> |  13  | -> |  15  | -> |  18  | -> X
++------+    +------+    +------+    +------+    +------+
+               ^
+            tempHead
 ```
 
 We set `13`'s next value as `15` and then we set `tempHead`'s next value to `13`. Now we've inserted `13` in the correct place within the list.
 
 It's clear to see that at WORST we might have to traverse the whole list, which makes this an `O(n)` operation.
+
+Now let's look at the code:
+
+> Make sure to take note of the edge cases here. We could add the node at the front of the list, making the new node the `head` of the list. We could also add the node to the end of the list, making the new node the tail of the list.
 
 ```c
    node* addInOrder(node* head, int val){
@@ -267,45 +265,43 @@ Once we "patch over" the deleted node, then we can free it.
 Let's delete `15` from the list:
 
 ```text
-+------+
-| head |
-+------+
-+------+    +------+    +------+    +------+    +------+
-|  10  | -> |  11  | -> |  15  | -> |  18  | -> | NULL |
-+------+    +------+    +------+    +------+    +------+
+  head
+   v
++------+    +------+    +------+    +------+
+|  10  | -> |  11  | -> |  15  | -> |  18  | -> X
++------+    +------+    +------+    +------+
 ```
 
-Just like before, we will need a temporary node to traverse the rest of the list. Once we find the node RIGHT BEFORE `15`, then we can perform the "patch over" and deletion of `15`.
+Just like before, we will need a temporary node to traverse the rest of the list. Once we find the node **right before** `15`, then we can perform the "patch over" and deletion of `15`.
 
 ```text
+  head
+   v
 +------+    +------+    +------+    +------+
-|  11  | -> |  15  | -> |  18  | -> | NULL |
+|  10  | -> |  11  | -> |  15  | -> |  18  | -> X
 +------+    +------+    +------+    +------+
    ^
-   |
-+----------+
-| tempHead |
-+----------+
+ tempHead
 ```
 
-Once we are here we will save `15` in another temporary node, then "patch over", then free `15`.
+Perform the "patching". Let's keep track of all of the pointers getting changed around:
+
+1. "Save" `15` so we can delete it later.
+2. tempHead->next = tempHead2->next
+3. Free `15`
 
 ```text
           ------------
 +------+  | +------+ |  +------+    +------+
 |  11  | -| |  15  | -> |  18  | -> | NULL |
 +------+    +------+    +------+    +------+
-   ^            ^
-   |            -------
-   |                  |
-+----------+      +-----------+
-| tempHead |      | tempHead2 |
-+----------+      +-----------+
+   ^           ^
+ tempHead    tempHead2
 ```
 
-Now we can call `free(tempHead2)` to safely delete `15`.
+Now we can call `free(tempHead->next)` to safely delete `15`.
 
-Since at WORST we might have to traverse the whole list, this makes delete an `O(n)` operation.
+Since at **worst** we might have to traverse the whole list, this makes delete an `O(n)` operation.
 
 Now let's look at the delete code:
 
