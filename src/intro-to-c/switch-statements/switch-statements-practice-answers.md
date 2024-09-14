@@ -143,7 +143,7 @@ Here is some additional practice with switch statements.
 	>
 	> 0, 104
 
-	**Note:** `\0` is the `NULL` character.
+	**Note:** `\0` is the `NULL` character and each output should be on a new line.
 
 	``` c
 	int option;
@@ -200,12 +200,15 @@ Here is some additional practice with switch statements.
 	...
 	```
 
-	**Answer:** Hello, World!?
-	            Baby Shark
-	            Switch Statements.Alphabet Soupcheck!
-	            Break check!
-	            \[NO OUTPUT\]
+	**Answer:**
 
+	```
+	Hello, World!?
+    Baby Shark
+    Switch Statements.Alphabet Soupcheck!
+    Break check!
+    \[NO OUTPUT\]
+	```
 
 
 @. You, a master of switch statements, successfully analyzed the code and sent your answer as a reply and went to bed. The following morning, you had another email, this time from the Time Police, congratulating you on your successful completion of the challenge and your new position as a Time Police programmer. You graciously accept the offer, as they offer great benefits, good pay, and the option to work remotely or in person.
@@ -237,7 +240,7 @@ Here is some additional practice with switch statements.
 		switch(option)
 		{
 			case 1:
-				printf("Connecting you to Time Police operator.");
+				printf("Connecting you to Time Police dispatcher.");
 				break;
 			case 2:
 				printf("Press 1 for SUBEXAMPLE 1. Press 2 for...");
@@ -284,7 +287,7 @@ Here is some additional practice with switch statements.
 		switch(option)
 		{
 			case 1:
-				printf("Connecting you to Time Police operator.\n");
+				printf("Connecting you to Time Police dispatcher.\n");
 				break;
 
 			// Time Travel Requests
