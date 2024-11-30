@@ -460,7 +460,7 @@ toc: false
 \newpage
 
 @. **Challenge:** Write a program that prints a diamond shape with a height of `n`. Assume that `n` is greater than 2 and is odd. As an example, the following is a diamond with a height of 5.
-  
+
   ```
     #
    # #

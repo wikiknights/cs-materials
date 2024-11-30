@@ -41,6 +41,8 @@ toc: false
 
 ## Loops
 
+[Loops Tutorial](loops/loops.md)
+
 [Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
 
 ## Random Number Generation
