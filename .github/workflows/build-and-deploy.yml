@@ -33,7 +33,7 @@ jobs:
 
       # The build output is uploaded to an artifact so it can then be downloaded by the deploy job
       - name: Upload files
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v4
         with:
           # Artifact name
           name: output
