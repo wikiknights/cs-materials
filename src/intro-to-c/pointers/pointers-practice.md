@@ -13,7 +13,7 @@ Let's try some example problems using pointers!
 
 @. What will this program print if executed?
 
-  ``` c
+  ``` {.c .numberLines}
   #include <stdio.h>
 
   int main(void)
@@ -29,8 +29,21 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `x = 75`
+
+The integer `x` begins by being set to the value 7 on line 5. On line 6, The integer pointer called `pointer` is set to the location of x. This means that any changes to `x` will be reflected in a change to the value of `*pointer`.
+
+On line 8, `x` is set to the value 10. (Again, this means that `*pointer` is also 10 at this time.) On line 9, `*pointer` is set to the value 75. In the other direction, the value of `x` is changed to 75 directly using the dereference operation.
+
+The program thus prints `x = 75` at the end.
+
+</details>
+
 @. What will this program print if executed?
-  
+
   ``` c
   #include <stdio.h>
 
@@ -44,6 +57,14 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `43`
+
+This is a trick question! The reference and dereference operators cancel each other out, so with the same number of each operator, you are simply left with `n` to print.
+
+</details>
 ---
 
 ## Function Scope
@@ -78,6 +99,24 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+Before:
+x is 6
+y is 9
+After:
+x is 6
+y is 9
+```
+
+Notice that the `change_number()` function is using a pass-by-value method, meaning any changes that occur in it cannot be reflected back in `main()`, unless a return value was used. This is not the case, so both `x` and `y` remain with their initial values.
+
+</details>
+
 @. What will this program print if executed? What is the difference between this and the previous problem?
 
   ``` c
@@ -107,6 +146,30 @@ Let's try some example problems using pointers!
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+Before:
+x is 6
+y is 9
+After:
+x is 6
+y is 9
+```
+
+While this version of `change_number()` *does* use pass-by-reference (unlike the previous problem), the way C interprets the order of operations actually changes the way that the function works!
+
+Notice that there is only one line in `change_number()`, `*n++`. At first glance, it may seem that it will just dereference the pointer stored in `n` and increment it, effectively incrementing both `x` and `y` by 1. However this is false!
+
+In the order of operations, the post-increment operation (`++`) comes *before* the dereference operation! In reality, `*n++` may be better expressed as `*(n++)`. What this line does is first increment the *address* stored in `n` (not what you expected!), then dereferences this new address. No actual changes are made to the *value* pointed to by `n`.
+
+This can also lead to memory violations if a piece of memory is dereferenced that you were not expecting or were not in control of!
+
+</details>
 
 @. What will this program print if executed? What is the difference between this and the previous two problems?
 
@@ -138,6 +201,29 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+Before:
+x is 6
+y is 9
+After:
+x is 7
+y is 10
+```
+
+Unlike the previous two problems, this version of `change_number()` actually increments `x` and `y`! Notice that parentheses have been placed around "`*n`" so that the address stored in `n` is dereferenced, then any changes to it are reflected in the original `x` and `y` variables.
+
+A safe way to ensure that you get the behavior you expect with your programs is to simply write out the increment operation fully, like as:
+
+``` c
+*n = *n + 1;
+```
+
+</details>
 ---
 
 ## More Advanced Function Scope
@@ -167,9 +253,41 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Sample Answer:**
+
+``` c
+#include <stdio.h>
+
+void swap(int *a, int *b)
+{
+  int tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+int main(void)
+{
+  int num, ber;
+
+  num = 68;
+  ber = 70;
+
+  printf("%d %d\n", num, ber);
+  swap(&num, &ber);
+  printf("%d %d\n", num, ber);
+
+  return 0;
+}
+```
+
+</details>
+
 @. What will this program print if executed?
 
-  ``` c
+  ``` {.c .numberLines}
   #include <stdio.h>
 
   int functiomatic(int *n)
@@ -192,6 +310,29 @@ Let's try some example problems using pointers!
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `*c = 19`
+
+For this problem, we will step through each line to see the values of `b` (and consequently `*c`) as the program progresses.
+
+On line 14, `b` stores the value 17. Then on line 15, the `functiomatic()` function is called, and the program moves to line 5.
+
+At the start of the function, `n` is storing the address of `b` from `main()`, and `*n` currently stores the value 17.
+
+On line 5, "`*n + 1`" resolves to "`17 + 1`", which is 18. `*n` is then assigned to this value 18, making the `b` in `main()` also equal to 18.
+
+The function then completes on line 6, by returning "`*n + 1`" which based on the new value of `*n`, resolves to `18 + 1`, which is 19. `functiomatic()` returns 19.
+
+The program returns to line 15 in `main()`. With `functiomatic()` now finished, this line boils down to "`b = 19`", using the return value of 19.
+
+On line 16, `c` (an integer pointer) is assigned to the address of `b`. This means that the value contained in `*c` is the same as that in `b`.
+
+At the end of the program, `*c = 19`.
+
+</details>
 
 @. What will this program print if executed?
 
@@ -219,6 +360,30 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `*c = 17`
+
+This is a small variation of the previous problem that changes a pass-by-reference to a pass-by-value. Effectively, this means that unlike before, the value of `b` is not changed during `functiomatic()`.
+
+We will again step through each line to see the values of `b` as the program progresses.
+
+On line 14, `b` stores the value 17. Then on line 15, the `functiomatic()` function is called, and the program moves to line 5.
+
+At the start of the function, `n` is storing the *integer* from `b`, which is 17.
+
+On line 5, "`n + 1`" resolves to "`17 + 1`", which is 18. `m` is then assigned to this value 18, which does nothing to the value of `b` in `main()`.
+
+The function then completes on line 6, by returning "`n`", which is unchanged from the beginning of the function, remaining as 17. `functiomatic()` returns 17.
+
+The program returns to line 15 in `main()`. With `functiomatic()` now finished, this line boils down to "`b = 17`", using the return value of 17.
+
+On line 16, `c` (an integer pointer) is assigned to the address of `b`. This means that the value contained in `*c` is the same as that in `b`.
+
+At the end of the program, `*c = 17`.
+
+</details>
 ---
 
 ## Pointers and Arrays
@@ -251,6 +416,32 @@ Let's try some example problems using pointers!
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+`array` contains the following values: `[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]`
+
+The program prints:
+
+```
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+```
+
+Notice that line 20 is printing "`*(array + i)`". Behind the scenes, this is equivalent to "`array[i]`". This program prints the array as any other loop would.
+
+</details>
 
 @. What will `array` contain after line 34? What will this program print if executed? Assume that any uninitialized variables contain garbage values.
 
@@ -298,17 +489,61 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+`array` contains the following values: `[50, 51, 52, 53, 54, 55, 56, 57, (garbage value), (garbage value)]`
+
+Notice that `initialize_array()` is called with a provided length of "`LENGTH - 2`", meaning that this function "believes" that the array only has 8 elements (instead of 10) to fill with values. This function operates by starting with the first value of 50, and increments by 1 until the 8th element of the array is reached.
+
+Since the last two indices of the array are never touched until the `print_array()` function, they remain as uninitialized, garbage values. As a result, there is no way of knowing exactly what will be in `array[8]` and `array[9]`, but as an example, the following may be printed:
+
+```
+[50, 51, 52, 53, 54, 55, 56, 57, -381609296, 32694]
+```
+
+</details>
 ---
 
 ## Pointers and Structs
 
 @. Create a declaration of a struct called `car` that contains some information about a car: a string (char pointer) called `make` that indicates its manufacturer, a string called `model` that indicates its model, an integer called `year` that indicates its year of production, and a double called `mpg` that indicates its fuel efficiency in miles per gallon.
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+``` c
+struct car
+{
+  char *make;
+  char *model;
+  int year;
+  double mpg;
+};
+```
+
+</details>
+
 @. Rewrite the following line of code using the dereference (`*`) and the direct member access (`.`) operator.
 
   ``` c
   my_struct->number = 5;
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+``` c
+(*my_struct).number = 5;
+```
+
+</details>
 
 @. What is wrong with the following `print_planet()` function? How can you fix it?
 
@@ -327,6 +562,35 @@ Let's try some example problems using pointers!
     printf("Color: %s\n", p->color);
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** The `print_planet()` function is using the indirect reference operator (`->`) on a struct, instead of on a *pointer* to a struct.
+
+This can be fixed in two ways. In one way, you can change the function declaration to accept a pointer of a struct, so that it is consistent with the `->` operator:
+
+``` c
+void print_planet(struct planet *p)
+{
+  printf("Name: %s\n", p->name);
+  printf("Radius: %lf\n", p->radius_km);
+  printf("Color: %s\n", p->color);
+}
+```
+
+In another way, you can change the print statements to use the `.` operator, to be consistent with the function declaration:
+
+``` c
+void print_planet(struct planet p)
+{
+  printf("Name: %s\n", p.name);
+  printf("Radius: %lf\n", p.radius_km);
+  printf("Color: %s\n", p.color);
+}
+```
+
+</details>
 
 @. What will the following program print if executed?
 
@@ -364,6 +628,19 @@ Let's try some example problems using pointers!
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+Radius: 0 inches
+Price: $0.00
+Toppings:
+```
+
+</details>
 
 @. What will the following program print if executed?
 
@@ -408,6 +685,18 @@ Let's try some example problems using pointers!
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+Radius: 13 inches
+Price: $9.99
+Toppings: Pepperoni, beef, sausage, and bacon
+```
+
+</details>
 ---
 
 ## Pointers and Structs (Advanced)
@@ -432,6 +721,56 @@ Let's try some example problems using pointers!
     // Your code goes here
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Sample Answer:**
+
+``` c
+struct gradebook
+{
+  char student[128];
+  int grades[10];
+  double avg;
+};
+
+typedef struct gradebook gradebook;
+
+int main(void)
+{
+  int n = 3;
+  gradebook cop3223[n];
+
+  // Your code goes here
+}
+```
+
+**Answer:**
+
+``` c
+struct gradebook
+{
+  char student[128];
+  int grades[10];
+  double avg;
+};
+
+typedef struct gradebook gradebook;
+
+int main(void)
+{
+  int n = 3;
+  gradebook cop3223[n];
+
+  // Your code goes here
+  strcpy(cop3223[0].name, "Alice");
+  strcpy(cop3223[1].name, "Bob");
+  strcpy(cop3223[2].name, "Charlie");
+}
+```
+
+</details>
 
 @. Fill in the blanks to give students names, calculate their grade average, and print it out.
 
@@ -490,10 +829,79 @@ Let's try some example problems using pointers!
 
     // Print average
     print_averages(_____, _____);
-    
+
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Sample Answer:**
+
+``` c
+struct gradebook
+{
+  char student[128];
+  int grades[10];
+  double avg;
+};
+
+typedef struct gradebook gradebook;
+
+void calculate_student_avg(gradebook *class, int n)
+{
+  double sum;
+
+  for (int i = 0; i < n; i++)
+  {
+    sum = 0;
+    for (int j = 0; j < 10; j++)
+    {
+      sum += class[i].grades[j];
+    }
+    class[i].avg = sum / 10;
+  }
+}
+
+void print_averages(gradebook *class, int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    printf("Average for %s is %lf\n", class[i].student, class[i].avg);
+  }
+}
+
+int main(void)
+{
+  int n = 3;
+  gradebook cop3223[n];
+
+  // Filling in student grades with data
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < 10; j++)
+    {
+      cop3223[i].grades[j] = (i + 1) * (j + i);
+    }
+  }
+
+  // Add student names
+  strcpy(cop3223[0].student, "Frances E. Allen");
+  strcpy(cop3223[1].student, "Barbara Liskov");
+  strcpy(cop3223[2].student, "Valerie Taylor");
+
+  // Find average
+  calculate_student_avg(cop3223, n);
+
+  // Print average
+  print_averages(cop3223, n);
+
+  return 0;
+}
+```
+
+</details>
 
 @. I want to create a bank that handles a single person's money, no one elses. This person's balance is divided into how many dollars and cents they have. However, when I run this program (1) the person can withdraw more money than it has, (2) they can deposit a negative amount, (3) they lose all of their cents, (4) their balance is sometimes completely weird, and (5) the `deposit` and `withdraw` functions don't work. How can I solve this?
 
@@ -528,3 +936,91 @@ Let's try some example problems using pointers!
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Sample Answer:**
+
+``` c
+struct balance
+{
+  int dollars;
+  int cents;
+  double total;
+};
+
+struct balance get_currency(double amount)
+{
+  struct balance money;
+
+  money.dollars = amount;
+  money.cents = (int) (amount * 100) % 100;
+  money.total = money.dollars + money.cents / 100;
+
+  return money;
+}
+
+int compare_currency(struct balance temp1, struct balance temp2)
+{
+  if (temp1.dollars == temp2.dollars)
+  {
+    return temp1.cents >= temp2.cents;
+  }
+
+  return temp1.dollars > temp2.dollars;
+}
+
+void deposit(struct balance *checking, double amount)
+{
+  struct balance temp = get_currency(amount);
+
+  if (amount > 0)
+  {
+    checking->dollars += temp.dollars;
+    checking->cents += temp.cents;
+
+    if (checking->cents >= 100)
+    {
+      checking->dollars++;
+      checking->cents -= 100;
+    }
+  }
+}
+
+void withdraw(struct balance *checking, double amount)
+{
+  struct balance temp = get_currency(amount);
+
+  if (compare_currency(*checking, temp))
+  {
+    checking->dollars -= temp.dollars;
+    checking->cents -= temp.cents;
+
+    if (checking->cents < 0)
+    {
+        checking->dollars--;
+        checking->cents += 100;
+    }
+  }
+  else
+  {
+    printf("Cannot withdraw.\n");
+  }
+}
+
+int main(void)
+{
+  struct balance my_checking = {0, 0};
+
+  deposit(&my_checking, -100);
+  withdraw(&my_checking, 1E6);
+
+  deposit(&my_checking, 145.54);
+  withdraw(&my_checking, 0.01);
+
+  return 0;
+}
+```
+
+</details>

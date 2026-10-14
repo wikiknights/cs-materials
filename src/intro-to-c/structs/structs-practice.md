@@ -30,6 +30,12 @@ But first, some `typedef` fun.
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer**: `%lf`, `%f`, and `%lf` since `x` is a double, `y` is a float, and their subtraction is also a double.
+
+</details>
 ---
 
 ## Onto Structs!
@@ -53,6 +59,13 @@ But first, some `typedef` fun.
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** This is an undefined (garbage) value.
+
+</details>
+
 @. What about this? (*Hint:* An [ASCII table is available here](http://www.asciitable.com/) for your convience.)
 
   ``` {.c .numberLines}
@@ -73,8 +86,47 @@ But first, some `typedef` fun.
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `A`
+
+</details>
+
 @. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** After the `struct` declaration, add the following line:
+
+``` c
+typedef struct my_structure _______
+```
+
+This blank could be anything I desire, as long as I remember to use that for the rest of my code. This is a possible example:
+
+``` c
+struct my_structure
+{
+  int x;
+  char text[64];
+};
+
+typedef struct my_structure my_s;
+
+int main(void)
+{
+  my_s structy_mc_struct_face;
+  structy_mc_struct_face.x = 65;
+
+  printf("%c\n", structy_mc_struct_face.x);
+
+  return 0;
+}
+```
+
+</details>
 ---
 
 ## Pointers of Structs
