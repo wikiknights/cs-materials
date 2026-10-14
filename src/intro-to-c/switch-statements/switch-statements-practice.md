@@ -8,7 +8,68 @@ Here is some additional practice with switch statements.
 
 @. You're a time traveler with a computer, but it happens to have very limited capabilities thanks to the Time Police. You also happen to be a history buff that loves the Roman Empire, so you traveled back in time with your silly little programmable computer to the silly little Roman Empire. You've decided to teach the Romans modern Arabic numbers rather than their weird letter numbers. To expedite the teaching process, you want to make a program that can convert modern integers into Roman numerals up to 10. Write a program that uses a switch statement to convert integers up to 10 into Roman numerals. Hint: Remember, the Romans didn't have a number for 0, and they would probably like to be prompted for an input. You would also like the program to stay running rather than restarting for every input. The Time Police Limited Computer (TTPLC) only allows one program to be run a month. Thanks, Time Police.
 
+<details>
+  <summary>Answer</summary>
 
+**Answer:**
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int number;
+
+	do
+	{
+		printf("Press 111 to exit.\n");
+		printf("What number would you like to convert?\n");
+		scanf("%d", &number);
+
+		switch(number)
+		{
+			case 1:
+				printf("%d as a Roman numeral would be I.\n", number);
+				break;
+			case 2:
+				printf("%d as a Roman numeral would be II.\n", number);
+				break;
+			case 3:
+				printf("%d as a Roman numeral would be III.\n", number);
+				break;
+			case 4:
+				printf("%d as a Roman numeral would be VI.\n", number);
+				break;
+			case 5:
+				printf("%d as a Roman numeral would be V.\n", number);
+				break;
+			case 6:
+				printf("%d as a Roman numeral would be VI.\n", number);
+				break;
+			case 7:
+				printf("%d as a Roman numeral would be VII.\n", number);
+				break;
+			case 8:
+				printf("%d as a Roman numeral would be VIII.\n", number);
+				break;
+			case 9:
+				printf("%d as a Roman numeral would be IX.\n", number);
+				break;
+			case 10:
+				printf("%d as a Roman numeral would be X.\n", number);
+				break;
+			case 111:
+				return 0;
+			default:
+				printf("That was not a valid entry. Try again with a number between 1 and 10, or the exit value.\n");
+				break;
+		}
+	} while(number != 111);
+}
+
+```
+
+</details>
 
 @. You have returned from your time traveling adventure and are back to working your \[generic service job\]. The Romans appreciated the number system lesson, but they promptly dropped it because it only went up to 10. Time paradox avoided.
 
@@ -59,7 +120,12 @@ Here is some additional practice with switch statements.
 	...
 	```
 
+<details>
+  <summary>Answer</summary>
 
+**Answer:** Yes. The switch case on line 30 does not have a `break` in it.
+
+</details>
 
 @. Upper management was very happy with your help finding the mobile order issue in the system. So happy, in fact, that you ended up having a small article in the company newsletter. You were elated to be recognized for your good work.
 
@@ -143,6 +209,17 @@ Here is some additional practice with switch statements.
 	...
 	```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** Hello, World!?
+            Baby Shark
+            Switch Statements.Alphabet Soupcheck!
+            Break check!
+            \[NO OUTPUT\]
+
+</details>
+
 @. You, a master of switch statements, successfully analyzed the code and sent your answer as a reply and went to bed. The following morning, you had another email, this time from the Time Police, congratulating you on your successful completion of the challenge and your new position as a Time Police programmer. You graciously accept the offer, as they offer great benefits, good pay, and the option to work remotely or in person.
 
 	Your first project is to program their phone system. There are several requirements, but they give them to you in a very handy list.
@@ -164,7 +241,6 @@ Here is some additional practice with switch statements.
 	int main(void)
 	{
 	...
-
 
 		printf("Press 1 for Time Emergencies. Press 2 for...");
 		scanf("%d", &option);
@@ -197,3 +273,158 @@ Here is some additional practice with switch statements.
 	As you may notice, -1 is the terminator value. This will also not be prompted, as that isn't an option on a phone. That is our placeholder for hanging up. It isn't required to put a -1 case in each nested switch, but you may. They will not count towards the total sub-options, but they will be included in the solution.
 
 	The sub-options are up to you, as this is intended as practice with nested switch statements. You decide what the Time Police handle, but maintain the "connecting you to" standard. Remember, those are the expected prompts.
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+	int option;
+	int subOption;
+
+	printf("Press 1 for Time Emergencies.\n");
+	printf("Press 2 for time travel requests.\n");
+	printf("Press 3 for time ban appeals.\n");
+	printf("Press 4 for time fine payment.\n");
+	printf("Press 5 for human resources.\n");
+	scanf("%d", &option);
+
+	switch(option)
+	{
+		case 1:
+			printf("Connecting you to Time Police operator.\n");
+			break;
+
+		// Time Travel Requests
+		case 2:
+			printf("Time Travel Requests\n\n");
+			printf("Press 1 for 10000 BCE - 5000 BCE.\n");
+			printf("Press 2 for 4999 BCE - 0 CE.\n");
+			printf("Press 3 for 1 CE - 1500 CE.\n");
+			printf("Press 4 for 1501 CE - Present.\n");
+			scanf("%d", &subOption);
+
+			printf("Connecting you to");
+			switch(subOption)
+			{
+				case 1:
+					printf(" Ancient BCE Time Travel.\n");
+					break;
+				case 2:
+					printf(" Recent BCE Time Travel.\n");
+					break;
+				case 3:
+					printf(" Distant CE Time Travel.\n");
+					break;
+				case 4:
+					printf(" Recent CE Time Travel.\n");
+					break;
+				case 0:
+					printf(" Time Travel front desk.\n");
+					break;
+				case -1:
+					break;
+			}
+			break;
+
+		//Time Ban Appeals
+		case 3:
+			printf("Time Ban Appeals\n\n");
+			printf("Press 1 for Minor Appeals.\n");
+			printf("Press 2 for Moderate Appeals.\n");
+			printf("Press 3 for Timeline-Altering Appeals.\n");
+			scanf("%d", &subOption);
+
+			printf("Connecting you to");
+			switch(subOption)
+			{
+				case 1:
+					printf(" Minor Appeals.\n");
+					break;
+				case 2:
+					printf(" Moderate Appeals.\n");
+					break;
+				case 3:
+					printf(" Timeline-Altering Appeals.\n");
+					break;
+				case 0:
+					printf(" Time Ban Appeals front desk.\n");
+					break;
+				case -1:
+				break;
+			}
+			break;
+
+		//Time Fine Payment
+		case 4:
+			printf("Time Fine Payment\n\n");
+			printf("Press 1 for Fine Balance.\n");
+			printf("Press 2 for Billing.\n");
+			printf("Press 3 for Payment Plans.\n");
+			scanf("%d", &subOption);
+
+			printf("Connecting you to");
+			switch(subOption)
+			{
+				case 1:
+					printf(" Time Accounts office.\n");
+					break;
+				case 2:
+					printf(" Billing office.\n");
+					break;
+				case 3:
+					printf(" Payment office.\n");
+					break;
+				case 0:
+					printf(" Business office front desk.\n");
+					break;
+				case -1:
+				break;
+			}
+			break;
+
+		// Human Resources
+		case 5:
+			printf("Human Resources\n\n");
+			printf("Press 1 for Application Status.\n");
+			printf("Press 2 for Openings.\n");
+			scanf("%d", &subOption);
+
+			printf("Connecting you to");
+			switch(subOption)
+			{
+				case 1:
+					printf(" Application office\n");
+					break;
+				case 2:
+					printf(" Employment Opportunity Directory.\n");
+					break;
+				case 0:
+					printf(" Human Resources front desk.");
+					break;
+				case -1:
+				break;
+			}
+			break;
+		case 0:
+			printf("Connecting you to Time Police front desk.\n");
+			break;
+
+		// Hang up
+		case -1:
+			break;
+
+		default:
+			printf("That was not one of the options.\n");
+			break;
+	}
+	return 0;
+}
+```
+
+</details>

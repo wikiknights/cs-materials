@@ -28,11 +28,16 @@ author: Yohan Hmaiti
   - C. 5
   - D. 25
 
+<details>
+  <summary>Answers</summary>
+
 *Answers for the Bubble sort:*
 
 1. A
 2. D
 3. A
+
+</details>
 
 
 ## Selection Sort Portion
@@ -57,8 +62,13 @@ author: Yohan Hmaiti
   - B. The maximum value in the list is found
   - C. Adjacent elements are swapped
 
+<details>
+  <summary>Answers</summary>
+
 *Answers for the selection Sort:*
 
 1. A
 2. C
 3. A
+
+</details>

@@ -11,16 +11,237 @@ A fun thing to do in these exercises is to create a separate function and call i
 
 @. Write a function that receives a string and return its length without using any libraries.
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+
+int length(char *word);
+
+int main(void) {
+    char word[30];
+    printf("Enter your word.\n");
+    scanf("%s", word);
+
+    printf("The length of your word is %d\n", length(word));
+
+    return 0;
+}
+
+// returns the length of the string pointed to by word
+int length(char *word) {
+    // declare the counter
+    int i=0;
+
+    // keep on counting until the null character
+    while (word[i] != '\0')
+        i++;
+
+    // finally, return the counter
+    return i;
+}
+```
+
+</details>
+
 @. Write a function that receives a string and turns it into uppercase.
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+
+void to_upper(char *word);
+
+int main(void) {
+    char word[30];
+    printf("Enter your word.\n");
+    scanf("%s", word);
+
+    to_upper(word);
+    printf("Your word is now upper case: %s\n", word);
+
+    return 0;
+}
+
+// changes the string pointed to by word to be upper case
+void to_upper(char *word) {
+
+  int i=0;
+
+  // go through each character one by one, changing it to upper case
+  while (word[i] != '\0') {
+    if (word[i] >= 'a' && word[i] <= 'z') {
+      // subtract the number of ASCII characters necessary to give the uppercase letter
+      word[i] = word[i] - ('a' - 'A');
+    }
+
+    i++;
+  }
+}
+```
+
+</details>
 
 @. Write a function that receives two strings and checks if they are equal.
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+
+int equal(char *w1, char *w2);
+
+int main(void) {
+    char word1[30], word2[30];
+    printf("Enter your word.\n");
+    scanf("%s", word1);
+    printf("Enter another word.\n");
+    scanf("%s", word2);
+
+    if (equal(word1, word2))
+        printf("You entered two equal words.\n");
+    else
+        printf("Your words are different.\n");
+
+    return 0;
+}
+
+// returns 1 if the strings pointed to by w1 and w2 are identical
+// returns 0 otherwise
+int equal(char *w1, char *w2) {
+
+  int i=0;
+
+  // keeps on going
+  while (1) {
+    // characters don't match, not equal!
+    if (w1[i] != w2[i])
+      return 0;
+
+    // if we match the null character, the strings are equal!
+    else if (w1[i] == '\0')
+      return 1;
+
+    i++;
+  }
+}
+```
+
+</details>
+
 @. Write a function that receives a string and check if it is a palindrome.
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+#include <string.h>
+
+int palindrome(char *word);
+
+int main(void) {
+    char word[30];
+    printf("Enter your word.\n");
+    scanf("%s", word);
+
+    if (palindrome(word) == 1)
+        printf("%s is a palindrome.\n", word);
+    else
+        printf("%s is not a palindrome.\n", word);
+
+    return 0;
+}
+
+int palindrome(char *word) {
+
+  int len, index;
+  index = 0;
+  len = strlen(word);
+
+  while (word[index] == word[len-1-index] &&
+         index < len/2)
+    index++;
+
+  if (index == len/2)
+    return 1;
+
+  return 0;
+}
+```
+
+</details>
 
 @. Write a function that receives a string and reverses it.
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+
+void reverse(char *word);
+
+int main(void) {
+    char word[30];
+    printf("Enter your word.\n");
+    scanf("%s", word);
+
+    reverse(word);
+    printf("Your word reversed is %s\n", word);
+
+    return 0;
+}
+
+// reverses the contents of the string pointed to by word
+void reverse(char *word) {
+
+  int i, len;
+  char temp;
+
+  // get the length of the word
+  len = length(word);
+
+  // go half-way through
+  for (i=0; i<len/2; i++) {
+    // swap "opposite" side letters!
+    temp = word[i];
+    word[i] = word[len-1-i];
+    word[len-1-i] = temp;
+  }
+}
+```
+
+</details>
+
 @. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+```c
+#include <stdio.h>
+
+int main(void) {
+    char name[30];
+    printf("Enter your name.\n");
+    fgets(name, sizeof(name), stdin);  // read string
+    puts(name);    // display string
+    return 0;
+}
+```
+
+</details>
 ---
 
 ## More Practice Using Strings
@@ -42,7 +263,7 @@ For all questions, assume all necessary libraries are included, and all function
     }
   }
   ```
-  
+
 </details>
 
 ---
@@ -58,6 +279,24 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** 6 lines.
+
+The output of this program will be the following:
+
+```
+I am a string
+th
+at
+    is
+split weirdly...
+ :S
+```
+
+</details>
+
 @. What will the following function output?
 
   ``` c
@@ -69,6 +308,15 @@ For all questions, assume all necessary libraries are included, and all function
     printf("The string is %s\n", buffer);
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `The string is My`
+
+A string will only be printed until the first `\0` is reached, so by placing a `\0` in `buffer[2]`, the string will be effectively shortened.
+
+</details>
 
 @. What does this function print?
 
@@ -83,6 +331,15 @@ For all questions, assume all necessary libraries are included, and all function
     }
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `How are you?`
+
+The loop will print every character in the string one-at-a-time until it encounters a null terminator.
+
+</details>
 
 @. Similar to the previous question, what does function print?
 
@@ -99,12 +356,44 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `How are you?`
+
+The loop will print every character in the string one-at-a-time until `i` becomes equal to the string length. In this case, `length` will be 12.
+
+</details>
+
 @. Which of the following lines are valid? Explain why each is valid or not.
 
   - `char food[7] = "Apple";`{.c}
   - `char food[7] = "Avocado";`{.c}
   - `char food[7] = "Banana";`{.c}
   - `char food[7] = "Chocolate";`{.c}
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+- `char food[7] = "Apple";`{.c}
+
+    This line is valid. "`Apple`" has 6 characters, including the null terminator, which fits in an array of length 7.
+
+- `char food[7] = "Avocado";`{.c}
+
+    This line is not valid. "`Avocado`" has 8 characters, including the null terminator, which does not fit in an array of length 7.
+
+- `char food[7] = "Banana";`{.c}
+
+    This line is valid. "`Banana`" has 7 characters, including the null terminator, which fits in an array of length 7.
+
+- `char food[7] = "Chocolate";`{.c}
+
+    This line is not valid. "`Chocolate`" has 10 characters, including the null terminator, which does not fit in an array of length 7.
+
+</details>
 
 @. What would be displayed if `string` was printed after running these lines?
 
@@ -121,6 +410,17 @@ For all questions, assume all necessary libraries are included, and all function
   string[3] = '\0';
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+B
+```
+
+</details>
+
 @. What would be displayed if `string` was printed after running these lines?
 
   ``` c
@@ -128,6 +428,17 @@ For all questions, assume all necessary libraries are included, and all function
 
   strcpy(string, "I love C!");
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+```
+I love C!
+```
+
+</details>
 
 @. In how many lines will the print statement in line 6 output?
 
@@ -142,6 +453,19 @@ For all questions, assume all necessary libraries are included, and all function
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** Since `fgets()` adds the newline character at the end of user input and we don't remove it, line 6 will be split into two lines. A sample run of the program may look like this:
+
+```
+How is life like in Jupiter? (pretend the user types "great")
+The user wrote life is great
+ in Jupiter.
+```
+
+</details>
 
 @. In how many lines will the print statement in line 9 output?
 
@@ -159,6 +483,13 @@ For all questions, assume all necessary libraries are included, and all function
     return 0;
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** Different from the last question, we now use `remove_clrf()`, which removes the newline character from `buffer`, so line 9 will be printed out in a single line.
+
+</details>
 
 @. What is the output if the user entered "not good"?
 
@@ -179,6 +510,33 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:** We will get user input, remove the newline character from the end of `buffer`, and print it out. The output is "`The user wrote life is not good in Jupiter.`".
+
+If the user entered "not good", the buffer will first look like this:
+
+```
++----+----+----+----+----+----+----+----+----+----+---------+
+| n  | o  | t  |    | g  | o  | o  | d  | \n | \0 |   ...   |
++----+----+----+----+----+----+----+----+----+----+---------+
+ 0    1    2    3    4    5    6    7    8    9
+```
+
+After the first call to `remove_clrf()`, the buffer will then look like this:
+
+```
++----+----+----+----+----+----+----+----+----+----+---------+
+| n  | o  | t  |    | g  | o  | o  | d  | \0 | \0 |   ...   |
++----+----+----+----+----+----+----+----+----+----+---------+
+ 0    1    2    3    4    5    6    7    8    9
+```
+
+The following two calls to `remove_clrf()` do nothing since the newline character is already removed.
+
+</details>
+
 @. What is the output if the user entered "3.14"?
 
   ``` c
@@ -195,6 +553,15 @@ For all questions, assume all necessary libraries are included, and all function
     printf("Your number is %d!\n", fav_num);
   }
   ```
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** `Your number is 3!`
+
+Notice that `fav_num` is an integer, and we use `atoi()`. 3.14 will get truncated to 3.
+
+</details>
 
 @. How many lines total will the following program print out?
 
@@ -215,6 +582,30 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+  **Answer:** 9 lines.
+
+  The output of this program will be the following:
+
+  ```
+  Hello.
+  How
+  Are
+  You? (the user types something here)
+  Hello.
+  How
+  Are
+  You? (the user types something here)
+  I don't really care, so goodbye!
+  ```
+
+---
+
+**Challenge:** Let's look at some more complex functions!
+
+</details>
 ---
 
 **Challenge:** Let's look at some more complex functions!
@@ -258,6 +649,25 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+
+If the user enters "yes" and "179.67":
+
+```
+100.23134 * 179.67 = 18008.56486
+```
+
+If the user enters "no" (or anything else):
+
+```
+:( Fine.
+```
+
+</details>
+
 @. What will the following functions print out if the user enters "2.718" for both `print_num` and `print_another_num`?
 
   ``` c
@@ -296,6 +706,15 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
+<details>
+  <summary>Answer</summary>
+
+**Answer:**
+`print_num()` would not even be able to run due to the assignment operation.
+
+`print_another_num()` would print "`a is 2.718`".
+
+</details>
 ---
 
 @. **Challenge Program:**
@@ -325,3 +744,10 @@ Based on the previous grades, the average is: 8.23
 ```
 
 As an extra challenge, find the maximum and minimum grades the user entered and print them.
+
+<details>
+  <summary>Answer</summary>
+
+**Answer:** See **[this attached C file](https://github.com/Wiki-Knights/CS-Materials/raw/main/src/intro-to-c/strings/strings-practice-challenge-answer.c)** for this solution.
+
+</details>

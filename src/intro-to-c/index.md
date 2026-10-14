@@ -13,11 +13,11 @@ toc: false
 
 [Printing](printing/printing.md)
 
-[Variables Practice](variables/variables-practice.md) ([Answers](variables/variables-practice-answers.md))
+[Variables Practice](variables/variables-practice.md) (with answers)
 
 [Arithmetic Operators Intro](operators/operators-intro.md)
 
-[Arithmetic Operators Practice](operators/operators-practice.md) ([Answers](operators/operators-practice-answers.md))
+[Arithmetic Operators Practice](operators/operators-practice.md) (with answers)
 
 ## Functions
 
@@ -27,21 +27,21 @@ toc: false
 
 [Variable and Function Scope](functions/scope.md)
 
-[Functions Practice](functions/functions-practice.md) ([Answers](functions/functions-practice-answers.md))
+[Functions Practice](functions/functions-practice.md) (with answers)
 
 ## Making Decisions - Conditions and Switch Statements
 
 [Conditional Statements Introduction](conditionals/conditionals.md)
 
-[Conditionals Practice](conditionals/conditionals-practice.md) ([Answers](conditionals/conditionals-practice-answers.md))
+[Conditionals Practice](conditionals/conditionals-practice.md) (with answers)
 
 [Switch Statements](switch-statements/switch-statements.md)
 
-[Switch Statements Practice](switch-statements/switch-statements-practice.md) ([Answers](switch-statements/switch-statements-practice-answers.md))
+[Switch Statements Practice](switch-statements/switch-statements-practice.md) (with answers)
 
 ## Loops
 
-[Loop Practice](loops/loop-practice.md) ([Answers](loops/loop-practice-answers.md))
+[Loop Practice](loops/loop-practice.md) (with answers)
 
 ## Random Number Generation
 
@@ -51,17 +51,17 @@ toc: false
 
 [Array Introduction](arrays/arrays-intro.md)
 
-[Array Practice](arrays/array-practice.md) ([Answers](arrays/array-practice-answers.md))
+[Array Practice](arrays/array-practice.md) (with answers)
 
 [2D Arrays](arrays/2d-arrays.md)
 
 [Strings Introduction](strings/strings-intro.md)
 
-[Strings Practice](strings/strings-practice.md) ([Answers](strings/strings-practice-answers.md))
+[Strings Practice](strings/strings-practice.md) (with answers)
 
 ## Structs
 
-[Structs Practice](structs/structs-practice.md) ([Answers](structs/structs-practice-answers.md))
+[Structs Practice](structs/structs-practice.md) (with answers)
 
 ## Pointers and Dynamic Memory Allocation
 
@@ -71,7 +71,7 @@ toc: false
 
 [Arrays are (Secretly) Pointers](pointers/arrays-are-pointers.md)
 
-[Pointers Practice](pointers/pointers-practice.md) ([Answers](pointers/pointers-practice-answers.md))
+[Pointers Practice](pointers/pointers-practice.md) (with answers)
 
 [Introduction to Dynamic Memory Allocation](dma/intro-to-dma.md)
 
@@ -79,7 +79,7 @@ toc: false
 
 [Dynamic Memory and Pointer Safety](dma/dma-pointer-safety.md)
 
-[Dynamic Memory Allocation Practice](dma/dma-practice.md) ([Answers](dma/dma-practice-answers.md))
+[Dynamic Memory Allocation Practice](dma/dma-practice.md) (with answers)
 
 ## Debugging
 
@@ -95,8 +95,8 @@ toc: false
 
 [Endianness](endianness/endianness.md)
 
-[Binary I/O Practice](binary-io/binary-io-practice.md) ([Answers](binary-io/binary-io-practice-answers.md))
+[Binary I/O Practice](binary-io/binary-io-practice.md) (with answers)
 
-[Final Project Practice](final-project/final-project-practice.md) ([Answers](final-project/final-project-practice-answers.md))
+[Final Project Practice](final-project/final-project-practice.md) (with answers)
 
 [Programming Best Practices](best-practice/best-practice.md)
