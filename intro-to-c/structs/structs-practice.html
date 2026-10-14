@@ -372,6 +372,14 @@ more comfortable with the material.</p>
 <span id="cb1-10"><a href="#cb1-10"></a></span>
 <span id="cb1-11"><a href="#cb1-11"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer</strong>: <code>%lf</code>, <code>%f</code>, and
+<code>%lf</code> since <code>x</code> is a double, <code>y</code> is a
+float, and their subtraction is also a double.</p>
+</details>
 <hr />
 <h2 id="onto-structs">Onto Structs!</h2>
 <ol start="2" class="example" type="1">
@@ -393,6 +401,12 @@ libraries are included.</li>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong> This is an undefined (garbage) value.</p>
+</details>
 <ol start="3" class="example" type="1">
 <li>What about this? (<em>Hint:</em> An <a href="http://www.asciitable.com/">ASCII table is available here</a> for
 your convience.)</li>
@@ -412,6 +426,12 @@ your convience.)</li>
 <span id="cb3-13"><a href="#cb3-13"></a></span>
 <span id="cb3-14"><a href="#cb3-14"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong> <code>A</code></p>
+</details>
 <ol start="4" class="example" type="1">
 <li>My hands are aching from writing code 24/7. I alone kept the 2018
 electoral interference at bay. How can I save myself the 6 keystrokes
@@ -419,6 +439,33 @@ and stop typing <code>struct</code> every time I want to create an
 instance of the <code>my_structure</code> struct? See the previous
 question on line 9 for reference.</li>
 </ol>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong> After the <code>struct</code> declaration,
+add the following line:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> my_structure _______</span></code></pre></div>
+<p>This blank could be anything I desire, as long as I remember to use
+that for the rest of my code. This is a possible example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> my_structure</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> text<span class="op">[</span><span class="dv">64</span><span class="op">];</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> my_structure my_s<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  my_s structy_mc_struct_face<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  structy_mc_struct_face<span class="op">.</span>x <span class="op">=</span> <span class="dv">65</span><span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%c\n</span><span class="st">&quot;</span><span class="op">,</span> structy_mc_struct_face<span class="op">.</span>x<span class="op">);</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</details>
 <hr />
 <h2 id="pointers-of-structs">Pointers of Structs</h2>
 <p>See the “Pointers Practice” page for practice on this!</p>

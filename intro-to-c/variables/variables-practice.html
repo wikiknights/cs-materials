@@ -344,21 +344,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; }
 using variables! (Try solving these by hand without a compiler!)</p>
 <hr />
 <ol class="example" type="1">
-<li><p>Write one line of code that declares an integer called
-<code>cups_of_tea</code> and assigns to it a value of 5.</p></li>
-<li><p>What is wrong with the following code? How can you fix
-it?</p></li>
+<li>Write one line of code that declares an integer called
+<code>cups_of_tea</code> and assigns to it a value of 5.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The value of x is </span><span class="sc">%d</span><span class="st">.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> cups_of_tea <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+</details>
+<ol start="2" class="example" type="1">
+<li>What is wrong with the following code? How can you fix it?</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The value of x is </span><span class="sc">%d</span><span class="st">.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong> <code>x</code> is declared <em>after</em>
+the <code>printf()</code> statement! This means that <code>x</code> does
+not yet exist at the time of the <code>printf()</code>. Even if it did
+somehow exist, it would not have a defined value.</p>
+<p>To fix the issue, simply swap the lines with the
+<code>printf()</code> statement and the assignment to <code>x</code>. A
+revised version of the code might look like the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> x <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;The value of x is </span><span class="sc">%d</span><span class="st">.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</details>
 <ol start="3" class="example" type="1">
 <li>Which of the following are not valid variable names? If any are
 invalid, explain why.</li>
@@ -373,6 +403,48 @@ invalid, explain why.</li>
 <li><code>982</code></li>
 <li><code>float_</code></li>
 </ul>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code>__basic</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code>apple#3</code>
+<ul>
+<li>Invalid - The <code>#</code> symbol is not allowed in a
+variable.</li>
+</ul></li>
+<li><code>2023_year</code>
+<ul>
+<li>Invalid - A variable name cannot begin with a number.</li>
+</ul></li>
+<li><code>INT</code>
+<ul>
+<li>Valid. (Since it is not the lowercase <code>int</code>, this is an
+allowed variable name.)</li>
+</ul></li>
+<li><code>orANGE</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code>total students</code>
+<ul>
+<li>Invalid - A variable name cannot contain a space.</li>
+</ul></li>
+<li><code>982</code>
+<ul>
+<li>Invalid - A variable name cannot begin with a number.</li>
+</ul></li>
+<li><code>float_</code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+</ul>
+</details>
 <ol start="4" class="example" type="1">
 <li>Which of the following statements are not valid in C? If any are
 invalid, explain why.</li>
@@ -383,35 +455,108 @@ invalid, explain why.</li>
 <li><code class="sourceCode c"><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></code></li>
 <li><code class="sourceCode c"><span class="dv">4</span> <span class="op">=</span> gpa<span class="op">;</span></code></li>
 </ul>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><code class="sourceCode c"><span class="dt">int</span> <span class="dt">float</span> <span class="op">=</span> <span class="fl">34123.4123</span> <span class="op">*</span> <span class="dv">4</span><span class="op">;</span></code>
+<ul>
+<li>Invalid. <code>float</code> cannot be used as a variable name.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dt">char</span> student_name <span class="op">=</span> <span class="ch">&#39;J</span><span class="er">ohn Smith</span><span class="ch">&#39;</span><span class="op">;</span></code>
+<ul>
+<li>Invalid. The single quotation marks (<code>&#39;</code>) can only
+contain one character.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></code>
+<ul>
+<li>Valid.</li>
+</ul></li>
+<li><code class="sourceCode c"><span class="dv">4</span> <span class="op">=</span> gpa<span class="op">;</span></code>
+<ul>
+<li>Invalid. The statement is in the wrong order. To assign the value 4
+to <code>gpa</code>, the order should be flipped to
+<code>gpa = 4</code>.</li>
+</ul></li>
+</ul>
+</details>
 <ol start="5" class="example" type="1">
 <li>What is wrong with the following code? How can you fix it?</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  ounces_of_milk <span class="op">=</span> <span class="fl">16.0</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%lf</span><span class="st"> ounces of milk.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> ounces_of_milk<span class="op">);</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  ounces_of_milk <span class="op">=</span> <span class="fl">16.0</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%lf</span><span class="st"> ounces of milk.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> ounces_of_milk<span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong> <code>ounces_of_milk</code> is assigned a
+value without ever being declared first! You can’t use a variable and
+assign it without first declaring it.</p>
+<p>To fix this problem, you can place <code>double</code> (notice the
+<code>%lf</code> hints at which type to use) before
+<code>ounces_of_milk</code> to make one line that both declares and
+initializes the variable. A revised version of the code might look like
+the following:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> ounces_of_milk <span class="op">=</span> <span class="fl">16.0</span><span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%lf</span><span class="st"> ounces of milk.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> ounces_of_milk<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Alternatively, you could add a new line of code before
+<code>ounces_of_milk = 16.0;</code> that declares it:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> ounces_of_milk<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ounces_of_milk <span class="op">=</span> <span class="fl">16.0</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%lf</span><span class="st"> ounces of milk.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> ounces_of_milk<span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>Author’s note:</em> The second solution works, but is
+unnecessarily verbose, declaring and assigning
+<code>ounces_of_milk</code> on two consecutive lines. Should there have
+been other code between these lines, this decision may make more sense,
+but the first solution is preferrable.</p>
+</details>
 <ol start="6" class="example" type="1">
 <li>What is the final output of this program?</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> apples <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> oranges <span class="op">=</span> <span class="dv">90</span><span class="op">;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  apples <span class="op">=</span> oranges<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  oranges <span class="op">=</span> apples<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%d</span><span class="st"> apples and </span><span class="sc">%d</span><span class="st"> oranges.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> apples<span class="op">,</span> oranges<span class="op">);</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> apples <span class="op">=</span> <span class="dv">16</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> oranges <span class="op">=</span> <span class="dv">90</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  apples <span class="op">=</span> oranges<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  oranges <span class="op">=</span> apples<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;You have </span><span class="sc">%d</span><span class="st"> apples and </span><span class="sc">%d</span><span class="st"> oranges.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> apples<span class="op">,</span> oranges<span class="op">);</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong></p>
+<pre><code>You have 90 apples and 90 oranges.</code></pre>
+</details>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/wikiknights/cs-materials">GitHub</a> | <a href="https://github.com/wikiknights/cs-materials/issues/new?assignees=&amp;labels=enhancement&amp;template=suggestions.yml" title="(Requires a free GitHub account)">Leave a Suggestion</a>
 </footer>

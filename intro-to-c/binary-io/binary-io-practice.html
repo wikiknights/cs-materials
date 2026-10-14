@@ -346,17 +346,34 @@ might take a little bit of thinking, but this practice is here to help
 you get more comfortable with the material.</p>
 <p>Assume big-endian notation.</p>
 <ol class="example" type="1">
-<li><p>Let’s start this off simple. Suppose that an <code>int</code>
+<li>Let’s start this off simple. Suppose that an <code>int</code>
 created in C is 4 bytes (32 bits) in size. How would the integer
-<code>2</code> be stored in binary in memory?</p></li>
-<li><p>Given the previous answer, if a hypothetical program was written
-to write the integer <code>2</code> <em>in binary</em> to a file, what
-data would be in the file? Write your answer <em>in
-binary</em>.</p></li>
-<li><p>Given the following program, what would <code>output.bin</code>
+<code>2</code> be stored in binary in memory?</li>
+</ol>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong>
+<code>00000000 00000000 00000000 00000010</code></p>
+</details>
+<ol start="2" class="example" type="1">
+<li>Given the previous answer, if a hypothetical program was written to
+write the integer <code>2</code> <em>in binary</em> to a file, what data
+would be in the file? Write your answer <em>in binary</em>.</li>
+</ol>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong>
+<code>00000000 00000000 00000000 00000010</code></p>
+</details>
+<ol start="3" class="example" type="1">
+<li>Given the following program, what would <code>output.bin</code>
 contain after execution? Again, write your answer <em>in binary</em>.
 Assume all necessary libraries are included and all files are
-opened/closed properly.</p></li>
+opened/closed properly.</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> cool_struct</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -376,6 +393,13 @@ opened/closed properly.</p></li>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<details>
+<summary>
+Answer
+</summary>
+<p><strong>Answer:</strong>
+<code>00000000 00000000 00000000 00000010</code></p>
+</details>
 <footer>
 <a href="https://wikiknights.com/">Wiki Knights</a> | <a href="https://github.com/wikiknights/cs-materials">GitHub</a> | <a href="https://github.com/wikiknights/cs-materials/issues/new?assignees=&amp;labels=enhancement&amp;template=suggestions.yml" title="(Requires a free GitHub account)">Leave a Suggestion</a>
 </footer>
