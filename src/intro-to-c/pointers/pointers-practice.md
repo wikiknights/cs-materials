@@ -29,10 +29,10 @@ Let's try some example problems using pointers!
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `x = 75`
+ `x = 75`
 
 The integer `x` begins by being set to the value 7 on line 5. On line 6, The integer pointer called `pointer` is set to the location of x. This means that any changes to `x` will be reflected in a change to the value of `*pointer`.
 
@@ -57,10 +57,10 @@ The program thus prints `x = 75` at the end.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `43`
+ `43`
 
 This is a trick question! The reference and dereference operators cancel each other out, so with the same number of each operator, you are simply left with `n` to print.
 
@@ -99,10 +99,10 @@ This is a trick question! The reference and dereference operators cancel each ot
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 Before:
@@ -147,10 +147,10 @@ Notice that the `change_number()` function is using a pass-by-value method, mean
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 Before:
@@ -201,10 +201,10 @@ This can also lead to memory violations if a piece of memory is dereferenced tha
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 Before:
@@ -253,7 +253,7 @@ A safe way to ensure that you get the behavior you expect with your programs is 
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -311,10 +311,10 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `*c = 19`
+ `*c = 19`
 
 For this problem, we will step through each line to see the values of `b` (and consequently `*c`) as the program progresses.
 
@@ -360,10 +360,10 @@ At the end of the program, `*c = 19`.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `*c = 17`
+ `*c = 17`
 
 This is a small variation of the previous problem that changes a pass-by-reference to a pass-by-value. Effectively, this means that unlike before, the value of `b` is not changed during `functiomatic()`.
 
@@ -417,10 +417,10 @@ At the end of the program, `*c = 17`.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 `array` contains the following values: `[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]`
 
@@ -489,10 +489,10 @@ Notice that line 20 is printing "`*(array + i)`". Behind the scenes, this is equ
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 `array` contains the following values: `[50, 51, 52, 53, 54, 55, 56, 57, (garbage value), (garbage value)]`
 
@@ -511,10 +511,10 @@ Since the last two indices of the array are never touched until the `print_array
 
 @. Create a declaration of a struct called `car` that contains some information about a car: a string (char pointer) called `make` that indicates its manufacturer, a string called `model` that indicates its model, an integer called `year` that indicates its year of production, and a double called `mpg` that indicates its fuel efficiency in miles per gallon.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 struct car
@@ -534,10 +534,10 @@ struct car
   my_struct->number = 5;
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 (*my_struct).number = 5;
@@ -563,10 +563,10 @@ struct car
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** The `print_planet()` function is using the indirect reference operator (`->`) on a struct, instead of on a *pointer* to a struct.
+ The `print_planet()` function is using the indirect reference operator (`->`) on a struct, instead of on a *pointer* to a struct.
 
 This can be fixed in two ways. In one way, you can change the function declaration to accept a pointer of a struct, so that it is consistent with the `->` operator:
 
@@ -629,10 +629,10 @@ void print_planet(struct planet p)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 Radius: 0 inches
@@ -685,10 +685,10 @@ Toppings:
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 Radius: 13 inches
@@ -722,7 +722,7 @@ Toppings: Pepperoni, beef, sausage, and bacon
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -746,7 +746,7 @@ int main(void)
 }
 ```
 
-**Answer:**
+
 
 ``` c
 struct gradebook
@@ -834,7 +834,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -937,7 +937,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**

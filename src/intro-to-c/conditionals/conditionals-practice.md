@@ -10,10 +10,10 @@ How can you check if something is true or not, and can you get your code to act 
 
 @. Whenever Bob is in class, the variable `class` is set to 1, and 0 otherwise. If Bob is doing homework, the variable `homework` is set to 1, and 0 otherwise. Create an expression using boolean operators and the provided variables that would evaluate to true if Bob is doing their homework in class.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `class && homework`
+ `class && homework`
 
 </details>
 
@@ -40,10 +40,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #2!
 ```
@@ -80,10 +80,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 ```
@@ -94,10 +94,10 @@ x (13) is less than z (15), so the first statement is printed. Since the followi
 
 @. From the program in the previous problem, how would the output change if the "`else if`" changed to "`if`" (or would it change at all)?
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 This is statement #2!
@@ -132,10 +132,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 ```
@@ -168,10 +168,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 ```
@@ -205,10 +205,10 @@ The program then proceeds to print statement #1.
       - Input: `14`
       - Output: `Fuzz!`
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 #include <stdio.h>
@@ -266,10 +266,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #2!
 ```
@@ -332,7 +332,7 @@ y (912) is less than or equal to z (1021), so this statement is true. `TRUE && T
         Sorry, you are limited to $100 of items.
         ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -429,10 +429,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 ```
@@ -485,10 +485,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #3!
 ```
@@ -537,10 +537,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 This is statement #1!
 This is statement #4!

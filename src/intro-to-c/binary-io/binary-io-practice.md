@@ -12,19 +12,19 @@ Assume big-endian notation.
 
 @. Let's start this off simple. Suppose that an `int` created in C is 4 bytes (32 bits) in size. How would the integer `2` be stored in binary in memory?
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `00000000 00000000 00000000 00000010`
+`00000000 00000000 00000000 00000010`
 
 </details>
 
 @. Given the previous answer, if a hypothetical program was written to write the integer `2` *in binary* to a file, what data would be in the file? Write your answer *in binary*.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `00000000 00000000 00000000 00000010`
+`00000000 00000000 00000000 00000010`
 
 </details>
 
@@ -51,9 +51,9 @@ Assume big-endian notation.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `00000000 00000000 00000000 00000010`
+`00000000 00000000 00000000 00000010`
 
 </details>

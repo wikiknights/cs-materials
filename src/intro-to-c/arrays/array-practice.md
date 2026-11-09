@@ -8,10 +8,8 @@ toc: false
 
 @. Write a line of code that declares an array called `uv_levels` that contains 5 integers.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
-
-**Answer:**
 
 ``` c
 int uv_levels[5];
@@ -25,10 +23,10 @@ int uv_levels[5];
   numbers[3]
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** The fourth element of the array.
+  The fourth element of the array.
 
 </details>
 
@@ -40,10 +38,10 @@ int uv_levels[5];
   numbers[4] = 25;
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** In the first statement, the `4` indicates an array size, in this case creating an array of four elements. In the second statement, the `4` indicates a particular element, in this case the fifth element of the `numbers` array. (Bonus: This second statement would actually be considered improper in the context of the first statement, as there are only four elements, where the fifth element is attempted to be accessed.)
+  In the first statement, the `4` indicates an array size, in this case creating an array of four elements. In the second statement, the `4` indicates a particular element, in this case the fifth element of the `numbers` array. (Bonus: This second statement would actually be considered improper in the context of the first statement, as there are only four elements, where the fifth element is attempted to be accessed.)
 
 </details>
 
@@ -78,10 +76,10 @@ int uv_levels[5];
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 #include <stdio.h>
@@ -142,10 +140,10 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 Output of the program is as follows:
 
@@ -187,7 +185,7 @@ Output of the program is as follows:
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**:
@@ -270,7 +268,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**:
@@ -333,7 +331,7 @@ int main(void)
   void copy_array(int *array1, int *array2, int length);
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**:
@@ -377,7 +375,7 @@ void copy_array(int *array1, int *array2, int length)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: `print_float_array()` accepts a float array and a count, but line 18 is passing a float value, not an array. Also, since we iterate the for loop 4 times in `main()`, in which we call a function that goes throes *another* loop 4 times, we would be doing twice the amount of work. To fix it, we would simplify the code in `main()` to:
@@ -397,10 +395,10 @@ int main(void)
 
 @. Create a function that adds 5 to every odd element of an array of integers. Assume you are provided an integer array (called `array`) and an integer representing the number of elements in the array (called `length`).
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** First, we must figure out what the function declaration will look like. If we are given an integer array and the number of elements, the parameters may look like `(int *array, int length)` or `(int array[], int length)`.
+ First, we must figure out what the function declaration will look like. If we are given an integer array and the number of elements, the parameters may look like `(int *array, int length)` or `(int array[], int length)`.
 
 Next, we must figure out the return type of the function. Since we are modifying the array in-place, this function does not need to return anything. This makes the return type `void`.
 

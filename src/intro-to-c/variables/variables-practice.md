@@ -10,10 +10,10 @@ Here are some exercises that will help you get a better grasp of using variables
 
 @. Write one line of code that declares an integer called `cups_of_tea` and assigns to it a value of 5.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ``` c
 int cups_of_tea = 5;
 ```
@@ -35,10 +35,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `x` is declared *after* the `printf()` statement! This means that `x` does not yet exist at the time of the `printf()`. Even if it did somehow exist, it would not have a defined value.
+ `x` is declared *after* the `printf()` statement! This means that `x` does not yet exist at the time of the `printf()`. Even if it did somehow exist, it would not have a defined value.
 
 To fix the issue, simply swap the lines with the `printf()` statement and the assignment to `x`. A revised version of the code might look like the following:
 
@@ -68,10 +68,10 @@ int main(void)
 - `982`
 - `float_`
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 - `__basic`
   * Valid.
@@ -99,10 +99,10 @@ int main(void)
 - `int i = 0; i = i + 1;`{.c}
 - `4 = gpa;`{.c}
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 - `int float = 34123.4123 * 4;`{.c}
   * Invalid. `float` cannot be used as a variable name.
@@ -129,10 +129,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `ounces_of_milk` is assigned a value without ever being declared first! You can't use a variable and assign it without first declaring it.
+ `ounces_of_milk` is assigned a value without ever being declared first! You can't use a variable and assign it without first declaring it.
 
 To fix this problem, you can place `double` (notice the `%lf` hints at which type to use) before `ounces_of_milk` to make one line that both declares and initializes the variable. A revised version of the code might look like the following:
 
@@ -186,10 +186,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 You have 90 apples and 90 oranges.
 ```

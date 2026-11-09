@@ -30,10 +30,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This program does not manage memory correctly! Notice that `integer_boi` declared on line 6 is just an integer, not an *integer pointer*. To properly utilize `malloc()`, its return value should be assigned to a pointer. The following shows this fixed:
+ This program does not manage memory correctly! Notice that `integer_boi` declared on line 6 is just an integer, not an *integer pointer*. To properly utilize `malloc()`, its return value should be assigned to a pointer. The following shows this fixed:
 
 ``` c
 #include <stdio.h>
@@ -72,10 +72,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 10, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
+ This program is not managing memory correctly and has a memory leak. After the `printf()` statement on line 10, you must make sure to call `free(pointy_pointer);` to ensure all memory allocated is freed.
 
 </details>
 
@@ -99,10 +99,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This program has a memory leak and dereferences a null pointer. On line 7, memory for a `char` is allocated, but it is not assigned to the variable `letter`, so this allocation is effectively wasted. The following lines that dereference `letter` thus will fail, and the wasted `malloc()` call will cause a memory leak.
+ This program has a memory leak and dereferences a null pointer. On line 7, memory for a `char` is allocated, but it is not assigned to the variable `letter`, so this allocation is effectively wasted. The following lines that dereference `letter` thus will fail, and the wasted `malloc()` call will cause a memory leak.
 
 </details>
 
@@ -127,10 +127,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This program does manage memory correctly! While more memory than necessary was allocated on line 8 for this program, this is considered valid.
+ This program does manage memory correctly! While more memory than necessary was allocated on line 8 for this program, this is considered valid.
 
 </details>
 ---
@@ -160,10 +160,10 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This program does not manage memory correctly. This code attempts to free each individual character of the array, which is not correct. Since there was only one call to `malloc()`, there should only be one call to `free()`. Instead, the for loop should be replaced with the following:
+ This program does not manage memory correctly. This code attempts to free each individual character of the array, which is not correct. Since there was only one call to `malloc()`, there should only be one call to `free()`. Instead, the for loop should be replaced with the following:
 
 ``` c
 free(stringy);
@@ -197,7 +197,7 @@ int main(void)
 }
 ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 ``` c
@@ -258,7 +258,7 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Nope, we're missing `free(my_PC)` so memory is getting leaked!
@@ -313,7 +313,7 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: The structs are equal, but the conditional is false since they are NOT pointing to the same address. You will see that the values that print out will be the same for `my_PC` and `my_other_PC`, since they are equal but independent - this is why we `free` twice.
@@ -349,7 +349,7 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Notice how the `copy_struct` function, different from the previous exercise, is setting one pointer to be `my_PC`. Therefore, both pointers will be pointing to the same address and the conditional is true. Notice also that we are missing the `free`... oh no!
@@ -385,7 +385,7 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Similar to the previous exercise, `my_PC` and `my_other_PC` are pointing to the same address (they are equal to each other). This means that when we free one of the pointers, we freed the memory they were pointing to and it would be incorrect to try to `free` again, since it had been `free`d before.
@@ -423,7 +423,7 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Once again, `copy_struct` is setting the pointers equal to each other so that they are pointing to the same address. This means that any changes to one pointer will also be reflected on the other pointer, so the value of `power` is 100 for both. Notice also that we should not be using `free()` twice. Can you see why?
@@ -464,10 +464,10 @@ for (int i = 1; i <= 20; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 typedef struct Pixel
@@ -537,10 +537,10 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-  **Answer:**
+  
 
   ``` c
   typedef struct Birthday
@@ -675,7 +675,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Because `calloc` sets initial values to the struct, my_PC members are all 0. `malloc` doesn't do anything to do values and can can be garbage values. So, line 13 prints 0 and line 14 prints garbage values.
