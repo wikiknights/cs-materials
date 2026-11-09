@@ -376,11 +376,10 @@ what will be printed?</li>
 <span id="cb1-13"><a href="#cb1-13"></a></span>
 <span id="cb1-14"><a href="#cb1-14"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <p>This code compiles! Normally, variables with the same name can’t be
 declared twice in the same function. (A compiler would give you an error
 like “<code>redefinition of ‘my_number’</code>”.) In this case, this is
@@ -463,7 +462,7 @@ What do lines 10 and 15 print?</li>
 <span id="cb5-16"><a href="#cb5-16"></a></span>
 <span id="cb5-17"><a href="#cb5-17"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb5-18"><a href="#cb5-18"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -491,17 +490,17 @@ after the execution of this program, assuming the user enters
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong> <code>floaty_float</code> actually has no
-defined value! <code>get_value()</code> does not affect
-<code>floaty_float</code> since the function makes a copy of it when it
-is passed by value. The copy, called <code>f</code>, stores the new
-integer, as provided, and so <code>f</code> does indeed become 5.5.
-However, <code>f</code> only exists within the <code>get_value()</code>
-function, so it is discarded once the function ends.</p>
+<p><code>floaty_float</code> actually has no defined value!
+<code>get_value()</code> does not affect <code>floaty_float</code> since
+the function makes a copy of it when it is passed by value. The copy,
+called <code>f</code>, stores the new integer, as provided, and so
+<code>f</code> does indeed become 5.5. However, <code>f</code> only
+exists within the <code>get_value()</code> function, so it is discarded
+once the function ends.</p>
 </details>
 <ol start="4" class="example" type="1">
 <li>What if the previous example is altered a little? What happens to
@@ -524,15 +523,14 @@ function, so it is discarded once the function ends.</p>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong> <code>20.5</code>. This time,
-<code>get_value()</code> returns a float, and thus changes
-<code>floaty_float</code>. There will be times later in the semester
-where we actually <em>can</em> change a variable without returning it,
-but we will get to that when the time comes.</p>
+<p><code>20.5</code>. This time, <code>get_value()</code> returns a
+float, and thus changes <code>floaty_float</code>. There will be times
+later in the semester where we actually <em>can</em> change a variable
+without returning it, but we will get to that when the time comes.</p>
 </details>
 <ol start="5" class="example" type="1">
 <li>What will <code>main</code> print in lines 10, 12, and 14?</li>
@@ -554,11 +552,10 @@ but we will get to that when the time comes.</p>
 <span id="cb8-15"><a href="#cb8-15"></a></span>
 <span id="cb8-16"><a href="#cb8-16"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb8-17"><a href="#cb8-17"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <pre><code>At first x was 10
 Now x is 10
 While x is now 10</code></pre>
@@ -585,11 +582,10 @@ While x is now 10</code></pre>
 <span id="cb10-17"><a href="#cb10-17"></a></span>
 <span id="cb10-18"><a href="#cb10-18"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb10-19"><a href="#cb10-19"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <pre><code>At first x was 10
 Now x is 30
 While x is now 40</code></pre>
@@ -619,11 +615,10 @@ using the fancy function header:</li>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the slope of two points.</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> slope<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -689,11 +684,10 @@ may use the <code>sqrt()</code> function provided by the
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Return the distance between two points.</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> distance_between_points<span class="op">(</span><span class="dt">float</span> x1<span class="op">,</span> <span class="dt">float</span> y1<span class="op">,</span> <span class="dt">float</span> x2<span class="op">,</span> <span class="dt">float</span> y2<span class="op">)</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -773,11 +767,10 @@ function that prints an <code>m</code> x <code>n</code> block using
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Fun fact: This problem is based on the one seen in <a href="https://cs50.harvard.edu/x/2021/psets/1/mario/less/">CS50</a>.</p>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Example output:</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">// mario(3, 4) should print:</span></span>

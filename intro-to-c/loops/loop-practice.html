@@ -345,7 +345,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; }
 <li>Create a program that prints all even numbers from 1 to 50
 inclusive. (You must use a loop.)</li>
 </ol>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -379,7 +379,7 @@ Answer
 <li>Create a program that prints the first 33 multiples of 3. (3, 6, 9,
 12, …, 99)</li>
 </ol>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -412,7 +412,7 @@ Answer
 <li>Create a program that prints all numbers between 1 and 100
 inclusive, except for numbers evenly divisible by 5.</li>
 </ol>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -440,7 +440,7 @@ Answer
 inclusive, except for numbers evenly divisible by 3. (8, 16, 32, 40, 56,
 …)</li>
 </ol>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -494,7 +494,7 @@ it)</li>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;i is </span><span class="sc">%d</span><span class="st">!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> i<span class="op">);</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -525,7 +525,7 @@ that uninitialized variables in C get assigned garbage values.</li>
 <span id="cb9-16"><a href="#cb9-16"></a>  <span class="op">}</span></span>
 <span id="cb9-17"><a href="#cb9-17"></a>  printf<span class="op">(</span><span class="st">&quot;Sum is now </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> sum<span class="op">);</span></span>
 <span id="cb9-18"><a href="#cb9-18"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -544,11 +544,10 @@ for loop, rather than this while loop.</li>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;number = </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> number<span class="op">);</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  number<span class="op">++;</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> number <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> number <span class="op">&lt;</span> <span class="dv">500</span><span class="op">;</span> number<span class="op">++)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;number = </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> number<span class="op">);</span></span>
@@ -570,11 +569,10 @@ while loop, rather than this for loop.</li>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;You bought a total of </span><span class="sc">%d</span><span class="st"> items with your money!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> items<span class="op">);</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> items <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> item_cost <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> remaining_dollars <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></span>
@@ -610,13 +608,12 @@ what is it?</li>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> x<span class="op">);</span></span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  x<span class="op">++;</span></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>x <span class="op">&lt;</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong> This is a trick question! There is no
-difference in output between these two loops. Both of them will print
-the following:</p>
+<p>This is a trick question! There is no difference in output between
+these two loops. Both of them will print the following:</p>
 <pre><code>0
 1
 2
@@ -646,11 +643,10 @@ appropriate than the other?)</p>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  sum <span class="op">+=</span> i<span class="op">;</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
@@ -686,11 +682,10 @@ Answer
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <pre><code>We are starting the loop!
 i = 0
 i = 1
@@ -725,11 +720,11 @@ without any additional <code>printf()</code> statements.</p>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong> 5</p>
+<p>5</p>
 <p>Notice that as this while loop is running, <code>x</code> will be set
 to every even number between 0 and 9. Because of this, the conditional
 statement <code>x == 5</code> will never be true in the loop, and the
@@ -747,7 +742,7 @@ program ends. The following is an example of running the program:</li>
 -9
 0
 The sum is: 10</code></pre>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
@@ -781,11 +776,10 @@ For example, the following is a 5x5 addition table.</li>
 2   3   4   5   6
 3   4   5   6   7
 4   5   6   7   8</code></pre>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
-<p><strong>Answer:</strong></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
@@ -820,7 +814,7 @@ with a height of 5.</li>
 #   #
  # #
   #</code></pre>
-<details>
+<details id="TOC">
 <summary>
 Answer
 </summary>
