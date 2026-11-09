@@ -11,10 +11,10 @@ A fun thing to do in these exercises is to create a separate function and call i
 
 @. Write a function that receives a string and return its length without using any libraries.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -48,10 +48,10 @@ int length(char *word) {
 
 @. Write a function that receives a string and turns it into uppercase.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -89,10 +89,10 @@ void to_upper(char *word) {
 
 @. Write a function that receives two strings and checks if they are equal.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -138,10 +138,10 @@ int equal(char *w1, char *w2) {
 
 @. Write a function that receives a string and check if it is a palindrome.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -182,10 +182,10 @@ int palindrome(char *word) {
 
 @. Write a function that receives a string and reverses it.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -225,10 +225,10 @@ void reverse(char *word) {
 
 @. **CHALLENGE:** How would you read a first and last name from the terminal, save it to a string, and display it to the screen?
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -248,7 +248,7 @@ int main(void) {
 
 For all questions, assume all necessary libraries are included, and all function calls are properly defined. Assume that `remove_clrf(string);` will remove any newline characters ('`\n`' or '`\r`') at the end of `string` passed in.
 
-<details>
+<details id="TOC">
   <summary>(Advanced: View the contents of `remove_clrf()`.)</summary>
 
   ``` c
@@ -279,10 +279,10 @@ For all questions, assume all necessary libraries are included, and all function
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** 6 lines.
+ 6 lines.
 
 The output of this program will be the following:
 
@@ -309,10 +309,10 @@ split weirdly...
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `The string is My`
+ `The string is My`
 
 A string will only be printed until the first `\0` is reached, so by placing a `\0` in `buffer[2]`, the string will be effectively shortened.
 
@@ -332,10 +332,10 @@ A string will only be printed until the first `\0` is reached, so by placing a `
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `How are you?`
+ `How are you?`
 
 The loop will print every character in the string one-at-a-time until it encounters a null terminator.
 
@@ -356,10 +356,10 @@ The loop will print every character in the string one-at-a-time until it encount
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `How are you?`
+ `How are you?`
 
 The loop will print every character in the string one-at-a-time until `i` becomes equal to the string length. In this case, `length` will be 12.
 
@@ -372,10 +372,10 @@ The loop will print every character in the string one-at-a-time until `i` become
   - `char food[7] = "Banana";`{.c}
   - `char food[7] = "Chocolate";`{.c}
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 - `char food[7] = "Apple";`{.c}
 
@@ -410,10 +410,10 @@ The loop will print every character in the string one-at-a-time until `i` become
   string[3] = '\0';
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 B
@@ -429,10 +429,10 @@ B
   strcpy(string, "I love C!");
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 I love C!
@@ -454,10 +454,10 @@ I love C!
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** Since `fgets()` adds the newline character at the end of user input and we don't remove it, line 6 will be split into two lines. A sample run of the program may look like this:
+ Since `fgets()` adds the newline character at the end of user input and we don't remove it, line 6 will be split into two lines. A sample run of the program may look like this:
 
 ```
 How is life like in Jupiter? (pretend the user types "great")
@@ -484,10 +484,10 @@ The user wrote life is great
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** Different from the last question, we now use `remove_clrf()`, which removes the newline character from `buffer`, so line 9 will be printed out in a single line.
+ Different from the last question, we now use `remove_clrf()`, which removes the newline character from `buffer`, so line 9 will be printed out in a single line.
 
 </details>
 
@@ -510,10 +510,10 @@ The user wrote life is great
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** We will get user input, remove the newline character from the end of `buffer`, and print it out. The output is "`The user wrote life is not good in Jupiter.`".
+ We will get user input, remove the newline character from the end of `buffer`, and print it out. The output is "`The user wrote life is not good in Jupiter.`".
 
 If the user entered "not good", the buffer will first look like this:
 
@@ -554,10 +554,10 @@ The following two calls to `remove_clrf()` do nothing since the newline characte
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `Your number is 3!`
+ `Your number is 3!`
 
 Notice that `fav_num` is an integer, and we use `atoi()`. 3.14 will get truncated to 3.
 
@@ -582,10 +582,10 @@ Notice that `fav_num` is an integer, and we use `atoi()`. 3.14 will get truncate
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-  **Answer:** 9 lines.
+   9 lines.
 
   The output of this program will be the following:
 
@@ -649,10 +649,10 @@ Notice that `fav_num` is an integer, and we use `atoi()`. 3.14 will get truncate
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 If the user enters "yes" and "179.67":
 
@@ -706,10 +706,10 @@ If the user enters "no" (or anything else):
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 `print_num()` would not even be able to run due to the assignment operation.
 
 `print_another_num()` would print "`a is 2.718`".
@@ -745,9 +745,9 @@ Based on the previous grades, the average is: 8.23
 
 As an extra challenge, find the maximum and minimum grades the user entered and print them.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** See **[this attached C file](https://github.com/Wiki-Knights/CS-Materials/raw/main/src/intro-to-c/strings/strings-practice-challenge-answer.c)** for this solution.
+ See **[this attached C file](https://github.com/Wiki-Knights/CS-Materials/raw/main/src/intro-to-c/strings/strings-practice-challenge-answer.c)** for this solution.
 
 </details>

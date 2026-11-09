@@ -8,7 +8,7 @@ toc: false
 
 @. Create a program that prints all even numbers from 1 to 50 inclusive. (You must use a loop.)
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Possible Answer:**
@@ -48,7 +48,7 @@ int main(void)
 
 @. Create a program that prints the first 33 multiples of 3. (3, 6, 9, 12, ..., 99)
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Possible Answer:**
@@ -87,7 +87,7 @@ int main(void)
 
 @. Create a program that prints all numbers between 1 and 100 inclusive, except for numbers evenly divisible by 5.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -116,7 +116,7 @@ int main(void)
 
 @. Create a program that prints all multiples of 8 between 8 and 148 inclusive, except for numbers evenly divisible by 3. (8, 16, 32, 40, 56, ...)
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Possible Answer:**
@@ -179,7 +179,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: This is an infinite loop! `i` never goes past 10 (since we're always decreasing) so the array goes on forever.
@@ -209,7 +209,7 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Both loops are doing the same thing, but `sum` is not initialized (only declared) in line 3, so it has *bleh* inside of it. Because of this only the second print is going to be correct saying that "Sum is now 45".
@@ -227,10 +227,10 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 for (int number = 5; number < 500; number++)
@@ -258,10 +258,10 @@ for (int number = 5; number < 500; number++)
   printf("You bought a total of %d items with your money!\n", items);
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 int items = 0;
@@ -303,10 +303,10 @@ printf("You bought a total of %d items with your money!\n", items);
   } while (x < 10);
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This is a trick question! There is no difference in output between these two loops. Both of them will print the following:
+ This is a trick question! There is no difference in output between these two loops. Both of them will print the following:
 
 ```
 0
@@ -341,10 +341,10 @@ printf("You bought a total of %d items with your money!\n", items);
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 int sum = 0;
@@ -387,10 +387,10 @@ for (int i = 0; i < n; i++)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 We are starting the loop!
@@ -426,10 +426,10 @@ In this program, the first `printf()` statement is executed. Then the for loop b
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** 5
+ 5
 
 Notice that as this while loop is running, `x` will be set to every even number between 0 and 9. Because of this, the conditional statement `x == 5` will never be true in the loop, and the `return 2;` statement will never be executed. Once the loop finishes, `loopy_loop()` will return 5.
 
@@ -446,7 +446,7 @@ Notice that as this while loop is running, `x` will be set to every even number 
   The sum is: 10
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**
@@ -483,10 +483,10 @@ int main(void)
   4   5   6   7   8
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 #include <stdio.h>
@@ -525,7 +525,7 @@ int main(void)
     #
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Sample Answer:**

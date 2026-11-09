@@ -30,7 +30,7 @@ But first, some `typedef` fun.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: `%lf`, `%f`, and `%lf` since `x` is a double, `y` is a float, and their subtraction is also a double.
@@ -59,10 +59,10 @@ But first, some `typedef` fun.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** This is an undefined (garbage) value.
+ This is an undefined (garbage) value.
 
 </details>
 
@@ -86,19 +86,19 @@ But first, some `typedef` fun.
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `A`
+ `A`
 
 </details>
 
 @. My hands are aching from writing code 24/7. I alone kept the 2018 electoral interference at bay. How can I save myself the 6 keystrokes and stop typing `struct` every time I want to create an instance of the `my_structure` struct? See the previous question on line 9 for reference.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** After the `struct` declaration, add the following line:
+ After the `struct` declaration, add the following line:
 
 ``` c
 typedef struct my_structure _______

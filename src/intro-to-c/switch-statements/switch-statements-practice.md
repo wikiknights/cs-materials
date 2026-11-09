@@ -8,10 +8,10 @@ Here is some additional practice with switch statements.
 
 @. You're a time traveler with a computer, but it happens to have very limited capabilities thanks to the Time Police. You also happen to be a history buff that loves the Roman Empire, so you traveled back in time with your silly little programmable computer to the silly little Roman Empire. You've decided to teach the Romans modern Arabic numbers rather than their weird letter numbers. To expedite the teaching process, you want to make a program that can convert modern integers into Roman numerals up to 10. Write a program that uses a switch statement to convert integers up to 10 into Roman numerals. Hint: Remember, the Romans didn't have a number for 0, and they would probably like to be prompted for an input. You would also like the program to stay running rather than restarting for every input. The Time Police Limited Computer (TTPLC) only allows one program to be run a month. Thanks, Time Police.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 #include <stdio.h>
@@ -120,10 +120,10 @@ int main(void)
 	...
 	```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** Yes. The switch case on line 30 does not have a `break` in it.
+ Yes. The switch case on line 30 does not have a `break` in it.
 
 </details>
 
@@ -209,10 +209,10 @@ int main(void)
 	...
 	```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** Hello, World!?
+ Hello, World!?
             Baby Shark
             Switch Statements.Alphabet Soupcheck!
             Break check!
@@ -274,10 +274,10 @@ int main(void)
 
 	The sub-options are up to you, as this is intended as practice with nested switch statements. You decide what the Time Police handle, but maintain the "connecting you to" standard. Remember, those are the expected prompts.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 #include <stdio.h>

@@ -10,10 +10,10 @@ Note that these are suggestions, there are many ways to solve these problems.
 
 @. Write a function that takes 5 numbers and returns the sum and average (in two decimal places) of them.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -52,10 +52,10 @@ float average(int v, int w, int x, int y, int z) {
 
 @. Write a function that receives a number and returns whether it is even or odd.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -90,10 +90,10 @@ void isEven(int x) {
 
 @. Write a function that receives a number and returns if the number is divisible by 3.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -128,10 +128,10 @@ void isDivisibleBy3(int x) {
 
 @. Write a function that takes two numbers and returns which one is higher.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -166,10 +166,10 @@ int findHighest(int x, int y) {
 
 @. Write a function that takes three numbers, the sides of a triangle and returns whether the triangle formed by the given sides is equilateral, isosceles, or scalene.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```c
 #include <stdio.h>
 
@@ -210,10 +210,10 @@ void checkTriangle(int x, int y, int z) {
 
 $$\frac{2x+7y-13}{37^2+z}$$
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ``` c
 float m = (2*x + 7*y - 13) / (37*37 + z);
 ```
@@ -222,10 +222,10 @@ float m = (2*x + 7*y - 13) / (37*37 + z);
 
 @. Multiply an integer by 8, another integer by 32, and divide a third integer by 4, all using bitwise operators. You do not need to write a main function.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 ```
 a = a << 3
 b = b << 5

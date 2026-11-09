@@ -29,10 +29,10 @@ This is one of the most important topics in programming, especially in the C lan
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 This code compiles! Normally, variables with the same name can't be declared twice in the same function. (A compiler would give you an error like "`redefinition of ‘my_number’`".) In this case, this is actually considered valid due to differences in variable scope!
 
@@ -116,7 +116,7 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
 **Answer**: Line 10 prints 15 while line 15 prints 35.
@@ -143,10 +143,10 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `floaty_float` actually has no defined value! `get_value()` does not affect `floaty_float` since the function makes a copy of it when it is passed by value. The copy, called `f`, stores the new integer, as provided, and so `f` does indeed become 5.5. However, `f` only exists within the `get_value()` function, so it is discarded once the function ends.
+ `floaty_float` actually has no defined value! `get_value()` does not affect `floaty_float` since the function makes a copy of it when it is passed by value. The copy, called `f`, stores the new integer, as provided, and so `f` does indeed become 5.5. However, `f` only exists within the `get_value()` function, so it is discarded once the function ends.
 
 </details>
 
@@ -171,10 +171,10 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:** `20.5`. This time, `get_value()` returns a float, and thus changes `floaty_float`. There will be times later in the semester where we actually *can* change a variable without returning it, but we will get to that when the time comes.
+ `20.5`. This time, `get_value()` returns a float, and thus changes `floaty_float`. There will be times later in the semester where we actually *can* change a variable without returning it, but we will get to that when the time comes.
 
 </details>
 
@@ -200,10 +200,10 @@ This is important to get right. Functions are the base of every program, and kno
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 At first x was 10
@@ -237,10 +237,10 @@ While x is now 10
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ```
 At first x was 10
@@ -277,10 +277,10 @@ While x is now 40
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 // Return the slope of two points.
@@ -350,10 +350,10 @@ int main(void)
   }
   ```
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 // Return the distance between two points.
@@ -440,10 +440,10 @@ int main(void)
 
   Fun fact: This problem is based on the one seen in [CS50](https://cs50.harvard.edu/x/2021/psets/1/mario/less/).
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
 
-**Answer:**
+
 
 ``` c
 // Example output:

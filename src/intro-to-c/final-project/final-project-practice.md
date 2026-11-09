@@ -8,10 +8,8 @@ Let's revisit dynamic memory allocation with `realloc()`, a peek into program or
 
 1. Create a program that asks for user input and stores it in an array. At the end of the program, print all of the numbers entered by the user.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
-
-**Answer**:
 
 ``` c
 // typedef <ANYTHING> <NEW_TYPE>
@@ -141,10 +139,8 @@ int main(void)
 
 2. Create a struct for school supplies that contains the number of pencils, pens, papers, computers, and books. Use constructor and destructor functions to allocate the structure. Prompt the user for the number of supplies previously listed.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
-
-  **Answer**:
 
   ``` c
   typedef struct Supplies
@@ -254,10 +250,8 @@ Create a program that asks to input their grocery list, record all of the user's
 
 5. Return to step 1.
 
-<details>
+<details id="TOC">
   <summary>Answer</summary>
-
-**Answer**:
 
 ``` c
 typedef struct GroceryItem
